@@ -13,6 +13,7 @@ body {
     font-family: Montserrat, serif;
 }
 
+
 .form-label {
     text-align: left;
 }
@@ -117,17 +118,19 @@ WELCOME PAGE
     cursor: pointer; /* tipo de cursor */
 }
 
-.welcome-image:hover {
-    opacity: 0.9; /* Slightly reduce opacity on hover */
-}
+/*.welcome-image:hover {
+    opacity: 0.9; !* Slightly reduce opacity on hover *!
+}*/
 
 @keyframes fadeIn {
     from {
         opacity: 0; /* Começa opacidade 0 */
     }
     to {
-        opacity: 3; /* Fades in to opacity 3 */
+        opacity: 6; /* Fades in to opacity 3 */
     }
 }
+
+
 
 
