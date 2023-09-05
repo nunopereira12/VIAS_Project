@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Title</title>
+    <title>VIAS | Estamos na via</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -25,7 +25,7 @@
         <div class="col-md-auto">
             <div class="login-container">
                 <form action="/login" method="post" class="card p-3">
-                    <img class="imagelogo" src="css/images/img_proj_1.png" >
+                    <img class="imagelogo" src="images/logo_whitebg.png" >
                     <c:if test="${error != null}">
                         <div class="alert alert-danger">
                                 ${error}
@@ -56,13 +56,9 @@
                     <jsp:include page="footer.jsp" />
                 </div>
             </div>
-
-
-
         </div>
-
     </div>
-
 </div>
+
 </body>
 </html>
