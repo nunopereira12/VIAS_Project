@@ -1,14 +1,54 @@
-* {
-    box-sizing: border-box;
-}
-
-html, body {
+body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
+    background-color: #041F48; /* Dark blue background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.batatas {
-    background-color: blue;
+.login-container {
+    background-color: #ffffff; /* White background color for the square */
+    border-radius: 20px; /* Adjust border radius as needed */
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    height: 400px;
+    max-width: 90%;
 }
+
+.form-label {
+    text-align: left;
+}
+
+
+.card {
+    border: none; /* Remove the border from the card element */
+}
+
+.login-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    max-width: 80%; /* Set a maximum width relative to the parent column */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.form-control {
+    border: 2px solid #000080; /* Dark blue border */
+}
+
+/*
+@media(max-width: 768px) {
+    * {
+        color:red;
+    }
+
+    .login-container {
+        color:red;
+        background-color: red;
+    }
+
+}*/
