@@ -12,6 +12,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserAuthenticationProvider userAuthenticationProvider;
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -24,9 +25,10 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .disable()
             .authorizeRequests()
                 .antMatchers("/login").anonymous()
+                .antMatchers("/welcome").anonymous()
                 .antMatchers("/filipa").authenticated()
                 .antMatchers("/tarefas").hasRole("ADMIN")
-                .antMatchers("/images/**", "/css/**").permitAll()
+                .antMatchers("/images/**", "/css/**","/js/**").permitAll()
                 .antMatchers("**").denyAll()
         .and()
             .logout()
