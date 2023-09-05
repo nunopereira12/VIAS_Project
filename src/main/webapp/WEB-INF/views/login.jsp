@@ -14,41 +14,55 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container mt-5 loginbox">
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-auto">
             <div class="login-container">
                 <form action="/login" method="post" class="card p-3">
-                    <img src="css/images/img_proj_1.png" >
+                    <img class="imagelogo" src="css/images/img_proj_1.png" >
                     <c:if test="${error != null}">
                         <div class="alert alert-danger">
                                 ${error}
                         </div>
                     </c:if>
                     <div class="mb-3">
-                        <label for="username" class="form-label text-start">Username</label>
-                        <input type="text" name="username" class="form-control" id="username" placeholder="Your username" required>
+                        <label  for="username" class="form-label text-start">Email</label>
+                        <input type="email" name="username" class="form-control formtext" id="username" placeholder="Inserir email de usuário" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label text-start">Password</label>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Your password" required>
+                        <label for="password" class="form-label text-start">Senha</label>
+                        <input type="password" name="password" class="form-control formtext" id="password" placeholder="Inserir senha de usuário" required>
                     </div>
+                    <div class="d-grid" >
+                        <button type="submit" id="buttonentry" class="btn btn-primary">Entrar</button>
+                    </div>
+
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary buttons">Registar</button>
                     </div>
+                    <div class="d-grid"> <button type="submit" class="btn btn-primary buttons">Recuperar Password</button> </div>
+
                 </form>
-                <!-- Add Sign-Up and Password Recovery Buttons Inside the Form -->
-                <div class="mt-3 text-center d-flex justify-content-between">
-                    <button class="btn btn-secondary" onclick="window.location.href='/signup'">Sign-Up</button>
-                    <button class="btn btn-secondary" onclick="window.location.href='/password-recovery'">Password Recovery</button>
+
+            </div>
+            <div class="col-md-auto text-center">
+                <div class="footerlogo">
+                    <jsp:include page="footer.jsp" />
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
+
+
+        </div>
+
+    </div>
+
+</div>
 </body>
 </html>
