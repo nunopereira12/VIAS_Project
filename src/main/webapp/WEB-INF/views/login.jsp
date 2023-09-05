@@ -40,7 +40,7 @@
                         <input type="password" name="password" class="form-control formtext" id="password" placeholder="Inserir senha de usuário" required>
                     </div>
                     <div class="d-grid" >
-                        <button type="submit" id="buttonentry" class="btn btn-primary">Entrar</button>
+                        <button type="submit" id="buttonentry" class="btn btn-primary buttons" style="margin-bottom: 3rem;">Entrar</button>
                     </div>
 
                     <div class="d-grid">
