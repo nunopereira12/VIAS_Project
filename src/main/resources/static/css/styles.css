@@ -70,6 +70,13 @@ body {
     background-color: #041F48;
 }
 
+@media (max-width: 768px){
+    .col-md-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+}
+
 /*
 WELCOME PAGE
  */

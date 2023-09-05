@@ -33,8 +33,8 @@
                         </div>
                     </c:if>
                     <div class="mb-3">
-                        <label  for="username" class="form-label text-start">Email</label>
-                        <input type="email" name="username" class="form-control formtext" id="username" placeholder="Inserir email de usuário" required>
+                        <label  for="email" class="form-label text-start">Email</label>
+                        <input type="email" name="email" class="form-control formtext" id="email" placeholder="Inserir email de usuário" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label text-start">Senha</label>
