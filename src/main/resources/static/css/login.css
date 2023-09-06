@@ -20,6 +20,16 @@
     max-width: 80%; /* Set a maximum width relative to the parent column */
     margin: 0 auto; /* Center the container horizontally */
     height: 600px;
+}
+
+.signUp-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    max-width: 80%; /* Set a maximum width relative to the parent column */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 600px;
     overflow: scroll;
 }
 

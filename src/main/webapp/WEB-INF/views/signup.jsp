@@ -16,7 +16,7 @@
 <div class="container mt-5 loginbox">
     <div class="row justify-content-center">
         <div class="col-md-auto">
-            <div class="login-container">
+            <div class="signUp-container">
                 <form action="/login" method="post" class="card p-3">
                     <img class="imagelogo" src="images/logo_whitebg.png" >
                     <c:if test="${error != null}">
