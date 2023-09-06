@@ -2,11 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
-<head>
+
     <%@include file="header.jsp"%>
-</head>
 <head>
-    <meta charset="UTF-8">
     <title>VIAS | Estamos na via</title>
     <link rel="stylesheet" href="/css/validate.css">
 </head>

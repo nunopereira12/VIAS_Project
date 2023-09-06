@@ -3,11 +3,11 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <%@include file="header.jsp"%>
+<head>
+    <title>Welcome back!</title>
+    <link rel="stylesheet" href="/css/welcome.css">
 </head>
-<head><title>Welcome back!</title>
-    <link rel="stylesheet" href="/css/welcome.css"></head>
 
 <body>
     <div class="welcome-page">
