@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #041F48; /* Dark blue background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Montserrat, serif;
+}
+
+
+.bottom-half {
+    height: 50%; /* Set the height to 50% to cover the bottom half */
+    background-color: lightblue; /* Dark blue background color for the bottom half */
+}
+
+.card {
+    border: none; /* Remove the border from the card element */
+    background-color: white;
+}
+
+
+.btn-primary-outline {
+    background-color: transparent;
+}
+
+.btn-primary-outline:hover {
+    color: white;
+    background-color: #004A89;
+}
+
+.vias_league-container {
+    /*background: rgb(31,126,178);*/
+    background: linear-gradient(0deg, rgba(31,126,178,1) 75%, rgba(255,255,255,1) 75%);
+   /* background-color: lightblue;*/
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    max-width: 80%; /* Set a maximum width relative to the parent column */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 600px;
+    /*flex-grow: 1;*/
+}
+
+.footerlogo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footerimage {
+    max-width: 30%;
+    height: auto;
+}
+
+.buttons {
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: #1F7EB2;
+}
+
+.buttons:hover {
+    background-color: #041F48;
+}
+
+/*.vias_league-container {
+    background-color: transparent; !* Set the background to transparent *!
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    max-width: 80%; !* Set a maximum width relative to the parent column *!
+    margin: 0 auto; !* Center the container horizontally *!
+    height: 600px; !* Keep the container height *!
+    position: relative; !* Add position: relative *!
+}
+
+.vias_league-container::before {
+    content: "";
+    background-color: #1F7EB2; !* Set the blue background color *!
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 20%; !* Adjust the top value to control the height of the blue area *!
+    border-radius: 20px 20px 0 0; !* Adjust border-radius as needed *!
+    z-index: -1;
+}*/
+
+/*
+.vias_leaguebox {
+    background-color: white; !* Set the background color for the entire container *!
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.vias_league-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    max-width: 80%;
+    margin: 0 auto;
+    height: 600px;
+    flex-grow: 1; !* Expand to fill available space *!
+}
+
+.vias_leaguebox::after {
+    content: "";
+    background-color: #ADD8E6; !* Light blue color *!
+    height: 50%; !* Set the height to 50% for the bottom half *!
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}*/
