@@ -3,6 +3,7 @@ package pt.upskill.vias.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -12,6 +13,7 @@ public class User {
     private long id;
     private String firstName;
     private String lastName;
+    private Date birthday;
     private String username;
     private String password;
     private String email;
@@ -42,6 +44,14 @@ public class User {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public void setFirstName(String firstName) {

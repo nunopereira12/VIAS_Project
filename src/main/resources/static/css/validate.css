@@ -16,7 +16,7 @@
     /*background: rgb(31,126,178);*/
     background: linear-gradient(0deg, rgba(31,126,178,1) 75%, rgba(255,255,255,1) 75%);
     border-radius: 20px;
-    /*padding: 20px;*/
+    padding: 20px;
     text-align: left;
     max-width: 80%; /* Set a maximum width relative to the parent column */
     margin: 0 auto; /* Center the container horizontally */
@@ -41,12 +41,17 @@
 }
 
 .validate-box{
-    background-color: #1F7EB2;
+    background-color: #FFFFFF;
     border-radius: 20px;
     padding: 20px;
     text-align: left;
     max-width: 100%; /* Set a maximum width relative to the parent column */
+    height:300px;
     margin: 0 auto; /* Center the container horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .form-control {
@@ -61,15 +66,41 @@
 }
 
 .button-validate {
-    margin-top: 3rem;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: inline-flex;
+    width: 181px;
+    height: 64px;
+    padding: 3px 10px;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 10px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 14px;
+    background: #1F7EB2;
+}
 
-    border-radius: 10px;
-    background-color: #1F7EB2;
+.button-img-validate{
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.div-buttons {
+    display: flex;
+    justify-content: center;
 }
 
 .buttons:hover {
     background-color: #041F48;
 }
+
 
 @media (max-width: 768px){
     .col-md-auto {

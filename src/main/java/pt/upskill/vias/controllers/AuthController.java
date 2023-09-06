@@ -17,6 +17,11 @@ public class AuthController {
         return new ModelAndView("login");
     }
 
+    @GetMapping(value = "/signup")
+    public ModelAndView signupPage() {
+        return new ModelAndView("signup");
+    }
+
 
 
 }

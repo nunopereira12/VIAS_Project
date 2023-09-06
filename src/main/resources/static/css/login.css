@@ -20,6 +20,7 @@
     max-width: 80%; /* Set a maximum width relative to the parent column */
     margin: 0 auto; /* Center the container horizontally */
     height: 600px;
+    overflow: scroll;
 }
 
 .form-control {
@@ -45,6 +46,18 @@
 .buttons:hover {
     background-color: #041F48;
 }
+.container-checkbox {
+    font-size: 12.5px;
+    margin-top: 20px;
+}
+
+
+/* When the radio button is checked, add a blue background */
+.container-checkbox input:checked ~ .checkmark {
+    background-color: #1F7EB2;
+
+}
+
 
 @media (max-width: 768px){
     .col-md-auto {
