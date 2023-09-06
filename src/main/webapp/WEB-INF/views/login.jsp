@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/login.css"></head>
 
 
-<body id="login-page">
+<body>
 
 <div class="container mt-5 loginbox">
     <div class="row justify-content-center">

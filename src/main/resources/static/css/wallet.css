@@ -1,0 +1,48 @@
+#walletpage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+}
+
+
+
+.walletbox {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    width: 80%; /* Set a fixed width relative to the parent container */
+    max-width: 400px; /* Optionally, set a maximum width */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 600px;
+}
+
+
+
+
+
+.arrowbutton  {
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.50);
+    border: none;
+
+}
+
+.wallet-title {
+    font-weight: 600;
+    font-size: 27px;
+    text-align: center;
+}
+
+.col {
+
+    flex: initial;
+    flex-grow: initial;
+    flex-shrink: initial;
+    flex-basis: initial;
+}
+
+
+

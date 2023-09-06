@@ -8,9 +8,26 @@
 
 <head>
     <title>VIAS | A minha carteira</title>
+    <link rel="stylesheet" href="css/wallet.css">
 </head>
 
-<body>
+<body id="walletpage">
+
+<div class="container mt-5 walletbox">
+    <div class="row">
+        <div class="col-md-auto">
+            <button class="arrowbutton">
+                <img src="/images/backarrow.png" width="40px">
+            </button>
+        </div>
+        <div class="col">
+           <h1 class="wallet-title">Carteira</h1>
+        </div>
+    </div>
+
+
+</div>
+
 
 </body>
 </html>
