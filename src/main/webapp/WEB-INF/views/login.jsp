@@ -3,9 +3,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%@include file="header.jsp"%>
-</head>
+
+<%@include file="header.jsp"%>
+
 
 <head><title>VIAS | Estamos na via</title>
     <link rel="stylesheet" href="/css/login.css"></head>

@@ -3,10 +3,10 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-    <%@include file="header.jsp"%>
 
-</head>
+<%@include file="header.jsp"%>
+
+
 <head>
     <title>God's Dashboard</title>
     <link rel="stylesheet" href="/css/adminpage.css">
