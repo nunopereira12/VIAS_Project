@@ -1,6 +1,3 @@
-/**
-LOGIN PAGE
- */
 
 body {
     margin: 0;
@@ -14,36 +11,6 @@ body {
 }
 
 
-.form-label {
-    text-align: left;
-}
-
-.card {
-    border: none; /* Remove the border from the card element */
-}
-
-.login-container {
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: left;
-    max-width: 80%; /* Set a maximum width relative to the parent column */
-    margin: 0 auto; /* Center the container horizontally */
-    height: 600px;
-}
-
-.form-control {
-    border: 2px solid #000080; /* Dark blue border */
-}
-
-
-
-.formtext {
-    text-align: center;
-    font-style: italic;
-    border-radius: 10px;
-    outline: 1.5px solid #041F48;
-}
 
 .imagelogo{
     margin-bottom: 3rem;
@@ -60,76 +27,10 @@ body {
 }
 
 
-.buttons {
-    margin-bottom: 0.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
-    background-color: #1F7EB2;
-}
 
-.buttons:hover {
-    background-color: #041F48;
-}
 
-@media (max-width: 768px){
-    .col-md-auto {
-        flex: 0 0 auto;
-        width: auto;
-    }
-}
 
-/*
-WELCOME PAGE
- */
 
-.welcome-page {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #041F48;
-}
-
-.welcome-container h1 {
-    color: white;
-}
-
-.welcome-container {
-    text-align: center;
-    opacity: 0; /* Initial opacity set to 0 */
-    animation: fadeIn 6s ease forwards; /* Apply fade-in animation */
-}
-
-.welcome-heading {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.welcome-image {
-    width: 300px;
-    height: auto;
-    /*border: 3px solid #041F48; !* Add a border for elegance *!
-    border-radius: 50px 50px 50px 50px / 50px 50px 50px 50px; !* Create circular borders only on the top and bottom *!
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); !* Add a subtle shadow *!*/
-    transition: opacity 0.5s ease; /* Hover effect */
-    cursor: pointer; /* tipo de cursor */
-}
-
-/*.welcome-image:hover {
-    opacity: 0.9; !* Slightly reduce opacity on hover *!
-}*/
-
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Começa opacidade 0 */
-    }
-    to {
-        opacity: 6; /* Fades in to opacity 3 */
-    }
-}
 
 
 

@@ -1,0 +1,49 @@
+
+.form-label {
+    text-align: left;
+}
+
+.card {
+    border: none; /* Remove the border from the card element */
+}
+
+.login-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    max-width: 80%; /* Set a maximum width relative to the parent column */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 600px;
+}
+
+.form-control {
+    border: 2px solid #000080; /* Dark blue border */
+}
+
+
+
+.formtext {
+    text-align: center;
+    font-style: italic;
+    border-radius: 10px;
+    outline: 1.5px solid #041F48;
+}
+
+.buttons {
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: #1F7EB2;
+}
+
+.buttons:hover {
+    background-color: #041F48;
+}
+
+@media (max-width: 768px){
+    .col-md-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+}
