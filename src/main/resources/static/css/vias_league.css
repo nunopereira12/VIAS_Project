@@ -6,26 +6,6 @@ body {
     font-family: Montserrat, serif;
 }
 
-/*body {
-    display: inline-flex;
-    padding-bottom: 0px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 850px;
-}*/
-
-
-.bottom-half {
-    height: 50%; /* Set the height to 50% to cover the bottom half */
-    background-color: lightblue; /* Dark blue background color for the bottom half */
-}
-
-.card {
-    border: none; /* Remove the border from the card element */
-
-}
-
 
 .btn-primary-outline {
     background-color: transparent;
@@ -43,7 +23,7 @@ body {
     text-align: left;
     max-width: 80%; /* Set a maximum width relative to the parent column */
     margin: 0 auto; /* Center the container horizontally */
-    height: 600px;
+    height: 650px;
     /*flex-grow: 1;*/
 }
 
@@ -83,11 +63,11 @@ body {
 .list-container {
     background-color: #ffffff; /* Set the background color for the container */
     border-radius: 20px 20px 0 0; /* Apply border radius only to the top */
-    padding: 30px; /* Add padding for spacing inside the container */
+    padding: 20px; /* Add padding for spacing inside the container */
     text-align: left; /* Adjust text alignment as needed */
     max-width: 100%; /* Set the maximum width to match the previous container */
     margin: 0 auto; /* Center the container horizontally */
-    height: 380.5px;
+    height: 421px;
     width: 361px;
 }
 
@@ -114,8 +94,9 @@ img {
 .table-container {
     max-width: 100%; /* Set a maximum width for the container */
     overflow-x: auto; /* Allow horizontal scrolling if the content overflows */
-    max-height: 220px; /* Set a maximum height for the container */
+    max-height: 281px; /* Set a maximum height for the container */
     overflow-y: auto; /* Allow vertical scrolling if the content exceeds the container's height */
+
 }
 
 .table {
@@ -129,6 +110,9 @@ img {
 .table td {
     font-size: 10px; /* Set the desired smaller font size */
     border: none; /* Remove borders from table cells */
+    vertical-align: middle; /* Center vertically */
+    padding: 10px; /* Add padding to adjust spacing as needed */
+    line-height: 1.2; /* Adjust line height for vertical centering */
 }
 
 /* You can also target specific columns if needed */
@@ -137,31 +121,31 @@ img {
 } */
 
 
-.table-container::-webkit-scrollbar {
-    width: 5px; /* Adjust the width as needed */
+/*.table-container::-webkit-scrollbar {
+    width: 5px; !* Adjust the width as needed *!
 }
 
 .table-container::-webkit-scrollbar-track {
-    background-color: transparent; /* Set to the background color of your choice */
+    background-color: transparent; !* Set to the background color of your choice *!
 }
 
 .table-container::-webkit-scrollbar-thumb {
-    background-color: #888; /* Set to the color of your choice */
-    border-radius: 2.5px; /* Set to half of the scrollbar width for a rounded appearance */
-}
+    background-color: #888; !* Set to the color of your choice *!
+    border-radius: 2.5px; !* Set to half of the scrollbar width for a rounded appearance *!
+}*/
 
-/*.table-container {
-    scrollbar-width: none; !* tira no firefox *!
-    -ms-overflow-style: none; !* tira no ie e edge *!
+.table-container {
+    scrollbar-width: none; /* tira no firefox */
+    -ms-overflow-style: none; /* tira no ie e edge */
 }
 
 .table-container::-webkit-scrollbar {
-    display: none; !* tira no chrome e restantes browsers*!
-}*/
+    display: none; /* tira no chrome e restantes browsers*/
+}
 
 .circle {
-    width: 30px; /* Adjust the size of the circle */
-    height: 30px; /* Adjust the size of the circle */
+    width: 27px; /* Adjust the size of the circle */
+    height: 27px; /* Adjust the size of the circle */
     border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
     overflow: hidden; /* Hide the parts of the image outside the circle */
 }
@@ -171,6 +155,143 @@ img {
     height: 100%; /* Make the image fill the circle */
     object-fit: cover; /* Ensure the image covers the entire circle */
 }
+
+.arrowbutton {
+    width: 30px;
+}
+
+.arrowbutton {
+    background-color: transparent; /* Set the background to transparent */
+    border: none; /* Remove the button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    padding: 0; /* Remove padding to make the button snug around the image */
+    width: 30px;
+}
+
+.arrowbutton:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+}
+
+.switches-container {
+    width: 16rem;
+    position: relative;
+    display: flex;
+    padding: 0;
+    background: #1F7EB2;
+    line-height: 3rem;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+}
+
+/* input (radio) for toggling. hidden - use labels for clicking on */
+.switches-container input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+}
+
+/* labels for the input (radio) boxes - something to click on */
+.switches-container label {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+
+}
+
+
+/* switch highlighters wrapper (sliding left / right)
+    - need wrapper to enable the even margins around the highlight box
+*/
+.switch-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 0.15rem;
+    z-index: 3;
+    transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+
+    /* transition: transform 1s; */
+}
+
+/* switch box highlighter */
+.switch {
+    border-radius: 10px;
+    background: #004A89;
+    height: 100%;
+
+}
+
+
+.switch div {
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    display: block;
+    color: white ;
+    transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+    will-change: opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* slide the switch box from right to left */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper {
+    transform: translateX(0%);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper {
+    transform: translateX(100%);
+}
+
+/* toggle the switch box labels - first checkbox:checked - show first switch div */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch div:nth-of-type(1) {
+    opacity: 1;
+}
+
+/* toggle the switch box labels - second checkbox:checked - show second switch div */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
+    opacity: 1;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.centered-content {
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+.centered-content img {
+    margin-right: 2px; /* Add some spacing between the image and text */
+    height: 18px;
+}
+
+.points {
+    text-align: center; /* Center the content horizontally */
+}
+
+.points-number {
+    font-size: 18px; /* Adjust the font size for the number */
+    font-weight: bold; /* Make the number bold */
+}
+
+.points-text {
+    font-size: 10px; /* Adjust the font size for the "points" text */
+    color: gray; /* Change the color of the text */
+}
+
+
 
 
 
