@@ -10,10 +10,11 @@ public class User {
     @Id
     @GeneratedValue
     private long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String username;
     private String password;
-    private long phone;
+    private String email;
 
     public long getId() {
         return id;
@@ -21,14 +22,6 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getUsername() {
@@ -47,11 +40,27 @@ public class User {
         this.password = password;
     }
 
-    public long getPhone() {
-        return phone;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setPhone(long phone) {
-        this.phone = phone;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

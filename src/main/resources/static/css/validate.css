@@ -1,0 +1,79 @@
+#validate-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.form-label {
+    text-align: left;
+}
+
+.card {
+    border: none; /* Remove the border from the card element */
+}
+
+.validate-container {
+    /*background: rgb(31,126,178);*/
+    background: linear-gradient(0deg, rgba(31,126,178,1) 75%, rgba(255,255,255,1) 75%);
+    border-radius: 20px;
+    /*padding: 20px;*/
+    text-align: left;
+    max-width: 80%; /* Set a maximum width relative to the parent column */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 600px;
+}
+
+.validate-title{
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    width: 316px;
+    height: 65px;
+    margin-top: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.validate-box{
+    background-color: #1F7EB2;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    max-width: 100%; /* Set a maximum width relative to the parent column */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.form-control {
+    border: 2px solid #000080; /* Dark blue border */
+}
+
+.formtext {
+    text-align: center;
+    font-style: italic;
+    border-radius: 10px;
+    outline: 1.5px solid #041F48;
+}
+
+.button-validate {
+    margin-top: 3rem;
+
+    border-radius: 10px;
+    background-color: #1F7EB2;
+}
+
+.buttons:hover {
+    background-color: #041F48;
+}
+
+@media (max-width: 768px){
+    .col-md-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+}
