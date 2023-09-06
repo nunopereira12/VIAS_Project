@@ -5,7 +5,6 @@
 <html lang="en">
 <head>
     <%@include file="header.jsp"%>
-     <link rel="stylesheet" href="/css/styles.css">
 
 </head>
 <head>
