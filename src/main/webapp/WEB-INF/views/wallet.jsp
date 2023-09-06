@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-md-auto">
                 <button class="arrowbutton">
-                    <img src="/images/backarrow.png" width="40px">
+                    <img src="/images/backarrow.png" alt="Go back!" width="40px">
                 </button>
             </div>
             <div class="col">

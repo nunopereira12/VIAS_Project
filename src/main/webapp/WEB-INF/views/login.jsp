@@ -18,7 +18,7 @@
         <div class="col-md-auto">
             <div class="login-container">
                 <form action="/login" method="post" class="card p-3">
-                    <img class="imagelogo" src="images/logo_whitebg.png" >
+                    <img class="imagelogo" src="images/logo_whitebg.png" alt="VIAS logo with white BG" >
                     <c:if test="${error != null}">
                         <div class="alert alert-danger">
                                 ${error}
