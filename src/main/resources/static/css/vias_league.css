@@ -2,12 +2,18 @@ body {
     margin: 0;
     padding: 0;
     background-color: #041F48; /* Dark blue background color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     font-family: Montserrat, serif;
 }
+
+/*body {
+    display: inline-flex;
+    padding-bottom: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 850px;
+}*/
 
 
 .bottom-half {
@@ -17,7 +23,7 @@ body {
 
 .card {
     border: none; /* Remove the border from the card element */
-    background-color: white;
+
 }
 
 
@@ -31,9 +37,7 @@ body {
 }
 
 .vias_league-container {
-    /*background: rgb(31,126,178);*/
     background: linear-gradient(0deg, rgba(31,126,178,1) 75%, rgba(255,255,255,1) 75%);
-   /* background-color: lightblue;*/
     border-radius: 20px;
     padding: 20px;
     text-align: left;
@@ -64,56 +68,110 @@ body {
     background-color: #041F48;
 }
 
-/*.vias_league-container {
-    background-color: transparent; !* Set the background to transparent *!
-    border-radius: 20px;
-    padding: 20px;
-    text-align: left;
-    max-width: 80%; !* Set a maximum width relative to the parent column *!
+
+/*.list-container {
+    background-color: #ffffff; !* Set the background color for the container *!
+    border-radius: 20px; !* Add border-radius for styling *!
+    padding: 30px; !* Add padding for spacing inside the container *!
+    text-align: left; !* Adjust text alignment as needed *!
+    max-width: 100%; !* Set the maximum width to match the previous container *!
     margin: 0 auto; !* Center the container horizontally *!
-    height: 600px; !* Keep the container height *!
-    position: relative; !* Add position: relative *!
-}
+    height: 382px;
+    width: 361px;
 
-.vias_league-container::before {
-    content: "";
-    background-color: #1F7EB2; !* Set the blue background color *!
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 20%; !* Adjust the top value to control the height of the blue area *!
-    border-radius: 20px 20px 0 0; !* Adjust border-radius as needed *!
-    z-index: -1;
 }*/
-
-/*
-.vias_leaguebox {
-    background-color: white; !* Set the background color for the entire container *!
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+.list-container {
+    background-color: #ffffff; /* Set the background color for the container */
+    border-radius: 20px 20px 0 0; /* Apply border radius only to the top */
+    padding: 30px; /* Add padding for spacing inside the container */
+    text-align: left; /* Adjust text alignment as needed */
+    max-width: 100%; /* Set the maximum width to match the previous container */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 380.5px;
+    width: 361px;
 }
 
-.vias_league-container {
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: left;
-    max-width: 80%;
+
+.center-img {
+    display: block;
     margin: 0 auto;
-    height: 600px;
-    flex-grow: 1; !* Expand to fill available space *!
 }
 
-.vias_leaguebox::after {
-    content: "";
-    background-color: #ADD8E6; !* Light blue color *!
-    height: 50%; !* Set the height to 50% for the bottom half *!
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+.btn.btn-primary-outline {
+    color: white;
+}
+
+img {
+    max-width: 100%; /* Set the maximum width to 100% of its container */
+    height: auto; /* Allow the height to adjust proportionally */
+}
+
+#liga {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.table-container {
+    max-width: 100%; /* Set a maximum width for the container */
+    overflow-x: auto; /* Allow horizontal scrolling if the content overflows */
+    max-height: 220px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Allow vertical scrolling if the content exceeds the container's height */
+}
+
+.table {
+    width: 100%; /* Make the table take up the full width of its container */
+    /*border-collapse: collapse; !* Collapse the table borders *!*/
+}
+
+
+/* Target table headers and table data cells */
+.table th,
+.table td {
+    font-size: 10px; /* Set the desired smaller font size */
+    border: none; /* Remove borders from table cells */
+}
+
+/* You can also target specific columns if needed */
+/* .table th:nth-child(1), .table td:nth-child(1) {
+    font-size: 14px;
+} */
+
+
+.table-container::-webkit-scrollbar {
+    width: 5px; /* Adjust the width as needed */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background-color: transparent; /* Set to the background color of your choice */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set to the color of your choice */
+    border-radius: 2.5px; /* Set to half of the scrollbar width for a rounded appearance */
+}
+
+/*.table-container {
+    scrollbar-width: none; !* tira no firefox *!
+    -ms-overflow-style: none; !* tira no ie e edge *!
+}
+
+.table-container::-webkit-scrollbar {
+    display: none; !* tira no chrome e restantes browsers*!
 }*/
+
+.circle {
+    width: 30px; /* Adjust the size of the circle */
+    height: 30px; /* Adjust the size of the circle */
+    border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
+    overflow: hidden; /* Hide the parts of the image outside the circle */
+}
+
+.circle img {
+    width: 100%; /* Make the image fill the circle */
+    height: 100%; /* Make the image fill the circle */
+    object-fit: cover; /* Ensure the image covers the entire circle */
+}
+
+
+
+
