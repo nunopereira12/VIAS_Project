@@ -21,15 +21,6 @@
 
 
 
-
-.arrowbutton  {
-    border-radius: 50%;
-    background-color: white;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.50);
-    border: none;
-
-}
-
 .wallet-title {
     font-weight: 600;
     font-size: 27px;
@@ -44,5 +35,162 @@
     flex-basis: initial;
 }
 
+:root {
+    --switches-bg-color: goldenrod;
+    --switches-label-color: white ;
+    --switch-bg-color: white;
+    --switch-text-color: goldenrod ;
+}
 
+body {
+    font-family: Montserrat, serif;
+}
+
+
+
+/* p - decorative, not required */
+p {
+    margin-top:2rem;
+    font-size:0.75rem;
+    text-align:center;
+}
+
+/* container for all of the switch elements
+    - adjust "width" to fit the content accordingly
+*/
+.switches-container {
+    width: 16rem;
+    position: relative;
+    display: flex;
+    padding: 0;
+    background: #DCDCDC;
+    line-height: 3rem;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+}
+
+/* input (radio) for toggling. hidden - use labels for clicking on */
+.switches-container input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+}
+
+/* labels for the input (radio) boxes - something to click on */
+.switches-container label {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    color: #4D4C4C;
+}
+
+/* switch highlighters wrapper (sliding left / right)
+    - need wrapper to enable the even margins around the highlight box
+*/
+.switch-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 0.15rem;
+    z-index: 3;
+    transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+    /* transition: transform 1s; */
+}
+
+/* switch box highlighter */
+.switch {
+    border-radius: 10px;
+    background: var(--switch-bg-color);
+    height: 100%;
+}
+
+
+.switch div {
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    display: block;
+    color: #000000 ;
+    transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+    will-change: opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* slide the switch box from right to left */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper {
+    transform: translateX(0%);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper {
+    transform: translateX(100%);
+}
+
+/* toggle the switch box labels - first checkbox:checked - show first switch div */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch div:nth-of-type(1) {
+    opacity: 1;
+}
+
+/* toggle the switch box labels - second checkbox:checked - show second switch div */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
+    opacity: 1;
+}
+
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#addbutton-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 19rem;
+}
+
+.addbutton {
+    border-radius: 10px;
+    border: none;
+    background: #FFF;
+    box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.20);
+    padding: 1rem 0.8rem 0.8rem 1rem;
+    color: #1E1E1E;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal
+}
+
+.form-control {
+    margin-bottom: 1rem;
+    border: 2px solid #000080;
+    font-style: italic;
+}
+
+.buttons {
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: #1F7EB2;
+}
+
+.buttons:hover {
+    background-color: #041F48;
+}
+
+.buttons-error {
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
 
