@@ -8,9 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class AdminController {
 
 
-    @GetMapping(value = "/adminpage")
+    @GetMapping(value = "/admin")
     public ModelAndView adminPage() {
-        ModelAndView mav = new ModelAndView("adminpage");
+        ModelAndView mav = new ModelAndView("admin");
         return mav;
     }
 
