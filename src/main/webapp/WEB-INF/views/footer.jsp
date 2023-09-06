@@ -1,3 +1,3 @@
 <footer>
-    <img class="footerimage" src="images/logo_bluenobg.png" alt="">
+    <img class="footerimage" src="images/logo_nobg.png" alt="">
 </footer>
