@@ -32,6 +32,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").anonymous()
                 .antMatchers("/filipa").authenticated()
                 .antMatchers("/validate").anonymous()
+                .antMatchers("/template").anonymous()
                 .antMatchers("/tarefas").hasRole("ADMIN")
                 .antMatchers("/images/**", "/css/**","/js/**").permitAll()
                 .antMatchers("**").denyAll()

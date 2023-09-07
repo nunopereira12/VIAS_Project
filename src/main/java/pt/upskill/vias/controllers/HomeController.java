@@ -13,4 +13,10 @@ public class HomeController {
         return mav;
     }
 
+    @GetMapping(value = "/template")
+    public ModelAndView templatePage(){
+        ModelAndView mav = new ModelAndView("template");
+        return mav;
+    }
+
 }
