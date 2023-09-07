@@ -156,9 +156,7 @@ img {
     object-fit: cover; /* Ensure the image covers the entire circle */
 }
 
-.arrowbutton {
-    width: 30px;
-}
+
 
 .arrowbutton {
     background-color: transparent; /* Set the background to transparent */

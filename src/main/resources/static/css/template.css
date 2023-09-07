@@ -12,10 +12,47 @@ body {
 .container {
     background-color: white;
     max-width: 320px;
+    margin-top: 40px;
     border-radius: 25px;
     padding: 20px;
     width: 100%;
+    min-height: 1000px;
 }
+
+.content {
+    margin-top: 20px;
+    min-height: 400px;
+}
+
+.title {
+    color: #000;
+    text-align: center;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+@media (min-width: 601px) {
+    .container {
+        min-width: 450px;
+        margin-top: 80px;
+    }
+}
+
+
+.arrowbutton {
+    background-color: transparent; /* Set the background to transparent */
+    border: none; /* Remove the button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    padding: 0; /* Remove padding to make the button snug around the image */
+    width: 40px;
+    height: 40px;
+}
+
+.arrowbutton:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+}
+
 
 .footerlogo {
     text-align: center;
@@ -27,8 +64,6 @@ body {
     height: auto;
 }
 
-.card {
-    border: none;
-}
+
 
 
