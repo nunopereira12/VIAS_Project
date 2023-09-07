@@ -18,10 +18,12 @@ public class User {
     private String password;
     private String email;
     private int points;
+    private String league;
 
     public User(String username, int points) {
         this.username = username;
         this.points = points;
+        this.league = "Silver";
     }
 
     public User() {}
@@ -88,5 +90,13 @@ public class User {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public String getLeague() {
+        return league;
+    }
+
+    public void setLeague(String league) {
+        this.league = league;
     }
 }
