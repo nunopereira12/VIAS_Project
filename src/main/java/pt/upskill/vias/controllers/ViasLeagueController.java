@@ -35,6 +35,9 @@ public class ViasLeagueController {
         users.add(u7);
         Collections.sort(users, Comparator.comparing(User::getPoints).reversed());
         mav.addObject("players", users);
+        /*u1.setLeague("Gold");*/
+        /*u1.setLeague("Bronze");*/
+        mav.addObject("userr", u1);
         return mav;
 
         //adicionei aqui uma lista diretamente, isto eventualmente tem de vir da DB

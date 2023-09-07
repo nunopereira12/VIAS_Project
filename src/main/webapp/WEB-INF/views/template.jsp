@@ -8,7 +8,7 @@
     <title>Template</title>
     <link rel="stylesheet" href="/css/template.css">
 </head>
-<body>
+<body>\
 <div class="container">
     <!-- Your content goes here -->
 

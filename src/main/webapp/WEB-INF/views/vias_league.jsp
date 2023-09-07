@@ -88,20 +88,34 @@
                     </div>
                 </div>
                 <div class="list-container">
-                    <img class="image_badge center-img" src="/images/badge_gold.png" width="45px">
-                    <div id="liga"><p>Liga de Ouro</p></div>
+                    <c:choose>
+                        <c:when test="${userr.getLeague() eq 'Gold'}">
+                            <img class="image_badge center-img" src="images/badge_gold.png" width="45px" alt="Gold Image" />
+                            <div id="liga">Liga de Ouro </div>
+                        </c:when>
+                        <c:when test="${userr.getLeague() eq 'Silver'}">
+                            <img class="image_badge center-img" src="images/badge_silver.png" width="45px" alt="Silver Image" />
+                            <div id="liga">Liga de Prata </div>
+                        </c:when>
+                        <c:when test="${userr.getLeague() eq 'Bronze'}">
+                            <img class="image_badge center-img" src="images/badge_bronze.png" width="45px" alt="Silver Image" />
+                            <div id="liga">Liga de Bronze </div>
+                        </c:when>
+                    </c:choose>
+                    <%--<img class="image_badge center-img" src="/images/badge_gold.png" width="45px">
+                    <div id="liga"><p>Liga de Ouro</p></div>--%>
                     <hr>
                     <div class="table-container">
 
                         <table class="table">
-                            <thead>
+                            <%--<thead>
                             <tr>
-                                <th scope="col"><%--#--%></th>
-                                <th scope="col"><%--Avatar--%></th>
-                                <th scope="col"><%--Nome--%></th>
-                                <th scope="col"><%--Pontos--%></th>
+                                <th scope="col">&lt;%&ndash;#&ndash;%&gt;</th>
+                                <th scope="col">&lt;%&ndash;Avatar&ndash;%&gt;</th>
+                                <th scope="col">&lt;%&ndash;Nome&ndash;%&gt;</th>
+                                <th scope="col">&lt;%&ndash;Pontos&ndash;%&gt;</th>
                             </tr>
-                            </thead>
+                            </thead>--%>
                             <tbody>
 
 

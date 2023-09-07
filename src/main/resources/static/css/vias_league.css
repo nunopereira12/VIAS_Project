@@ -212,7 +212,7 @@ img {
     top: 0;
     bottom: 0;
     width: 50%;
-    padding: 0.15rem;
+    /*padding: 0.15rem;*/
     z-index: 3;
     transition: transform .5s cubic-bezier(.77, 0, .175, 1);
 
@@ -273,9 +273,13 @@ img {
 }
 
 .centered-content img {
-    margin-right: 2px; /* Add some spacing between the image and text */
+    /*margin-right: 2px;*/ /* Add some spacing between the image and text */
     height: 18px;
 }
+
+/**
+Estilos Pontos Tabela
+ */
 
 .points {
     text-align: center; /* Center the content horizontally */
