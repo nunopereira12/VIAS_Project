@@ -14,11 +14,13 @@
 
 .validate-container {
     /*background: rgb(31,126,178);*/
+    max-width:400px;
+    width: 80%;
     background: linear-gradient(0deg, rgba(31,126,178,1) 75%, rgba(255,255,255,1) 75%);
     border-radius: 20px;
     padding: 20px;
     text-align: left;
-    max-width: 80%; /* Set a maximum width relative to the parent column */
+    /*max-width: 80%; /* Set a maximum width relative to the parent column */
     margin: 0 auto; /* Center the container horizontally */
     height: 600px;
 }
