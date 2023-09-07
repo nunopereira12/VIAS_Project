@@ -291,7 +291,7 @@ Estilos Pontos Tabela
 
 .points-text {
     font-size: 10px; /* Adjust the font size for the "points" text */
-    color: gray; /* Change the color of the text */
+    color: rgb(128, 128, 128); /* Change the color of the text */
 }
 
 
