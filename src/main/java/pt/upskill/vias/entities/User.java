@@ -17,6 +17,14 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private int points;
+
+    public User(String username, int points) {
+        this.username = username;
+        this.points = points;
+    }
+
+    public User() {}
 
     public long getId() {
         return id;
@@ -72,5 +80,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
