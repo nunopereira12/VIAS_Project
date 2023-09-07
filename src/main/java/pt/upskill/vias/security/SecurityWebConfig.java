@@ -30,7 +30,6 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/wallet").anonymous()
                 .antMatchers("/vias_league").anonymous()
                 .antMatchers("/admin").anonymous()
-                .antMatchers("/filipa").authenticated()
                 .antMatchers("/validate").anonymous()
                 .antMatchers("/template").anonymous()
                 .antMatchers("/tarefas").hasRole("ADMIN")

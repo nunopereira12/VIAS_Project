@@ -5,13 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
+public class TemplateController {
 
-    @GetMapping(value = "/welcome")
-    public ModelAndView welcomePage() {
-        ModelAndView mav = new ModelAndView("welcome");
+    @GetMapping(value = "/template")
+    public ModelAndView templatePage() {
+        ModelAndView mav = new ModelAndView("template");
         return mav;
     }
-
-
 }
