@@ -21,9 +21,10 @@ body {
     border-radius: 20px;
     padding: 20px;
     text-align: left;
-    max-width: 80%; /* Set a maximum width relative to the parent column */
+    max-width: 400px; /* Set a maximum width relative to the parent column */
     margin: 0 auto; /* Center the container horizontally */
     height: 650px;
+    width: 80%;
     /*flex-grow: 1;*/
 }
 

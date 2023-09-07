@@ -15,8 +15,7 @@
     <div class="row justify-content-center">
         <div class="col-md-auto">
             <div class="vias_league-container">
-                <a href="http://localhost:8080">
-                    <button class="arrowbutton">
+                    <button class="arrowbutton" onclick="window.location.href='http://localhost:8080/'" >
                         <img src="/images/backarrow.png" alt="Go back!" width="40px">
                     </button>
                 </a>
