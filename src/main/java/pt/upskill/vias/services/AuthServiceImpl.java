@@ -27,4 +27,17 @@ public class AuthServiceImpl implements AuthService {
         }
         return null;
     }
+
+    @Override
+    public boolean isUsernameTaken(String username) {
+        return userRepository.getUserByUsername(username) != null;
+    }
+
+    @Override
+    public void registerUser(String username, String password) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(passwordEncoder.encode(password));
+        userRepository.save(user);
+    }
 }
