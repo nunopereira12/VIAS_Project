@@ -8,7 +8,7 @@
     <title>Template</title>
     <link rel="stylesheet" href="/css/template.css">
 </head>
-<body id="login-page">
+<body>
 
 <div class="container">
         <a style="display: block" href="http://localhost:8080">
@@ -28,9 +28,6 @@
 <p>fsdfhuidfhiusdhfuidshf</p>
 <p>fsdfhuidfhiusdhfuidshf</p>
 </div>
-
-
-
 
 </div>
 
