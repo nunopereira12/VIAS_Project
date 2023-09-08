@@ -1,6 +1,7 @@
 package pt.upskill.vias.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
@@ -35,8 +36,8 @@ public class ViasLeagueController {
         users.add(u7);
         Collections.sort(users, Comparator.comparing(User::getPoints).reversed());
         mav.addObject("players", users);
-        /*u1.setLeague("Gold");*/
-        /*u1.setLeague("Bronze");*/
+        u1.setLeague("Gold");
+        u1.setLeague("Bronze");
         mav.addObject("userr", u1);
         return mav;
 

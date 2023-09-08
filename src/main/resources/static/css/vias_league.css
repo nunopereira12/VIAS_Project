@@ -1,66 +1,12 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #041F48; /* Dark blue background color */
-    min-height: 100vh;
-    font-family: Montserrat, serif;
+
+.container {
+    /*background: linear-gradient(0deg, rgba(31,126,178,1) 75%, rgba(255,255,255,1) 75%);*/
+    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 74%, rgba(255, 255, 255, 1) 60%);
+    min-height: auto;
+    padding-bottom: 0px;
 }
 
 
-.btn-primary-outline {
-    background-color: transparent;
-}
-
-.btn-primary-outline:hover {
-    color: white;
-    background-color: #004A89;
-}
-
-.vias_league-container {
-    background: linear-gradient(0deg, rgba(31,126,178,1) 75%, rgba(255,255,255,1) 75%);
-    border-radius: 20px;
-    padding: 20px;
-    text-align: left;
-    max-width: 400px; /* Set a maximum width relative to the parent column */
-    margin: 0 auto; /* Center the container horizontally */
-    height: 650px;
-    width: 80%;
-    /*flex-grow: 1;*/
-}
-
-.footerlogo {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.footerimage {
-    max-width: 30%;
-    height: auto;
-}
-
-.buttons {
-    margin-bottom: 0.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
-    background-color: #1F7EB2;
-}
-
-.buttons:hover {
-    background-color: #041F48;
-}
-
-
-/*.list-container {
-    background-color: #ffffff; !* Set the background color for the container *!
-    border-radius: 20px; !* Add border-radius for styling *!
-    padding: 30px; !* Add padding for spacing inside the container *!
-    text-align: left; !* Adjust text alignment as needed *!
-    max-width: 100%; !* Set the maximum width to match the previous container *!
-    margin: 0 auto; !* Center the container horizontally *!
-    height: 382px;
-    width: 361px;
-
-}*/
 .list-container {
     background-color: #ffffff; /* Set the background color for the container */
     border-radius: 20px 20px 0 0; /* Apply border radius only to the top */
@@ -68,10 +14,20 @@ body {
     text-align: left; /* Adjust text alignment as needed */
     max-width: 100%; /* Set the maximum width to match the previous container */
     margin: 0 auto; /* Center the container horizontally */
-    height: 421px;
-    width: 361px;
+    height: 420px;
+    width: auto;
+    margin-top: 15px;
 }
 
+
+.table-container {
+    max-width: 100%; /* Set a maximum width for the container */
+    overflow-x: auto; /* Allow horizontal scrolling if the content overflows */
+    max-height: 278px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Allow vertical scrolling if the content exceeds the container's height */
+    /*width: 240px;*/
+    /*height: 3000px;*/
+}
 
 .center-img {
     display: block;
@@ -92,13 +48,6 @@ img {
     margin-top: 15px;
 }
 
-.table-container {
-    max-width: 100%; /* Set a maximum width for the container */
-    overflow-x: auto; /* Allow horizontal scrolling if the content overflows */
-    max-height: 281px; /* Set a maximum height for the container */
-    overflow-y: auto; /* Allow vertical scrolling if the content exceeds the container's height */
-
-}
 
 .table {
     width: 100%; /* Make the table take up the full width of its container */
@@ -115,25 +64,6 @@ img {
     padding: 10px; /* Add padding to adjust spacing as needed */
     line-height: 1.2; /* Adjust line height for vertical centering */
 }
-
-/* You can also target specific columns if needed */
-/* .table th:nth-child(1), .table td:nth-child(1) {
-    font-size: 14px;
-} */
-
-
-/*.table-container::-webkit-scrollbar {
-    width: 5px; !* Adjust the width as needed *!
-}
-
-.table-container::-webkit-scrollbar-track {
-    background-color: transparent; !* Set to the background color of your choice *!
-}
-
-.table-container::-webkit-scrollbar-thumb {
-    background-color: #888; !* Set to the color of your choice *!
-    border-radius: 2.5px; !* Set to half of the scrollbar width for a rounded appearance *!
-}*/
 
 .table-container {
     scrollbar-width: none; /* tira no firefox */
@@ -157,19 +87,6 @@ img {
     object-fit: cover; /* Ensure the image covers the entire circle */
 }
 
-
-
-.arrowbutton {
-    background-color: transparent; /* Set the background to transparent */
-    border: none; /* Remove the button border */
-    cursor: pointer; /* Add a pointer cursor on hover */
-    padding: 0; /* Remove padding to make the button snug around the image */
-    width: 30px;
-}
-
-.arrowbutton:hover {
-    opacity: 0.8; /* Reduce opacity on hover */
-}
 
 .switches-container {
     width: 16rem;
@@ -223,8 +140,11 @@ img {
     border-radius: 10px;
     background: #004A89;
     height: 100%;
-
 }
+
+/*.switch-wrapper {
+    background-color: #004A89;
+}*/
 
 
 .switch div {
@@ -291,7 +211,7 @@ Estilos Pontos Tabela
 
 .points-text {
     font-size: 10px; /* Adjust the font size for the "points" text */
-    color: rgb(128, 128, 128); /* Change the color of the text */
+    color: gray; /* Change the color of the text */
 }
 
 
