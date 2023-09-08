@@ -28,4 +28,24 @@ public class SignUp {
     public String getPassword() {
         return password;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setDOB(Date DOB) {
+        this.DOB = DOB;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

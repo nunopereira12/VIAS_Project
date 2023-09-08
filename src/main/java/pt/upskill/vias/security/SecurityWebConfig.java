@@ -29,6 +29,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/welcome").anonymous()
                 .antMatchers("/diagrams").anonymous()
                 .antMatchers("/wallet").anonymous()
+                .antMatchers("/signup_action").anonymous()
                 .antMatchers("/vias_league").anonymous()
                 .antMatchers("/admin").anonymous()
                 .antMatchers("/validate").anonymous()

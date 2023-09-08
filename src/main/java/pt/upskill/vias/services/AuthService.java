@@ -7,4 +7,5 @@ public interface AuthService {
     User validateLogin(String username, String password);
     boolean isUsernameTaken(String username);
     void registerUser(String username, String password);
+
 }

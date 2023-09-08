@@ -17,7 +17,7 @@
         </button>
     </a>
     <div class="content">
-        <form action="/login" method="post" class="card p-3">
+        <form action="/signup_action" method="POST" class="card p-3">
             <img class="imagelogo" src="images/logo_whitebg.png" >
             <c:if test="${error != null}">
                 <div class="alert alert-danger">
@@ -46,7 +46,7 @@
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label text-start">Confirmar Password</label>
-                <input type="confirmPassword" name="confirmPassword" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua password" required>
+                <input type="password" name="confirmPassword" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua password" required>
             </div>
             <label class="container-checkbox">
                 <input type="checkbox" checked="checked">Li e aceito <button class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os termos e condições</button>  da VIAS
@@ -100,5 +100,6 @@
         <img class="footerimage" src="images/logo_nobg.png" alt="">
     </footer>
 </div>
+
 </body>
 </html>

@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.User;
+import pt.upskill.vias.models.SignUp;
 import pt.upskill.vias.repositories.UserRepository;
 
 @Service
@@ -12,7 +13,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Autowired
     UserRepository userRepository;
-
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
     /*public void signUp(User user) {
@@ -40,4 +40,5 @@ public class AuthServiceImpl implements AuthService {
         user.setPassword(passwordEncoder.encode(password));
         userRepository.save(user);
     }
+
 }

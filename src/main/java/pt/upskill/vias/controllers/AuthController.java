@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.SignUp;
 import pt.upskill.vias.services.AuthService;
 
@@ -31,14 +32,9 @@ public class AuthController {
             modelAndView.addObject("error", "Username already exists");
             return modelAndView;
         }
-
         authService.registerUser(newUser.getUsername(), newUser.getPassword());
 
         return new ModelAndView("redirect:/login");
     }
-
-
-
-
 
 }
