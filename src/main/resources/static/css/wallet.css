@@ -7,24 +7,73 @@
 
 
 
-.walletbox {
-    background-color: #ffffff;
-    border-radius: 20px;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #041F48;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+
+}
+
+.container {
+    background-color: white;
+    max-width: 320px;
+    margin-top: 40px;
+    border-radius: 25px;
     padding: 20px;
-    text-align: left;
-    width: 80%; /* Set a fixed width relative to the parent container */
-    max-width: 400px; /* Optionally, set a maximum width */
-    margin: 0 auto; /* Center the container horizontally */
-    height: 600px;
+    width: 100%;
+    min-height: auto;
+}
+
+.content {
+    margin: 20px;
+    min-height: 400px;
+}
+
+.title {
+    color: #000;
+    text-align: center;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 601px) {
+    .container {
+        min-width: 450px;
+        margin-top: 80px;
+    }
 }
 
 
+.arrowbutton {
+    background-color: transparent; /* Set the background to transparent */
+    border: none; /* Remove the button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    padding: 0; /* Remove padding to make the button snug around the image */
+    width: 40px;
+    height: 40px;
+}
+
+.arrowbutton:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+}
 
 
-.wallet-title {
-    font-weight: 600;
-    font-size: 27px;
+.footerlogo {
     text-align: center;
+    margin-bottom: 3rem;
+}
+
+.footerimage {
+    max-width: 50%; /* Adjust the percentage to control the image size */
+    height: auto;
 }
 
 .col {
@@ -155,7 +204,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 19rem;
+    margin-top: 9rem;
 }
 
 .addbutton {
@@ -192,5 +241,25 @@ p {
     margin-bottom: 0.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.carousel {
+    margin-top: 50px;
+}
+
+.data-container {
+
+    margin-top: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Adjust the height as needed */
+}
+
+.carousel-item-start, .carousel-item-end, .carousel-item-prev, .carousel-item-next, .active {
+    max-width: 291px;
+    max-height: 189px;
 }
 
