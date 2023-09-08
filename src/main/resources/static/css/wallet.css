@@ -44,12 +44,12 @@ body {
     margin-bottom: 30px;
 }
 
-@media (min-width: 601px) {
+/*@media (min-width: 601px) {
     .container {
         min-width: 450px;
         margin-top: 80px;
     }
-}
+}*/
 
 
 .arrowbutton {
@@ -244,12 +244,12 @@ p {
 }
 
 .carousel {
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .data-container {
 
-    margin-top: 70px;
+    margin-top: 10px;
 
     display: flex;
     flex-direction: column;

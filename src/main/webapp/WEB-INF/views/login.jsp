@@ -5,7 +5,7 @@
 <html lang="en">
 <%@include file="header.jsp"%>
 <head>
-    <title>Template</title>
+    <title>VIAS | Estamos na via</title>
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body id="login-page">

@@ -91,6 +91,15 @@ body {
     font-style: italic;
     border-radius: 10px;
     outline: 1.5px solid #041F48;
+    font-size: 12px;
+    color: #444343;
+    opacity: 0.5;
+}
+
+@media (min-width: 601px) {
+    .formtext {
+        font-size: 16px;
+    }
 }
 
 
