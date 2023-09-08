@@ -1,108 +1,55 @@
-#validate-page{
-    display: flex;
+
+.container {
+    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 80%, rgba(255, 255, 255, 1) 60%);
+    min-height: auto;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-.form-label {
-    text-align: left;
-}
-
-.card {
-    border: none; /* Remove the border from the card element */
-}
-
-.validate-container {
-    /*background: rgb(31,126,178);*/
-    max-width:400px;
-    width: 80%;
-    background: linear-gradient(0deg, rgba(31,126,178,1) 75%, rgba(255,255,255,1) 75%);
-    border-radius: 20px;
+    max-width: 320px;
+    margin-top: 40px;
+    border-radius: 25px;
     padding: 20px;
-    text-align: left;
-    /*max-width: 80%; /* Set a maximum width relative to the parent column */
-    margin: 0 auto; /* Center the container horizontally */
-    height: 600px;
+    width: 100%;
 }
 
-.validate-title{
-    color: #000;
+.div-button{
+    max-width: 320px;
     text-align: center;
-    font-family: Montserrat;
-    font-size: 27px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    display: flex;
-    width: 316px;
-    height: 65px;
-    margin-top: 3rem;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
 }
 
-.validate-box{
-    background-color: #FFFFFF;
-    border-radius: 20px;
+.validate-box {
+    background-color: white;
+    max-width: 280px;
+    margin-top: 20px;
+    border-radius: 25px;
     padding: 20px;
-    text-align: left;
-    max-width: 100%; /* Set a maximum width relative to the parent column */
-    height:300px;
-    margin: 0 auto; /* Center the container horizontally */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+    min-height: 300px;
 }
 
-.form-control {
-    border: 2px solid #000080; /* Dark blue border */
-}
-
-.formtext {
-    text-align: center;
-    font-style: italic;
-    border-radius: 10px;
-    outline: 1.5px solid #041F48;
-}
-
-.button-validate {
-    color: #FFF;
-    font-family: Montserrat;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    display: inline-flex;
-    width: 181px;
-    height: 64px;
-    padding: 3px 10px;
-    align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    gap: 10px;
-    flex-shrink: 0;
+.validate-button{
+    color: #FFFFFF;
+    background-color: #1F7EB2;
+    border-radius: 20px;
     border: none;
-    border-radius: 14px;
-    background: #1F7EB2;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 65px;
+}
+.validate-button:active{
+    background-color: #004A89;
+    border: #004A89;
 }
 
-.button-img-validate{
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
+@media (min-width: 601px) {
+    .container {
+        min-width: 350px;
+        margin-top: 80px;
+    }
+    .validate-box {
+        min-width: 250px;
+        margin-top: 20px;
+    }
 }
-
-.div-buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.buttons:hover {
-    background-color: #041F48;
-}
-
 
 @media (max-width: 768px){
     .col-md-auto {
