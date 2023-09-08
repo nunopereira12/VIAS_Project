@@ -33,16 +33,6 @@ body {
     margin-bottom: 30px;
 }
 
-@media (min-width: 601px) {
-    .container {
-        min-width: 450px;
-        margin-top: 80px;
-    }
-}
-
-#carris-collapse {
-    justify-content: space-between;
-}
 
 .dwnld-buttons {
     margin: 3px;
@@ -53,7 +43,7 @@ body {
     background-color: #FFFFFF;
     color: #1E1E1E;
     border-color: #041F48;
-    min-width:250px;
+    min-width:200px;
     height: 25px;
     font-size: 12px;
     text-align: start;
@@ -66,13 +56,16 @@ body {
 }
 
 .slct-buttons {
+    margin-top: 5px;
     margin-bottom: 0.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
     background-color: #FFFFFF;
     color: #1E1E1E;
     border-color: #041F48;
+    min-width: 250px;
 }
+
 .slct-buttons:hover {
     background-color: #041F48;
     color: #FFFFFF;
@@ -80,6 +73,20 @@ body {
 }
 
 
+@media (min-width: 601px) {
+    .container {
+        min-width: 450px;
+        margin-top: 80px;
+    }
+
+    .slct-buttons {
+        min-width: 380px;
+    }
+
+    .dwnld-buttons {
+        min-width:304px;
+    }
+}
 
 
 

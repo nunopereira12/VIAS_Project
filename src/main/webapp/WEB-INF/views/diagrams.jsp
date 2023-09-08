@@ -15,53 +15,129 @@
     </a>
     <p class="title">Linhas</p>
 
+
+<%--
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo">
                     Accordion Item #2
                 </button>
             </h2>
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
+                    collapse plugin adds the appropriate classes that we use to style each element. These classes
+                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
+                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
+                    overflow.
                 </div>
             </div>
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree">
                     Accordion Item #3
                 </button>
             </h2>
             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
+                    collapse plugin adds the appropriate classes that we use to style each element. These classes
+                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
+                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
+                    overflow.
                 </div>
             </div>
         </div>
     </div>
+--%>
 
 
-        <div class="d-grid">
-            <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse" data-bs-target="#carris-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">CP - Comboios de Portugal</button>
-            <div id="carris-collapse" class="collapse">
-
-                <div class="d-flex justify-content-center">
-                    <button class="btn btn-primary dwnld-buttons" type="button">Linha de Cascais</button>
-                    <img src="images/logo_nobg.png" width="5px">
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button class="btn btn-primary dwnld-buttons" type="button">Linha de Sintra</button>
-                </div>
-
-            </div>
-            <button type="submit" class="btn btn-primary buttons">Carris Metropolitana</button>
-            <button type="submit" class="btn btn-primary buttons">Fertagus</button>
-            <button type="submit" class="btn btn-primary buttons">TTSL - Transtejo Soflusa</button>
-            <button type="submit" class="btn btn-primary buttons">Metropolitano de Lisboa</button>
+    <div class="d-grid">
+        <div class="d-flex justify-content-center">
+        <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse"
+                data-bs-target="#cp-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">CP -
+            Comboios de Portugal
+        </button>
         </div>
+        <div id="cp-collapse" class="collapse">
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Cascais</button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Sintra</button>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+        <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse"
+                data-bs-target="#carris-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+            Carris Metropolitana
+        </button>
+        </div>
+        <div id="carris-collapse" class="collapse">
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de</button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de</button>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+        <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse"
+                data-bs-target="#fert-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+            Fertagus
+        </button>
+        </div>
+        <div id="fert-collapse" class="collapse">
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Cascais</button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Sintra</button>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+        <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse"
+                data-bs-target="#ttsl-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">TTSL -
+            Transtejo Soflusa
+        </button>
+        </div>
+        <div id="ttsl-collapse" class="collapse">
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de</button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de</button>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+        <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse"
+                data-bs-target="#metro-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+            Metropolitano de Lisboa
+        </button>
+        </div>
+        <div id="metro-collapse" class="collapse">
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Cascais</button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Sintra</button>
+            </div>
+        </div>
+
     </div>
+</div>
 
 
 </body>
