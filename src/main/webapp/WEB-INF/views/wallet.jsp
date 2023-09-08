@@ -89,12 +89,25 @@
                     </div>
                 </div>
 
+                <p class="validuntil">Válido até: Set/2023</p>
+
+                <div>
+                    <div>
+                        <button class="addbutton" ><span class="addspan">Validar</span></button>
+                </div>
+                    <div >
+                        <div >
+                            <button class="addbutton" hidden ><span class="addspan">Ver Títulos</span></button>
+                        </div>
+                </div>
+                </div>
+
 
             <%--FUTURE DATA --%>
 
         </div>
         <div id="addbutton-container">
-            <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> Adicionar Título de Transporte</button>
+            <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Adicionar Título de Transporte</span></button>
         </div>
     </div>
 

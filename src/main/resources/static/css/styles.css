@@ -38,5 +38,13 @@ body {
     background-color: #004A89;
 }
 
+.content {
+    margin: 0 5px 10px 5px;
+    min-height: 400px;
+}
 
-
+@media (min-width: 601px) {
+    .content {
+        margin: 0 20px 20px 20px;
+    }
+}

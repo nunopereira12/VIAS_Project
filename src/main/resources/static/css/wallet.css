@@ -30,10 +30,6 @@ body {
     min-height: auto;
 }
 
-.content {
-    margin: 20px;
-    min-height: 400px;
-}
 
 .title {
     color: #000;
@@ -42,6 +38,7 @@ body {
     font-style: normal;
     font-weight: 600;
     margin-bottom: 30px;
+    margin-top: 0.5rem;
 }
 
 /*@media (min-width: 601px) {
@@ -108,7 +105,7 @@ p {
     - adjust "width" to fit the content accordingly
 */
 .switches-container {
-    width: 16rem;
+    width: 15rem;
     position: relative;
     display: flex;
     padding: 0;
@@ -204,7 +201,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 9rem;
+    margin-top: 5rem;
 }
 
 .addbutton {
@@ -212,7 +209,7 @@ p {
     border: none;
     background: #FFF;
     box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.20);
-    padding: 1rem 0.8rem 0.8rem 1rem;
+    padding: 8px 10px 8px 10px;
     color: #1E1E1E;
     font-size: 16px;
     font-style: normal;
@@ -263,3 +260,10 @@ p {
     max-height: 189px;
 }
 
+.validuntil {
+    font-size: 0.9rem;
+}
+
+.addspan {
+    font-size: 0.8rem;
+}
