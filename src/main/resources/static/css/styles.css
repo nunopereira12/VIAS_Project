@@ -27,83 +27,16 @@ body {
 
 }
 
-
-
-
-
-
-
-
-/**
-VIAS_LEAGUE
- */
-
-
-/*
-.vias_league-container {
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center; !* Center text content horizontally *!
-    max-width: 80%; !* Set a maximum width relative to the parent column *!
-    margin: 0 auto; !* Center the container horizontally *!
-    height: 600px;
-    display: flex; !* Use flexbox *!
-    flex-direction: column; !* Stack child elements vertically *!
-    justify-content: flex-start; !* Align content at the top *!
-    align-items: center; !* Center content horizontally *!
-}
-
-.vias_league-container {
-
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: left;
-    max-width: 80%; !* Set a maximum width relative to the parent column *!
-    margin: 0 auto; !* Center the container horizontally *!
-    height: 600px;
-}
-*/
-
-
-
-.home-link {
-    position: absolute;
-    top: 10px; /* Adjust the distance from the top as needed */
-    left: 10px; /* Adjust the distance from the left as needed */
-    text-decoration: none;
+.buttons {
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
     background-color: #1F7EB2;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
 }
 
-.home-link:hover {
-    background-color: #041F48;
+.buttons:hover {
+    background-color: #004A89;
 }
 
-.bottom-half {
-    height: 50%; /* Set the height to 50% to cover the bottom half */
-    background-color: lightblue; /* Dark blue background color for the bottom half */
-}
 
-.container3 {
-    text-align: center;
-}
-
-.btn-primary-outline {
-    background-color: transparent;
-}
-
-.vias_league-container {
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: left;
-    max-width: 80%; /* Set a maximum width relative to the parent column */
-    margin: 0 auto; /* Center the container horizontally */
-    height: 600px;
-    /*flex-grow: 1;*/
-}
 

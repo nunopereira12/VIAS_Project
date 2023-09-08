@@ -126,6 +126,20 @@
             carousel.to(1);
         }
     });
+
+    // Listen to the carousel slide event and update the toggle switch accordingly
+    carousel._element.addEventListener('slide.bs.carousel', (event) => {
+        const currentIndex = event.to; // Index of the currently active slide
+        if (currentIndex === 0) {
+            // Update the toggle switch to Navegante
+            switchNavigante.checked = true;
+            switchVIASCard.checked = false;
+        } else if (currentIndex === 1) {
+            // Update the toggle switch to VIAS Card
+            switchNavigante.checked = false;
+            switchVIASCard.checked = true;
+        }
+    });
 </script>
 </body>
 </html>
