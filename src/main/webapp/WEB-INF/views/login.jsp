@@ -16,7 +16,7 @@
         </button>
     </a>
     <div class="content">
-        <form action="/login" method="post" class="card p-3">
+        <form action="/perform_login" method="post" class="card p-3">
             <img class="imagelogo" src="images/logo_whitebg.png" alt="VIAS logo with white BG">
             <c:if test="${error != null}">
                 <div class="alert alert-danger">
@@ -24,8 +24,8 @@
                 </div>
             </c:if>
             <div class="mb-3">
-                <label for="email" class="form-label text-start">Email</label>
-                <input type="email" name="email" class="form-control formtext" id="email" placeholder="Inserir email de usuário" required>
+                <label for="username" class="form-label text-start">Username</label>
+                <input type="text" name="username" class="form-control formtext" id="username" placeholder="Inserir email de usuário" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label text-start">Senha</label>

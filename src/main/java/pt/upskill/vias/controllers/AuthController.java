@@ -25,6 +25,17 @@ public class AuthController {
         return new ModelAndView("signup");
     }
 
+    @PostMapping(value="/perform_login")
+    public ModelAndView login(User user) {
+        User loggedUser = authService.validateLogin(user.getUsername(), user.getPassword());
+        if(loggedUser != null) {
+            return new ModelAndView("redirect:/wallet");
+        }
+        ModelAndView modelAndView = new ModelAndView("login");
+        modelAndView.addObject("error", "Invalid username or password");
+        return modelAndView;
+    }
+
     @PostMapping(value = "/signup_action")
     public ModelAndView signUp(SignUp newUser) {
         if (authService.isUsernameTaken(newUser.getUsername())) {
