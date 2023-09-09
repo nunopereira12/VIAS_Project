@@ -9,9 +9,7 @@ import pt.upskill.vias.services.RecoverPasswordServiceImpl;
 public class ExerciciosApplication {
 
 	public static void main(String[] args) {
-		RecoverPasswordServiceImpl r = new RecoverPasswordServiceImpl();
 		SpringApplication.run(ExerciciosApplication.class, args);
-		System.out.println(r.getRecoveryLink());
 	}
 
 }
