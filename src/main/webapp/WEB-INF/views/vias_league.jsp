@@ -5,7 +5,7 @@
 <html lang="en">
 <%@include file="header.jsp" %>
 <head>
-    <title>teste</title>
+    <title>VIAS - VIAS League</title>
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/vias_league.css">
 </head>

@@ -1,11 +1,15 @@
 package pt.upskill.vias.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
+import pt.upskill.vias.repositories.UserRepository;
+import pt.upskill.vias.services.ViasLeagueService;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,7 +18,28 @@ import java.util.List;
 @Controller
 public class ViasLeagueController {
 
+    @Autowired
+    private ViasLeagueService viasLeagueService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+
     @GetMapping(value = "/vias_league")
+    public ModelAndView vias_leaguePage(Principal principal) {
+
+        String loggedInUsername = principal.getName();
+        List<User> users = viasLeagueService.getUsersByLoggedInUserLeague(loggedInUsername);
+        Collections.sort(users, Comparator.comparing(User::getPoints).reversed());
+
+        ModelAndView mav = new ModelAndView("vias_league");
+        mav.addObject("players", users);
+        mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
+        return mav;
+
+    }
+
+    /*@GetMapping(value = "/vias_league")
     public ModelAndView vias_leaguePage() {
         ModelAndView mav = new ModelAndView("vias_league");
 
@@ -43,5 +68,5 @@ public class ViasLeagueController {
 
         //adicionei aqui uma lista diretamente, isto eventualmente tem de vir da DB
 
-    }
+    }*/
 }
