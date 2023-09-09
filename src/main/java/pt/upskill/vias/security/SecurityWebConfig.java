@@ -33,6 +33,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/vias_league").anonymous()
                 .antMatchers("/admin").anonymous()
                 .antMatchers("/validate").anonymous()
+                .antMatchers("/id_pica").anonymous()
                 .antMatchers("/template").anonymous()
                 .antMatchers("/tarefas").hasRole("ADMIN")
                 .antMatchers("/images/**", "/css/**","/js/**").permitAll()

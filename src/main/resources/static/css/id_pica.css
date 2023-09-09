@@ -1,0 +1,40 @@
+.container-pica{
+    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 76%, rgba(255, 255, 255, 1) 60%);
+    min-height: 500px;
+}
+
+.content{
+    margin: auto;
+    min-height: 300px;
+
+}
+
+.pica-box {
+    background-color: white;
+    max-width: 300px;
+    border-radius: 25px;
+    padding: 20px;
+    min-height: 300px;
+    vertical-align:middle;
+    text-align: center;
+    margin: 90px auto 50px auto;
+    display: flex;
+    align-items: center;
+
+}
+
+@media (min-width: 601px) {
+    .container-pica{
+        min-height: auto;
+    }
+    .pica-box{
+        max-width: 380px;
+        vertical-align:middle;
+        text-align: center;
+    }
+    .content{
+        min-height: auto;
+    }
+
+
+}
