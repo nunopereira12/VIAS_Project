@@ -9,6 +9,8 @@ import pt.upskill.vias.models.SignUp;
 import pt.upskill.vias.repositories.UserRepository;
 
 import javax.sound.midi.Soundbank;
+import java.text.ParseException;
+import java.util.Date;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -45,8 +47,16 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void registerUser(String username, String password, String email) {
+    public boolean isEmailTaken(String username) {
+        return userRepository.getUserByUsername(username) != null;
+    }
+
+
+    @Override
+    public void registerUser(String username, String password, String email, String firstName, String lastName) {
         User user = new User();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(passwordEncoder.encode(password));

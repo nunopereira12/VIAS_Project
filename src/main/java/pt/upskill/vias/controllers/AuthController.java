@@ -44,7 +44,7 @@ public class AuthController {
             modelAndView.addObject("error", "Username already exists");
             return modelAndView;
         }
-        authService.registerUser(newUser.getUsername(), newUser.getPassword(), newUser.getEmail());
+        authService.registerUser(newUser.getUsername(), newUser.getPassword(), newUser.getEmail(), newUser.getFirstName(), newUser.getLastName());
 
         return new ModelAndView("redirect:/login");
     }

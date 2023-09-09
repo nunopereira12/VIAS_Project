@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class IDController {
 
     @GetMapping(value = "/id_pica")
-    public ModelAndView adminPage() {
+    public ModelAndView picaPage() {
         ModelAndView mav = new ModelAndView("id_pica");
         return mav;
     }
