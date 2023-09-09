@@ -101,9 +101,17 @@ body {
     opacity: 0.75;
 }
 
+#buttonentry {
+    margin-bottom: 1rem
+}
+
 @media (min-width: 601px) {
     .formtext {
         font-size: 16px;
+    }
+
+    #buttonentry {
+        margin-bottom: 2rem
     }
 }
 
@@ -118,4 +126,6 @@ body {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+
 

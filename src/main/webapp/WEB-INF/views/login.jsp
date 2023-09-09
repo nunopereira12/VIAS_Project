@@ -34,14 +34,14 @@
                        placeholder="Inserir senha de usuário" required>
             </div>
             <div class="d-grid">
-                <button type="submit" id="buttonentry" class="btn btn-primary buttons" style="margin-bottom: 3rem;">
+                <button type="submit" id="buttonentry" class="btn btn-primary buttons">
                     Entrar
                 </button>
             </div>
         </form>
 
     </div>
-    <div class="content">
+    <div style="margin-bottom: 20px" class="content">
         <div class="d-grid card padb">
             <a href="/signup" class="btn btn-primary buttons">Registar</a>
         </div>

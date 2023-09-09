@@ -6,7 +6,9 @@ body {
 }
 
 .imagelogo{
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    max-width: 250px;
+    align-self: center;
 }
 
 .footerlogo {
@@ -45,5 +47,10 @@ body {
 @media (min-width: 601px) {
     .content {
         margin: 0 20px 0 20px;
+    }
+
+    .imagelogo{
+        margin-bottom: 2rem;
+        max-width: 300px;
     }
 }
