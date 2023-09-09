@@ -25,16 +25,15 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public User validateLogin(String username, String password) {
-        System.out.println(username + " " + password);
+
         User user = userRepository.getUserByUsername(username);
-        System.out.println(user);
+
         User userEmail = userRepository.getUserByEmail(username);
-        System.out.println(userEmail);
+
 
         if(user != null && passwordEncoder.matches(password, user.getPassword())) {
             return user;
-        }
-        else if (userEmail != null && passwordEncoder.matches(password, userEmail.getPassword())) {
+        }  else if (userEmail != null && passwordEncoder.matches(password, userEmail.getPassword())) {
             return userEmail;
         }
 

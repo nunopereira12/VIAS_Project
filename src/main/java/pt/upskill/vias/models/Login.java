@@ -1,8 +1,11 @@
 package pt.upskill.vias.models;
 
+import java.util.Date;
+
 public class Login {
     private String username;
     private String password;
+
 
     public Login() {}
 

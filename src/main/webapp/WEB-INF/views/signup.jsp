@@ -53,7 +53,7 @@
                 <input type="password" name="confirmPassword" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua password" required>
             </div>
             <label class="container-checkbox">
-                <input type="checkbox" checked="checked">Li e aceito <button class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os termos e condições</button>  da VIAS
+                <input type="checkbox">Li e aceito <button class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os termos e condições</button>  da VIAS
                 <span class="checkmark"></span>
             </label>
             <!-- Modal -->
