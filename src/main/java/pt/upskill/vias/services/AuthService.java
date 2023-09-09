@@ -10,5 +10,4 @@ public interface AuthService {
     boolean isUsernameTaken(String username);
     boolean isEmailTaken(String username);
     void registerUser(String username, String password, String email, String firstName, String lastName);
-
 }

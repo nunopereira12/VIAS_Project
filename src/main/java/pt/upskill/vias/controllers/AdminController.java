@@ -7,7 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 
-
     @GetMapping(value = "/admin")
     public ModelAndView adminPage() {
         ModelAndView mav = new ModelAndView("admin");
