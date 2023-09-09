@@ -8,6 +8,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 import pt.upskill.vias.entities.User;
+import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.AuthService;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.List;
 public class UserAuthenticationProvider implements AuthenticationProvider {
     @Autowired
     AuthService authService;
+
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {

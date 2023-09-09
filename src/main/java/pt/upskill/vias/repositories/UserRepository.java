@@ -7,6 +7,7 @@ import pt.upskill.vias.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User getUserByUsername(String username);
+    User getUserByEmail(String email);
 
     //equivalente a select * from user where username = 'x' -> magia do spring :D
 

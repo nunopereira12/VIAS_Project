@@ -99,4 +99,21 @@ public class User {
     public void setLeague(String league) {
         this.league = league;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthday=" + birthday +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", points=" + points +
+                ", league='" + league + '\'' +
+                '}';
+    }
 }
+
+

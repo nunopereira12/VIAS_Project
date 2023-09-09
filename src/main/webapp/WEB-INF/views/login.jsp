@@ -24,8 +24,8 @@
                 </div>
             </c:if>
             <div class="mb-3">
-                <label for="username" class="form-label text-start">Username</label>
-                <input type="text" name="username" class="form-control formtext" id="username" placeholder="Inserir email de usuário" required>
+                <label for="username" class="form-label text-start">Username ou E-mail</label>
+                <input type="text" name="username" class="form-control formtext" id="username" placeholder="Inserir email ou username" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label text-start">Senha</label>

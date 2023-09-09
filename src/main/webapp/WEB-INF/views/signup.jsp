@@ -37,6 +37,10 @@
                 <input type="username" name="username" class="form-control formtext" id="username" placeholder="Inserir username para VIAS League" required>
             </div>
             <div class="mb-3">
+                <label for="email" class="form-label text-start">E-mail</label>
+                <input type="text" name="email" class="form-control formtext" id="email" placeholder="Inserir o seu e-mail" required>
+            </div>
+            <div class="mb-3">
                 <label for="birthday" class="form-label text-start">Data de Nascimento</label>
                 <input type="date" name="birthday" class="form-control formtext" id="birthday" placeholder="Seleccionar data de nascimento" required>
             </div>

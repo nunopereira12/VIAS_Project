@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
+import pt.upskill.vias.models.Login;
 import pt.upskill.vias.models.SignUp;
 import pt.upskill.vias.services.AuthService;
 
@@ -26,7 +27,7 @@ public class AuthController {
     }
 
     @PostMapping(value="/perform_login")
-    public ModelAndView login(User user) {
+    public ModelAndView login(Login user) {
         User loggedUser = authService.validateLogin(user.getUsername(), user.getPassword());
         if(loggedUser != null) {
             return new ModelAndView("redirect:/wallet");
@@ -43,7 +44,7 @@ public class AuthController {
             modelAndView.addObject("error", "Username already exists");
             return modelAndView;
         }
-        authService.registerUser(newUser.getUsername(), newUser.getPassword());
+        authService.registerUser(newUser.getUsername(), newUser.getPassword(), newUser.getEmail());
 
         return new ModelAndView("redirect:/login");
     }
