@@ -13,4 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAll();
     List<User> findAllByLeague(String league);
 
+
+
+
 }

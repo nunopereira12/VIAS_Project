@@ -14,4 +14,8 @@ public interface AuthService {
 
 
     void registerUser(String username, String password, String email, String firstName, String lastName);
+
+    User getUserByEmail(String email);
+
+    void replacePassword(User user, String password);
 }

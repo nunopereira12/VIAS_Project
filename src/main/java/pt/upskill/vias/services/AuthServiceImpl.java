@@ -48,7 +48,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public boolean arePasswordsEqual(String password, String password2) {
-        System.out.println(password.equals(password2));
+
         return password.equals(password2);
     }
 
@@ -60,6 +60,17 @@ public class AuthServiceImpl implements AuthService {
         user.setLastName(lastName);
         user.setUsername(username);
         user.setEmail(email);
+        user.setPassword(passwordEncoder.encode(password));
+        userRepository.save(user);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepository.getUserByEmail(email);
+    }
+
+    @Override
+    public void replacePassword(User user, String password) {
         user.setPassword(passwordEncoder.encode(password));
         userRepository.save(user);
     }

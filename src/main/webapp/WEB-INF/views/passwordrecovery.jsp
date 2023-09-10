@@ -18,7 +18,7 @@
     </a>
     <p class="title">Recuperar Password</p>
     <div class="content">
-        <form class="card p-3">
+        <form class="card p-3" action="/recover_password" method="post" >
         <div class="mb-3">
             <label  for="email" class="form-label text-start">Insira o seu e-mail</label>
             <input type="email" name="email" class="form-control formtext" id="email" placeholder="Inserir e-mail" required>

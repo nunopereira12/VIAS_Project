@@ -2,21 +2,27 @@ package pt.upskill.vias.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pt.upskill.vias.repositories.UserRepository;
+import pt.upskill.vias.entities.Token;
+import pt.upskill.vias.entities.User;
+import pt.upskill.vias.repositories.TokenRepository;
 
 import java.security.SecureRandom;
+import java.util.Date;
 
 @Service
 public class RecoverPasswordServiceImpl implements RecoverPasswordService {
 
+
     @Autowired
-    UserRepository userRepository;
+    TokenRepository tokenRepository;
+
+
     private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private static final int TOKEN_LENGTH = 24;
 
 
         @Override
-    public String generateToken() {
+            public String generateTokenID() {
             StringBuilder token = new StringBuilder(TOKEN_LENGTH);
             SecureRandom sr = new SecureRandom();
 
@@ -30,14 +36,20 @@ public class RecoverPasswordServiceImpl implements RecoverPasswordService {
     }
 
     @Override
-    public String getRecoveryLink() {
-        return "/RecoverPassword/" + generateToken();
+    public Token generateToken(User user) {
+        Token token = new Token();
+        token.setUser(user);
+        token.setTokenID(generateTokenID());
+        token.setTimestamp(new Date());
+        tokenRepository.save(token);
+        return token;
+
     }
-
-
 
     @Override
-    public void sendEmail() {
-
+    public Token getToken(String tokenID) {
+        return tokenRepository.findByTokenID(tokenID);
     }
+
+
 }

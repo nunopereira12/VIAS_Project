@@ -1,20 +1,33 @@
 package pt.upskill.vias.controllers;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import pt.upskill.vias.entities.Token;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.Login;
+import pt.upskill.vias.models.ReplacePassword;
 import pt.upskill.vias.models.SignUp;
 import pt.upskill.vias.services.AuthService;
+import pt.upskill.vias.services.EmailService;
+import pt.upskill.vias.services.RecoverPasswordService;
 
 @Controller
 public class AuthController {
 
     @Autowired
     AuthService authService;
+
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    RecoverPasswordService recoverPasswordService;
+
+
 
     @GetMapping(value = "/login")
     public ModelAndView loginPage() {
@@ -28,6 +41,38 @@ public class AuthController {
     @GetMapping(value = "/passwordrecovery")
     public ModelAndView passwordRecoveryPage() {
         return new ModelAndView("passwordrecovery");
+    }
+
+    @PostMapping(value = "/recover_password")
+    public ModelAndView passwordRecoveryAction(User user) {
+        if (authService.isEmailTaken(user.getEmail())) {
+            Token token = recoverPasswordService.generateToken(authService.getUserByEmail(user.getEmail()));
+            emailService.sendRecoveryEmail(user.getEmail(), "Recuperação de Password", "Para repor a sua palavra-chave" +
+                    ", por favor siga o seguinte endereço: http://localhost:8080/passwordrecovery3/" + token.getTokenID());
+        }
+
+        return new ModelAndView("passwordrecovery2");
+    }
+
+    @GetMapping(value="/passwordrecovery3/{tokenID}")
+    public ModelAndView recoverPasswordPage(@PathVariable("tokenID") String tokenID) {
+        Token token = recoverPasswordService.getToken(tokenID);
+        if(token != null && !token.isUsed() && !token.isExpired()) {
+            return new ModelAndView("passwordrecovery3");
+        }
+        return new ModelAndView("redirect:/passwordrecovery");
+
+    }
+
+    @PostMapping(value="/replace_pw/")
+    public ModelAndView replacePassword(ReplacePassword replacePassword, @RequestParam("tokenID") String tokenID ) {
+        Token token = recoverPasswordService.getToken(tokenID);
+        if(token != null) {
+            authService.replacePassword(token.getUser(), replacePassword.getPassword());
+            token.setUsed(true);
+            return new ModelAndView("redirect:/login");
+        }
+        return new ModelAndView("redirect:/passwordrecovery");
     }
 
     @PostMapping(value="/perform_login")
