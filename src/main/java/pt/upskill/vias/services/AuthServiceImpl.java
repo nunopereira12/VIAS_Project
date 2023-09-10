@@ -5,12 +5,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.User;
-import pt.upskill.vias.models.SignUp;
 import pt.upskill.vias.repositories.UserRepository;
 
-import javax.sound.midi.Soundbank;
-import java.text.ParseException;
-import java.util.Date;
 
 @Service
 public class AuthServiceImpl implements AuthService {

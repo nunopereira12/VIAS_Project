@@ -3,7 +3,6 @@ package pt.upskill.vias.services;
 
 import pt.upskill.vias.entities.User;
 
-import java.util.Date;
 
 public interface AuthService {
     User validateLogin(String username, String password);
