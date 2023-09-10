@@ -18,9 +18,9 @@
     <div class="content">
         <form action="/perform_login" method="post" class="card p-3">
             <img class="imagelogo" src="images/logo_whitebg.png" alt="VIAS logo with white BG">
-            <c:if test="${error != null}">
+            <c:if test="${param.error != null}">
                 <div class="alert alert-danger">
-                        ${error}
+                        Credenciais incorrectas.
                 </div>
             </c:if>
             <div class="mb-3">
@@ -47,7 +47,7 @@
         </div>
 
         <div class="d-grid card padb">
-            <a href="/signup" class="btn btn-primary buttons">Recuperar Password</a>
+            <a href="/passwordrecovery" class="btn btn-primary buttons">Recuperar Password</a>
         </div>
     </div>
 </div>

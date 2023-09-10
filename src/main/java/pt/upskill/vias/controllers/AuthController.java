@@ -26,15 +26,18 @@ public class AuthController {
         return new ModelAndView("signup");
     }
 
+    @GetMapping(value = "/passwordrecovery")
+    public ModelAndView passwordRecoveryPage() {
+        return new ModelAndView("passwordrecovery");
+    }
+
     @PostMapping(value="/perform_login")
     public ModelAndView login(Login user) {
         User loggedUser = authService.validateLogin(user.getUsername(), user.getPassword());
         if(loggedUser != null) {
             return new ModelAndView("redirect:/wallet");
         }
-        ModelAndView modelAndView = new ModelAndView("login");
-        modelAndView.addObject("error", "Invalid username or password");
-        return modelAndView;
+        return new ModelAndView("login");
     }
 
     @PostMapping(value = "/signup_action")

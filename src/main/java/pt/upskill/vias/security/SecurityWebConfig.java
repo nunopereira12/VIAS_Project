@@ -16,10 +16,12 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                
             .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/perform_login")
                 .defaultSuccessUrl("/wallet")
+
         .and()
             .csrf()
                 .disable()
@@ -28,6 +30,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/signup").permitAll()
                 .antMatchers("/welcome").permitAll()
                 .antMatchers("/home").permitAll()
+                .antMatchers("/passwordrecovery").permitAll()
                 .antMatchers("/diagrams").permitAll()
                 .antMatchers("/wallet").permitAll()
                 .antMatchers("/signup_action").permitAll()
