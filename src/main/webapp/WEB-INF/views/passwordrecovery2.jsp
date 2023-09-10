@@ -21,6 +21,7 @@
             <img class="imagelogo" src="images/logo_whitebg.png" >
             <p class="title">E-mail enviado.</p>
             <p>Foi enviado um e-mail para o endereço indicado. Por favor siga as intruções para recuperar a sua password.</p>
+        </form>
     </div>
 </div>
 
