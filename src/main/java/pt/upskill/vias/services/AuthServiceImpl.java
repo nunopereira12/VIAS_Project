@@ -47,7 +47,13 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public boolean isEmailTaken(String username) {
-        return userRepository.getUserByUsername(username) != null;
+        return userRepository.getUserByEmail(username) != null;
+    }
+
+    @Override
+    public boolean arePasswordsEqual(String password, String password2) {
+        System.out.println(password.equals(password2));
+        return password.equals(password2);
     }
 
 

@@ -24,6 +24,16 @@
                         ${error}
                 </div>
             </c:if>
+            <c:if test="${error2 != null}">
+                <div class="alert alert-danger">
+                        ${error2}
+                </div>
+            </c:if>
+            <c:if test="${error3 != null}">
+                <div class="alert alert-danger">
+                        ${error3}
+                </div>
+            </c:if>
             <div class="mb-3">
                 <label  for="firstName" class="form-label text-start">Primeiro Nome</label>
                 <input type="firstName" name="firstName" class="form-control formtext" id="firstName" placeholder="Inserir primeiro nome" required>
@@ -38,7 +48,7 @@
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label text-start">E-mail</label>
-                <input type="text" name="email" class="form-control formtext" id="email" placeholder="Inserir o seu e-mail" required>
+                <input type="email" name="email" class="form-control formtext" id="email" placeholder="Inserir o seu e-mail" required>
             </div>
             <div class="mb-3">
                 <label for="birthday" class="form-label text-start">Data de Nascimento</label>
@@ -53,7 +63,7 @@
                 <input type="password" name="confirmPassword" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua password" required>
             </div>
             <label class="container-checkbox">
-                <input type="checkbox">Li e aceito <button class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os termos e condições</button>  da VIAS
+                <input type="checkbox" required>Li e aceito <button class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os termos e condições</button>  da VIAS
                 <span class="checkmark"></span>
             </label>
             <!-- Modal -->

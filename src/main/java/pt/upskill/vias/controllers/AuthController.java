@@ -42,11 +42,22 @@ public class AuthController {
 
     @PostMapping(value = "/signup_action")
     public ModelAndView signUp(SignUp newUser) {
-        if (authService.isUsernameTaken(newUser.getUsername())) {
+        if (authService.isUsernameTaken(newUser.getUsername())){
             ModelAndView modelAndView = new ModelAndView("signup");
-            modelAndView.addObject("error", "Username already exists");
+            modelAndView.addObject("error", "Username não está disponível.");
+            return modelAndView;
+        } else if (authService.isEmailTaken(newUser.getEmail())) {
+            ModelAndView modelAndView = new ModelAndView("signup");
+            modelAndView.addObject("error2", "Email não está disponível.");
+            return modelAndView;
+
+        }
+        else if (!authService.arePasswordsEqual(newUser.getPassword(), newUser.getConfirmPassword())) {
+            ModelAndView modelAndView = new ModelAndView("signup");
+            modelAndView.addObject("error3", "Passwords não coincidem.");
             return modelAndView;
         }
+
         authService.registerUser(newUser.getUsername(), newUser.getPassword(), newUser.getEmail(), newUser.getFirstName(), newUser.getLastName());
 
         return new ModelAndView("redirect:/login");
