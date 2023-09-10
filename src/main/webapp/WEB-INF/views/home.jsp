@@ -24,7 +24,7 @@
             </svg>
         </button>
     </a>
-        <img src="./images/map1.png" width="100%" alt="map placeholder til api">
+        <img class="map" src="./images/map1.png" alt="map placeholder til api">
 
     </div>
     <div class="home-content">
