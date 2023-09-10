@@ -1,0 +1,65 @@
+.home-body{
+    margin: 0;
+    padding: 0;
+    background-color: #041F48;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.home-container{
+    height: 100%;
+    width: 100%
+}
+.menubutton{
+    background-color: #FFFFFF;
+
+}
+.mapbox{
+    background-color: #1F7EB2;
+    min-height: 300px;
+
+}
+.content{
+    background-color: #041F48;
+    margin: -50px 0; /* Para fazer overlap com a div directamente acima*/
+    border-radius: 25px 25px 0 0;
+    position: relative;
+}
+
+.search-box{
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    min-height: 200px;
+    margin: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-bar{
+    text-align: center;
+    min-height: 50px;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+}
+
+.form-button{
+    border:none;
+}
+
+.home-title{
+    color: #000;
+    text-align: center;
+    font-size: 27px;
+    font-style: normal;
+    margin-top: 30px;
+
+
+}
+
+
+
