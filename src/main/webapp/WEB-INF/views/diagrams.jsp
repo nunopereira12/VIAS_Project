@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <a style="display: block" href="http://localhost:8080">
+    <a style="display: block" href="http://localhost:8080/home">
         <button class="arrowbutton">
             <img src="/images/backarrow.png" alt="Go back!" width="30px">
         </button>
