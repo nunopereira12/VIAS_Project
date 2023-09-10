@@ -28,6 +28,14 @@
 
     </div>
     <div class="home-content">
+
+        <div class="imageDesktop">
+            <footer>
+                <img class="imageTopLeft" src="images/logo_nobg.png" alt="">
+            </footer>
+        </div>
+
+
         <div class="search-box">
             <div class="home-title">
                 <h3>Para onde vai?</h3>
