@@ -1,6 +1,5 @@
 package pt.upskill.vias.models;
 
-import pt.upskill.vias.entities.Token;
 
 public class ReplacePassword {
 
