@@ -54,30 +54,30 @@
 
     <div class="info-container">
         <div class="primeiro-nome">
-            <p class="nomes">Primeiro Nome</p>
+            <p id="firstt"><strong>Primeiro Nome</strong></p>
             <hr>
             <strong>${userr.getFirstName()}</strong>
         </div>
         <div class="info">
-            <p class="nomes">Ultimo Nome</p>
+            <p class="nomes"><strong>Ultimo Nome</strong></p>
             <hr>
             <strong>${userr.getLastName()}</strong>
         </div>
 
         <div class="info">
-            <p class="nomes">Data de Nascimento</p>
+            <p class="nomes"><strong>Data de Nascimento</strong></p>
             <hr>
             <strong>${userr.getBirthday()}</strong>
         </div>
 
         <div class="info">
-            <p class="nomes">Username</p>
+            <p class="nomes"><strong>Username</strong></p>
             <hr>
             <strong>${userr.getUsername()}</strong>
         </div>
 
         <div class="info">
-            <p class="nomes">Email</p>
+            <p class="nomes"><strong>Email</strong></p>
             <hr>
             <strong>${userr.getEmail()}</strong>
         </div>
