@@ -43,6 +43,12 @@ public class AuthController {
         return new ModelAndView("passwordrecovery");
     }
 
+
+    //Define o POST para ser enviado o e-mail ao utilizador.
+    //Se o e-mail não existir na base de dados, não é enviado nenhum e-mail.
+    //O e-mail contém um link (hyperlink) para a página de recuperação de password.
+
+
     @PostMapping(value = "/recover_password")
     public ModelAndView passwordRecoveryAction(User user) {
         if (authService.isEmailTaken(user.getEmail())) {
@@ -60,6 +66,11 @@ public class AuthController {
         return new ModelAndView("passwordrecovery2");
     }
 
+
+    //Define o GET para a página de recuperação de password.
+    //Se o token não existir, ou já tiver sido utilizado, ou já tiver expirado, é redirecionado para a página de recuperação de password (envio de e-mail).
+
+
     @GetMapping(value="/passwordrecovery3/{tokenID}")
     public ModelAndView recoverPasswordPage(@PathVariable("tokenID") String tokenID) {
         Token token = recoverPasswordService.getToken(tokenID);
@@ -69,6 +80,12 @@ public class AuthController {
         return new ModelAndView("redirect:/passwordrecovery");
 
     }
+
+    // Define o POST para a página de recuperação de password.
+    // Se as passwords não coincidirem, é redirecionado para a página de recuperação de password (envio de e-mail).
+    // Se o token não existir, ou já tiver sido utilizado, ou já tiver expirado, é redirecionado para a página de recuperação de password (envio de e-mail).
+    // Se tudo estiver correto, a password é alterada e o token é marcado como utilizado.
+
 
     @PostMapping(value="/replace_pw/")
     public ModelAndView replacePassword(ReplacePassword replacePassword, @RequestParam("tokenID") String tokenID ) {
@@ -87,6 +104,10 @@ public class AuthController {
         return new ModelAndView("redirect:/passwordrecovery");
     }
 
+    //Define o POST para o login.
+    //Se o login for bem sucedido, é redirecionado para a página da carteira.
+    //Se o login não for bem sucedido, é redirecionado para a página de login.
+
     @PostMapping(value="/perform_login")
     public ModelAndView login(Login user) {
         User loggedUser = authService.validateLogin(user.getUsername(), user.getPassword());
@@ -95,6 +116,14 @@ public class AuthController {
         }
         return new ModelAndView("login");
     }
+
+
+    //Define o POST para o registo de utilizador.
+    //Se o username já existir na base de dados, é informado desse problema.
+    //Se o e-mail já existir na base de dados, é é informado desse problema.
+    //Se as passwords não coincidirem,  é informado desse problema.
+    //Se tudo estiver correto, o utilizador é registado e é redirecionado para a página de login.
+
 
     @PostMapping(value = "/signup_action")
     public ModelAndView signUp(SignUp newUser) {
