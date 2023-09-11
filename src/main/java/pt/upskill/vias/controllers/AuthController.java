@@ -30,7 +30,6 @@ public class AuthController {
     RecoverPasswordService recoverPasswordService;
 
 
-
     @GetMapping(value = "/login")
     public ModelAndView loginPage() {
         return new ModelAndView("login");
@@ -114,7 +113,7 @@ public class AuthController {
     public ModelAndView login(Login user) {
         User loggedUser = authService.validateLogin(user.getUsername(), user.getPassword());
         if(loggedUser != null) {
-            return new ModelAndView("redirect:/wallet");
+            return new ModelAndView("redirect:/home");
         }
         return new ModelAndView("login");
     }
