@@ -26,8 +26,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
             .csrf()
                 .disable()
             .authorizeRequests()
-                .antMatchers("/login", "/signup", "/").permitAll()
-                .antMatchers("/signup").permitAll()
+                .antMatchers("/login", "/signup").permitAll()
                 .antMatchers("/welcome").permitAll()
                 .antMatchers("/home").permitAll()
                 .antMatchers("/passwordrecovery").permitAll()
@@ -39,9 +38,6 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/diagrams").permitAll()
                 .antMatchers("/wallet").hasRole("USER")
                 .antMatchers("/signup_action").permitAll()
-                .antMatchers("/profile").permitAll()
-                .antMatchers("/edit_profile").permitAll()
-                .antMatchers("/update_user").permitAll()
                 .antMatchers("/vias_league").permitAll()
                 .antMatchers("/admin").permitAll()
                 .antMatchers("/validate").permitAll()
@@ -52,7 +48,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("**").denyAll()
         .and()
             .logout()
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/")
                 .logoutUrl("/logout");
     }
 

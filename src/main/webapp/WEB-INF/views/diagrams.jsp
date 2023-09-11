@@ -62,10 +62,9 @@
 
     <div class="d-grid">
         <div class="d-flex justify-content-center">
-        <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse"
-                data-bs-target="#cp-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">CP -
-            Comboios de Portugal
-        </button>
+            <a href="https://www.cp.pt/StaticFiles/Passageiros/3_viajar/0_servicos/lx/ligacao-cp-metro-lisboa-baixa.pdf" target="_blank">
+        <button class="btn btn-primary slct-buttons" type="button">CP - Comboios de Portugal</button>
+            </a>
         </div>
         <div id="cp-collapse" class="collapse">
             <div class="d-flex justify-content-center">
@@ -73,6 +72,9 @@
             </div>
             <div class="d-flex justify-content-center">
                 <button class="btn btn-primary dwnld-buttons" type="button">Linha de Sintra</button>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Azambuja</button>
             </div>
         </div>
 
