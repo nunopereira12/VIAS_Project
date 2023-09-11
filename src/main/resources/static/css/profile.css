@@ -25,21 +25,33 @@ body {
     flex-direction: column;
 }
 
-@media (min-width: 601px) {
+/*@media (min-width: 601px) {
     .container {
         max-width: 100%;
         min-width: 450px;
     }
 
-   /* .mapa-container {
+   !* .mapa-container {
         height: 500px;
     }
 
     .mapa {
         height: 500px;
-    }*/
-}
+    }*!
+}*/
 
+@media (min-width: 768px) {
+    .container {
+        max-width: 400px; /* Set a maximum width for the container */
+        margin: 0 auto; /* Center the container horizontally */
+        padding: 20px; /* Add some padding to the container */
+    }
+
+    .mapa {
+        /*border-radius: 40px 40px 0 0;*/
+    }
+
+}
 
 .arrowbutton {
     background-color: transparent; /* Set the background to transparent */
