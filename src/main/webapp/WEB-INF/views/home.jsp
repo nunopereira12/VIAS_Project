@@ -136,7 +136,6 @@
                 <img class="imageTopLeft" src="images/logo_nobg.png" alt="">
             </footer>
         </div>
-        <c:choose>
         <div class="search-box">
             <div class="home-title">
                 <h3>Para onde vai?</h3>
