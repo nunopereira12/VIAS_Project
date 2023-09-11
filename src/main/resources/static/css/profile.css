@@ -100,7 +100,7 @@ body {
     top: 50%; /* Center vertically within the parent container */
     left: 50%; /* Center horizontally within the parent container */
     transform: translate(-50%, -50%); /* Center both vertically and horizontally */
-    background: white;
+    background: lightblue;
     border: none;
     cursor: pointer;
     z-index: 1; /* Ensure the button is on top of the image */
@@ -172,6 +172,25 @@ hr {
 
 .nomes {
     color:gray;
+}
+
+
+.buttons {
+    position: relative; /* Position the button relatively */
+}
+
+.buttons svg {
+    position: absolute; /* Position the SVG absolutely within the button */
+    top: 10px; /* Align the SVG to the bottom */
+    right: -24px; /* Align the SVG to the left */
+    width: 46px;
+    height: 42px;
+}
+
+.bottom-right-image {
+    position: absolute; /* Position the image absolutely within the button */
+    bottom: 0px; /* Align the image to the bottom */
+    right: -22px; /* Align the image to the right */
 }
 
 
