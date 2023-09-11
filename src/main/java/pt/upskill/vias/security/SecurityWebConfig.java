@@ -20,7 +20,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
             .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("/wallet")
+                .defaultSuccessUrl("/home")
 
         .and()
             .csrf()
