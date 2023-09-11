@@ -6,7 +6,7 @@ public class SignUp {
     private String firstName;
     private String lastName;
     private String username;
-    private Date DOB;
+    private String DOB;
     private String password;
 
     private String email;
@@ -33,7 +33,7 @@ public class SignUp {
         return username;
     }
 
-    public Date getDOB() {
+    public String getDOB() {
         return DOB;
     }
 
@@ -53,7 +53,7 @@ public class SignUp {
         this.username = username;
     }
 
-    public void setDOB(Date DOB) {
+    public void setDOB(String DOB) {
         this.DOB = DOB;
     }
 

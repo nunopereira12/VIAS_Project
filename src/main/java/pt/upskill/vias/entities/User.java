@@ -3,6 +3,8 @@ package pt.upskill.vias.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -109,6 +111,13 @@ public class User {
     public void setLeague(String league) {
         this.league = league;
     }
+
+
+    public Date parseDate(String date) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        return formatter.parse(date);
+    }
+
 
     @Override
     public String toString() {

@@ -15,6 +15,8 @@ import pt.upskill.vias.services.AuthService;
 import pt.upskill.vias.services.EmailService;
 import pt.upskill.vias.services.RecoverPasswordService;
 
+import java.text.ParseException;
+
 @Controller
 public class AuthController {
 
@@ -126,7 +128,7 @@ public class AuthController {
 
 
     @PostMapping(value = "/signup_action")
-    public ModelAndView signUp(SignUp newUser) {
+    public ModelAndView signUp(SignUp newUser) throws ParseException {
         if (authService.isUsernameTaken(newUser.getUsername())){
             ModelAndView modelAndView = new ModelAndView("signup");
             modelAndView.addObject("error", "Username não está disponível.");
@@ -143,7 +145,8 @@ public class AuthController {
             return modelAndView;
         }
 
-        authService.registerUser(newUser.getUsername(), newUser.getPassword(), newUser.getEmail(), newUser.getFirstName(), newUser.getLastName());
+        authService.registerUser(newUser.getUsername(), newUser.getPassword(),
+                newUser.getEmail(), newUser.getFirstName(), newUser.getLastName(), newUser.getDOB());
 
         return new ModelAndView("redirect:/login");
     }

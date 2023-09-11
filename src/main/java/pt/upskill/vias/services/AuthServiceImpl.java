@@ -8,6 +8,8 @@ import pt.upskill.vias.entities.Role;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.repositories.UserRepository;
 
+import java.text.ParseException;
+
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -55,12 +57,15 @@ public class AuthServiceImpl implements AuthService {
 
 
     @Override
-    public void registerUser(String username, String password, String email, String firstName, String lastName) {
+    public void registerUser(String username, String password, String email, String firstName, String lastName,
+                             String birthday) throws ParseException {
         User user = new User();
         user.setFirstName(firstName);
+        user.setBirthday(user.parseDate(birthday));
         user.setLastName(lastName);
         user.setUsername(username);
         user.setEmail(email);
+
         user.setPassword(passwordEncoder.encode(password));
         user.setRole(Role.USER);
         userRepository.save(user);

@@ -3,6 +3,8 @@ package pt.upskill.vias.services;
 
 import pt.upskill.vias.entities.User;
 
+import java.text.ParseException;
+
 
 public interface AuthService {
     User validateLogin(String username, String password);
@@ -13,7 +15,7 @@ public interface AuthService {
 
 
 
-    void registerUser(String username, String password, String email, String firstName, String lastName);
+    void registerUser(String username, String password, String email, String firstName, String lastName, String birthday) throws ParseException;
 
     User getUserByEmail(String email);
 
