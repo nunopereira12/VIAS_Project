@@ -1,6 +1,5 @@
 package pt.upskill.vias.models;
 
-import java.util.Date;
 
 public class SignUp {
     private String firstName;
