@@ -25,12 +25,20 @@ body {
     flex-direction: column;
 }
 
-/*@media (min-width: 601px) {
+@media (min-width: 601px) {
     .container {
+        max-width: 100%;
         min-width: 450px;
-        margin-top: 80px;
     }
-}*/
+
+   /* .mapa-container {
+        height: 500px;
+    }
+
+    .mapa {
+        height: 500px;
+    }*/
+}
 
 
 .arrowbutton {
@@ -113,7 +121,6 @@ body {
     width: 100%;
     z-index: 4;
     color: white;
-
 }
 
 .info-container {
@@ -144,7 +151,8 @@ body {
 .d-grid {
     margin-left: 40px;
     margin-right: 40px;
-    height: 50px;
+    height: auto;
+
 }
 
 .ultimo-nome {
@@ -154,8 +162,18 @@ body {
 hr {
     height: 1px; /* Set the height to your desired value, for example, 1px */
     background-color: #000; /* Optional: Set the background color if needed */
-    margin: 0 20px 0 20px;
+    margin: 0 20px 10px 20px;
+
 }
+
+.info {
+    margin-top: 20px;
+}
+
+.nomes {
+    color:gray;
+}
+
 
 
 

@@ -31,40 +31,36 @@
 
     <div class="info-container">
         <div class="primeiro-nome">
-            <p>Primeiro Nome</p>
+            <p class="nomes">Primeiro Nome</p>
             <hr>
             <strong>${userr.getFirstName()}</strong>
         </div>
-        <div class="ultimo-nome">
-            <p>Ultimo Nome</p>
+        <div class="info">
+            <p class="nomes">Ultimo Nome</p>
             <hr>
             <strong>${userr.getLastName()}</strong>
         </div>
 
-        <div class="data-nascimento">
-            <p>Data de Nascimento</p>
+        <div class="info">
+            <p class="nomes">Data de Nascimento</p>
             <hr>
-            <strong>${userr.getLastName()}</strong>
+            <strong>${userr.getBirthday()}</strong>
         </div>
 
-        <div class="usernamee">
-            <p>Username</p>
+        <div class="info">
+            <p class="nomes">Username</p>
             <hr>
-            <strong>${userr.getLastName()}</strong>
+            <strong>${userr.getUsername()}</strong>
         </div>
 
-        <div class="emaill">
-            <p>Email</p>
+        <div class="info">
+            <p class="nomes">Email</p>
             <hr>
-            <strong>${userr.getLastName()}</strong>
+            <strong>${userr.getEmail()}</strong>
         </div>
 
     </div>
 </div>
-
-<%--<div class="container">
-
-</div>--%>
 
 
 <div class="footerlogo">

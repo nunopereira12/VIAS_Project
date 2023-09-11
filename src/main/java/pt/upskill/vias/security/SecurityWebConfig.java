@@ -39,6 +39,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/diagrams").permitAll()
                 .antMatchers("/wallet").hasRole("USER")
                 .antMatchers("/signup_action").permitAll()
+                .antMatchers("/profile").permitAll()
                 .antMatchers("/vias_league").permitAll()
                 .antMatchers("/admin").permitAll()
                 .antMatchers("/validate").permitAll()

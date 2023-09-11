@@ -118,6 +118,10 @@ public class User {
         return formatter.parse(date);
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
 
     @Override
     public String toString() {
