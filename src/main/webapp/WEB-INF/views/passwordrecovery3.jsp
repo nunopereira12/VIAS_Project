@@ -21,6 +21,11 @@
             <!-- Hidden input to store the token ID -->
             <input type="hidden" name="tokenID" value="${tokenID}">
             <img class="imagelogo" src="/images/logo_whitebg.png" >
+            <c:if test="${param.error != null}">
+                <div class="alert alert-danger">
+                        <p>Palavras-chave não coincidem!</p>
+                </div>
+            </c:if>
             <div class="mb-3">
                 <label for="password" class="form-label text-start">Password</label>
                 <input type="password" name="password" class="form-control formtext" id="password" placeholder="Inserir a sua nova password" required>

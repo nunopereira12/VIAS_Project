@@ -47,8 +47,14 @@ public class AuthController {
     public ModelAndView passwordRecoveryAction(User user) {
         if (authService.isEmailTaken(user.getEmail())) {
             Token token = recoverPasswordService.generateToken(authService.getUserByEmail(user.getEmail()));
-            emailService.sendRecoveryEmail(user.getEmail(), "Recuperação de Password", "Para repor a sua palavra-chave" +
-                    ", por favor siga o seguinte endereço: http://localhost:8080/passwordrecovery3/" + token.getTokenID());
+
+            String emailContent = "<html><body>" +
+                    "<p>Para repor a sua palavra-chave, por favor, siga o seguinte link:</p>" +
+                    "<a href='http://localhost:8080/passwordrecovery3/" + token.getTokenID() + "'>Recuperação de Password</a>" +
+                    "</body></html>";
+
+
+            emailService.sendRecoveryEmail(user.getEmail(), "Recuperação de Password", emailContent);
         }
 
         return new ModelAndView("passwordrecovery2");
@@ -68,8 +74,14 @@ public class AuthController {
     public ModelAndView replacePassword(ReplacePassword replacePassword, @RequestParam("tokenID") String tokenID ) {
         Token token = recoverPasswordService.getToken(tokenID);
         if(token != null) {
+            if (!authService.arePasswordsEqual(replacePassword.getPassword(), replacePassword.getConfirmPassword())) {
+                ModelAndView modelAndView = new ModelAndView("redirect:/passwordrecovery3/{tokenID}");
+                modelAndView.addObject("error");
+                modelAndView.addObject("tokenID", tokenID);
+                return modelAndView;
+            }
             authService.replacePassword(token.getUser(), replacePassword.getPassword());
-            token.setUsed(true);
+            recoverPasswordService.setTokenUsed(token);
             return new ModelAndView("redirect:/login");
         }
         return new ModelAndView("redirect:/passwordrecovery");

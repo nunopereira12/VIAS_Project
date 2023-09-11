@@ -11,5 +11,7 @@ public interface RecoverPasswordService {
 
     Token getToken(String tokenID);
 
+    void setTokenUsed(Token token);
+
 }
 
