@@ -20,6 +20,16 @@ public class User {
     private int points;
     private String league;
 
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public User(String username, int points) {
         this.username = username;
         this.points = points;

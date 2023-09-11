@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pt.upskill.vias.entities.Role;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.repositories.UserRepository;
 
@@ -61,6 +62,7 @@ public class AuthServiceImpl implements AuthService {
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(passwordEncoder.encode(password));
+        user.setRole(Role.USER);
         userRepository.save(user);
     }
 

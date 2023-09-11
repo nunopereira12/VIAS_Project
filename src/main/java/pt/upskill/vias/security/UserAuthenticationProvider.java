@@ -6,6 +6,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.repositories.UserRepository;
@@ -22,17 +23,22 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        User user = authService.validateLogin((String)authentication.getPrincipal(), (String)authentication.getCredentials());
-        if(user != null) {
+        String username = (String) authentication.getPrincipal();
+        String password = (String) authentication.getCredentials();
+
+        User user = authService.validateLogin(username, password);
+
+        if (user != null){
+
             List<GrantedAuthority> permissions = new ArrayList<>();
-            permissions.add((GrantedAuthority) () -> "ROLE_ADMIN");
-            permissions.add((GrantedAuthority) () -> "ROLE_USER");
+            permissions.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
             return new UsernamePasswordAuthenticationToken(
                     user.getUsername(),
                     user.getPassword(),
                     permissions
-                );
+            );
         }
+
         return null;
     }
 
