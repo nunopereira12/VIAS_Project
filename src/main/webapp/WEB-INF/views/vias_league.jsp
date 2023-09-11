@@ -98,8 +98,6 @@
                 <div id="liga">Liga de Bronze</div>
             </c:when>
         </c:choose>
-        <%--<img class="image_badge center-img" src="/images/badge_gold.png" width="45px">
-        <div id="liga"><p>Liga de Ouro</p></div>--%>
         <hr>
         <div class="table-container">
 

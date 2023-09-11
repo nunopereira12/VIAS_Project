@@ -19,7 +19,7 @@ import java.util.List;
 public class ViasLeagueController {
 
     @Autowired
-    private ViasLeagueService viasLeagueService;
+    ViasLeagueService viasLeagueService;
 
     @Autowired
     private UserRepository userRepository;
