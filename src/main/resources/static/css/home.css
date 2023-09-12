@@ -101,6 +101,13 @@
     background-color: #004A89;
 }
 
+.pica-button{
+}
+
+.pica-search-box{
+    display: none;
+}
+
 .home-title{
     color: #000;
     text-align: center;
@@ -184,10 +191,18 @@
 
     }
 
+    .pica-button{
+        display: flex;
+    }
+
     .footerlogo {
         text-align: center;
         margin-bottom: 3rem;
         display: none;
+    }
+
+    .pica-search-box{
+        display: flex;
     }
 
     /*.footerimage {
