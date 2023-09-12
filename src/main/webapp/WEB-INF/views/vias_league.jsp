@@ -22,7 +22,7 @@
         <input type="radio" id="switchLeaderboard" name="switchPlan" value="Leaderboard"/>
         <label for="switchLeague">
             <div class="centered-content">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
                     <mask id="mask0_39_618" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                           width="30" height="30">
                         <rect width="30" height="30" fill="#D9D9D9"/>
@@ -32,12 +32,12 @@
                               fill="white"/>
                     </g>
                 </svg>
-                <span>My League</span>
+                <span style="margin-left: 5px">My League</span>
             </div>
         </label>
         <label for="switchLeaderboard">
             <div class="centered-content">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none" style="margin-left: 10px">
                     <mask id="mask0_39_633" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                           width="30" height="30">
                         <rect width="30" height="30" fill="#D9D9D9"/>
@@ -47,13 +47,13 @@
                               fill="white"/>
                     </g>
                 </svg>
-                <span>Leaderboard</span>
+                <span style="margin-left: 5px">Líderes</span>
             </div>
         </label>
         <div class="switch-wrapper">
             <div class="switch">
                 <div class="centered-content">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
                         <mask id="mask0_39_618" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                               width="30" height="30">
                             <rect width="30" height="30" fill="#D9D9D9"/>
@@ -66,7 +66,7 @@
                     <span> My League </span>
                 </div>
                 <div class="centered-content">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none" >
                         <mask id="mask0_39_633" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                               width="30" height="30">
                             <rect width="30" height="30" fill="#D9D9D9"/>
@@ -76,7 +76,7 @@
                                   fill="white"/>
                         </g>
                     </svg>
-                    <span> Leaderboard </span>
+                    <span> Líderes </span>
                 </div>
             </div>
         </div>

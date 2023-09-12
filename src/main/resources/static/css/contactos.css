@@ -1,4 +1,156 @@
 .container{
-    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 78%, rgba(255, 255, 255, 1) 60%);
+    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 80%, rgba(255, 255, 255, 1) 60%);
     min-height: auto;
+}
+.content{
+    margin: auto;
+    min-height: 300px;
+}
+
+.contact-box{
+    background-color: white;
+    max-width: 280px;
+    margin: 20px auto 50px;
+    border-radius: 25px;
+    padding: 20px;
+    min-height: 350px;
+}
+
+.form-box-contact{
+    border: 2px solid #041F48;
+    border-radius: 10px;
+    height: 30px;
+    width: 100%;
+}
+
+.form-box-message{
+    border: 2px solid #041F48;
+    border-radius: 10px;
+    height: 70px;
+    width: 100%;
+}
+
+.formtext-contact {
+    text-align: center;
+    font-style: italic;
+    border-radius: 10px;
+    outline: 1.5px solid #041F48;
+    font-size: 14px;
+    color: #444343;
+    opacity: 0.75;
+}
+
+.form-label-contact{
+    text-align: left;
+    display: block;
+}
+
+.form-button-contact{
+    background-color: #1F7EB2;
+    color:#FFFFFF;
+    font-size: 12.5px;
+    border: none;
+    font-weight: 600;
+    width: 100%;
+    padding: 0px;
+    height: 30px;
+}
+
+
+.switches-container {
+    width: 16rem;
+    position: relative;
+    display: flex;
+    padding: 0;
+    background: #1F7EB2;
+    line-height: 3rem;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+}
+
+/* input (radio) for toggling. hidden - use labels for clicking on */
+.switches-container input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+}
+
+/* labels for the input (radio) boxes - something to click on */
+.switches-container label {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+
+}
+
+
+/* switch highlighters wrapper (sliding left / right)
+    - need wrapper to enable the even margins around the highlight box
+*/
+.switch-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    /*padding: 0.15rem;*/
+    z-index: 3;
+    transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+
+    /* transition: transform 1s; */
+}
+
+/* switch box highlighter */
+.switch {
+    border-radius: 10px;
+    background: #004A89;
+    height: 100%;
+}
+
+/*.switch-wrapper {
+    background-color: #004A89;
+}*/
+
+
+.switch div {
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    display: block;
+    color: white ;
+    transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+    will-change: opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* slide the switch box from right to left */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper {
+    transform: translateX(0%);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper {
+    transform: translateX(100%);
+}
+
+/* toggle the switch box labels - first checkbox:checked - show first switch div */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch div:nth-of-type(1) {
+    opacity: 1;
+}
+
+/* toggle the switch box labels - second checkbox:checked - show second switch div */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
+    opacity: 1;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
 }
