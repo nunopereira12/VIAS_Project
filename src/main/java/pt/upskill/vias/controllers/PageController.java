@@ -6,9 +6,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
-    @GetMapping(value = "/contactos")
-    public ModelAndView contactPage() {
-        return new ModelAndView("contactos");
+
+    @GetMapping(value = "/settings")
+    public ModelAndView settingsPage() {
+        return new ModelAndView("settings");
     }
 
 

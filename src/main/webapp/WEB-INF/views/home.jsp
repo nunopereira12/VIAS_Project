@@ -65,7 +65,7 @@
                         <c:when test="${user == null}">
                             <div style="text-align: center">
                                 <li class="nav-item-small" style="margin-top: 200px">
-                                    <a class="nav-link" href="#">Definições</a>
+                                    <a class="nav-link" href="http://localhost:8080/settings">Definições</a>
                                 </li>
                                 <li class="nav-item-small">
                                     <a class="nav-link" href="http://localhost:8080/contactos">Contactos</a>
@@ -91,7 +91,7 @@
                     </li>
                         <div style="text-align: center">
                             <li class="nav-item-small" style="margin-top: 25px">
-                                <a class="nav-link" href="#">Definições</a>
+                                <a class="nav-link" href="http://localhost:8080/settings">Definições</a>
                             </li>
                             <li class="nav-item-small">
                                 <a class="nav-link" href="http://localhost:8080/contactos">Contactos</a>
@@ -117,7 +117,7 @@
                     </li>
                             <div style="text-align: center">
                                 <li class="nav-item-small" style="margin-top: 25px">
-                                    <a class="nav-link" href="#">Definições</a>
+                                    <a class="nav-link" href="http://localhost:8080/settings">Definições</a>
                                 </li>
                                 <li class="nav-item-small">
                                     <a class="nav-link" href="http://localhost:8080/contactos">Contactos</a>

@@ -5,7 +5,7 @@
 <html lang="en">
 <%@include file="header.jsp"%>
 <head>
-    <title>Template</title>
+    <title>VIAS - Contactos</title>
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/contactos.css">
 </head>

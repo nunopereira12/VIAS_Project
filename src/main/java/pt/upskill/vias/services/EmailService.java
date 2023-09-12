@@ -28,6 +28,24 @@ public class EmailService {
 
         }
     }
+   /* public void sendEmail(String to, String subject, String htmlBody) {
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper;
+
+        try {
+            helper = new MimeMessageHelper(message, true);
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(htmlBody, true);
+
+            javaMailSender.send(message);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }*/
+
+
 }
 
 
