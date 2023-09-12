@@ -8,7 +8,7 @@
     <title>Bem-vindo à VIAS</title>
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/home.css">
-    <script src="/js/maps.js" ></script>
+    <%--<script src="/js/maps.js" ></script>--%>
 
 
 
@@ -138,7 +138,17 @@
 </nav>
 
 <div class="home-container">
-    <div class="mapbox" id ="map">
+    <div class="mapbox">
+        <iframe
+                width=100%
+                height=100%
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs
+    &q=Rio+de+Mouro">
+        </iframe>
 
 
     </div>
