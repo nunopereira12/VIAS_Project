@@ -174,7 +174,7 @@ body {
 hr {
     height: 1px; /* Set the height to your desired value, for example, 1px */
     background-color: #000; /* Optional: Set the background color if needed */
-    margin: 0 20px 10px 20px;
+    margin: -8px 20px 10px 20px;
 
 }
 

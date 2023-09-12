@@ -40,6 +40,8 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/wallet").hasRole("USER")
                 .antMatchers("/signup_action").permitAll()
                 .antMatchers("/profile").permitAll()
+                .antMatchers("/edit_profile").permitAll()
+                .antMatchers("/update_user").permitAll()
                 .antMatchers("/vias_league").permitAll()
                 .antMatchers("/admin").permitAll()
                 .antMatchers("/validate").permitAll()

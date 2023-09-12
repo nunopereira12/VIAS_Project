@@ -118,8 +118,23 @@ public class User {
         return formatter.parse(date);
     }
 
+    public Date parseDate2(String date) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return formatter.parse(date);
+    }
+
     public String getFullName() {
         return firstName + " " + lastName;
+    }
+
+    /*public String formatDateToDDMMYY(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(date);
+    }*/
+
+    public String formatDateToDDMMYY(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(date);
     }
 
 

@@ -17,7 +17,7 @@
         </a>
 
         <button class="circle-button">
-            ~~Imagem~~
+            ~Foto Perfil~
             <svg xmlns="http://www.w3.org/2000/svg" width="56" height="52" viewBox="0 0 56 52" fill="none" class="bottom-right-image">
                 <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
                 <mask id="mask0_305_3024" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="14" y="16" width="24" height="24">
@@ -34,7 +34,7 @@
 
     <div class="edit-container">
         <div class="d-grid">
-            <a href="/home" class="btn btn-primary buttons">
+            <a href="/edit_profile" class="btn btn-primary buttons">
                 <svg xmlns="http://www.w3.org/2000/svg" width="56" height="52" viewBox="0 0 56 52" fill="none">
                     <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
                     <mask id="mask0_305_3024" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="14" y="16" width="24" height="24">
@@ -67,7 +67,7 @@
         <div class="info">
             <p class="nomes"><strong>Data de Nascimento</strong></p>
             <hr>
-            <strong>${userr.getBirthday()}</strong>
+            <strong>${userr.formatDateToDDMMYY(userr.getBirthday())}</strong>
         </div>
 
         <div class="info">
