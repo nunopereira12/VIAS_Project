@@ -113,7 +113,7 @@ public class AuthController {
     public ModelAndView login(Login user) {
         User loggedUser = authService.validateLogin(user.getUsername(), user.getPassword());
         if(loggedUser != null) {
-            return new ModelAndView("redirect:/home");
+            return new ModelAndView("home");
         }
         return new ModelAndView("login");
     }

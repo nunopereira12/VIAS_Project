@@ -22,19 +22,29 @@ public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping (value="/home")
+    @GetMapping("/home")
     public ModelAndView homePage(Principal principal) {
         ModelAndView mav = new ModelAndView("home");
-        String loggedInUsername = principal.getName();
-        mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
+
+        if (principal != null) {
+            String loggedInUsername = principal.getName();
+            mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
+        }
+
         return mav;
     }
 
-    @GetMapping(value = "/welcome")
+
+    /*@GetMapping(value = "/welcome")
     public ModelAndView welcomePage() {
         ModelAndView mav = new ModelAndView("welcome");
         return mav;
-    }
+    }*/
 
+    @GetMapping(value="/")
+    public ModelAndView index(){
+        ModelAndView mav = new ModelAndView("welcome");
+        return mav;
+    }
 
 }
