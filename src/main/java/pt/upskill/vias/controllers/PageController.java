@@ -8,9 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class PageController {
     @GetMapping(value = "/contactos")
     public ModelAndView contactPage() {
-        ModelAndView mav = new ModelAndView("contact");
-        return mav;
+        return new ModelAndView("contactos");
     }
+
+
+
+
 
 
 

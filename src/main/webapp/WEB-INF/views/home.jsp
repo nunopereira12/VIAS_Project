@@ -120,7 +120,7 @@
                                     <a class="nav-link" href="#">Definições</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="#">Contactos</a>
+                                    <a class="nav-link" href="http://localhost:8080/contactos">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
                                     <a class="nav-link" href="#">Ajuda</a>
