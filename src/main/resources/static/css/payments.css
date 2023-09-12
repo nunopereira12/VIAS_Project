@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #041F48;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    max-width: 320px;
+    margin-top: 40px;
+    border-radius: 25px;
+    padding: 20px;
+    width: 100%;
+    min-height: auto;
+}
+
+.content {
+    margin: 20px;
+    min-height: 400px;
+}
+
+.title {
+    color: #000;
+    text-align: center;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 1rem;
+}
+
+.subtitle {
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.typeOfPurchase {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
+
+.payment-container {
+    margin-top: 2rem;
+    display: flex;
+    min-width: auto;
+    min-height: auto;
+    height: auto;
+    width: auto;
+    padding: 13px 20px;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #F4F5F9;
+    box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.20);
+}
+
+
+
+
+.arrowbutton {
+    background-color: transparent; /* Set the background to transparent */
+    border: none; /* Remove the button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    padding: 0; /* Remove padding to make the button snug around the image */
+    width: 40px;
+    height: 40px;
+}
+
+.arrowbutton:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+}
+
+
+.footerlogo {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.footerimage {
+    max-width: 50%; /* Adjust the percentage to control the image size */
+    height: auto;
+}
+
+.paymentMethods {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.paymentMethod {
+    margin-bottom: 20px;
+}
+
+.paymentOption {
+margin-right: 1rem;
+}
+
+.buttons {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.totalData {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.totalContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0px 10px 0px;
+    border-top: 1px solid rgba(77, 76, 76, 0.60);
+    border-right: none; /* No right border */
+    border-bottom: none; /* No bottom border */
+    border-left: none; /* No left border */
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.addPromo {
+    color: #000;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.addPromo {
+    margin-right: 15px; /* Add 5px space to the right of the text */
+}
+
+.subTotal {
+    color: #4D4C4C;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#tx {
+    border-top: none;
+    border-bottom: 1px solid rgba(77, 76, 76, 0.60);
+
+}
+
+@media (min-width: 601px) {
+
+    .container {
+        min-width: 450px;
+        margin-top: 80px;
+    }
+
+    .title {
+        font-size: 27px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .typeOfPurchase {
+        font-size: 23px;
+    }
+
+    .totalData {
+        font-size: 25px;
+    }
+
+    .subTotal {
+        font-size: 20px;
+
+    }
+    .addPromo {
+        font-size: 20px;
+    }
+
+
+
+
+}
+

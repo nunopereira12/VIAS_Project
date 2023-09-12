@@ -15,6 +15,7 @@ import pt.upskill.vias.services.AuthService;
 import pt.upskill.vias.services.EmailService;
 import pt.upskill.vias.services.RecoverPasswordService;
 
+import java.security.Principal;
 import java.text.ParseException;
 
 @Controller
@@ -31,16 +32,25 @@ public class AuthController {
 
 
     @GetMapping(value = "/login")
-    public ModelAndView loginPage() {
+    public ModelAndView loginPage(Principal principal) {
+        if(principal != null) {
+            return new ModelAndView("redirect:/home");
+        }
         return new ModelAndView("login");
     }
     @GetMapping(value = "/signup")
-    public ModelAndView signupPage() {
+    public ModelAndView signupPage(Principal principal) {
+        if(principal != null){
+            return new ModelAndView("redirect:/home");
+        }
         return new ModelAndView("signup");
     }
 
     @GetMapping(value = "/passwordrecovery")
-    public ModelAndView passwordRecoveryPage() {
+    public ModelAndView passwordRecoveryPage(Principal principal){
+        if(principal != null){
+            return new ModelAndView("redirect:/home");
+        }
         return new ModelAndView("passwordrecovery");
     }
 

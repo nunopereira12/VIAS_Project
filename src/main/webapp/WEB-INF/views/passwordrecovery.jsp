@@ -11,11 +11,9 @@
 <body>
 
 <div class="container">
-    <a style="display: block" href="/login">
-        <button class="arrowbutton">
-            <img src="/images/backarrow.png" alt="Go back!" width="30px">
-        </button>
-    </a>
+    <button class="arrowbutton" onclick="window.location.href='/login';">
+        <img src="/images/backarrow.png" alt="Go back!" width="30px">
+    </button>
     <p class="title">Recuperar Password</p>
     <div class="content">
         <form class="card p-3" action="/recover_password" method="post" >

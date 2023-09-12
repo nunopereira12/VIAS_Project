@@ -11,11 +11,9 @@
 <body id="login-page">
 
 <div class="container">
-    <a style="display: block" href="/login">
-        <button class="arrowbutton">
-            <img src="/images/backarrow.png" alt="Go back!" width="30px">
-        </button>
-    </a>
+    <button class="arrowbutton" onclick="window.location.href='/login';">
+        <img src="/images/backarrow.png" alt="Go back!" width="30px">
+    </button>
     <div class="content">
         <form action="/replace_pw/" method="POST" class="card p-3">
             <!-- Hidden input to store the token ID -->

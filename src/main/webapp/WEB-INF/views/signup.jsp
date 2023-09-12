@@ -11,11 +11,9 @@
 <body id="login-page">
 
 <div class="container">
-    <a style="display: block" href="/login">
-        <button class="arrowbutton">
-            <img src="/images/backarrow.png" alt="Go back!" width="30px">
-        </button>
-    </a>
+    <button class="arrowbutton" onclick="window.location.href='/home';">
+        <img src="/images/backarrow.png" alt="Go back!" width="30px">
+    </button>
     <div class="content">
         <form action="/signup_action" method="POST" class="card p-3">
             <img class="imagelogo" src="images/logo_whitebg.png" >
