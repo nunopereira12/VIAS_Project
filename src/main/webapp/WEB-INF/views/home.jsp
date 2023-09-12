@@ -146,8 +146,9 @@
                 loading="lazy"
                 allowfullscreen
                 referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs
-    &q=Rio+de+Mouro">
+                src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs
+    &center=38.77851493507939, -9.33226675574515
+    &zoom=12">
         </iframe>
 
 
