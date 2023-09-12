@@ -11,7 +11,11 @@ public class PageController {
     public ModelAndView settingsPage() {
         return new ModelAndView("settings");
     }
-
+    @GetMapping(value="/ajuda")
+    public ModelAndView helpPage() {
+        ModelAndView mav = new ModelAndView("help");
+        return mav;
+    }
 
 
 

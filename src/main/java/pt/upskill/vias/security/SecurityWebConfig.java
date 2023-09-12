@@ -41,6 +41,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/profile").permitAll()
                 .antMatchers("/edit_profile").permitAll()
                 .antMatchers("/update_user").permitAll()
+                .antMatchers("/ajuda").permitAll()
                 .antMatchers("/vias_league").permitAll()
                 .antMatchers("/admin").permitAll()
                 .antMatchers("/validate").hasRole("PICA")

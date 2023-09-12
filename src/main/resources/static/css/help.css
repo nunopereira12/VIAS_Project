@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #041F48;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    max-width: 320px;
+    margin: 20px auto 0;
+    border-radius: 25px;
+    padding: 20px;
+    width: 100%;
+   /* min-height: auto;*/
+}
+
+.content {
+    margin: 20px;
+    min-height: auto;
+}
+
+.title {
+    color: #000;
+    text-align: center;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.dwnld-buttons:hover {
+    background-color: #041F48;
+    color: #FFFFFF;
+    border: #1E1E1E;
+}
+
+.slct-buttons {
+    margin-top: 5px;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    background-color: #FFFFFF;
+    color: #1E1E1E;
+    border-color: #041F48;
+    min-width: 250px;
+    max-width: 100px;
+}
+
+.slct-buttons.selected-button {
+    background-color: #041F48;
+    color: #FFFFFF;
+    border: #1E1E1E;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.slct-buttons:hover {
+    background-color: #041F48 !important;
+    color: #FFFFFF !important;
+    border-color: black !important;
+}
+
+.slct-buttons.selected-button:hover {
+    background-color: #041F48;
+    color: #FFFFFF;
+
+}
+
+
+
+@media (min-width: 768px) {
+    .container {
+        min-width: 450px;
+        margin-top: 80px;
+    }
+
+    .slct-buttons {
+        min-width: 380px;
+    }
+
+    .dwnld-buttons {
+        min-width:304px;
+    }
+}
+
+
+
+.arrowbutton {
+    background-color: transparent; /* Set the background to transparent */
+    border: none; /* Remove the button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    padding: 0; /* Remove padding to make the button snug around the image */
+    width: 40px;
+    height: 40px;
+}
+
+.arrowbutton:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+}
+
+
+.footerlogo {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.footerimage {
+    max-width: 50%; /* Adjust the percentage to control the image size */
+    height: auto;
+}
+
+.text-containerr {
+    background-color: white;
+    border-radius: 25px;
+    padding: 20px;
+    min-width: 250px; /* Set the minimum width to match the button */
+    max-width: 100%; /* Allow the container to grow within the available space */
+    width: 100%;
+    overflow: hidden; /* Hide overflow content */
+}
+
+.max-width-button {
+    max-width: 200px; /* Adjust the desired maximum width */
+    width: 100%; /* Ensure the button takes up the available width */
+    white-space: nowrap; /* Prevent button text from wrapping to the next line */
+    overflow: hidden; /* Hide overflow text if any */
+    text-overflow: ellipsis; /* Add ellipsis (...) for text overflow */
+}
+
+.max-height-button {
+    max-width: 200px; /* Adjust the desired maximum width */
+    height: auto; /* Allow the height to adjust based on content */
+    white-space: normal; /* Allow text to wrap to the next line */
+    overflow: hidden; /* Hide overflow text if any */
+    text-overflow: ellipsis; /* Add ellipsis (...) for text overflow */
+}
+
+.text-containerr {
+    border: 2px solid #041F48;
+    /*padding: 8px;*/ /* Optional: Add padding for spacing */
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    max-width: 100%; /* Allow the container to grow within the available space */
+    width: fit-content; /* Make the container width fit its content */
+    text-align: left; /* Left-align the text */ /* Center the text horizontally */
+}
+
+.d-grid {
+    text-align: center;
+}
+
+p {
+    margin-bottom: 2px;
+    text-align: justify;
+}
+
+
+.selected-button {
+    background-color: #041F48;
+    color: white; /* Text color when selected */
+}
+
+ol {
+    margin-bottom: 0;
+}
+
+
+
