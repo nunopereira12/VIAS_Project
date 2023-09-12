@@ -13,7 +13,7 @@
             <img src="/images/backarrow.png" alt="Go back!" width="30px">
         </button>
     </a>
-    <p class="title">Linhas</p>
+    <p class="title">Horários</p>
 
 
     <%--

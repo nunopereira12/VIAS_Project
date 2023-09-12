@@ -12,7 +12,6 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserAuthenticationProvider userAuthenticationProvider;
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -36,7 +35,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/passwordrecovery3/*").permitAll()
                 .antMatchers("/replace_pw").permitAll()
                 .antMatchers("/replace_pw/*").permitAll()
-                .antMatchers("/diagrams").permitAll()
+                .antMatchers("/diagrams","schedules").permitAll()
                 .antMatchers("/wallet").hasRole("USER")
                 .antMatchers("/signup_action").permitAll()
                 .antMatchers("/profile").permitAll()

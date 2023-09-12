@@ -56,7 +56,7 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item nav-option-big">
-                        <a class="nav-link" href="">Horários</a>
+                        <a class="nav-link" href="http://localhost:8080/schedules">Horários</a>
                     </li>
                     <li class="nav-item nav-option-big">
                         <a class="nav-link" href="http://localhost:8080/diagrams">Linhas</a>
