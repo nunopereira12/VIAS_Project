@@ -50,6 +50,7 @@ public class ProfileController {
             @RequestParam(name = "usernamee", required = false) String newUsername,
             @RequestParam(name = "emaill", required = false) String newEmail
     ) throws ParseException {
+
         String loggedInUsername = principal.getName();
         User user = userRepository.getUserByUsername(loggedInUsername);
 
