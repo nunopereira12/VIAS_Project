@@ -51,7 +51,7 @@
                 <input type="text" name="lastName" class="form-control formtext" id="lastName" value=${userr.getLastName()} disabled required>
             </div>
             <div class="mb-3">
-                <label  for="datee" class="form-label text-start">Data de Nascimento</label>
+                <label  for="datee" class="form-label text-start">Data Nascimento</label>
                 <button class="svg-button float-end toggle-button" type="button" data-attribute="datee">
                     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="42" viewBox="0 0 56 52" fill="none" class="svg-image">
                         <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
