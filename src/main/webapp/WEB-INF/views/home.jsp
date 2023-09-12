@@ -8,10 +8,14 @@
     <title>Bem-vindo à VIAS</title>
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/home.css">
-    <%--<script src="/js/maps.js" ></script>--%>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs"></script>
+
+
+
+
 
 </head>
-<body class="home-body">
+<body class="home-body" onload="initMap()">
 
 <nav class="navbar bg-body-tertiary fixed-top " style="padding: 0">
     <div class="container-fluid">
@@ -142,20 +146,17 @@
 
 <div class="home-container">
     <div class="mapbox">
-        <iframe
-                width=100%
-                height=100%
-                style="border:0"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs
-    &center=38.77851493507939, -9.33226675574515
-    &zoom=12">
-        </iframe>
+
+        <!--The div element for the map -->
+        <div id="map"></div>
+
+
+
+
 
 
     </div>
+
     <div class="home-content">
         <div class="imageDesktop">
             <footer>
@@ -169,7 +170,7 @@
                 <h3>Para onde vai?</h3>
             </div>
             <div>
-                <form>
+                <form id ="directionsForm">
                     <div class="search-bar" style="border-bottom: 2px solid #D9D9D9 ">
                         <input style="border: none" type="text" name="origem" id="origem1" placeholder="A sua origem" required>
                         <button class="form-button"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 41" fill="none">
@@ -183,7 +184,7 @@
                     </div>
                     <div class="search-bar" >
                         <input style="border: none" type="text" name="destino" id="destino1" placeholder="O seu destino" required>
-                        <button class="form-button"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                        <button type="submit" class="form-button"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
                             <mask id="mask0_15_307" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0">
                                 <path d="M0 0.5H30V30.5H0V0.5Z" fill="#FFFFFF"/>
                             </mask>
@@ -225,6 +226,7 @@
             </div>
 
         </div>
+        <div id="instructions"></div>
 
         <a href="http://localhost:8080/wallet"> <button class="wallet-button"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 34 28" fill="none"  style="margin-top: 10px">
             <path d="M17 22.25C17.3797 22.25 17.7061 22.1134 17.9792 21.8403C18.2523 21.5671 18.3889 21.2407 18.3889 20.8611C18.3889 20.4815 18.2523 20.1551 17.9792 19.8819C17.7061 19.6088 17.3797 19.4722 17 19.4722C16.6204 19.4722 16.294 19.6088 16.0209 19.8819C15.7477 20.1551 15.6112 20.4815 15.6112 20.8611C15.6112 21.2407 15.7477 21.5671 16.0209 21.8403C16.294 22.1134 16.6204 22.25 17 22.25ZM17 15.3889C17.3797 15.3889 17.7061 15.2523 17.9792 14.9792C18.2523 14.706 18.3889 14.3796 18.3889 14C18.3889 13.6204 18.2523 13.294 17.9792 13.0208C17.7061 12.7477 17.3797 12.6111 17 12.6111C16.6204 12.6111 16.294 12.7477 16.0209 13.0208C15.7477 13.294 15.6112 13.6204 15.6112 14C15.6112 14.3796 15.7477 14.706 16.0209 14.9792C16.294 15.2523 16.6204 15.3889 17 15.3889ZM17 8.52774C17.3797 8.52774 17.7061 8.39117 17.9792 8.11803C18.2523 7.84489 18.3889 7.5185 18.3889 7.13887C18.3889 6.75925 18.2523 6.43287 17.9792 6.1597C17.7061 5.88656 17.3797 5.74999 17 5.74999C16.6204 5.74999 16.294 5.88656 16.0209 6.1597C15.7477 6.43287 15.6112 6.75925 15.6112 7.13887C15.6112 7.5185 15.7477 7.84489 16.0209 8.11803C16.294 8.39117 16.6204 8.52774 17 8.52774ZM30.889 27.3333H3.11112C2.34724 27.3333 1.6933 27.0613 1.14933 26.5174C0.60536 25.9734 0.333374 25.3195 0.333374 24.5556V18.0834C1.32412 17.9352 2.15514 17.4792 2.82642 16.7153C3.49772 15.9514 3.83337 15.0463 3.83337 14C3.83337 12.9537 3.49772 12.044 2.82642 11.2708C2.15514 10.4977 1.32412 10.0463 0.333374 9.91662V3.44441C0.333374 2.68052 0.60536 2.02659 1.14933 1.48262C1.6933 0.938643 2.34724 0.666656 3.11112 0.666656H30.889C31.6528 0.666656 32.3068 0.938643 32.8508 1.48262C33.3947 2.02659 33.6667 2.68052 33.6667 3.44441V9.91662C32.676 10.0463 31.8449 10.4977 31.1737 11.2708C30.5024 12.044 30.1667 12.9537 30.1667 14C30.1667 15.0463 30.5024 15.9514 31.1737 16.7153C31.8449 17.4792 32.676 17.9352 33.6667 18.0834V24.5556C33.6667 25.3195 33.3947 25.9734 32.8508 26.5174C32.3068 27.0613 31.6528 27.3333 30.889 27.3333ZM30.889 24.5556V20.1111C29.8427 19.4259 28.9977 18.5532 28.3542 17.493C27.7107 16.4329 27.389 15.2685 27.389 14C27.389 12.7315 27.7107 11.5671 28.3542 10.5069C28.9977 9.44675 29.8427 8.57406 30.889 7.88887V3.44441H3.11112V7.88887C4.17596 8.57406 5.0255 9.44675 5.65975 10.5069C6.294 11.5671 6.61112 12.7315 6.61112 14C6.61112 15.2685 6.294 16.4329 5.65975 17.493C5.0255 18.5532 4.17596 19.4259 3.11112 20.1111V24.5556H30.889Z" fill="white"/>
@@ -379,14 +381,14 @@
     </svg><span style="margin-bottom:10px">ID Oficial</span></button></a>
 </c:when>
 </c:choose>
+
 <div class="footerlogo">
     <footer>
         <img class="footerimage" src="images/logo_nobg.png" alt="">
     </footer>
 </div>
-<script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&callback=initMap">
-</script>
+
+<script src="/js/map.js"></script>
 
 </body>
 </html>
