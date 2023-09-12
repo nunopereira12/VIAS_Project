@@ -110,7 +110,6 @@
                 </thead>--%>
                 <tbody>
 
-
                 <c:forEach var="player" items="${players}" varStatus="loopStatus">
                     <tr>
                         <td><strong>${loopStatus.index + 1}</strong></td>

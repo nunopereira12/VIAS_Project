@@ -8,5 +8,4 @@ public class Role {
     public static final String PICA = "PICA";
 
 
-
 }

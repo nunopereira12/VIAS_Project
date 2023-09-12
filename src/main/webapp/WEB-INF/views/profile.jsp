@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp" %>
 <head>
     <title>VIAS | Profile</title>
@@ -57,7 +57,7 @@
             <strong>${userr.getFirstName()}</strong>
         </div>
         <div class="info">
-            <p class="nomes"><strong>Ultimo Nome</strong></p>
+            <p class="nomes"><strong>Último Nome</strong></p>
             <hr>
             <strong>${userr.getLastName()}</strong>
         </div>
