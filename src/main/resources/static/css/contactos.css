@@ -154,3 +154,22 @@
     flex-direction: column;
 
 }
+
+@media (min-width: 601px) {
+    .container {
+        margin-top: 80px;
+    }
+
+    .contact-box {
+        max-width: 380px;
+        vertical-align:middle;
+
+    }
+}
+
+@media (max-width: 768px){
+    .col-md-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+}

@@ -17,6 +17,7 @@
     </button>
     <p class="title">Editar Informações</p>
     <div class="content">
+        <div class="edit-box">
         <form method="post" action="/update_user" id="userForm">
             <div class="mb-3">
                 <label  for="firstName" class="form-label text-start">Primeiro Nome</label>
@@ -99,6 +100,7 @@
                 <button type="submit" class="btn btn-primary buttons">Confirmar Alterações</button>
             </div>
         </form>
+        </div>
     </div>
 
 </div>

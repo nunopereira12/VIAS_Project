@@ -10,10 +10,22 @@
 
 .content {
     font-size: 20px;
+    margin: auto;
+    min-height: 300px;
 }
 
 .container {
+    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 85%, rgba(255, 255, 255, 1) 60%);
     min-height: auto;
+}
+
+.edit-box{
+    background-color: white;
+    max-width: 280px;
+    margin: 50px auto 50px;
+    border-radius: 25px;
+    padding: 20px;
+    min-height: 350px;
 }
 
 .svg-button {

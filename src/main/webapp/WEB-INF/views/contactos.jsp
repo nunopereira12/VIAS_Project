@@ -70,7 +70,7 @@
                         <input class="form-box-contact formtext-contact" type="text" id="name" name="name" placeholder="Insira o seu nome" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label text-start" for="name">E-mail</label>
+                        <label class="form-label text-start" for="email">E-mail</label>
                         <input class="form-box-contact formtext-contact" type="text" id="email" name="email" placeholder="Insira o seu e-mail" required>
                     </div>
                     <div class="mb-3">

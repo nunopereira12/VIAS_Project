@@ -1,0 +1,110 @@
+.container{
+    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 78%, rgba(255, 255, 255, 1) 60%);
+    min-height: auto;
+}
+.content{
+    margin: auto;
+    min-height: 300px;
+}
+
+.settings-box{
+    background-color: white;
+    max-width: 280px;
+    margin: 50px auto 50px;
+    border-radius: 25px;
+    padding: 20px;
+    min-height: 350px;
+}
+
+.button {
+    border-radius: 10px;
+    border: none;
+    background: #FFF;
+    box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.20);
+    padding: 8px 10px 8px 10px;
+    color: #1E1E1E;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+}
+
+/* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 100px;
+    width: 50px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    text-decoration: none;
+    border-radius: 25%;
+
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-google {
+    background: #dd4b39;
+    color: white;
+}
+
+.fa-instagram {
+    background: #ea4c89;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.modalquery{
+    width: 335px;
+
+}
+
+@media (min-width: 601px) {
+    .container {
+        margin-top: 80px;
+    }
+
+    .settings-box {
+        max-width: 380px;
+        vertical-align:middle;
+        text-align: center;
+
+    }
+}
+
+@media (max-width: 768px){
+    .col-md-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+}
+
+
+
+
+
+
