@@ -77,9 +77,9 @@ public class ProfileController {
 
         userRepository.save(user);
 
-        if (newUsername == null) {
-            return new ModelAndView("redirect:/profile");
-        } else return new ModelAndView("redirect:/login");
+        if (newUsername != null || newEmail != null) {
+            return new ModelAndView("redirect:/logout").addObject("redirect", "/login");
+        } else  return new ModelAndView("redirect:/profile");
 
     }
 }
