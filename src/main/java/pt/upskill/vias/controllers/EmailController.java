@@ -23,7 +23,7 @@ public class EmailController {
         String emailContent = "<html><body>" + "<p>Pedido de Contacto por: " +  contact.getName() + " | " +
                 contact.getEmail() + "</p><p>" + contact.getText() + "</p>";
         emailService.sendEmail("the.vias.app@gmail.com", "Pedido de contacto", emailContent);
-        return new ModelAndView("#");
+        return new ModelAndView("/contact_success");
 
     }
 
