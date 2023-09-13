@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #041F48;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.container {
+    /*background-color: white;
+    max-width: 320px;
+    margin-top: 40px;
+    border-radius: 25px;
+    padding: 20px;
+    width: 100%;
+    min-height: 1000px;*/
+    width: 100%;
+    min-height: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/*@media (min-width: 601px) {
+    .container {
+        max-width: 100%;
+        min-width: 450px;
+    }
+
+   !* .mapa-container {
+        height: 500px;
+    }
+
+    .mapa {
+        height: 500px;
+    }*!
+}*/
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 400px; /* Set a maximum width for the container */
+        margin: 0 auto; /* Center the container horizontally */
+        padding: 0px; /* Add some padding to the container */
+    }
+
+    .mapa {
+        /*border-radius: 40px 40px 0 0;*/
+    }
+
+}
+
+.arrowbutton {
+    background-color: transparent; /* Set the background to transparent */
+    border: none; /* Remove the button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    padding: 0; /* Remove padding to make the button snug around the image */
+    width: 40px;
+    height: 40px;
+}
+
+.arrowbutton:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+}
+
+
+.footerlogo {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.footerimage {
+    max-width: 50%; /* Adjust the percentage to control the image size */
+    height: auto;
+}
+
+.mapa-container {
+    /*
+    position: fixed; !* Fixed to the top of the viewport *!
+    */
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    text-align: center; /* Center the content horizontally within the container */
+
+}
+
+.mapa {
+    height: 240px;
+    width: 100%;
+    max-width: 100vw; /* Make sure the image doesn't exceed the viewport width */
+    display: block;
+}
+
+.arrowbutton {
+    position: absolute; /* Position the button relative to the image */
+    top: 10px; /* Adjust the top position as needed */
+    left: 10px; /* Adjust the left position as needed */
+    background: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1; /* Ensure the button is on top of the image */
+
+}
+
+.mapa-shadow {
+    filter: brightness(60%); /* Adjust filter values as needed */
+}
+
+.edit-container {
+    background-color: #041F48;
+    margin-top: -20px;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    z-index: 4;
+    color: white;
+}
+
+.info-container {
+    /*background-color: white;
+    width: auto;
+    text-align: center;
+    !*margin-top: 15px;*!
+    border-radius: 25px;
+    padding: 20px;
+    min-height: 340px;
+    margin-left: 20px;
+    margin-right: 20px;
+*/
+
+    background-color: white;
+    margin-top: -50px;
+    border-radius: 20px;
+    padding: 20px;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    z-index: 4;
+    color: black;
+}
+
+.d-grid {
+    margin-left: 40px;
+    margin-right: 40px;
+    height: auto;
+
+}
+
+.info {
+    margin-top: 20px;
+}
+
+
+.buttons {
+    position: relative; /* Position the button relatively */
+}
+
+.buttons svg {
+    position: absolute; /* Position the SVG absolutely within the button */
+    top: 10px; /* Align the SVG to the bottom */
+    right: -24px; /* Align the SVG to the left */
+    width: 46px;
+    height: 42px;
+}
+
+.bottom-right-image {
+    position: absolute; /* Position the image absolutely within the button */
+    bottom: 0px; /* Align the image to the bottom */
+    right: -22px; /* Align the image to the right */
+}
+
+
+
+
+
+
