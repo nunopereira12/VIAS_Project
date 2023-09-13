@@ -5,6 +5,7 @@
 <head>
     <title>VIAS | Horários</title>
     <link rel="stylesheet" href="/css/diagrams.css">
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 </head>
 <body>
 <div class="container">
@@ -12,50 +13,6 @@
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <p class="title">Horários</p>
-
-
-    <%--
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseTwo">
-                        Accordion Item #2
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
-                        collapse plugin adds the appropriate classes that we use to style each element. These classes
-                        control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                        modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                        just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                        overflow.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseThree">
-                        Accordion Item #3
-                    </button>
-                </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                        collapse plugin adds the appropriate classes that we use to style each element. These classes
-                        control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                        modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                        just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                        overflow.
-                    </div>
-                </div>
-            </div>
-        </div>
-    --%>
 
 
     <div class="d-grid">
@@ -75,13 +32,13 @@
             <div class="d-flex justify-content-center">
                 <a href="https://www.cp.pt/StaticFiles/horarios/urbanos-lisboa/completo-comboios-urbanos-lisboa.pdf"
                    target="_blank">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Azambuja/Sintra</button>
+                    <button class="btn btn-primary dwnld-buttons" type="button">Linha de Azambuja/Sintra</button>
                 </a>
             </div>
             <div class="d-flex justify-content-center">
                 <a href="https://www.cp.pt/StaticFiles/horarios/urbanos-lisboa/comboios-urbanos-lisboa-sado.pdf"
                    target="_blank">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Praias do Sado</button>
+                    <button class="btn btn-primary dwnld-buttons" type="button">Linha de Praias do Sado</button>
                 </a>
             </div>
         </div>
@@ -94,10 +51,9 @@
         </div>
         <div id="carris-collapse" class="collapse">
             <div class="d-flex justify-content-center">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de</button>
-            </div>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de</button>
+                <a href="https://www.carrismetropolitana.pt/horarios/" target="_blank">
+                    <button class="btn btn-primary dwnld-buttons" type="button">Todos os Horários</button>
+                </a>
             </div>
         </div>
 
@@ -109,11 +65,41 @@
         </div>
         <div id="fert-collapse" class="collapse">
             <div class="d-flex justify-content-center">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Cascais</button>
+                <button class="btn btn-primary dwnld-buttons" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#ls-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">Lisboa - Setúbal</button>
+            </div>
+            <div id="ls-collapse" class="collapse">
+                <div class="d-flex justify-content-center">
+                    <a href="https://www.fertagus.pt/DesktopModules/FTWebsite_CoreBusiness/DownloadHandler.ashx?subjectType=1&versao=9&tipo=1&sentido=1&locale=pt-PT"
+                       target="_blank">
+                        <button class="btn btn-primary third-buttons" type="button">Dias Úteis</button>
+                    </a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="https://www.fertagus.pt/DesktopModules/FTWebsite_CoreBusiness/DownloadHandler.ashx?subjectType=1&versao=9&tipo=2&sentido=1&locale=pt-PT"
+                       target="_blank">
+                        <button class="btn btn-primary third-buttons" type="button">Fins de Semana e Feriados</button>
+                    </a>
+                </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Sintra</button>
+                <button class="btn btn-primary dwnld-buttons" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#sl-collapse" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">Setúbal - Lisboa</button>
+            </div> <div id="sl-collapse" class="collapse">
+            <div class="d-flex justify-content-center">
+                <a href="https://www.fertagus.pt/DesktopModules/FTWebsite_CoreBusiness/DownloadHandler.ashx?subjectType=1&versao=10&tipo=1&sentido=2&locale=pt-PT"
+                   target="_blank">
+                    <button class="btn btn-primary third-buttons" type="button">Dias Úteis</button>
+                </a>
             </div>
+            <div class="d-flex justify-content-center">
+                <a href="https://www.fertagus.pt/DesktopModules/FTWebsite_CoreBusiness/DownloadHandler.ashx?subjectType=1&versao=10&tipo=2&sentido=2&locale=pt-PT"
+                   target="_blank">
+                    <button class="btn btn-primary third-buttons" type="button">Fins de Semana e Feriados</button>
+                </a>
+            </div>
+        </div>
+
         </div>
 
         <div class="d-flex justify-content-center">
@@ -123,12 +109,12 @@
                 Transtejo Soflusa
             </button>
         </div>
+
         <div id="ttsl-collapse" class="collapse">
             <div class="d-flex justify-content-center">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de</button>
-            </div>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de</button>
+                <a href="https://ttsl.pt/wp-content/uploads/2020/12/Horarios-TTSL_Todas-as-ligacoes-fluviais-_-2020-_-14-dezembro-2020.pdf" target="_blank">
+                    <button class="btn btn-primary dwnld-buttons" type="button">Todos os Horários</button>
+                </a>
             </div>
         </div>
 
@@ -140,10 +126,9 @@
         </div>
         <div id="metro-collapse" class="collapse">
             <div class="d-flex justify-content-center">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Cascais</button>
-            </div>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-primary dwnld-buttons" type="button">Linha de Sintra</button>
+                <a href="https://www.metrolisboa.pt/viajar/horarios-e-frequencias/" target="_blank">
+                    <button class="btn btn-primary dwnld-buttons" type="button">Todos os Horários</button>
+                </a>
             </div>
         </div>
 
