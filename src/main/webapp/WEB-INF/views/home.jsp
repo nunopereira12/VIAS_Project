@@ -15,7 +15,7 @@
 
 
 </head>
-<body class="home-body" onload="initMap()">
+<body class="home-body" onload="initDirectionsService()">
 
 <nav class="navbar bg-body-tertiary fixed-top " style="padding: 0">
     <div class="container-fluid">
@@ -147,8 +147,17 @@
 <div class="home-container">
     <div class="mapbox">
 
-        <!--The div element for the map -->
-        <div id="map"></div>
+        <iframe
+                width=100%
+                height=100%
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs
+    &center=38.77851493507939, -9.33226675574515
+    &zoom=12">
+        </iframe>
 
 
 
