@@ -97,7 +97,7 @@
 
 
             <div class="d-grid">
-                <button type="submit" class="btn btn-primary buttons">Confirmar Alterações</button>
+                <button type="submit" class="btn btn-primary buttons" style="height: 20px">Confirmar Alterações</button>
             </div>
         </form>
         </div>

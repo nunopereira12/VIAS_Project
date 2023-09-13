@@ -3,13 +3,13 @@
     font-style: italic;
     border-radius: 10px;
     outline: 3px solid #041F48;
-    font-size: 16px;
+    font-size: 15px;
     color: #444343;
     opacity: 0.75;
 }
 
 .content {
-    font-size: 20px;
+    font-size: 18px;
     margin: auto;
     min-height: 300px;
 }
@@ -47,4 +47,23 @@
 
 .hidden {
     display: none;
+}
+
+@media (min-width: 601px) {
+    .container {
+        margin-top: 80px;
+    }
+
+    .edit-box {
+        max-width: 380px;
+        vertical-align:middle;
+
+    }
+}
+
+@media (max-width: 768px){
+    .col-md-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
 }
