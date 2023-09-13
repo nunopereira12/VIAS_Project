@@ -3,6 +3,7 @@ package pt.upskill.vias.services;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public interface DestinationService {
@@ -16,6 +17,8 @@ public interface DestinationService {
     public String tripDistance(JSONObject obj);
     public String tripArrivalTime(JSONObject obj);
     public String tripDepartureTime(JSONObject obj);
+
+    public List<String> tripSteps(JSONObject obj);
 
 
 
