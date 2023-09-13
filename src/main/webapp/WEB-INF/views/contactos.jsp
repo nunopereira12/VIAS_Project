@@ -74,8 +74,8 @@
                         <input class="form-box-contact formtext-contact" type="text" id="email" name="email" placeholder="Insira o seu e-mail" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label text-start" for="texto_id">Mensagem</label>
-                        <textarea class="form-box-contact formtext-contact form-box-message" id="texto_id" name="texto" max_length="500" placeholder="Insira a sua mensagem" required></textarea>
+                        <label class="form-label text-start" for="text_id">Mensagem</label>
+                        <textarea class="form-box-contact formtext-contact form-box-message" id="text_id" name="text" max_length="500" placeholder="Insira a sua mensagem" required></textarea>
                     </div>
                     <div class="d-grid">
                         <button type="submit" id="buttonentry" class="btn btn-primary buttons">
