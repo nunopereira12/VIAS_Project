@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 @Service
-public class DestinationServiceImpl implements DestinationsService {
+public class DestinationServiceImpl implements DestinationService {
 
 
     @Override
@@ -40,6 +40,16 @@ public class DestinationServiceImpl implements DestinationsService {
 
     @Override
     public String tripDistance(JSONObject obj) {
+        return null;
+    }
+
+    @Override
+    public String tripArrivalTime(JSONObject obj) {
+        return null;
+    }
+
+    @Override
+    public String tripDepartureTime(JSONObject obj) {
         return null;
     }
 
