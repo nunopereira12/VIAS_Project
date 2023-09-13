@@ -17,6 +17,15 @@ public class PageController {
         return mav;
     }
 
+    @GetMapping(value = "/validatetitle")
+    public ModelAndView validatetitle() {
+        return new ModelAndView("validatetitle");
+    }
+
+
+
+
+
 
 
 

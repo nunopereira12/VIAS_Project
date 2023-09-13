@@ -91,7 +91,8 @@
 
                 <div>
                     <div>
-                        <button class="addbutton" ><span class="addspan">Validar</span></button>
+                        <a href="http://localhost:8080/validatetitle">
+                        <button class="addbutton" ><span class="addspan">Validar</span></button></a>
                 </div>
                     <div >
                         <div >
