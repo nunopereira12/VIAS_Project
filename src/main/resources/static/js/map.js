@@ -48,7 +48,6 @@ function displayRouteInstructions(route) {
         for (var j = 0; j < leg.steps.length; j++) {
             var step = leg.steps[j];
             var instruction = document.createElement('div');
-
             // Extract and display transit-specific information from the step
             if (step.travel_mode === 'TRANSIT') {
                 instruction.innerHTML = `Apanhar ${step.transit.line.name} (${step.transit.line.vehicle.type})`;

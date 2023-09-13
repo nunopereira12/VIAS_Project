@@ -71,7 +71,7 @@ public class AuthController {
                     "</body></html>";
 
 
-            emailService.sendRecoveryEmail(user.getEmail(), "Recuperação de Password", emailContent);
+            emailService.sendEmail(user.getEmail(), "Recuperação de Password", emailContent);
         }
 
         return new ModelAndView("passwordrecovery2");

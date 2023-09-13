@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
+import pt.upskill.vias.models.Contact;
 import pt.upskill.vias.services.EmailService;
 @Controller
 public class EmailController {
@@ -17,18 +18,14 @@ public class EmailController {
         return new ModelAndView("contactos");
     }
 
-    /*@PostMapping(value = "/recover_password")
-    public ModelAndView sendEmailAction(User user) {
+    @PostMapping(value= "/send_message")
+    public ModelAndView sendMessageAction(Contact contact) {
+        String emailContent = "<html><body>" + "<p>Pedido de Contacto por: " +  contact.getName() + " | " +
+                contact.getEmail() + "</p><p>" + contact.getText() + "</p>";
+        emailService.sendEmail("the.vias.app@gmail.com", "Pedido de contacto", emailContent);
+        return new ModelAndView("#");
 
-        String emailContent = "<html><body>" +
-                "<p>Pedido de contacto por: "+user.getEmail()+"</p>"+"<p>Conteúdo:</p> "+"</body></html>";
-
-        emailService.sendRecoveryEmail("filipaacb@outlook.com", "Pedido de Contacto - "+user.getEmail(), emailContent);
-
-        return new ModelAndView("passwordrecovery2");
-    }*/
-
-
+    }
 
 }
 

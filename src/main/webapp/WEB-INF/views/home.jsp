@@ -146,7 +146,6 @@
 
 <div class="home-container">
     <div class="mapbox">
-
         <iframe
                 width=100%
                 height=100%
@@ -158,12 +157,6 @@
     &center=38.77851493507939, -9.33226675574515
     &zoom=12">
         </iframe>
-
-
-
-
-
-
     </div>
 
     <div class="home-content">
