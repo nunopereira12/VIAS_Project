@@ -129,6 +129,8 @@ public class AuthController {
     }
 
 
+
+
     //Define o POST para o registo de utilizador.
     //Se o username já existir na base de dados, é informado desse problema.
     //Se o e-mail já existir na base de dados, é é informado desse problema.
