@@ -30,7 +30,18 @@ public class DestinationServiceImpl implements DestinationService {
 
     @Override
     public String tripValue(JSONObject obj) {
-        return null;
+
+
+        JSONObject routes = obj.getJSONArray("routes").getJSONObject(0);
+        if (routes.has("fare")) {
+            JSONObject fare = routes.getJSONObject("fare");
+            String fareValue = fare.getString("text");
+            System.out.println(fareValue);
+            return fare.getString("text");
+        } else {
+            return "No fare value";
+        }
+
     }
 
     @Override

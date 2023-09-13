@@ -13,6 +13,11 @@ public class ExerciciosApplication {
 	static DestinationServiceImpl d = new DestinationServiceImpl();
 
 	public static void main(String[] args) throws IOException {
+
+		String obj = d.createPostURL("Lisboa", "Porto");
+		JSONObject obj2 = d.getJSONResponse(obj);
+
+
 		SpringApplication.run(ExerciciosApplication.class, args);
 
 	}
