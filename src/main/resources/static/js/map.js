@@ -4,7 +4,7 @@ var directionsDisplay;
 function initMap() {
     // Initialize the map and other map-related code here
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 38.77547254777985, lng: -9.332182492067211},
+        center: { lat: 38.77547254777985, lng: -9.332182492067211 },
         zoom: 12,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         streetViewControl: false,
@@ -14,8 +14,11 @@ function initMap() {
     });
 
     // Create a DirectionsRenderer and set its map
-    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay = new google.maps.DirectionsRenderer({
+        suppressInfoWindows: true // This suppresses the default info windows
+    });
     directionsDisplay.setMap(map);
+
 
     // Handle form submission when the "Calcular Rota" button is clicked
     document.getElementById('directionsForm').addEventListener('submit', function (event) {
@@ -56,7 +59,7 @@ function initMap() {
         });
     }
 
-    // Function to display step-by-step instructions for a route
+// Function to display step-by-step instructions for a route
     function displayRouteInstructions(route) {
         var instructions = document.getElementById('instructions');
         instructions.innerHTML = ''; // Clear previous instructions
@@ -66,7 +69,17 @@ function initMap() {
             for (var j = 0; j < leg.steps.length; j++) {
                 var step = leg.steps[j];
                 var instruction = document.createElement('div');
-                instruction.innerHTML = `Passo ${j+1}: ` + step.instructions;
+
+                // Extract and display transit-specific information from the step
+                if (step.travel_mode === 'TRANSIT') {
+                    instruction.innerHTML = `Apanhar ${step.transit.line.name} (${step.transit.line.vehicle.type})`;
+                    instruction.innerHTML += ` - ${step.transit.headsign}`;
+                    instruction.innerHTML += ` - Hora de Partida: ${step.transit.departure_time.text}`;
+                    instruction.innerHTML += ` - Operadora: ${step.transit.line.agencies[0].name}`;
+                } else {
+                    // For non-transit steps, display regular instructions
+                    instruction.innerHTML = step.instructions;
+                }
 
                 // Add distance and estimated time
                 var distance = step.distance.text;
