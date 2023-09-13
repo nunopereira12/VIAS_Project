@@ -21,8 +21,8 @@
     border-bottom: 2px solid #D9D9D9;
 
 }.nav-option-small{
-    height: 10px;
-}
+     height: 10px;
+ }
 
 .home-container{
     height: fit-content;
@@ -258,6 +258,7 @@
     background-color: #004A89 ; /* Change to the color you want on hover */
 }
 
+
 @media (max-width: 920px) {
     .imageDesktop {
         display: none;
@@ -269,23 +270,9 @@
 
 }
 
-/*
- * Always set the map height explicitly to define the size of the div element
- * that contains the map.
- */
-/* Set the size of the div element that contains the map */
-#map {
-    height: 100%; /* The height is 400 pixels */
-    width: 100%; /* The width is the width of the web page */
-}
-
 #instructions {
     color: black;
-    background-color:white;
-    margin-top:25px;
-    line-height: 2.5;
-
+    background-color: white;
 }
-
 
 
