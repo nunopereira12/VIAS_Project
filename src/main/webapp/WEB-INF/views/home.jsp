@@ -229,7 +229,7 @@
 
         </div>
         <c:forEach var="step" items="${tripSteps}">
-            <div class="instructions">${step}</div>
+            <div id="instructions">${step}</div>
         </c:forEach>
 
         <a href="http://localhost:8080/wallet"> <button class="wallet-button"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 34 28" fill="none"  style="margin-top: 10px">
