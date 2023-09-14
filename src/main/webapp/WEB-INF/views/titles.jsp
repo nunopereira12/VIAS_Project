@@ -35,8 +35,6 @@
             <div class="carousel">
                 <c:forEach var="ticket" items="${userTickets}" varStatus="loopStatus">
                     <div class="carousel-item carousel-item-transition">
-                        <%--<div class="cartaoIteracao">Cartão #${loopStatus.index +1}</div>--%>
-                        <!-- Display ticket information for each row -->
                         <p id="nrCartao">Nº Cartão - ${ticket.getCardNumber()}</p>
                         <p id="tipoCartao">${ticket.getType()}</p>
                         <p id="validadeCartao">Data de validade: ${ticket.formatDateToDDMMYY(ticket.getExpirationDate())}</p>
