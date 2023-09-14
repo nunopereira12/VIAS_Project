@@ -1,11 +1,10 @@
 package pt.upskill.vias.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class User {
@@ -21,8 +20,9 @@ public class User {
     private String email;
     private int points;
     private String league;
-
     private String role;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TravelCard> travelCards;
 
     public String getRole() {
         return role;

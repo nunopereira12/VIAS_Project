@@ -7,8 +7,41 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
 }
+
+.container {
+    background-color: white;
+    max-width: 320px;
+    margin-top: 40px;
+    border-radius: 25px;
+    padding: 20px;
+    width: 100%;
+    min-height: 1000px;
+}
+
+.content {
+    margin: 20px;
+    min-height: 400px;
+}
+
+.title {
+    color: #000;
+    text-align: center;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+@media (min-width: 601px) {
+    .container {
+        min-width: 380px;
+        margin-top: 80px;
+    }
+}
+
+
 
 .container {
     /*background-color: white;
@@ -41,18 +74,18 @@ body {
     }*!
 }*/
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
     .container {
-        max-width: 400px; /* Set a maximum width for the container */
-        margin: 0 auto; /* Center the container horizontally */
-        padding: 0px; /* Add some padding to the container */
+        max-width: 400px; !* Set a maximum width for the container *!
+        margin: 0 auto; !* Center the container horizontally *!
+        padding: 0px; !* Add some padding to the container *!
     }
 
     .mapa {
-        /*border-radius: 40px 40px 0 0;*/
+        !*border-radius: 40px 40px 0 0;*!
     }
 
-}
+}*/
 
 .arrowbutton {
     background-color: transparent; /* Set the background to transparent */
@@ -105,6 +138,8 @@ body {
     border: none;
     cursor: pointer;
     z-index: 1; /* Ensure the button is on top of the image */
+    margin-left: 20px;
+    margin-top: 20px;
 
 }
 
@@ -123,26 +158,26 @@ body {
 }
 
 .info-container {
-    /*background-color: white;
-    width: auto;
-    text-align: center;
-    !*margin-top: 15px;*!
-    border-radius: 25px;
-    padding: 20px;
-    min-height: 340px;
-    margin-left: 20px;
-    margin-right: 20px;
-*/
 
     background-color: white;
-    margin-top: -50px;
+    margin-top: -20px;
     border-radius: 20px;
     padding: 20px;
     width: auto;
     margin-left: 20px;
     margin-right: 20px;
-    z-index: 4;
+    z-index: 2;
     color: black;
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    /*justify-content: center; !* Center vertically *!*/
+    align-items: center; /* Center horizontally */
+    height: 400px;
+
+    justify-content: flex-start; /* Align content at the top */
+    flex-grow: 0; /* Prevent the container from growing */
+    flex-shrink: 0; /* Prevent the container from shrinking */
+
 }
 
 .d-grid {
@@ -175,7 +210,171 @@ body {
     right: -22px; /* Align the image to the right */
 }
 
+.carousel-container {
+    position: relative;
+    margin-top: 50px;
+}
 
+
+.prev-button, .next-button {
+    position: absolute;
+    margin-top: 32px;
+    /*margin-right: -20px;
+    margin-left: -20px;*/
+   /* transform: translateY(-50%);*/
+    background-color: #1F7EB2;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: #1E1E1E;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.prev-button {
+    left: 0;
+}
+
+.next-button {
+    right: 0;
+}
+
+
+
+.validate-button-container {
+    position: relative;
+    /* top: 130px; !* Adjust the distance from the bottom as needed *!
+     left: 50%; !* Center the button horizontally *!*!
+     transform: translateX(-50%); !* Center the button horizontally */
+    margin-top:110px;
+    font-size: 20px;
+    border-radius: 20px;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; !* Adjust the margin as needed *!*/
+}
+
+.validate-button {
+    align-self: center;
+    border-radius: 10px;
+    border: none;
+    background-color: #1F7EB2;
+    color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    width: 220px;
+    margin-top: 20px;
+    padding: 5px 8px;
+
+}
+
+.carousel-item {
+
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    position: relative; /* Position relative for absolute positioning */
+
+
+
+}
+.carousel-item {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Adjust the duration and ease as needed */
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-item img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container width */
+    position: absolute; /* Position the image absolutely within its container */
+    top: 50%; /* Vertically center the image within the container */
+    left: 50%; /* Horizontally center the image within the container */
+    transform: translate(-50%, -50%); /* Center the image precisely */
+    z-index: 0; /* Place the image behind the text */
+}
+
+.carousel-item h2,
+.carousel-item p,
+.carousel-item #nrCartao2{
+    position: relative; /* Reset positioning for text elements */
+    z-index: 1; /* Place the text above the image */
+    margin: 0; /* Remove default margins */
+}
+
+
+.ticket-image {
+    width: 250px;
+}
+
+#frase {
+    font-size: 21px;
+    color: #041F48;
+}
+
+.carousel-item #validade2 {
+    align-self: center;
+}
+
+.carousel-item-transition {
+    transition: opacity 0.5s ease; /* Adjust the duration and ease as needed */
+}
+
+
+.cartaoIteracao {
+    z-index: 2;
+    margin-top: -200px;
+}
+
+.mid-container {
+    color: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+hr {
+    margin-top: -10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#nrCartao {
+    position: relative;
+    top: 27px;
+    left: 25px;
+    font-size: 10px;
+    color:white;
+}
+
+#tipoCartao {
+    position: relative;
+    right: -210px;
+    font-size: 10px;
+    color:white;
+    bottom: 60px;
+
+}
+
+#validadeCartao {
+    position: relative;
+    top: 22px;
+    left: 25px;
+    font-size: 10px;
+    color:white;
+}
+
+#nrCartao2 {
+    position: relative;
+    top: 110px;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+}
 
 
 
