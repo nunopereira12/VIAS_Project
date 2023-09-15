@@ -19,7 +19,7 @@
             <img class="imagelogo" src="images/logo_whitebg.png" alt="VIAS logo with white BG">
             <c:if test="${param.error != null}">
                 <div class="alert alert-danger">
-                        Credenciais incorrectas.
+                        Credenciais incorrectas ou Utilizador inactivo.
                 </div>
             </c:if>
             <div class="mb-3">

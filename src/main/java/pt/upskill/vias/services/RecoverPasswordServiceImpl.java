@@ -53,7 +53,9 @@ public class RecoverPasswordServiceImpl implements RecoverPasswordService {
 
     @Override
     public void setTokenUsed(Token token) {
+
         token.setUsed(true);
+        System.out.println(token.isUsed());
         tokenRepository.save(token);
     }
 

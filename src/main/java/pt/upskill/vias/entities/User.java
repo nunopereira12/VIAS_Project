@@ -21,6 +21,8 @@ public class User {
     private int points;
     private String league;
     private String role;
+    private boolean activated;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TravelCard> travelCards;
 
@@ -112,6 +114,17 @@ public class User {
         this.league = league;
     }
 
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public void setActivated(boolean activated) {
+        this.activated = activated;
+    }
+
+    public List<TravelCard> getTravelCards() {
+        return travelCards;
+    }
 
     public Date parseDate(String date) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

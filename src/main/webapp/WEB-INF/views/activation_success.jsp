@@ -5,21 +5,23 @@
 <html lang="en">
 <%@include file="header.jsp"%>
 <head>
-    <title>VIAS | Contacto</title>
+    <title>VIAS | Ativação com sucesso</title>
     <link rel="stylesheet" href="/css/passwordrecovery.css">
 </head>
 <body id="login-page">
 
 <div class="container">
-    <button class="arrowbutton" onclick="window.location.href='/contactos';">
+    <button class="arrowbutton" onclick="window.location.href='/login';">
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <div class="content">
-            <div class="image-container">
-                <img class="imagelogo" src="images/logo_whitebg.png" >
-            </div>
-            <p class="title">E-mail enviado.</p>
-            <p class="subtitle-text">Agradecemos o seu contacto. Iremos responder o mais brevemente possível!</p>
+
+        <div class="image-container">
+            <img class="imagelogo" src="/images/logo_whitebg.png" >
+        </div>
+
+        <p class="title">Obrigado </p>
+        <p class="subtitle-text">A sua conta foi ativada. Pode pressionar no botão retroceder e proceder ao login.</p>
 
     </div>
 </div>

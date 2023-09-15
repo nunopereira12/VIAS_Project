@@ -30,9 +30,9 @@ public class AuthServiceImpl implements AuthService {
         User userEmail = userRepository.getUserByEmail(username);
 
 
-        if(user != null && passwordEncoder.matches(password, user.getPassword())) {
+        if(user != null && user.isActivated() && passwordEncoder.matches(password, user.getPassword())) {
             return user;
-        }  else if (userEmail != null && passwordEncoder.matches(password, userEmail.getPassword())) {
+        }  else if (userEmail != null && userEmail.isActivated() && passwordEncoder.matches(password, userEmail.getPassword())) {
             return userEmail;
         }
 
@@ -66,6 +66,7 @@ public class AuthServiceImpl implements AuthService {
         user.setUsername(username);
         user.setEmail(email);
 
+
         user.setPassword(passwordEncoder.encode(password));
         user.setRole(Role.USER);
         userRepository.save(user);
@@ -79,6 +80,12 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public void replacePassword(User user, String password) {
         user.setPassword(passwordEncoder.encode(password));
+        userRepository.save(user);
+    }
+
+    @Override
+    public void activateUser(User user) {
+        user.setActivated(true);
         userRepository.save(user);
     }
 

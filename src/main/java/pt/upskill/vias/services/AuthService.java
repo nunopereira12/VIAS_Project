@@ -20,4 +20,6 @@ public interface AuthService {
     User getUserByEmail(String email);
 
     void replacePassword(User user, String password);
+
+    void activateUser(User user);
 }

@@ -11,6 +11,8 @@ import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.Login;
 import pt.upskill.vias.models.ReplacePassword;
 import pt.upskill.vias.models.SignUp;
+import pt.upskill.vias.repositories.TokenRepository;
+import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.AuthService;
 import pt.upskill.vias.services.EmailService;
 import pt.upskill.vias.services.RecoverPasswordService;
@@ -29,6 +31,8 @@ public class AuthController {
 
     @Autowired
     RecoverPasswordService recoverPasswordService;
+
+
 
 
     @GetMapping(value = "/login")
@@ -119,6 +123,7 @@ public class AuthController {
     //Se o login for bem sucedido, é redirecionado para a página da carteira.
     //Se o login não for bem sucedido, é redirecionado para a página de login.
 
+
     @PostMapping(value="/perform_login")
     public ModelAndView login(Login user) {
         User loggedUser = authService.validateLogin(user.getUsername(), user.getPassword());
@@ -136,6 +141,10 @@ public class AuthController {
     //Se o e-mail já existir na base de dados, é é informado desse problema.
     //Se as passwords não coincidirem,  é informado desse problema.
     //Se tudo estiver correto, o utilizador é registado e é redirecionado para a página de login.
+    //O utilizador só pode fazer login depois de ativar a conta.
+    //O utilizador recebe um e-mail com um link (hyperlink) para ativar a conta.
+    //O link (hyperlink) tem um token que é gerado e guardado na base de dados.
+
 
 
     @PostMapping(value = "/signup_action")
@@ -159,7 +168,31 @@ public class AuthController {
         authService.registerUser(newUser.getUsername(), newUser.getPassword(),
                 newUser.getEmail(), newUser.getFirstName(), newUser.getLastName(), newUser.getDOB());
 
-        return new ModelAndView("redirect:/login");
+
+        Token token = recoverPasswordService.generateToken(authService.getUserByEmail(newUser.getEmail()));
+
+        String emailContent = "<html><body>" +
+                "<p>Para ativar a sua conta, por favor, siga o seguinte link:</p>" +
+                "<a href='http://localhost:8080/activation_success/" + token.getTokenID() + "'>Ativar conta</a>" +
+                "</body></html>";
+
+
+        emailService.sendEmail(newUser.getEmail(), "Ativação da conta", emailContent);
+
+
+        return new ModelAndView("register_success");
     }
+
+    @GetMapping(value = "/activation_success/{tokenID}")
+    public ModelAndView activationSuccess(@PathVariable("tokenID") String tokenID) {
+        Token token = recoverPasswordService.getToken(tokenID);
+        if(token != null && !token.isUsed() && !token.isExpired()) {
+            authService.activateUser(token.getUser());
+            recoverPasswordService.setTokenUsed(token);
+            return new ModelAndView("activation_success");
+        }
+        return new ModelAndView("redirect:/home");
+    }
+
 
 }
