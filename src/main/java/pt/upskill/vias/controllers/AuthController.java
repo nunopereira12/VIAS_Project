@@ -11,8 +11,6 @@ import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.Login;
 import pt.upskill.vias.models.ReplacePassword;
 import pt.upskill.vias.models.SignUp;
-import pt.upskill.vias.repositories.TokenRepository;
-import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.AuthService;
 import pt.upskill.vias.services.EmailService;
 import pt.upskill.vias.services.RecoverPasswordService;
