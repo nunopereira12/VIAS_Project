@@ -1,8 +1,19 @@
 .button-box{
     min-width: 280px;
     margin-top: 20px;
-
 }
+
+.suggestions-content{
+    background-color: #041F48;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 150px 0 0 0; /* Para fazer overlap com a div directamente acima*/
+    border-radius: 25px 25px 0 0;
+    position: relative;
+}
+
 .button{
     width: 100%;
     background-color: #1F7EB2;
@@ -16,21 +27,52 @@
 
 .suggestions-box{
     background-color: white;
-    mix-width: 250px;
-    margin: 50px 20px;
+    min-width: 230px;
+    margin: 50px 10px;
     border-radius: 25px;
     padding: 20px;
-    min-height: 350px;
+    height: auto;
+}
+
+.card-box{
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 30px;
 }
 
 .card{
     background-color: white;
-    margin: 50px 20px;
-    border: #4D4C4C solid 1px;
-    border-radius: 25px;
-    padding: 20px;
-    width: auto;
+    margin: 25px 20px 0 20px;
+    border: none;
+    border-radius: 15px;
+    min-height: 100px;
+    min-width: 250px;
+    box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.30);
 
+}
+.card-button{
+    min-width:245px;
+    background-color: #1F7EB2;
+    margin: -12px auto;
+    height: auto;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+}
+
+.arrowbutton{
+    position: absolute;
+    top:15px;
+    left:15px;
+    background-color: #ffffff;
 }
 
 
@@ -38,5 +80,33 @@
     .suggestions-box{
         min-width: auto;
     }
+
+    .date-hour-box {
+        display: revert;
+        margin:auto;
+        text-align: center;
+        align-items: center;
+    }
+
+}
+
+@media (min-width: 920px) {
+    .suggestions-content{
+        background-color: #041F48;
+        height:100%;
+        width: 30%;
+        position:absolute;
+        align-items: center;
+        bottom: 0;
+        border-radius: 0;
+        overflow: scroll;
+    }
+
+    .date-hour-box {
+        margin:auto;
+        text-align: center;
+        align-items: center;
+    }
+
 
 }
