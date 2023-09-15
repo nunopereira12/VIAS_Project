@@ -182,7 +182,7 @@
                               fill="white"/>
                     </g>
                 </svg>
-                <span style="margin-left: 10px">My League</span>
+                <span class="font-buttons" style="margin-left: 10px">My League</span>
 
             </div>
 
@@ -199,7 +199,7 @@
                               fill="white"/>
                     </g>
                 </svg>
-                <span style="margin-left: 10px">Leaderboard</span>
+                <span class="font-buttons" style="margin-left: 10px">Leaderboard</span>
             </div>
 
         </button>

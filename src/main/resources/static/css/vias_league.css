@@ -9,7 +9,7 @@
 
 .list-container {
     background-color: #ffffff; /* Set the background color for the container */
-    border-radius: 20px 20px 0 0; /* Apply border radius only to the top */
+    border-radius: 20px 20px 5px 5px; /* Apply border radius only to the top */
     padding: 20px; /* Add padding for spacing inside the container */
     text-align: left; /* Adjust text alignment as needed */
     max-width: 100%; /* Set the maximum width to match the previous container */
@@ -252,11 +252,17 @@ button:hover {
     .list-button {
         margin: 0 5px; /* Adjust the horizontal margin to make them closer */
     }
+
+    .font-buttons {
+        font-size: 10px;
+    }
 }
 
 .table td {
     box-sizing: border-box;
 }
+
+
 
 
 

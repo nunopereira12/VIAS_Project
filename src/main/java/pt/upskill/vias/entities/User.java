@@ -40,7 +40,9 @@ public class User {
         this.league = "Silver";
     }
 
-    public User() {}
+    public User() {
+        this.league = "Silver";
+    }
 
     public long getId() {
         return id;
