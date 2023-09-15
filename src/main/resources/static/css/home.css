@@ -120,6 +120,10 @@
     width:100%
 }
 
+.searchquery {
+    visibility: hidden;
+}
+
 @media (min-width: 920px) {
     .home-body{
         margin: 0;
@@ -213,6 +217,10 @@
 
     .imageDesktop {
         margin-top : 50px;
+    }
+
+    .searchquery {
+        visibility: visible;
     }
 
 }

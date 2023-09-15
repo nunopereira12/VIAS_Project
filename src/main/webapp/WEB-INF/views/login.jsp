@@ -13,7 +13,6 @@
     <button class="arrowbutton" onclick="window.location.href='/home';">
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
-    </a>
     <div class="content">
         <form action="/perform_login" method="post" class="card p-3">
             <img class="imagelogo" src="images/logo_whitebg.png" alt="VIAS logo with white BG">

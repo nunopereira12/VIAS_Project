@@ -12,6 +12,7 @@ import pt.upskill.vias.services.HomeService;
 import java.io.IOException;
 import java.security.Principal;
 
+
 @Controller
 public class HomeController {
 
