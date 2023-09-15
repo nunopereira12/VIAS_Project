@@ -9,11 +9,11 @@
 </head>
 <body>
 <div class="container">
-    <a style="display: block" href="http://localhost:8080/home">
-        <button class="arrowbutton">
+
+        <button class="arrowbutton" onclick="window.history.back();">
             <img src="/images/backarrow.png" alt="Go back!" width="30px">
         </button>
-    </a>
+
     <p class="title">FAQs</p>
 
     <div class="d-grid">

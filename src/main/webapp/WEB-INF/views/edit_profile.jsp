@@ -12,7 +12,7 @@
 <body>
 
 <div class="container">
-    <button class="arrowbutton" onclick="window.location.href='/home';">
+    <button class="arrowbutton" onclick="window.history.back();">
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <p class="title">Editar Informações</p>
