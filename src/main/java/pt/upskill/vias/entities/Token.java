@@ -9,11 +9,8 @@ public class Token {
     @Id
     @GeneratedValue
     private Long id;
-
     @OneToOne
     private User user;
-
-
     private String tokenID;
     private Date timestamp;
 

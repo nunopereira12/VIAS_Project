@@ -36,10 +36,9 @@ public class DestinationServiceImpl implements DestinationService {
         return new JSONObject(response);
     }
 
+       
     @Override
     public String tripValue(JSONObject obj) {
-
-
         JSONObject routes = obj.getJSONArray("routes").getJSONObject(0);
         if (routes.has("fare")) {
             JSONObject fare = routes.getJSONObject("fare");
