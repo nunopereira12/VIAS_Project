@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="/css/home.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs"></script>
 
-
-
-
-
 </head>
 <body class="home-body" onload="initDirectionsService()">
 

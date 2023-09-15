@@ -33,6 +33,10 @@ public class TitlesController {
         cards.add(t2);
         cards.add(t3);
 
+        if(principal == null) {
+            return new ModelAndView("login");
+        }
+
         mav.addObject("userTickets", cards);
         return mav;
     }
