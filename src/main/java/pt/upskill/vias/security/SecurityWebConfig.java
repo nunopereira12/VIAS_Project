@@ -28,7 +28,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login", "/signup", "/", "/payments","/settings","/validatetitle", "/perform_travel").permitAll()
                 .antMatchers("/signup", "/activation_success", "/register_success", "/activation_success/**").permitAll()
                 .antMatchers("/welcome").permitAll()
-                .antMatchers("/home","/suggestions").permitAll()
+                .antMatchers("/home","/suggestions", "/traveldetails").permitAll()
                 .antMatchers("/passwordrecovery").permitAll()
                 .antMatchers("/recover_password").permitAll()
                 .antMatchers("/passwordrecovery2").permitAll()

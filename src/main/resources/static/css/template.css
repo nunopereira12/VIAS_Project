@@ -42,12 +42,13 @@ body {
 
 
 .arrowbutton {
-    background-color: transparent; /* Set the background to transparent */
+    background-color: white; /* Set the background to transparent */
     border: none; /* Remove the button border */
     cursor: pointer; /* Add a pointer cursor on hover */
     padding: 0; /* Remove padding to make the button snug around the image */
     width: 40px;
     height: 40px;
+
 }
 
 .arrowbutton:hover {

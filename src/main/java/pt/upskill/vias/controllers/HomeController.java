@@ -61,6 +61,14 @@ public class HomeController {
         return mav;
     }
 
+    @GetMapping(value="/traveldetails")
+    public ModelAndView travelDetailsPage(){
+        ModelAndView mav = new ModelAndView("traveldetails");
+        return mav;
+    }
+
+
+
     @PostMapping(value="/perform_travel")
     public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
 

@@ -1,0 +1,98 @@
+.button-box{
+    min-width: 280px;
+    margin-top: 20px;
+
+}
+.button{
+    width: 100%;
+    background-color: #1F7EB2;
+    height: 50px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    margin: 10px auto;
+
+}
+
+.suggestions-box{
+    background-color: white;
+    min-width: 250px;
+    margin: 50px 20px;
+    border-radius: 25px;
+    padding: 20px;
+    min-height: auto;
+}
+
+.detailed-card{
+    background-color: white;
+    margin: 50px 20px;
+    border: #4D4C4C solid 1px;
+    border-radius: 25px;
+    padding: 20px;
+    width: auto;
+
+}
+
+.card{
+    background-color: white;
+    margin: 50px 20px;
+    border: #4D4C4C solid 1px;
+    border-radius: 25px;
+    padding: 20px;
+    width: auto;
+
+}
+
+
+@media (max-width: 920px) {
+    .suggestions-box{
+        min-width: auto;
+    }
+
+
+}
+
+
+
+.home-content {
+    scrollbar-width: none; /* tira no firefox */
+    -ms-overflow-style: none; /* tira no ie e edge */
+}
+
+.home-content::-webkit-scrollbar {
+    display: none; /* tira no chrome e restantes browsers*/
+}
+
+.arrowbutton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+}
+
+@media(min-width: 920px) {
+    .arrowbutton {
+        display: none;
+    }
+    .home-content {
+        overflow: auto;
+    }
+
+}
+
+.button-box-travel {
+    display: flex;
+    justify-content: center;
+
+}
+
+.button-travel {
+    width: auto;
+    background-color: #1F7EB2;
+    height: 50px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    margin: 10px 12px auto auto;
+
+}
