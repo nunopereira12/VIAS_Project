@@ -20,6 +20,7 @@
         <div class="switches-container" style="margin-top: 50px">
             <input type="radio" id="switchLeague" name="switchPlan" value="My League Logo" checked="checked"/>
             <input type="radio" id="switchLeaderboard" name="switchPlan" value="Leaderboard"/>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <label for="switchLeague">
                 <div class="centered-content">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 31 30" fill="none">
@@ -32,7 +33,8 @@
                     </svg>
                     <span style="margin-left: 5px">E-mail</span>
                 </div>
-            </label>
+            </label></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <label for="switchLeaderboard">
                 <div class="centered-content">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 21 20" fill="none">
@@ -40,7 +42,7 @@
                     </svg>
                     <span>Whatsapp</span>
                 </div>
-            </label>
+            </label></button>
             <div class="switch-wrapper">
                 <div class="switch">
                     <div class="centered-content">
@@ -63,28 +65,70 @@
                 </div>
             </div>
         </div>
-        <div class="contact-box">
-                <form action="/send_message" method="POST">
-                    <div class="mb-3">
-                        <label class="form-label text-start" for="name">Nome</label>
-                        <input class="form-box-contact formtext-contact" type="text" id="name" name="name" placeholder="Insira o seu nome" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-start" for="email">E-mail</label>
-                        <input class="form-box-contact formtext-contact" type="email" id="email" name="email" placeholder="Insira o seu e-mail" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-start" for="text_id">Mensagem</label>
-                        <textarea class="form-box-contact formtext-contact form-box-message" id="text_id" name="text" max_length="500" placeholder="Insira a sua mensagem" required></textarea>
-                    </div>
-                    <div class="d-grid">
-                        <button type="submit" id="buttonentry" class="btn btn-primary buttons">
-                            Enviar
-                        </button>
-                    </div>
-                </form>
+        <!--- Carousel atempt --->
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="contact-box">
+                        <form action="/send_message" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label text-start" for="name">Nome</label>
+                                <input class="form-box-contact formtext-contact" type="text" id="name" name="name" placeholder="Insira o seu nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-start" for="email">E-mail</label>
+                                <input class="form-box-contact formtext-contact" type="email" id="email" name="email" placeholder="Insira o seu e-mail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-start" for="text_id">Mensagem</label>
+                                <textarea class="form-box-contact formtext-contact form-box-message" id="text_id" name="text" max_length="500" placeholder="Insira a sua mensagem" required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" id="buttonentry" class="btn btn-primary buttons">
+                                    Enviar
+                                </button>
+                            </div>
+                        </form>
 
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="contact-box">
+                            <form action="/send_message" method="POST">
+                                <div class="mb-3">
+                                    <label class="form-label text-start" for="name">Nome</label>
+                                    <input class="form-box-contact formtext-contact" type="text" id="name1" name="name" placeholder="Insira o seu nome" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-start" for="number">Número de Telemóvel</label>
+                                    <input class="form-box-contact formtext-contact" type="number" id="number" name="number" placeholder="Insira o seu número de telemóvel" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-start" for="text_id">Mensagem</label>
+                                    <textarea class="form-box-contact formtext-contact form-box-message" id="text_id1" name="text" max_length="500" placeholder="Insira a sua mensagem" required></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" id="buttonentry1" class="btn btn-primary buttons">
+                                        Enviar
+                                    </button>
+                                </div>
+                            </form>
+
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
+
+
 
     </div>
 
