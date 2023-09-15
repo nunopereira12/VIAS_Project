@@ -12,7 +12,7 @@ import pt.upskill.vias.models.Login;
 import pt.upskill.vias.models.ReplacePassword;
 import pt.upskill.vias.models.SignUp;
 import pt.upskill.vias.services.AuthService;
-import pt.upskill.vias.services.EmailService;
+import pt.upskill.vias.services.EmailServiceImpl;
 import pt.upskill.vias.services.RecoverPasswordService;
 
 import java.security.Principal;
@@ -25,7 +25,7 @@ public class AuthController {
     AuthService authService;
 
     @Autowired
-    private EmailService emailService;
+    private EmailServiceImpl emailServiceImpl;
 
     @Autowired
     RecoverPasswordService recoverPasswordService;
@@ -73,7 +73,7 @@ public class AuthController {
                     "</body></html>";
 
 
-            emailService.sendEmail(user.getEmail(), "Recuperação de Password", emailContent);
+            emailServiceImpl.sendEmail(user.getEmail(), "Recuperação de Password", emailContent);
         }
 
         return new ModelAndView("passwordrecovery2");
@@ -175,7 +175,7 @@ public class AuthController {
                 "</body></html>";
 
 
-        emailService.sendEmail(newUser.getEmail(), "Ativação da conta", emailContent);
+        emailServiceImpl.sendEmail(newUser.getEmail(), "Ativação da conta", emailContent);
 
 
         return new ModelAndView("register_success");

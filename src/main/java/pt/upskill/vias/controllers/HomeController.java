@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.repositories.UserRepository;
-import pt.upskill.vias.services.DestinationService;
+import pt.upskill.vias.services.routes.RoutesService;
+import pt.upskill.vias.services.routes.info.LegInfoService;
 import pt.upskill.vias.services.HomeService;
+import pt.upskill.vias.services.routes.info.RoutesRequestService;
 
 import java.io.IOException;
 import java.security.Principal;
@@ -23,7 +25,10 @@ public class HomeController {
     private UserRepository userRepository;
 
     @Autowired
-    DestinationService destinationService;
+    RoutesService routesService;
+
+    @Autowired
+    RoutesRequestService routesRequestService;
 
     @GetMapping("/home")
     public ModelAndView homePage(Principal principal) {
@@ -63,14 +68,14 @@ public class HomeController {
             String loggedInUsername = principal.getName();
             ModelAndView mav = new ModelAndView("home");
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
-            mav.addObject("tripSteps", destinationService.tripSteps(destinationService.getJSONResponse(destinationService.createPostURL(origem, destino))));
+            mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
             return mav;
 
             //return new ModelAndView("redirect:/suggestions");
         }
 
         ModelAndView mav = new ModelAndView("home");
-        mav.addObject("tripSteps", destinationService.tripSteps(destinationService.getJSONResponse(destinationService.createPostURL(origem, destino))));
+        mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
         return mav;
 
         //return new ModelAndView("redirect:/suggestions");
