@@ -75,8 +75,8 @@ img {
 }
 
 .circle {
-    width: 27px; /* Adjust the size of the circle */
-    height: 27px; /* Adjust the size of the circle */
+    width: 31px; /* Adjust the size of the circle */
+    height: 31px; /* Adjust the size of the circle */
     border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
     overflow: hidden; /* Hide the parts of the image outside the circle */
 }
@@ -160,31 +160,6 @@ img {
     left: 0;
 }
 
-/* slide the switch box from right to left */
-.switches-container input:nth-of-type(1):checked~.switch-wrapper {
-    transform: translateX(0%);
-}
-
-/* slide the switch box from left to right */
-.switches-container input:nth-of-type(2):checked~.switch-wrapper {
-    transform: translateX(100%);
-}
-
-/* toggle the switch box labels - first checkbox:checked - show first switch div */
-.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch div:nth-of-type(1) {
-    opacity: 1;
-}
-
-/* toggle the switch box labels - second checkbox:checked - show second switch div */
-.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
-    opacity: 1;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-
-}
 
 .centered-content {
     display: flex;
@@ -192,7 +167,6 @@ img {
 }
 
 .centered-content img {
-    /*margin-right: 2px;*/ /* Add some spacing between the image and text */
     height: 18px;
 }
 
@@ -213,6 +187,79 @@ Estilos Pontos Tabela
     font-size: 10px; /* Adjust the font size for the "points" text */
     color: gray; /* Change the color of the text */
 }
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh; /* This makes the container cover the entire viewport height */
+    margin-top: 20px;
+}
+
+.list-button {
+    background-color: #1F7EB2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px; /* Add margin for spacing between buttons */
+}
+
+.active-button {
+    background-color: #004A89; /* Change to your desired color */
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15); /* Add shadow */
+
+}
+
+button:hover {
+    background-color: #004A89;
+}
+
+.biggerFont {
+    font-size: 17px;
+}
+
+#leaderboard {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#coolUsername {
+    color: #004A89;
+}
+
+#num1, #num2, #username1, #username2 {
+    font-size: 15px;
+}
+
+.highlighted-row {
+    background-color: blue; /* Background color for highlighting */
+    color: white; /* Text color */
+    font-weight: bold; /* Bold text for better visibility */
+    border: 2px solid #1F7EB2; /* Red border around the row */
+    /* Add other styling properties as needed */
+    z-index: 5; /* Add a higher z-index value */
+    border-radius: 30px !important;
+
+
+}
+
+
+@media (max-width: 768px) {
+    /* Reduce the margin between buttons for smaller screens */
+    .list-button {
+        margin: 0 5px; /* Adjust the horizontal margin to make them closer */
+    }
+}
+
+.table td {
+    box-sizing: border-box;
+}
+
+
+
 
 
 

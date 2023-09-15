@@ -32,9 +32,15 @@ public class ViasLeagueController {
         List<User> users = viasLeagueService.getUsersByLoggedInUserLeague(loggedInUsername);
         Collections.sort(users, Comparator.comparing(User::getPoints).reversed());
 
+        List<User> allUsers = userRepository.findAll();
+        Collections.sort(allUsers, Comparator.comparing(User::getPoints).reversed());
+
+
         ModelAndView mav = new ModelAndView("vias_league");
         mav.addObject("players", users);
         mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
+        mav.addObject("allPlayers",allUsers);
+        mav.addObject("targetUsername",loggedInUsername);
         return mav;
 
     }
