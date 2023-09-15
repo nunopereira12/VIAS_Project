@@ -56,7 +56,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal Terms -->
+    <!-- Modal Privacy Policy -->
     <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -78,7 +78,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal Terms -->
+    <!-- Modal Share -->
     <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modalquery">
             <div class="modal-content">

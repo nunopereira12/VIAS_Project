@@ -11,7 +11,7 @@
 <body id="login-page">
 
 <div class="container">
-    <button class="arrowbutton" onclick="window.location.href='/login';">
+    <button class="arrowbutton" onclick="window.location.href='/home';">
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <div class="content">
@@ -21,7 +21,12 @@
         </div>
 
         <p class="title">Obrigado </p>
-        <p class="subtitle-text">A sua conta foi ativada. Pode pressionar no botão retroceder e proceder ao login.</p>
+        <p class="subtitle-text">A sua conta foi ativada. Pode pressionar no botão entrar e proceder ao login ou no botão retroceder e regressar à página principal.</p>
+        <div class="d-grid">
+            <button type="submit" id="buttonentry" class="btn btn-primary buttons" style="margin-top: 140px" onclick="window.location.href='/login';">
+                Entrar
+            </button>
+        </div>
 
     </div>
 </div>

@@ -50,6 +50,12 @@ public class HomeController {
         return mav;
     }
 
+    @GetMapping(value="/suggestions")
+    public ModelAndView performTravelPage(){
+        ModelAndView mav = new ModelAndView("suggestions");
+        return mav;
+    }
+
     @PostMapping(value="/perform_travel")
     public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
 
@@ -59,11 +65,15 @@ public class HomeController {
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
             mav.addObject("tripSteps", destinationService.tripSteps(destinationService.getJSONResponse(destinationService.createPostURL(origem, destino))));
             return mav;
+
+            //return new ModelAndView("redirect:/suggestions");
         }
 
         ModelAndView mav = new ModelAndView("home");
         mav.addObject("tripSteps", destinationService.tripSteps(destinationService.getJSONResponse(destinationService.createPostURL(origem, destino))));
         return mav;
+
+        //return new ModelAndView("redirect:/suggestions");
     }
 
 

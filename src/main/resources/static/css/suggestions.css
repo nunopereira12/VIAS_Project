@@ -1,0 +1,42 @@
+.button-box{
+    min-width: 280px;
+    margin-top: 20px;
+
+}
+.button{
+    width: 100%;
+    background-color: #1F7EB2;
+    height: 50px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    margin: 10px auto;
+
+}
+
+.suggestions-box{
+    background-color: white;
+    mix-width: 250px;
+    margin: 50px 20px;
+    border-radius: 25px;
+    padding: 20px;
+    min-height: 350px;
+}
+
+.card{
+    background-color: white;
+    margin: 50px 20px;
+    border: #4D4C4C solid 1px;
+    border-radius: 25px;
+    padding: 20px;
+    width: auto;
+
+}
+
+
+@media (max-width: 920px) {
+    .suggestions-box{
+        min-width: auto;
+    }
+
+}
