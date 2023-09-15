@@ -87,7 +87,7 @@
                                     <a class="nav-link" href="http://localhost:8080/contactos">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="#">Ajuda</a>
+                                    <a class="nav-link" href="http://localhost:8080/ajuda">Ajuda</a>
                                 </li>
                             </div>
                         </c:when>
@@ -113,7 +113,7 @@
                                     <a class="nav-link" href="http://localhost:8080/contactos">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="#">Ajuda</a>
+                                    <a class="nav-link" href="http://localhost:8080/ajuda">Ajuda</a>
                                 </li>
                             </div>
                         </c:when>
@@ -139,7 +139,7 @@
                                     <a class="nav-link" href="http://localhost:8080/contactos">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="#">Ajuda</a>
+                                    <a class="nav-link" href="http://localhost:8080/ajuda">Ajuda</a>
                                 </li>
                             </div>
                         </c:when>

@@ -90,6 +90,12 @@
 
 }
 
+
+
+.suggestions-content::-webkit-scrollbar {
+    display: none; / tira no chrome e restantes browsers*/
+}
+
 @media (min-width: 920px) {
     .suggestions-content{
         background-color: #041F48;
@@ -100,12 +106,22 @@
         bottom: 0;
         border-radius: 0;
         overflow: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none; / tira no ie e edge /
+    }
+
+    .suggestions-content::-webkit-scrollbar {
+        display: none; /* tira no chrome e restantes browsers*/
     }
 
     .date-hour-box {
         margin:auto;
         text-align: center;
         align-items: center;
+    }
+
+    .arrowbutton{
+        visibility: hidden;
     }
 
 

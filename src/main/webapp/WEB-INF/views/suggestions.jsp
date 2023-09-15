@@ -13,7 +13,7 @@
 
 </head>
 <body class="home-body" onload="initDirectionsService()">
-<button class="arrowbutton" style="z-index: 1000" onclick="window.location.href='/home';">
+<button class="arrowbutton" style="z-index: 1000" onclick="window.history.back()">
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
 <div class="home-container">

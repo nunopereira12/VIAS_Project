@@ -16,6 +16,7 @@
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <p class="title">Contactos</p>
+
     <div class="content">
         <div class="switches-container" style="margin-top: 50px">
             <input type="radio" id="switchLeague" name="switchPlan" value="My League Logo" checked="checked"/>
