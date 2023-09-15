@@ -50,7 +50,16 @@ public class HomeController {
     }
 
     @PostMapping(value="/perform_travel")
-    public ModelAndView performTravel(String origem, String destino) throws IOException {
+    public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
+
+        if(principal != null){
+            String loggedInUsername = principal.getName();
+            ModelAndView mav = new ModelAndView("home");
+            mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
+            mav.addObject("tripSteps", destinationService.tripSteps(destinationService.getJSONResponse(destinationService.createPostURL(origem, destino))));
+            return mav;
+        }
+
         ModelAndView mav = new ModelAndView("home");
         mav.addObject("tripSteps", destinationService.tripSteps(destinationService.getJSONResponse(destinationService.createPostURL(origem, destino))));
         return mav;

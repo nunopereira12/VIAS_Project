@@ -189,7 +189,7 @@ public class AuthController {
             recoverPasswordService.setTokenUsed(token);
             return new ModelAndView("activation_success");
         }
-        return new ModelAndView("redirect:/home");
+        return new ModelAndView("redirect:/login");
     }
 
 
