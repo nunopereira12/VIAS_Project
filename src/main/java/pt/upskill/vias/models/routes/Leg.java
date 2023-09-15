@@ -11,11 +11,15 @@ public class Leg {
     private String fare;
     private List<Step> steps;
 
-    public Leg(String departure_time, String arrival_time, String distance, String duration) {
+
+    public Leg(){}
+
+    public Leg(String departure_time, String arrival_time, String distance, String duration, String fare) {
         this.departure_time = departure_time;
         this.arrival_time = arrival_time;
         this.distance = distance;
         this.duration = duration;
+        this.fare = fare;
     }
 
     public String getDeparture_time() {

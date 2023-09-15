@@ -2,7 +2,11 @@ package pt.upskill.vias.services.routes;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pt.upskill.vias.services.routes.info.LegInfoService;
+import pt.upskill.vias.services.routes.info.LineInfoService;
+import pt.upskill.vias.services.routes.info.StepInfoService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +14,12 @@ import java.util.List;
 @Service
 public class RoutesServiceImpl implements RoutesService {
 
+    @Autowired
+    LegInfoService legInfoService;
+    @Autowired
+    StepInfoService stepInfoService;
+    @Autowired
+    LineInfoService lineInfoService;
     @Override
     public List<String> tripSteps(JSONObject obj) {
         List<String> instructionsList = new ArrayList<>();
