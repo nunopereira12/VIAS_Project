@@ -12,7 +12,6 @@ import java.util.List;
 @Service
 public class LegInfoServiceImpl implements LegInfoService {
 
-
     @Override
     public String duration(JSONObject leg) {
         return leg.getJSONObject("duration").getString("text");
@@ -27,7 +26,6 @@ public class LegInfoServiceImpl implements LegInfoService {
     public String arrivalTime(JSONObject leg) {
         return leg.getJSONObject("arrival_time").getString("text");
     }
-
 
     @Override
     public String departureTime(JSONObject leg) {
@@ -48,7 +46,8 @@ public class LegInfoServiceImpl implements LegInfoService {
     }
 
     @Override
-    public Leg buildLeg(JSONObject jsonLeg, JSONArray steps) {
+    public Leg buildLeg(JSONObject jsonLeg) {
+        JSONArray steps = jsonLeg.getJSONArray("steps");
         Leg leg = new Leg(departureTime(jsonLeg), arrivalTime(jsonLeg), distance(jsonLeg), duration(jsonLeg), fare(steps));
         return leg;
     }
