@@ -82,4 +82,14 @@ public class ProfileController {
         } else  return new ModelAndView("redirect:/profile");
 
     }
+
+    @GetMapping(value="/edit_profile_avatar")
+        public ModelAndView editProfileAvatarPage(Principal principal) {
+        String loggedInUsername = principal.getName();
+        ModelAndView mav = new ModelAndView("edit_profile_avatar");
+        mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
+        return mav;
+    }
+
+
 }

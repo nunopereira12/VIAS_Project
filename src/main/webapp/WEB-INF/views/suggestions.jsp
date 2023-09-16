@@ -64,7 +64,7 @@
                 <div class="card">
                     <div class="time-travel-box">
                     <div class="travel-box">
-                     <c:forEach var="step" items="${leg.getSteps()}">
+                     <c:forEach var="step" items="${leg.getSteps()}" varStatus="loop">
                         <%--<c:if test="${step.getTravel_mode().equals('WALKING')}">
                             <div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <mask id="mask0_768_710" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
@@ -76,11 +76,15 @@
                          </svg></div>
                         </c:if>
                         <c:if test="${!step.getTravel_mode().equals('WALKING')}">--%>
-                         <div class="icon-box"><img class="icon" src="http:${step.getIcon()}"></div>
+
+
+                         <div class="icon-box"><img class="icon" src="${step.getIcon()}"></div>
+                         <c:if test="${!loop.last}">
                             <div class="icon-box">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
                                     <path d="M4.33562 5.54835L0.502289 1.71502L1.66896 0.548355L6.66896 5.54835L1.66896 10.5484L0.502289 9.38169L4.33562 5.54835Z" fill="#3C4043"/>
-                                </svg></div>
+                                </svg></div>  </c:if>
+
                     </c:forEach></div>
                     <div class="time-box"><strong>${leg.getDuration()}</strong></div></div>
                     <div class="time-travel-box">
