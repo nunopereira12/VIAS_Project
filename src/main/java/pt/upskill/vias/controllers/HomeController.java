@@ -70,10 +70,9 @@ public class HomeController {
 
     @PostMapping(value="/perform_travel")
     public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
-
+        ModelAndView mav = new ModelAndView("suggestions");
         if(principal != null){
             String loggedInUsername = principal.getName();
-            ModelAndView mav = new ModelAndView("home");
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
             mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
             mav.addObject("legs", routesRequestService.legList(origem, destino));
@@ -82,7 +81,6 @@ public class HomeController {
             //return new ModelAndView("redirect:/suggestions");
         }
 
-        ModelAndView mav = new ModelAndView("home");
         mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
         return mav;
 

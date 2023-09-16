@@ -258,16 +258,6 @@
             </div>
         </div>
 
-        <c:forEach var="step" items="${tripSteps}">
-            <div id="instructions">${step}</div>
-        </c:forEach>
-
-        <c:forEach var="leg" items="${legs}">
-            <div id="instructions">${leg.getDuration()}</div>
-        </c:forEach>
-        <div id="instructions">${user.getFirstName()}</div>
-
-
             <button class="wallet-button" onclick="window.location.href='/wallet';">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 34 28" fill="none"
                      style="margin-top: 10px">
