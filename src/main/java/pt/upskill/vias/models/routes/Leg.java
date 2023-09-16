@@ -24,7 +24,6 @@ public class Leg {
     }
 
     public void addStep(Step step) {
-        System.out.println("addStep no leg "+step);
         steps.add(step);
 
     }

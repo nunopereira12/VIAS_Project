@@ -13,6 +13,5 @@ public interface RoutesRequestService {
     public String createPostURL(String origin, String destination);
     public JSONObject getJSONResponse(String url) throws IOException;
 
-    public List<Leg>
-    getLegList(String origin, String destination) throws IOException;
+    public List<Leg> getLegList(String origin, String destination) throws IOException;
 }

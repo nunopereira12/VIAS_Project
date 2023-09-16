@@ -32,28 +32,36 @@
     border-radius: 25px;
     padding: 20px;
     height: auto;
-}
-
-.card-box{
     align-content: center;
     text-align: center;
     justify-content: center;
     justify-items: center;
+}
+
+.card-box{
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
     margin-bottom: 30px;
+    vertical-align: center;
 }
 
 .card{
     background-color: white;
-    margin: 25px 20px 0 20px;
+    margin: 25px 0 0 0;
     border: none;
     border-radius: 15px;
-    min-height: 100px;
-    min-width: 250px;
+    height: auto;
+    min-width: 260px;
     box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.30);
+    vertical-align: center;
+
 
 }
 .card-button{
-    min-width:245px;
+    min-width:255px;
     background-color: #1F7EB2;
     margin: -12px auto;
     height: auto;
@@ -66,6 +74,8 @@
     align-content: center;
     align-self: center;
     text-align: center;
+
+
 }
 
 .arrowbutton{
@@ -75,6 +85,46 @@
     background-color: #ffffff;
 }
 
+.icon{
+    height:20px;
+    width:20px;
+    color: #3C4043;
+    margin:0;
+}
+
+.icon-box{
+    display:inline-block;
+}
+
+.travel-box{
+    display: flex;
+    align-content: flex-start;
+    margin: 15px;
+}
+.time-box{
+    display: flex;
+    font-size: 14px;
+    margin: auto 15px auto auto;
+}
+.time-travel-box{
+    display:flex;
+    justify-content: space-between;
+
+}
+.start-end-box{
+    display: flex;
+    align-content: flex-start;
+    margin: 15px;
+}
+.fare-box{
+    display: flex;
+    margin: auto 15px auto auto;
+}
+.fare-style{
+    font-size: 12.5px;
+    font-weight: 600;
+    margin: auto 3px auto auto;
+}
 
 @media (max-width: 920px) {
     .suggestions-box{
@@ -87,9 +137,7 @@
         text-align: center;
         align-items: center;
     }
-
 }
-
 
 
 .suggestions-content::-webkit-scrollbar {
@@ -107,7 +155,7 @@
         border-radius: 0;
         overflow: scroll;
         scrollbar-width: none;
-        -ms-overflow-style: none; / tira no ie e edge /
+        -ms-overflow-style: none; /* tira no ie e edge */
     }
 
     .suggestions-content::-webkit-scrollbar {
@@ -123,12 +171,5 @@
     .arrowbutton{
         visibility: hidden;
     }
-
-
-}
-
-#instructions {
-    color: black;
-    background-color: white;
 
 }
