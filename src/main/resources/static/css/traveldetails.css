@@ -26,21 +26,25 @@
 .detailed-card{
     background-color: white;
     margin: 50px 20px;
-    border: #4D4C4C solid 1px;
-    border-radius: 25px;
+    border-bottom: 1px solid #dadce0;
+    border-radius: 0;
     padding: 20px;
     width: auto;
+
 
 }
 
-.card{
+#suggestions-small-card {
     background-color: white;
     margin: 50px 20px;
-    border: #4D4C4C solid 1px;
-    border-radius: 25px;
+    border: none; /* Remove any existing borders */
+    border-bottom: 1px solid #dadce0; /* Add the bottom border */
     padding: 20px;
     width: auto;
+}
 
+.card {
+    border-radius: 0;
 }
 
 
@@ -96,3 +100,48 @@
     margin: 10px 12px auto auto;
 
 }
+
+.lineNumber {
+    background-color: rgb(237, 25, 68);
+    color: white;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.totalDuration {
+    display: inline-block;
+    color: #70757a
+}
+
+.detailed-card-box {
+    display: table-row;
+}
+
+.eachStepDiv {
+    display: flex;
+    align-items: center; /* Vertically align content */
+}
+
+.left-column {
+    flex: 0 0 auto; /* Don't grow or shrink, maintain its size */
+    width: 80px; /* Adjust the width as needed */
+    text-align: center; /* Center the content horizontally */
+}
+
+.right-column {
+    flex: 1; /* Grow to fill available space */
+    padding-left: 10px; /* Add some spacing between columns */
+}
+
+.right-column > div {
+    margin-bottom: 5px; /* Add margin between the two lines of text */
+}
+
+.firstLine {
+    font-weight: 500;
+}
+
+.secondLine {
+    color: #70757a
+}
+

@@ -43,22 +43,179 @@
             <button class="button">Destino</button>
         </div>
         <div class="suggestions-box">
-            <div class="card">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </div>
+            <div class="card" id="suggestions-small-card">
+
+                <div>
+
+                    <h1 style="font-size: 1.375rem;">
+                    <span>15H37 - 15H59</span>
+                    <span class="totalDuration">(22 min)</span>
+                    </h1>
+
+                </div>
+
+                <div>
+
+                    <div>
+
+                        <div>
+                            <span>
+                                <img src="//maps.gstatic.com/mapfiles/transit/iw2/svg/bus2.svg" alt="" width="15px" height="15px">
+                            </span>
+                            <span class="lineNumber">3721</span>
+                            <span>
+                                <img src="https://maps.gstatic.com/tactile/directions/cards/arrow-right-1x.png">
+                            </span>
+                            <span>
+                                <img src="//maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg" width="15px" height="15px">
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <div>
+                                <span> 15H37 from Pragal (Portagem)</span>
+                            </div>
+
+                            <span> <img src="//maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg" width="15px" height="15px"> 3 min </span>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
             <div class="detailed-card">
-                <p>   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="detailed-card-box">
+               <div>
+                   <div class="eachStepDiv">
+                       <div class="left-column">
+                           <div class="firstLine">
+                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px"><path d="M12 2a8 8 0 0 0-7.992 8A12.816 12.816 0 0 0 12 22a12.816 12.816 0 0 0 7.988-12A8 8 0 0 0 12 2zm0 11a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"/></svg>
+                           </div>
+                           <div class="secondLine">
+                                 15H37
+                           </div>
+                       </div>
+                       <div class="right-column">
+                           <div class="firstLine">
+                               Pragal (Portagem)
+                           </div>
+                           <div class="secondLine">
+                               Almada
+                           </div>
+                       </div>
+                   </div>
+               </div>
+                </div>
             </div>
+            <div style="display: flex; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
+            </div>
+            <div class="detailed-card">
+                <div class="detailed-card-box">
+                    <div>
+                        <div class="eachStepDiv">
+                            <div class="left-column">
+                               <img src="//maps.gstatic.com/mapfiles/transit/iw2/svg/bus2.svg" width="20px" height="20px">
+                            </div>
+                            <div class="right-column">
+                                <div class="firstLine">
+                                    Lisboa (Sete Rios)
+                                </div>
+                                <div class="secondLine">
+                                   18 mins (8 stops)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
+            </div>
+            <div class="detailed-card">
+                <div class="detailed-card-box">
+                    <div>
+                        <div class="eachStepDiv">
+                            <div class="left-column">
+                                15H56
+                            </div>
+                            <div class="right-column">
+                                <div class="firstLine">
+                                    Sete Rios (Estação)
+                                </div>
+                                <div class="secondLine">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
+            </div>
+            <div class="detailed-card">
+                <div class="detailed-card-box">
+                    <div>
+                        <div class="eachStepDiv">
+                            <div class="left-column">
+                                <img src="//maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg" width="20px" height="20px">
+                            </div>
+                            <div class="right-column">
+                                <div class="firstLine">
+                                    Andar a pé
+                                </div>
+                                <div class="secondLine">
+                                    Cerca de 3 mins, 150m
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
+            </div>
+            <div class="detailed-card">
+                <div class="detailed-card-box">
+                    <div>
+                        <div class="eachStepDiv">
+                            <div class="left-column">
+                                <div class="firstLine">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M2 15h9v3h8V5h-8V2H2V0H0v23h2zM8 4v3h3v3h3V7h3v3h-3v3h3v3h-3v-3h-3v-3H8v3H5v-3H2V7h3V4z"/><path d="M5 7h3v3H5z"/></svg>
+                                </div>
+                                <div class="secondLine">
+                                    15H59
+                                </div>
+
+                            </div>
+                            <div class="right-column">
+                                <div class="firstLine">
+                                    Sete Rios
+                                </div>
+                                <div class="secondLine">
+                                    Chegou ao seu destino
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="button-box-travel">
-                <button class="button-travel" style="margin-left: 12px">Começar Viagem</button>
-                <button class="button-travel">Cancelar</button>
-                <button class="button-travel">Simular Viagem</button>
+                <button class="button-travel btn btn-primary buttons" style="margin-left: 12px">Começar Viagem</button>
+                <button class="button-travel btn btn-primary buttons">Cancelar</button>
+                <button class="button-travel btn btn-primary buttons">Simular Viagem</button>
             </div>
+
 
         </div>
         <div class="footerlogo">
