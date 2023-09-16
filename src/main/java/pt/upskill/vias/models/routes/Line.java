@@ -2,35 +2,16 @@ package pt.upskill.vias.models.routes;
 
 public class Line {
 
-    private String icon;
     private String color;
     private String text_color;
-    private String short_name;
     private String name;
 
     public Line() {}
 
-    public Line(String icon, String color, String text_color, String name) {
-        this.icon = icon;
+    public Line(String color, String text_color, String name) {
         this.color = color;
         this.text_color = text_color;
         this.name = name;
-    }
-
-    public Line(String icon, String color, String text_color, String short_name, String name) {
-        this.icon = icon;
-        this.color = color;
-        this.text_color = text_color;
-        this.short_name = short_name;
-        this.name = name;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
     }
 
     public String getColor() {
@@ -47,14 +28,6 @@ public class Line {
 
     public void setText_color(String text_color) {
         this.text_color = text_color;
-    }
-
-    public String getShort_name() {
-        return short_name;
-    }
-
-    public void setShort_name(String short_name) {
-        this.short_name = short_name;
     }
 
     public String getName() {

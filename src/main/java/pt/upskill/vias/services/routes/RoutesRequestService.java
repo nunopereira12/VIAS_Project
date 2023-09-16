@@ -1,4 +1,4 @@
-package pt.upskill.vias.services.routes.info;
+package pt.upskill.vias.services.routes;
 
 import org.json.JSONObject;
 import pt.upskill.vias.models.routes.Leg;
@@ -14,5 +14,5 @@ public interface RoutesRequestService {
     public JSONObject getJSONResponse(String url) throws IOException;
 
     public List<Leg>
-    legList(String origin, String destination) throws IOException;
+    getLegList(String origin, String destination) throws IOException;
 }

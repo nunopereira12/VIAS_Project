@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.routes.RoutesService;
 import pt.upskill.vias.services.HomeService;
-import pt.upskill.vias.services.routes.info.RoutesRequestService;
+import pt.upskill.vias.services.routes.RoutesRequestService;
 
 import java.io.IOException;
 import java.security.Principal;
@@ -75,7 +75,7 @@ public class HomeController {
             String loggedInUsername = principal.getName();
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
             mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
-            mav.addObject("legs", routesRequestService.legList(origem, destino));
+            mav.addObject("legs", routesRequestService.getLegList(origem, destino));
             return mav;
 
             //return new ModelAndView("redirect:/suggestions");

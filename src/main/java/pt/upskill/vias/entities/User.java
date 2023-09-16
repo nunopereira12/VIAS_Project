@@ -1,5 +1,8 @@
 package pt.upskill.vias.entities;
 
+import pt.upskill.vias.models.viasleague.entities.Trip;
+import pt.upskill.vias.models.viasleague.entities.UserStats;
+
 import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,6 +25,10 @@ public class User {
     private String league;
     private String role;
     private boolean activated;
+    //private UserStats userStats;
+
+    @OneToMany(mappedBy = "user")
+    private List<Trip> trips_history;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TravelCard> travelCards;

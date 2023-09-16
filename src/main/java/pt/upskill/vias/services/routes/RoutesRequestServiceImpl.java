@@ -1,4 +1,4 @@
-package pt.upskill.vias.services.routes.info;
+package pt.upskill.vias.services.routes;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.models.routes.Step;
+import pt.upskill.vias.services.routes.info.LegInfoService;
+import pt.upskill.vias.services.routes.info.StepInfoService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,7 +44,7 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
     }
 
     @Override
-    public List<Leg> legList(String origin, String destination) throws IOException {
+    public List<Leg> getLegList(String origin, String destination) throws IOException {
 
         JSONObject response = getJSONResponse(createPostURL(origin, destination));
         List<Leg> legList = new ArrayList<>();
@@ -52,7 +54,6 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
             JSONObject jsonLeg = routes.getJSONObject(i).getJSONArray("legs").getJSONObject(0);
             Leg leg = legInfoService.buildLeg(jsonLeg);
             JSONArray steps = jsonLeg.getJSONArray("steps");
-            System.out.println("Array"+steps);
 
             for(int j = 0; j< steps.length(); j++) {
                 JSONObject jsonStep = steps.getJSONObject(j);

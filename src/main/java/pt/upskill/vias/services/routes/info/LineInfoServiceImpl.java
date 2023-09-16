@@ -8,11 +8,6 @@ import pt.upskill.vias.models.routes.Line;
 @Service
 public class LineInfoServiceImpl implements LineInfoService {
     @Override
-    public String icon(JSONObject line) {
-        return line.getJSONObject("vehicle").getString("icon");
-    }
-
-    @Override
     public String color(JSONObject line) {
         return line.getString("color");
     }
@@ -37,9 +32,9 @@ public class LineInfoServiceImpl implements LineInfoService {
         Line line;
         try {
             String short_name = short_name(jsonLine);
-            line = new Line(icon(jsonLine), color(jsonLine), text_color(jsonLine), short_name, name(jsonLine));
+            line = new Line(color(jsonLine), text_color(jsonLine), short_name);
         } catch (JSONException e) {
-            line = new Line(icon(jsonLine), color(jsonLine), text_color(jsonLine), name(jsonLine));
+            line = new Line(color(jsonLine), text_color(jsonLine), name(jsonLine));
         }
         return line;
     }

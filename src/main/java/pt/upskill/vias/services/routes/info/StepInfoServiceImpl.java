@@ -37,6 +37,11 @@ public class StepInfoServiceImpl implements StepInfoService {
     }
 
     @Override
+    public String icon(JSONObject transit_details) {
+        return transit_details.getJSONObject("line").getJSONObject("vehicle").getString("icon");
+    }
+
+    @Override
     public String departure_stop(JSONObject transit_details) {
         return transit_details.getJSONObject("departure_stop").getString("name");
     }
@@ -72,11 +77,11 @@ public class StepInfoServiceImpl implements StepInfoService {
         Step step;
 
         if (mode.equals("WALKING")) {
-            step = new Step(distance(jsonStep), duration(jsonStep), polyline(jsonStep), html_instructions(jsonStep), mode);
+            step = new Step(distance(jsonStep), duration(jsonStep), polyline(jsonStep), html_instructions(jsonStep), mode, "http://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg");
 
         } else if (mode.equals("TRANSIT")) {
             JSONObject transit_details = jsonStep.getJSONObject("transit_details");
-            step = new Step(distance(jsonStep), duration(jsonStep), polyline(jsonStep), html_instructions(jsonStep), mode, departure_stop(transit_details), departure_time(transit_details), arrival_stop(transit_details), arrival_time(transit_details), headsign(transit_details), num_stops(transit_details), lineInfoService.buildLine(transit_details));
+            step = new Step(distance(jsonStep), duration(jsonStep), polyline(jsonStep), html_instructions(jsonStep), mode,icon(transit_details), departure_stop(transit_details), departure_time(transit_details), arrival_stop(transit_details), arrival_time(transit_details), headsign(transit_details), num_stops(transit_details), lineInfoService.buildLine(transit_details));
 
         } else {
             step = new Step();

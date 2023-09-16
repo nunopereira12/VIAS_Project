@@ -5,7 +5,6 @@ import pt.upskill.vias.models.routes.Line;
 
 public interface LineInfoService {
 
-    public String icon(JSONObject obj);
     public String color(JSONObject obj);
     public String text_color(JSONObject obj);
     public String short_name(JSONObject obj);

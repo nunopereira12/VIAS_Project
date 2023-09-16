@@ -14,12 +14,13 @@ public interface StepInfoService {
     public String polyline(JSONObject jsonStep);
     public String html_instructions(JSONObject jsonStep);
     public String travel_mode(JSONObject jsonStep);
-    public String departure_stop(JSONObject jsonStep);
-    public String departure_time(JSONObject jsonStep);
-    public String arrival_stop(JSONObject jsonStep);
-    public String arrival_time(JSONObject jsonStep);
-    public String headsign(JSONObject jsonStep);
-    public int num_stops(JSONObject jsonStep);
+    public String icon(JSONObject transit_details);
+    public String departure_stop(JSONObject transit_details);
+    public String departure_time(JSONObject transit_details);
+    public String arrival_stop(JSONObject transit_details);
+    public String arrival_time(JSONObject transit_details);
+    public String headsign(JSONObject transit_details);
+    public int num_stops(JSONObject transit_details);
     public Step buildStep(JSONObject jsonStep);
 
 
