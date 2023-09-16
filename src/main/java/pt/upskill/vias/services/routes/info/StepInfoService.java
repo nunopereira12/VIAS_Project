@@ -9,18 +9,18 @@ import java.io.IOException;
 
 public interface StepInfoService {
 
-    public String distance(JSONObject obj);
-    public String duration(JSONObject obj);
-    public String polyline(JSONObject obj);
-    public String html_instructions(JSONObject obj);
-    public String travel_mode(JSONObject obj);
-    public String departure_stop(JSONObject obj);
-    public String departure_time(JSONObject obj);
-    public String arrival_stop(JSONObject obj);
-    public String arrival_time(JSONObject obj);
-    public String headsign(JSONObject obj);
-    public String num_stops(JSONObject obj);
-    public Step buildStep(JSONObject obj);
+    public String distance(JSONObject jsonStep);
+    public String duration(JSONObject jsonStep);
+    public String polyline(JSONObject jsonStep);
+    public String html_instructions(JSONObject jsonStep);
+    public String travel_mode(JSONObject jsonStep);
+    public String departure_stop(JSONObject jsonStep);
+    public String departure_time(JSONObject jsonStep);
+    public String arrival_stop(JSONObject jsonStep);
+    public String arrival_time(JSONObject jsonStep);
+    public String headsign(JSONObject jsonStep);
+    public String num_stops(JSONObject jsonStep);
+    public Step buildStep(JSONObject jsonStep);
 
 
 }

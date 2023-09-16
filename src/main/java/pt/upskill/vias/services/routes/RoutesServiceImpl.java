@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.services.routes.info.LegInfoService;
 import pt.upskill.vias.services.routes.info.LineInfoService;
 import pt.upskill.vias.services.routes.info.StepInfoService;
@@ -67,5 +68,6 @@ public class RoutesServiceImpl implements RoutesService {
         }
         return instructionsList;
     }
+
 
 }

@@ -8,6 +8,22 @@ public class Line {
     private String short_name;
     private String name;
 
+    public Line() {}
+
+    public Line(String icon, String color, String text_color, String name) {
+        this.icon = icon;
+        this.color = color;
+        this.text_color = text_color;
+        this.name = name;
+    }
+
+    public Line(String icon, String color, String text_color, String short_name, String name) {
+        this.icon = icon;
+        this.color = color;
+        this.text_color = text_color;
+        this.short_name = short_name;
+        this.name = name;
+    }
 
     public String getIcon() {
         return icon;

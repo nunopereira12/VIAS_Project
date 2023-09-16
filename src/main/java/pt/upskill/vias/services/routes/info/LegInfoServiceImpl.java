@@ -13,35 +13,38 @@ import java.util.List;
 public class LegInfoServiceImpl implements LegInfoService {
 
     @Override
-    public String duration(JSONObject leg) {
-        return leg.getJSONObject("duration").getString("text");
+    public String duration(JSONObject jsonLeg) {
+        return jsonLeg.getJSONObject("duration").getString("text");
     }
 
     @Override
-    public String distance(JSONObject leg) {
-        return leg.getJSONObject("distance").getString("text");
+    public String distance(JSONObject jsonLeg) {
+        return jsonLeg.getJSONObject("distance").getString("text");
     }
 
     @Override
-    public String arrivalTime(JSONObject leg) {
-        return leg.getJSONObject("arrival_time").getString("text");
+    public String arrivalTime(JSONObject jsonLeg) {
+        return jsonLeg.getJSONObject("arrival_time").getString("text");
     }
 
     @Override
-    public String departureTime(JSONObject leg) {
-        return leg.getJSONObject("departure_time").getString("text");
+    public String departureTime(JSONObject jsonLeg) {
+        return jsonLeg.getJSONObject("departure_time").getString("text");
     }
 
     @Override
     public String fare(JSONArray steps) {
         int ticketNumber = 0;
+
         for(int i = 0; i < steps.length(); i++) {
             String mode = steps.getJSONObject(i).getString("travel_mode");
             if(mode.equals("TRANSIT")) {
                 ticketNumber++;
             }
         }
+
         double fare = ticketNumber * 1.5;
+
         return String.valueOf(fare);
     }
 

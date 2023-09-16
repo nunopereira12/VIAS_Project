@@ -15,6 +15,30 @@ public class Step {
     private String num_stops;
     private Line line;
 
+    public Step(){}
+
+    public Step(String distance, String duration, String polyline, String html_instructions, String travel_mode) {
+        this.distance = distance;
+        this.duration = duration;
+        this.polyline = polyline;
+        this.html_instructions = html_instructions;
+        this.travel_mode = travel_mode;
+    }
+
+    public Step(String distance, String duration, String polyline, String html_instructions, String travel_mode, String departure_stop, String departure_time, String arrival_stop, String arrival_time, String headsign, String num_stops, Line line) {
+        this.distance = distance;
+        this.duration = duration;
+        this.polyline = polyline;
+        this.html_instructions = html_instructions;
+        this.travel_mode = travel_mode;
+        this.departure_stop = departure_stop;
+        this.departure_time = departure_time;
+        this.arrival_stop = arrival_stop;
+        this.arrival_time = arrival_time;
+        this.headsign = headsign;
+        this.num_stops = num_stops;
+        this.line = line;
+    }
 
     public String getDistance() {
         return distance;
