@@ -22,6 +22,10 @@ public class Leg {
         this.fare = fare;
     }
 
+    public void addStep(Step step) {
+        steps.add(step);
+    }
+
     public String getDeparture_time() {
         return departure_time;
     }
