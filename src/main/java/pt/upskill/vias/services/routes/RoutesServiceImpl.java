@@ -15,12 +15,6 @@ import java.util.List;
 @Service
 public class RoutesServiceImpl implements RoutesService {
 
-    @Autowired
-    LegInfoService legInfoService;
-    @Autowired
-    StepInfoService stepInfoService;
-    @Autowired
-    LineInfoService lineInfoService;
     @Override
     public List<String> tripSteps(JSONObject obj) {
         List<String> instructionsList = new ArrayList<>();

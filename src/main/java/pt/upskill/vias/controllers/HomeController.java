@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.routes.RoutesService;
-import pt.upskill.vias.services.routes.info.LegInfoService;
 import pt.upskill.vias.services.HomeService;
 import pt.upskill.vias.services.routes.info.RoutesRequestService;
 
@@ -77,6 +76,7 @@ public class HomeController {
             ModelAndView mav = new ModelAndView("home");
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
             mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
+            mav.addObject("legs", routesRequestService.legList(origem, destino));
             return mav;
 
             //return new ModelAndView("redirect:/suggestions");

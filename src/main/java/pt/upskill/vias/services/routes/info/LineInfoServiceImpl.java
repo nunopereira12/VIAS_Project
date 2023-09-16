@@ -36,7 +36,8 @@ public class LineInfoServiceImpl implements LineInfoService {
         JSONObject jsonLine = transit_details.getJSONObject("line");
         Line line;
         try {
-            line = new Line(icon(jsonLine), color(jsonLine), text_color(jsonLine), short_name(jsonLine), name(jsonLine));
+            String short_name = short_name(jsonLine);
+            line = new Line(icon(jsonLine), color(jsonLine), text_color(jsonLine), short_name, name(jsonLine));
         } catch (JSONException e) {
             line = new Line(icon(jsonLine), color(jsonLine), text_color(jsonLine), name(jsonLine));
         }
