@@ -62,8 +62,8 @@ public class StepInfoServiceImpl implements StepInfoService {
     }
 
     @Override
-    public String num_stops(JSONObject transit_details) {
-        return transit_details.getString("num_stops");
+    public int num_stops(JSONObject transit_details) {
+        return transit_details.getInt("num_stops");
     }
 
     @Override
@@ -73,11 +73,14 @@ public class StepInfoServiceImpl implements StepInfoService {
 
         if (mode.equals("WALKING")) {
             step = new Step(distance(jsonStep), duration(jsonStep), polyline(jsonStep), html_instructions(jsonStep), mode);
+
         } else if (mode.equals("TRANSIT")) {
             JSONObject transit_details = jsonStep.getJSONObject("transit_details");
             step = new Step(distance(jsonStep), duration(jsonStep), polyline(jsonStep), html_instructions(jsonStep), mode, departure_stop(transit_details), departure_time(transit_details), arrival_stop(transit_details), arrival_time(transit_details), headsign(transit_details), num_stops(transit_details), lineInfoService.buildLine(transit_details));
+
         } else {
             step = new Step();
+
         }
         return step;
     }

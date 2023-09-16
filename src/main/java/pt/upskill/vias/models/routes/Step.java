@@ -12,7 +12,7 @@ public class Step {
     private String arrival_stop;
     private String arrival_time;
     private String headsign;
-    private String num_stops;
+    private int num_stops;
     private Line line;
 
     public Step(){}
@@ -25,7 +25,7 @@ public class Step {
         this.travel_mode = travel_mode;
     }
 
-    public Step(String distance, String duration, String polyline, String html_instructions, String travel_mode, String departure_stop, String departure_time, String arrival_stop, String arrival_time, String headsign, String num_stops, Line line) {
+    public Step(String distance, String duration, String polyline, String html_instructions, String travel_mode, String departure_stop, String departure_time, String arrival_stop, String arrival_time, String headsign, int num_stops, Line line) {
         this.distance = distance;
         this.duration = duration;
         this.polyline = polyline;
@@ -100,10 +100,10 @@ public class Step {
     public void setHeadsign(String headsign) {
         this.headsign = headsign;
     }
-    public String getNum_stops() {
+    public int getNum_stops() {
         return num_stops;
     }
-    public void setNum_stops(String num_stops) {
+    public void setNum_stops(int num_stops) {
         this.num_stops = num_stops;
     }
     public Line getLine() {
@@ -112,4 +112,5 @@ public class Step {
     public void setLine(Line line) {
         this.line = line;
     }
+
 }

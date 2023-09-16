@@ -196,14 +196,10 @@
     padding-left: 1rem;
 }
 
-
-
 .switches-container {
     margin-bottom: 13px;
     text-align: center; /* Center-align the buttons */
 }
-
-
 
 .switches-container .buttonss {
     display: flex;

@@ -1,5 +1,6 @@
 package pt.upskill.vias.models.routes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Leg {
@@ -9,7 +10,7 @@ public class Leg {
     private String distance;
     private String duration;
     private String fare;
-    private List<Step> steps;
+    private List<Step> steps = new ArrayList<>();
 
 
     public Leg(){}
@@ -23,7 +24,9 @@ public class Leg {
     }
 
     public void addStep(Step step) {
+        System.out.println("addStep no leg "+step);
         steps.add(step);
+
     }
 
     public String getDeparture_time() {

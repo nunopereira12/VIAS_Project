@@ -19,7 +19,7 @@ public interface StepInfoService {
     public String arrival_stop(JSONObject jsonStep);
     public String arrival_time(JSONObject jsonStep);
     public String headsign(JSONObject jsonStep);
-    public String num_stops(JSONObject jsonStep);
+    public int num_stops(JSONObject jsonStep);
     public Step buildStep(JSONObject jsonStep);
 
 
