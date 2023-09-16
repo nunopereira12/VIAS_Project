@@ -62,7 +62,7 @@
     position: relative;
     display: flex;
     padding: 0;
-    background: #1F7EB2;
+    background: black;
     line-height: 3rem;
     border-radius: 10px;
     margin-left: auto;
@@ -173,3 +173,60 @@
         width: auto;
     }
 }
+
+
+.carousel-control-prev, .carousel-control-next {
+    width: auto; /* Set the width to auto to avoid excessive shrinking */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    font-size: 1.5rem; /* Adjust the font size of the icons */
+}
+
+.carousel-control-prev-icon::before, .carousel-control-next-icon::before {
+    content: ''; /* Remove the default content to avoid extra space */
+}
+
+/* Adjust padding and margin as needed */
+.carousel-control-prev {
+    padding-right: 1rem;
+}
+
+.carousel-control-next {
+    padding-left: 1rem;
+}
+
+
+
+.switches-container {
+    margin-bottom: 13px;
+    text-align: center; /* Center-align the buttons */
+}
+
+
+
+.switches-container .buttonss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Adjust the spacing between buttons */
+}
+
+/* Style for the buttons */
+.switches-container .buttonss button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style for the labels */
+.switches-container .buttonss label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+
+
+
