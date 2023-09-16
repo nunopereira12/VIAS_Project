@@ -42,7 +42,9 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
     }
 
     @Override
-    public List<Leg> legList(JSONObject response) {
+    public List<Leg> legList(String origin, String destination) throws IOException {
+
+        JSONObject response = getJSONResponse(createPostURL(origin, destination));
         List<Leg> legList = new ArrayList<>();
 
         JSONArray routes = response.getJSONArray("routes");
