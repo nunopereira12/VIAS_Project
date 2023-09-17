@@ -27,6 +27,8 @@ public class User {
     private boolean activated;
     //private UserStats userStats;
 
+    private String profilePicture;
+
     @OneToMany(mappedBy = "user")
     private List<Trip> trips_history;
 
@@ -159,6 +161,14 @@ public class User {
         return sdf.format(date);
     }
 
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 
     @Override
     public String toString() {

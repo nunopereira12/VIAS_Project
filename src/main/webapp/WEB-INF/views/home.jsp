@@ -43,8 +43,16 @@
                     <c:when test="${user.getRole() eq 'USER' || user.getRole() eq 'PICA' }">
                         <a href="http://localhost:8080/profile">
                             <button class="nav-perfil-button">
-                                <img src="images/map1.png" width="80px" heigth="80px" alt="profile picture"
+                                <img src=<c:if test="${user.getProfilePicture() == null}">
+                                             "images/map1.png" </c:if>
+                                        <c:if test="${user.getProfilePicture() != null}">
+                                            "uploads/${user.getProfilePicture()}" </c:if>
+
+
+                                     width="80px" heigth="80px" alt="profile picture"
                                      style="border: #1E1E1E; border-radius: 80px">
+
+
                                 <span><h5
                                         style="margin-top:10px">${user.getFirstName()} ${user.getLastName()}</h5></span>
                             </button>

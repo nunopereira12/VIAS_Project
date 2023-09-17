@@ -23,9 +23,8 @@
         <button class="arrowbutton" onclick="window.history.back()">
             <img src="/images/backarrow.png" alt="Go back!" width="30px">
         </button>
+        <button class="circle-button" data-toggle="modal" data-target="#profilePhotoModal" style="background-image: url('/uploads/${userr.getProfilePicture()}')">
 
-        <button class="circle-button" data-toggle="modal" data-target="#profilePhotoModal">
-            ~Foto Perfil~
             <svg xmlns="http://www.w3.org/2000/svg" width="56" height="52" viewBox="0 0 56 52" fill="none" class="bottom-right-image">
                 <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
                 <mask id="mask0_305_3024" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="14" y="16" width="24" height="24">
@@ -105,6 +104,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="profilePhotoModalLabel">Upload Foto de Perfil</h5>
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -113,8 +113,9 @@
                 <%--<p id="uploadMessage">${uploadMessage}</p>--%>
                 <form action="/upload" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="fileInput">Escolha uma foto de perfil:</label>
-                        <input type="file" name="file" class="form-control-file" id="fileInput" accept="image/jpeg, image/png, image/gif">
+                        <label for="fileInput" style="margin-bottom: 1.5rem">Escolha uma foto de perfil:</label>
+                        <input type="file" name="file" class="form-control-file" id="fileInput" accept="image/jpeg, image/png">
+                        <h6 style="margin-top: 1.5rem">Tamanho máximo de ficheiro: 10MB</h6>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

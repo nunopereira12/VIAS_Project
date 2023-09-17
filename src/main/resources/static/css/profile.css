@@ -112,7 +112,9 @@ body {
     top: 50%; /* Center vertically within the parent container */
     left: 50%; /* Center horizontally within the parent container */
     transform: translate(-50%, -50%); /* Center both vertically and horizontally */
-    background: lightblue;
+
+    background-size: cover; /* Scale the background image to cover the button */
+    background-position: center center; /* Center the background image horizontally and vertically */
     border: none;
     cursor: pointer;
     z-index: 1; /* Ensure the button is on top of the image */
@@ -209,6 +211,7 @@ hr {
     bottom: 0px; /* Align the image to the bottom */
     right: -22px; /* Align the image to the right */
 }
+
 
 
 
