@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;
+import pt.upskill.vias.models.viasleague.entities.Trip;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.routes.RoutesService;
 import pt.upskill.vias.services.HomeService;
@@ -77,9 +79,12 @@ public class HomeController {
         List<Leg> legs = routesRequestService.getLegList(origem, destino);
         Collections.sort(legs, Comparator.comparing(Leg::getDuration));
 
+        mav.addObject("origem",origem);
+        mav.addObject("destino",destino);
+
         if (legs.isEmpty()) {
             /*return new ModelAndView("wallet");*/
-            mav.addObject("error2", "Erro na procura. \nPor favor, tente novamente.");
+            mav.addObject("error2", "Erro na procura. \nPor favor, tente outros locais.");
 
             return mav;
         }
@@ -99,6 +104,19 @@ public class HomeController {
         return mav;
 
         //return new ModelAndView("redirect:/suggestions");
+    }
+
+    @PostMapping(value = "/traveldetails")
+    public ModelAndView travelDetailsPage(@RequestParam("distance") String distance, @RequestParam("duration") String duration) {
+        ModelAndView mav = new ModelAndView();
+
+        Leg leg1 = new Leg();
+        leg1.setDistance(distance);
+        leg1.setDuration(duration);
+
+        mav.addObject("leg", leg1);
+
+        return mav;
     }
 
 

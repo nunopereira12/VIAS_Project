@@ -50,6 +50,7 @@
                     <h1 style="font-size: 1.375rem;">
                     <span>15H37 - 15H59</span>
                     <span class="totalDuration">(22 min)</span>
+                        ${leg.getDistance()}
                     </h1>
 
                 </div>
@@ -199,6 +200,7 @@
                             </div>
                             <div class="right-column">
                                 <div class="firstLine">
+                                    ${leg.getDuration()}
                                     Sete Rios
                                 </div>
                                 <div class="secondLine">

@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Leg /*implements Comparable<Leg>*/{
 
+    private long id;
     private String departure_time;
     private String arrival_time;
     private String distance;
@@ -23,9 +24,18 @@ public class Leg /*implements Comparable<Leg>*/{
         this.fare = fare;
     }
 
+
+    public long getId() {
+        return id;
+    }
+
     public void addStep(Step step) {
         steps.add(step);
 
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getDeparture_time() {
