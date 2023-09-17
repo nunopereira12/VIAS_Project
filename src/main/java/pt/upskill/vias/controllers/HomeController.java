@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import pt.upskill.vias.entities.User;
+import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.routes.RoutesService;
 import pt.upskill.vias.services.HomeService;
@@ -12,6 +14,9 @@ import pt.upskill.vias.services.routes.RoutesRequestService;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 
 @Controller
@@ -69,18 +74,21 @@ public class HomeController {
     @PostMapping(value="/perform_travel")
     public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
         ModelAndView mav = new ModelAndView("suggestions");
+        List<Leg> legs = routesRequestService.getLegList(origem, destino);
+        Collections.sort(legs, Comparator.comparing(Leg::getDuration));
+
         if(principal != null){
             String loggedInUsername = principal.getName();
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
             mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
-            mav.addObject("legs", routesRequestService.getLegList(origem, destino));
+            mav.addObject("legs", legs);
             return mav;
 
             //return new ModelAndView("redirect:/suggestions");
         }
 
         mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
-        mav.addObject("legs", routesRequestService.getLegList(origem, destino));
+        mav.addObject("legs", legs);
         return mav;
 
         //return new ModelAndView("redirect:/suggestions");
