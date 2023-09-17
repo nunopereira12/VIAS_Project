@@ -195,8 +195,9 @@
             <div>
                 <form id="directionsForm" method="POST" action="/perform_travel">
                     <div class="search-bar" style="border-bottom: 2px solid #D9D9D9 ">
+                        <input style="border: none" type="text" name="origem" id="origem1" placeholder="A sua origem" required>
                         <button class="form-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 41"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 40 41"
                                  fill="none">
                                 <mask id="mask0_15_302" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
                                       y="0"
@@ -215,7 +216,7 @@
                                placeholder="O seu destino"
                                required>
                         <button type="submit" class="form-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none">
                                 <mask id="mask0_15_307" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
                                       y="0">
                                     <path d="M0 0.5H30V30.5H0V0.5Z" fill="#FFFFFF"/>

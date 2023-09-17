@@ -12,16 +12,24 @@
     margin: 150px 0 0 0; /* Para fazer overlap com a div directamente acima*/
     border-radius: 25px 25px 0 0;
     position: relative;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+
 }
 
 .button{
-    width: 100%;
+    width: 90%;
     background-color: #1F7EB2;
     height: 50px;
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
     margin: 10px auto;
+    display:flex;
+    align-items: baseline;
+    text-align: left;
 
 }
 
