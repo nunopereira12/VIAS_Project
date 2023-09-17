@@ -77,6 +77,13 @@ public class HomeController {
         List<Leg> legs = routesRequestService.getLegList(origem, destino);
         Collections.sort(legs, Comparator.comparing(Leg::getDuration));
 
+        if (legs.isEmpty()) {
+            /*return new ModelAndView("wallet");*/
+            mav.addObject("error2", "Erro na procura. \nPor favor, tente novamente.");
+
+            return mav;
+        }
+
         if(principal != null){
             String loggedInUsername = principal.getName();
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
