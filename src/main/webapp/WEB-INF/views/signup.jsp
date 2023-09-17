@@ -237,7 +237,7 @@
             <div class="custom-alert-content">
                 <span class="custom-alert-close" onclick="closeCustomAlert()">&times;</span>
                 <h2>Atenção!</h2>
-                <p>Deve abrir, ler e aceitar os termos e condições para poder registar.</p>
+                <p>Deve abrir, ler e aceitar os termos e condições para se poder registar.</p>
                 <button onclick="closeCustomAlert()">OK</button>
             </div>
         </div>
