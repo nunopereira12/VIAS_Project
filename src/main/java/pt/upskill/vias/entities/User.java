@@ -22,10 +22,9 @@ public class User {
     private String email;
     private int points;
     private String league;
+    //private UserStats userStats;
     private String role;
     private boolean activated;
-    //private UserStats userStats;
-
     private String profilePicture;
 
     @OneToMany(mappedBy = "user")

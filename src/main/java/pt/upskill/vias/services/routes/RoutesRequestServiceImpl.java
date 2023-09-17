@@ -52,7 +52,7 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
         JSONArray routes = response.getJSONArray("routes");
         for(int i = 0; i < routes.length(); i++) {
             JSONObject jsonLeg = routes.getJSONObject(i).getJSONArray("legs").getJSONObject(0);
-            Leg leg = legInfoService.buildLeg(jsonLeg);
+            Leg leg = legInfoService.buildLeg(jsonLeg, i);
             JSONArray steps = jsonLeg.getJSONArray("steps");
 
             for(int j = 0; j< steps.length(); j++) {

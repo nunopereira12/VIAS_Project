@@ -195,9 +195,6 @@
             <div>
                 <form id="directionsForm" method="POST" action="/perform_travel">
                     <div class="search-bar" style="border-bottom: 2px solid #D9D9D9 ">
-                        <input style="border: none" type="text" name="origem" id="origem1"
-                               placeholder="A sua origem"
-                               required>
                         <button class="form-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 41"
                                  fill="none">

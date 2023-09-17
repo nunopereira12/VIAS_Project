@@ -43,6 +43,14 @@ public class LegInfoServiceImpl implements LegInfoService {
     public String departureTime(JSONObject jsonLeg) {
         return jsonLeg.getJSONObject("departure_time").getString("text");
     }
+    @Override
+    public String start_address(JSONObject jsonLeg) {
+        return jsonLeg.getString("start_address");
+    }
+    @Override
+    public String end_address(JSONObject jsonLeg) {
+        return jsonLeg.getString("end_address");
+    }
 
     @Override
     public String fare(JSONArray steps) {
@@ -60,10 +68,11 @@ public class LegInfoServiceImpl implements LegInfoService {
         return String.valueOf(fare);
     }
 
+
     @Override
-    public Leg buildLeg(JSONObject jsonLeg) {
+    public Leg buildLeg(JSONObject jsonLeg, int id) {
         JSONArray steps = jsonLeg.getJSONArray("steps");
-        Leg leg = new Leg(departureTime(jsonLeg), arrivalTime(jsonLeg), distance(jsonLeg), duration(jsonLeg), fare(steps));
+        Leg leg = new Leg(id, departureTime(jsonLeg), arrivalTime(jsonLeg), distance(jsonLeg), duration(jsonLeg), start_address(jsonLeg), end_address(jsonLeg),  fare(steps));
         return leg;
     }
 

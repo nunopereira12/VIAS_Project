@@ -3,7 +3,7 @@
 
 <!doctype html>
 <html lang="en">
-<%@include file="header.jsp" %>
+<%@include file="header.jsp"%>
 <head>
     <title>VIAS | Sugestões de rota</title>
     <link rel="stylesheet" href="/css/template.css">
@@ -38,8 +38,8 @@
             </footer>
         </div>
         <div class="button-box">
-            <button class="button">${origem}</button>
-            <button class="button">${destino}</button>
+            <button class="button">Origem</button>
+            <button class="button">Destino</button>
 
             <div class="date-hour-box" style="margin-top: 20px;">
                 <div class="btn-group" role="group" aria-label="Basic example">

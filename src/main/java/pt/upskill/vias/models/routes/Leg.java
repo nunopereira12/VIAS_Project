@@ -5,28 +5,28 @@ import java.util.List;
 
 public class Leg /*implements Comparable<Leg>*/{
 
-    private long id;
+    private int id;
     private String departure_time;
     private String arrival_time;
     private String distance;
     private String duration;
+    private String start_address;
+    private String end_address;
     private String fare;
     private List<Step> steps = new ArrayList<>();
 
 
     public Leg(){}
 
-    public Leg(String departure_time, String arrival_time, String distance, String duration, String fare) {
+    public Leg(int id, String departure_time, String arrival_time, String distance, String duration, String start_address, String end_address, String fare) {
+        this.id = id;
         this.departure_time = departure_time;
         this.arrival_time = arrival_time;
         this.distance = distance;
         this.duration = duration;
+        this.start_address = start_address;
+        this.end_address = end_address;
         this.fare = fare;
-    }
-
-
-    public long getId() {
-        return id;
     }
 
     public void addStep(Step step) {
@@ -34,8 +34,8 @@ public class Leg /*implements Comparable<Leg>*/{
 
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public String getDeparture_time() {
@@ -68,6 +68,22 @@ public class Leg /*implements Comparable<Leg>*/{
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public String getStart_address() {
+        return start_address;
+    }
+
+    public void setStart_address(String start_address) {
+        this.start_address = start_address;
+    }
+
+    public String getEnd_address() {
+        return end_address;
+    }
+
+    public void setEnd_address(String end_address) {
+        this.end_address = end_address;
     }
 
     public String getFare() {

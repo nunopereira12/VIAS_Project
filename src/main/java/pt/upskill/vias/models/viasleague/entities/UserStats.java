@@ -1,11 +1,5 @@
 package pt.upskill.vias.models.viasleague.entities;
 
-import pt.upskill.vias.models.viasleague.League;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 
 public class UserStats {
 
@@ -18,8 +12,6 @@ public class UserStats {
     double money_spent;
     int total_points;
     int weekly_points;
-    private League current_league;
-    private League last_league;
 
 
 }

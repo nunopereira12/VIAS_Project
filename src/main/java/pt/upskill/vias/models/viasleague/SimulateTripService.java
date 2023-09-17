@@ -1,6 +1,6 @@
 package pt.upskill.vias.models.viasleague;
 
-public interface PointCalculationService {
+public interface SimulateTripService {
 
 
 }

@@ -4,13 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;
-import pt.upskill.vias.models.viasleague.entities.Trip;
 import pt.upskill.vias.repositories.UserRepository;
-import pt.upskill.vias.services.routes.RoutesService;
 import pt.upskill.vias.services.HomeService;
 import pt.upskill.vias.services.routes.RoutesRequestService;
 
@@ -30,8 +26,6 @@ public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    RoutesService routesService;
 
     @Autowired
     RoutesRequestService routesRequestService;
@@ -78,9 +72,6 @@ public class HomeController {
         ModelAndView mav = new ModelAndView("suggestions");
         List<Leg> legs = routesRequestService.getLegList(origem, destino);
         Collections.sort(legs, Comparator.comparing(Leg::getDuration));
-
-        mav.addObject("origem",origem);
-        mav.addObject("destino",destino);
 
         if (legs.isEmpty()) {
             /*return new ModelAndView("wallet");*/
