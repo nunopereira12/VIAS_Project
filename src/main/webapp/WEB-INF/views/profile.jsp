@@ -4,8 +4,18 @@
 <%@include file="header.jsp" %>
 <head>
     <title>VIAS | Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>--%>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/profile.css">
+
 </head>
+<style>
+    body {
+        font-family: Montserrat, serif;
+    }
+</style>
 <body>
 
 <div class="container">
@@ -14,7 +24,7 @@
             <img src="/images/backarrow.png" alt="Go back!" width="30px">
         </button>
 
-        <button class="circle-button">
+        <button class="circle-button" data-toggle="modal" data-target="#profilePhotoModal">
             ~Foto Perfil~
             <svg xmlns="http://www.w3.org/2000/svg" width="56" height="52" viewBox="0 0 56 52" fill="none" class="bottom-right-image">
                 <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
@@ -90,5 +100,42 @@
     </footer>
 </div>
 
+<div class="modal fade" id="profilePhotoModal" tabindex="-1" role="dialog" aria-labelledby="profilePhotoModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profilePhotoModalLabel">Upload Foto de Perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <%--<p id="uploadMessage">${uploadMessage}</p>--%>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="fileInput">Escolha uma foto de perfil:</label>
+                        <input type="file" name="file" class="form-control-file" id="fileInput" accept="image/jpeg, image/png, image/gif">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
+
+<%--<script>
+    $(document).ready(function () {
+        // Check if the uploadMessage exists and is not empty
+        var uploadMessage = '${uploadMessage}';
+        if (uploadMessage && uploadMessage.trim().length > 0) {
+            $('#profilePhotoModal').modal('show'); // Show the modal
+        }
+    });
+</script>--%>
+
 </html>

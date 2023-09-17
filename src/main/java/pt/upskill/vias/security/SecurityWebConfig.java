@@ -51,6 +51,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/contactos").permitAll()
                 .antMatchers("/contact_success").permitAll()
                 .antMatchers("/send_message").permitAll()
+                .antMatchers("/upload").permitAll()
                 .antMatchers("/tarefas").hasRole("ADMIN")
                 .antMatchers("/images/**", "/css/**","/js/**").permitAll()
                 .antMatchers("**").denyAll()
