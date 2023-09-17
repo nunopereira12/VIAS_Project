@@ -9,9 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.FileUploadService;
-
-import java.io.File;
-import java.io.IOException;
 import java.security.Principal;
 
 @Controller

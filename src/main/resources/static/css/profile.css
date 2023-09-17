@@ -44,7 +44,7 @@ body {
     .container {
         max-width: 400px; /* Set a maximum width for the container */
         margin: 0 auto; /* Center the container horizontally */
-        padding: 0px; /* Add some padding to the container */
+        padding: 0; /* Add some padding to the container */
     }
 
     .mapa {
@@ -185,12 +185,12 @@ hr {
 }
 
 .nomes {
-    color:gray;
+    color: rgb(128, 128, 128);
     margin-top: 30px;
 }
 
 #firstt {
-    color: gray;
+    color: rgb(128, 128, 128);
 }
 
 
@@ -208,7 +208,7 @@ hr {
 
 .bottom-right-image {
     position: absolute; /* Position the image absolutely within the button */
-    bottom: 0px; /* Align the image to the bottom */
+    bottom: 0; /* Align the image to the bottom */
     right: -22px; /* Align the image to the right */
 }
 

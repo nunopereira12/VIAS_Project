@@ -1,7 +1,6 @@
 package pt.upskill.vias.entities;
 
 import pt.upskill.vias.models.viasleague.entities.Trip;
-import pt.upskill.vias.models.viasleague.entities.UserStats;
 
 import javax.persistence.*;
 import java.text.ParseException;
