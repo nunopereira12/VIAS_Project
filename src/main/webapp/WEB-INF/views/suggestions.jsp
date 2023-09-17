@@ -59,24 +59,28 @@
         </div>
         <div class="suggestions-box">
             <h4>Sugestões de Rota</h4>
-
             <c:forEach var="leg" items="${legs}">
             <div class="card-box">
                 <div class="card">
                     <div class="time-travel-box">
                     <div class="travel-box">
                      <c:forEach var="step" items="${leg.getSteps()}" varStatus="loop">
-                         <div class="icon-box"><img class="icon" src="${step.getIcon()}"></div>
+                         <c:if test="${step.getTravel_mode().equals('WALKING')}">
+                         <div class="icon-box"><img class="icon" src="${step.getIcon()}"></div></c:if>
+                         <c:if test="${!step.getTravel_mode().equals('WALKING')}">
+                             <div class="icon-box"><img class="icon" src="${step.getIcon()}"></div>
+                             <div class="travel-text" style="background-color: ${step.getLine().getColor()}; color: ${step.getLine().getText_color()}"><span style="margin: 0 2px">${step.getLine().getName()}</span></div>
+                         </c:if>
                          <c:if test="${!loop.last}">
                             <div class="icon-box">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">
                                     <path d="M4.33562 5.54835L0.502289 1.71502L1.66896 0.548355L6.66896 5.54835L1.66896 10.5484L0.502289 9.38169L4.33562 5.54835Z" fill="#3C4043"/>
-                                </svg></div>  </c:if>
+                                </svg></div></c:if>
 
                     </c:forEach></div>
                     <div class="time-box"><strong>${leg.getDuration()}</strong></div></div>
                     <div class="time-travel-box">
-                    <div class="start-end-box">${leg.getDeparture_time()}<span> - </span>${leg.getArrival_time()}</div>
+                    <div class="start-end-box">${leg.getDeparture_time()}<span style="margin: 0 3px"> - </span>${leg.getArrival_time()}</div>
                     <div class="fare-box"><span class="fare-style">VIAS Card: </span> ${leg.getFare()}<span>€</span></div></div>
                 </div>
                 <div class="card-button" onclick="window.location.href='/wallet';"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 28 28" fill="none" style="margin: 18px 5px 0 0">
@@ -87,7 +91,7 @@
                         <path d="M14 16.975C14.2658 16.975 14.4943 16.8794 14.6855 16.6882C14.8767 16.497 14.9723 16.2685 14.9723 16.0028C14.9723 15.737 14.8767 15.5085 14.6855 15.3173C14.4943 15.1261 14.2658 15.0305 14 15.0305C13.7343 15.0305 13.5058 15.1261 13.3146 15.3173C13.1234 15.5085 13.0278 15.737 13.0278 16.0028C13.0278 16.2685 13.1234 16.497 13.3146 16.6882C13.5058 16.8794 13.7343 16.975 14 16.975ZM14 12.1722C14.2658 12.1722 14.4943 12.0766 14.6855 11.8854C14.8767 11.6942 14.9723 11.4657 14.9723 11.2C14.9723 10.9342 14.8767 10.7058 14.6855 10.5146C14.4943 10.3234 14.2658 10.2278 14 10.2278C13.7343 10.2278 13.5058 10.3234 13.3146 10.5146C13.1234 10.7058 13.0278 10.9342 13.0278 11.2C13.0278 11.4657 13.1234 11.6942 13.3146 11.8854C13.5058 12.0766 13.7343 12.1722 14 12.1722ZM14 7.3694C14.2658 7.3694 14.4943 7.2738 14.6855 7.0826C14.8767 6.8914 14.9723 6.66293 14.9723 6.39718C14.9723 6.13146 14.8767 5.90298 14.6855 5.71177C14.4943 5.52057 14.2658 5.42497 14 5.42497C13.7343 5.42497 13.5058 5.52057 13.3146 5.71177C13.1234 5.90298 13.0278 6.13146 13.0278 6.39718C13.0278 6.66293 13.1234 6.8914 13.3146 7.0826C13.5058 7.2738 13.7343 7.3694 14 7.3694ZM23.7223 20.5333H4.2778C3.74308 20.5333 3.28533 20.3429 2.90454 19.9621C2.52376 19.5814 2.33337 19.1236 2.33337 18.5889V14.0583C3.0269 13.9546 3.60861 13.6354 4.0785 13.1007C4.54842 12.566 4.78337 11.9324 4.78337 11.2C4.78337 10.4676 4.54842 9.83075 4.0785 9.28956C3.60861 8.74834 3.0269 8.43236 2.33337 8.34161V3.81106C2.33337 3.27634 2.52376 2.81859 2.90454 2.43781C3.28533 2.05703 3.74308 1.86664 4.2778 1.86664H23.7223C24.257 1.86664 24.7148 2.05703 25.0955 2.43781C25.4763 2.81859 25.6667 3.27634 25.6667 3.81106V8.34161C24.9732 8.43236 24.3915 8.74834 23.9216 9.28956C23.4517 9.83075 23.2167 10.4676 23.2167 11.2C23.2167 11.9324 23.4517 12.566 23.9216 13.1007C24.3915 13.6354 24.9732 13.9546 25.6667 14.0583V18.5889C25.6667 19.1236 25.4763 19.5814 25.0955 19.9621C24.7148 20.3429 24.257 20.5333 23.7223 20.5333ZM23.7223 18.5889V15.4778C22.9899 14.9981 22.3984 14.3872 21.948 13.6451C21.4975 12.903 21.2723 12.0879 21.2723 11.2C21.2723 10.312 21.4975 9.49696 21.948 8.75484C22.3984 8.01271 22.9899 7.40182 23.7223 6.92218V3.81106H4.2778V6.92218C5.02318 7.40182 5.61786 8.01271 6.06184 8.75484C6.50581 9.49696 6.7278 10.312 6.7278 11.2C6.7278 12.0879 6.50581 12.903 6.06184 13.6451C5.61786 14.3872 5.02318 14.9981 4.2778 15.4778V18.5889H23.7223Z" fill="white"/>
                     </g>
                 </svg>
-                    <span style="margin-top: 15px">Títulos de Transporte</span></div>
+                    <span class="card-button-text">Títulos de Transporte</span></div>
             </div>
             </c:forEach>
         </div>
