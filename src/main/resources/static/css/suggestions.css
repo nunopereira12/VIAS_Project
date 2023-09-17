@@ -118,11 +118,13 @@
 .time-box{
     display: flex;
     font-size: 14px;
-    margin: auto 15px auto auto;
+    margin: auto 10px auto auto;
 }
 .time-travel-box{
     display:flex;
     justify-content: space-between;
+    align-items: baseline;
+
 
 }
 .start-end-box{
@@ -133,7 +135,7 @@
 }
 .fare-box{
     display: flex;
-    margin: auto 15px auto auto;
+    margin: auto 10px auto auto;
 }
 .fare-style{
     font-size: 12.5px;

@@ -14,7 +14,19 @@ public class LegInfoServiceImpl implements LegInfoService {
 
     @Override
     public String duration(JSONObject jsonLeg) {
-        return jsonLeg.getJSONObject("duration").getString("text");
+        String duration = jsonLeg.getJSONObject("duration").getString("text");
+        if (duration.contains("s")) {
+            duration = duration.replace("s","");
+        }
+        if (duration.contains("hora")){
+            duration = duration.replace("hora","h");
+        }
+        if(duration.contains("min")){
+            duration = duration.replace("min","m");
+        }
+
+
+        return duration;
     }
 
     @Override

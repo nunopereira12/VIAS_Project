@@ -3,7 +3,7 @@ package pt.upskill.vias.models.routes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Leg {
+public class Leg /*implements Comparable<Leg>*/{
 
     private String departure_time;
     private String arrival_time;
@@ -75,4 +75,13 @@ public class Leg {
     public void setSteps(List<Step> steps) {
         this.steps = steps;
     }
+
+    /*@Override
+    public int compareTo(Leg leg) {
+        if (this.getDuration() > leg.getDuration()) {
+            return 1;
+        } else {
+            return this.getDuration() < leg.getDuration() ? -1 : 0;
+        }
+    }*/
 }

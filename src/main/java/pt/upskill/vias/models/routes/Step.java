@@ -52,11 +52,20 @@ public class Step {
     }
 
     public String getDuration() {
+        if(duration.contains("hora")){
+            duration = duration.replace(" hora ","h");
+        }
+        String finalduration = duration.replace(" ","");
+        this.duration = finalduration;
         return duration;
     }
 
     public void setDuration(String duration) {
-        this.duration = duration;
+        if(duration.contains("hora")){
+            duration = duration.replace(" hora ","h");
+        }
+        String finalduration = duration.replace(" ","");
+        this.duration = finalduration;
     }
 
     public String getPolyline() {
