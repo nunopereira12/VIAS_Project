@@ -57,8 +57,25 @@
                 </div>
             </div>
         </div>
+
+        <c:if test="${error2 != null}">
+
+            <div class="alert alert-danger text-center">
+                <p>${error2}</p>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button class="btn btn-light" onclick="window.location.href='/home'">OK</button>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="${error2 == null}">
+
         <div class="suggestions-box">
             <h4>Sugestões de Rota</h4>
+            <%--<c:if test="${error2 != null}">
+                <div class="alert alert-danger">
+                        ${error2}
+                </div>
+            </c:if>--%>
             <c:forEach var="leg" items="${legs}">
             <div class="card-box">
                 <div class="card">
@@ -95,6 +112,8 @@
             </div>
             </c:forEach>
         </div>
+        </c:if>
+
     </div>
 
 
