@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.repositories.UserRepository;
@@ -83,14 +84,12 @@ public class HomeController {
         if(principal != null){
             String loggedInUsername = principal.getName();
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
-            mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
             mav.addObject("legs", legs);
             return mav;
 
             //return new ModelAndView("redirect:/suggestions");
         }
 
-        mav.addObject("tripSteps", routesService.tripSteps(routesRequestService.getJSONResponse(routesRequestService.createPostURL(origem, destino))));
         mav.addObject("legs", legs);
         return mav;
 
