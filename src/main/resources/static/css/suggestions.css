@@ -55,12 +55,10 @@
 
 .card{
     background-color: white;
+    width: 300px;
     margin: 25px 0 0 0;
     border: none;
     border-radius: 15px;
-    height: auto;
-    min-width: 260px;
-    width: auto;
     box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.30);
     vertical-align: center;
 
@@ -112,6 +110,7 @@
     align-content: flex-start;
     align-items: baseline;
     flex-wrap: wrap;
+    width: 63%;
     margin: 15px;
 }
 .travel-text{
@@ -125,15 +124,13 @@
 .time-box{
     display: flex;
     font-size: 14px;
-    margin: auto 10px auto auto;
+    margin: 16px 10px auto auto;
 }
 .time-travel-box{
     display:flex;
     justify-content: space-between;
     align-items: baseline;
-
-
-
+    width: 100%;
 }
 .start-end-box{
     display: flex;

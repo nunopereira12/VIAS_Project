@@ -106,13 +106,10 @@
                         </div>
                     </c:if>--%>
                 <c:forEach var="leg" items="${legs}">
-
                     <div class="card-box">
-                        <div class="card" id="clickableDiv">
-                            <form class="submit-button" id="myForm_${leg.getId()}" action="/traveldetails" method="post" >
+                        <form class="submit-button" id="myForm_${leg.getId()}" action="/traveldetails" method="post" >
+                        <button class="card">
                                 <input type="hidden" name="id" value="${leg.getId()}">
-                                <input type="submit" value="Ver mais detalhes">
-                            </form>
                                 <div class="time-travel-box">
                                     <div class="travel-box">
                                         <c:forEach var="step" items="${leg.getSteps()}" varStatus="loop">
@@ -145,7 +142,8 @@
                                             class="fare-style">VIAS Card: </span> ${leg.getFare()}<span>€</span>
                                     </div>
                                 </div>
-                        </div>
+                        </button>
+                        </form>
                         <div class="card-button" onclick="window.location.href='/wallet';">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 28 28"
                                  fill="none" style="margin: 18px 5px 0 0">
@@ -188,7 +186,6 @@
             form.submit();
         });
     });
-
 </script>
 
 </body>

@@ -5,7 +5,7 @@
 <html lang="en">
 <%@include file="header.jsp"%>
 <head>
-    <title>Bem-vindo à VIAS</title>
+    <title>VIAS | Rota Detalhada</title>
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/traveldetails.css">
@@ -60,19 +60,14 @@
         <div class="suggestions-box">
             <h4>A sua Rota:</h4>
             <div class="card" id="suggestions-small-card">
-
                 <div>
-
                     <h1 style="font-size: 1.375rem;">
                     <span>${leg.getDeparture_time()} - ${leg.getArrival_time()}</span>
                     <span class="totalDuration">(${leg.getDuration()})</span>
                         ${leg.getDistance()}
                     </h1>
-
                 </div>
-
                 <div>
-
                     <div class="time-travel-box">
                         <div class="travel-box">
                             <c:forEach var="step" items="${leg.getSteps()}">
@@ -94,7 +89,6 @@
                                         </svg>
                                     </div>
                                 </c:if>
-
                             </c:forEach>
                         </div>
                     </div>
