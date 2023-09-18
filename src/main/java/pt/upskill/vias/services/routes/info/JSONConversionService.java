@@ -10,5 +10,5 @@ public interface JSONConversionService {
 
     public JSONObject stringToObject(String obj_string);
 
-    public List<Step> addSteps(Leg leg);
+    public Leg addSteps(Leg leg);
 }

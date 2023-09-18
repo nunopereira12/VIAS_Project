@@ -151,6 +151,12 @@
     margin: auto 3px auto auto;
 }
 
+.submit-button{
+    border: none;
+    font-size:14px;
+
+}
+
 @media (max-width: 920px) {
     .suggestions-box{
         min-width: auto;

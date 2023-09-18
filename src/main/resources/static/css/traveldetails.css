@@ -4,14 +4,45 @@
 
 }
 .button{
-    width: 100%;
+    width: 90%;
     background-color: #1F7EB2;
     height: 50px;
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
     margin: 10px auto;
+    display:flex;
+    align-items: baseline;
+    text-align: left;
 
+}
+
+
+.icon{
+    height:20px;
+    width:20px;
+    color: #3C4043;
+    margin:0;
+}
+
+.icon-box{
+    display:inline-block;
+}
+
+.travel-box{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+.travel-text{
+    font-size: 10px;
+    font-weight: 500;
+    height: fit-content;
+    margin: 0 3px 0 0;
+    border-radius: 2px;
 }
 
 .suggestions-box{
@@ -21,6 +52,12 @@
     border-radius: 25px;
     padding: 20px;
     min-height: auto;
+}
+
+.time-travel-box{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .detailed-card{

@@ -22,7 +22,7 @@ public class JSONConversionServiceImpl implements JSONConversionService {
     }
 
     @Override
-    public List<Step> addSteps(Leg leg) {
+    public Leg addSteps(Leg leg) {
         List<Step> steps = new ArrayList<>();
 
         String json_steps = leg.getJson_steps();
@@ -33,8 +33,9 @@ public class JSONConversionServiceImpl implements JSONConversionService {
             Step step = stepInfoService.buildStep(json_step);
             steps.add(step);
         }
+        leg.setSteps(steps);
 
-        return steps;
+        return leg;
     }
 
 }

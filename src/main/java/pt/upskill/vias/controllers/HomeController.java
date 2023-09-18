@@ -87,9 +87,8 @@ public class HomeController {
     @PostMapping(value = "/traveldetails")
     public ModelAndView travelDetailsPage(@RequestParam("id") long id) {
         ModelAndView mav = new ModelAndView();
-
         Leg leg = legRepository.getLegById(id);
-        jsonConversionService.addSteps(leg);
+        leg = jsonConversionService.addSteps(leg);
 
         mav.addObject("leg", leg);
 
