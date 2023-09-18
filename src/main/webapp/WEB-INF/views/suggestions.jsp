@@ -179,8 +179,10 @@
         const form = document.getElementById("myForm");
 
         clickableDiv.addEventListener("click", function () {
-            // Perform the window.location.href action
-            window.location.href = "/traveldetails"; // Replace with your desired URL
+
+            // You can modify the form action and method here
+            form.action = "/traveldetails"; // Set the desired URL
+            form.method = "POST"; // Set the HTTP method to POST
 
             // Submit the form
             form.submit();

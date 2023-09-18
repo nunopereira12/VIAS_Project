@@ -12,7 +12,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs"></script>
 
 </head>
-<body class="home-body" onload="initDirectionsService()">
+<body class="home-body">
 <button class="arrowbutton" style="z-index: 1000" onclick="window.history.back()">
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
@@ -58,19 +58,24 @@
                 </svg><span style="margin: auto auto auto 0 ">${leg.getEnd_address()}</span></button>
         </div>
         <div class="suggestions-box">
-            <h4>A sua Rota:</h4>
-            <div class="card" id="suggestions-small-card">
+            <div class="card" id="suggestions-small-card" style="margin-bottom: 10px;">
+                <h4 class="yourRoute">A sua rota:</h4>
                 <div>
                     <h1 style="font-size: 1.375rem;">
                     <span>${leg.getDeparture_time()} - ${leg.getArrival_time()}</span>
                     <span class="totalDuration">(${leg.getDuration()})</span>
-                        ${leg.getDistance()}
+                        <p>${leg.getDistance()}</p>
+
                     </h1>
+
                 </div>
+
+
                 <div>
+
                     <div class="time-travel-box">
                         <div class="travel-box">
-                            <c:forEach var="step" items="${leg.getSteps()}">
+                            <c:forEach var="step" items="${leg.getSteps()}" varStatus="loop" >
                                 <c:if test="${step.getTravel_mode().equals('WALKING')}">
                                     <div class="icon-box"><img class="icon" src="${step.getIcon()}"></div>
                                 </c:if>
@@ -94,7 +99,9 @@
                     </div>
                 </div>
             </div>
-            <div class="detailed-card">
+
+
+            <div class="detailed-card" style="padding-bottom: 20px;margin-bottom: 30px;padding-top: 30px;margin-top: 5px;">
                 <div class="detailed-card-box">
                <div>
                    <div class="eachStepDiv">
@@ -103,90 +110,113 @@
                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px"><path d="M12 2a8 8 0 0 0-7.992 8A12.816 12.816 0 0 0 12 22a12.816 12.816 0 0 0 7.988-12A8 8 0 0 0 12 2zm0 11a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"/></svg>
                            </div>
                            <div class="secondLine">
-                                 15H37
+                               ${leg.getDeparture_time()}
                            </div>
                        </div>
-                       <div class="right-column">
+                       <div class="right-column" style="padding-left: 0px;margin-left: 30px;">
                            <div class="firstLine">
-                               Pragal (Portagem)
+                                 ${leg.getStart_address()}
                            </div>
                            <div class="secondLine">
-                               Almada
+
                            </div>
                        </div>
                    </div>
                </div>
                 </div>
             </div>
-            <div style="display: flex; justify-content: center;">
+
+            <%--<div style="display: flex; justify-content: center;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
-            </div>
-            <div class="detailed-card">
+            </div>--%>
+
+
+
+
+            <c:forEach var="step" items="${leg.getSteps()}" varStatus="loop">
+                <c:choose>
+                    <c:when test="${!step.getTravel_mode().equals('WALKING')}">
+
+
+            <div class="detailed-card" style="margin-top: 20px;padding-bottom: 30px;margin-bottom: 20px;">
                 <div class="detailed-card-box">
                     <div>
                         <div class="eachStepDiv">
                             <div class="left-column">
-                               <img src="//maps.gstatic.com/mapfiles/transit/iw2/svg/bus2.svg" width="20px" height="20px">
-                            </div>
-                            <div class="right-column">
                                 <div class="firstLine">
-                                    Lisboa (Sete Rios)
+                                        Hora de partida:
+                                </div>
+                                <div class="secondLine" >
+                                        ${step.getDeparture_time()}
+
+
+                                </div>
+                            </div>
+                            <div class="right-column" style="padding-left: 0px;margin-left: 30px;">
+                                <div class="firstLine">
+                                            ${step.getDeparture_stop()} até ${step.getArrival_stop()} (${step.num_stops}
+                                                <c:if test="${step.num_stops == 1}">
+                                                    paragem)
+                                                </c:if>
+                                                <c:if test="${step.num_stops != 1}">
+                                                    paragens)
+                                                </c:if>
+
+
                                 </div>
                                 <div class="secondLine">
-                                   18 mins (8 stops)
+                                    <p>${step.getHtml_instructions()};</p>
+                                        <p>Duração da viagem: ${step.getDuration()};</p>
+                                        <p>Hora prevista de chegada: ${step.getArrival_time()};</p>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="display: flex; justify-content: center;">
+            <%--<div style="display: flex; justify-content: center;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
-            </div>
-            <div class="detailed-card">
-                <div class="detailed-card-box">
-                    <div>
-                        <div class="eachStepDiv">
-                            <div class="left-column">
-                                15H56
-                            </div>
-                            <div class="right-column">
-                                <div class="firstLine">
-                                    Sete Rios (Estação)
+            </div>--%>
+                    </c:when>
+
+
+                <c:when test="${step.getTravel_mode().equals('WALKING')}">
+                <div class="detailed-card walkingbox" style="margin-top: 20px;padding-bottom: 30px;margin-bottom: 20px;">
+                    <div class="detailed-card-box">
+                        <div>
+                            <div class="eachStepDiv">
+                                <div class="left-column">
+                                    <div class="firstLine">
+                                        <img src="${step.getIcon()}" width="20px" height="20px">
+                                    </div>
+                                    <div class="secondLine">
+                                            ${step.getDistance()}
+                                    </div>
                                 </div>
-                                <div class="secondLine">
+                                <div class="right-column" style="padding-left: 0px;margin-left: 30px;">
+                                    <div class="firstLine">
+                                            ${step.getHtml_instructions()}
+                                    </div>
+                                    <div class="secondLine" >
+                                            Cerca de ${step.getDuration()}
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div style="display: flex; justify-content: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
-            </div>
-            <div class="detailed-card">
-                <div class="detailed-card-box">
-                    <div>
-                        <div class="eachStepDiv">
-                            <div class="left-column">
-                                <img src="//maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg" width="20px" height="20px">
-                            </div>
-                            <div class="right-column">
-                                <div class="firstLine">
-                                    Andar a pé
-                                </div>
-                                <div class="secondLine">
-                                    Cerca de 3 mins, 150m
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="display: flex; justify-content: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
-            </div>
-            <div class="detailed-card">
+               <%-- <div style="display: flex; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" style="width: 15px;"><path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/></svg>
+                </div>--%>
+                </c:when>
+                </c:choose>
+            </c:forEach>
+
+
+
+            <div class="detailed-card" style="margin-top: 20px;padding-bottom: 50px;margin-bottom: 30px;">
                 <div class="detailed-card-box">
                     <div>
                         <div class="eachStepDiv">
@@ -195,23 +225,21 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M2 15h9v3h8V5h-8V2H2V0H0v23h2zM8 4v3h3v3h3V7h3v3h-3v3h3v3h-3v-3h-3v-3H8v3H5v-3H2V7h3V4z"/><path d="M5 7h3v3H5z"/></svg>
                                 </div>
                                 <div class="secondLine">
-                                    15H59
+                                    ${leg.getArrival_time()}
                                 </div>
-
                             </div>
-                            <div class="right-column">
+                            <div class="right-column" style="padding-left: 0px;margin-left: 30px;">
                                 <div class="firstLine">
-                                    ${leg.getDuration()}
-                                    Sete Rios
+                                    ${leg.getEnd_address()}
                                 </div>
                                 <div class="secondLine">
-                                    Chegou ao seu destino
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <div class="button-box-travel">
                 <button class="button-travel btn btn-primary buttons" style="margin-left: 12px">Começar Viagem</button>

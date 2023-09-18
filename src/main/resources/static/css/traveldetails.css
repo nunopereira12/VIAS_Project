@@ -35,7 +35,7 @@
     align-content: flex-start;
     align-items: baseline;
     flex-wrap: wrap;
-    margin: 15px;
+    margin: 15px 15px 15px 0;
 }
 .travel-text{
     font-size: 10px;
@@ -72,10 +72,10 @@
 
 #suggestions-small-card {
     background-color: white;
-    margin: 50px 20px;
+    margin: 10px 20px;
     border: none; /* Remove any existing borders */
     border-bottom: 1px solid #dadce0; /* Add the bottom border */
-    padding: 20px;
+    padding: 20px 20px 30px 20px;
     width: auto;
 }
 
@@ -179,5 +179,19 @@
 
 .secondLine {
     color: #70757a
+}
+
+.yourRoute {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/*.walkingbox {
+    display: flex;
+    justify-content: center;
+}*/
+
+p {
+    margin-bottom: 0;
 }
 
