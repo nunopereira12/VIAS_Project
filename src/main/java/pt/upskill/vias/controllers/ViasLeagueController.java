@@ -2,15 +2,13 @@ package pt.upskill.vias.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.repositories.UserRepository;
-import pt.upskill.vias.services.ViasLeagueService;
+import pt.upskill.vias.services.ViasLeagueService1;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -19,7 +17,7 @@ import java.util.List;
 public class ViasLeagueController {
 
     @Autowired
-    ViasLeagueService viasLeagueService;
+    ViasLeagueService1 viasLeagueService1;
 
     @Autowired
     private UserRepository userRepository;
@@ -29,7 +27,7 @@ public class ViasLeagueController {
     public ModelAndView vias_leaguePage(Principal principal) {
 
         String loggedInUsername = principal.getName();
-        List<User> users = viasLeagueService.getUsersByLoggedInUserLeague(loggedInUsername);
+        List<User> users = viasLeagueService1.getUsersByLoggedInUserLeague(loggedInUsername);
         Collections.sort(users, Comparator.comparing(User::getPoints).reversed());
 
         List<User> allUsers = userRepository.findAll();

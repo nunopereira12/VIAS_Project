@@ -1,5 +1,7 @@
 package pt.upskill.vias.models.routes;
 
+import pt.upskill.vias.entities.User;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,11 @@ public class Leg /*implements Comparable<Leg>*/ {
     private String start_address;
     private String end_address;
     private String fare;
+    private int points;
+    private boolean trip_completed = false;
+
+    @ManyToOne
+    private User user;
 
     @Column(length = 256000)
     private String json_steps;
@@ -112,12 +119,36 @@ public class Leg /*implements Comparable<Leg>*/ {
         this.steps = steps;
     }
 
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public boolean isTrip_completed() {
+        return trip_completed;
+    }
+
+    public void setTrip_completed(boolean trip_completed) {
+        this.trip_completed = trip_completed;
+    }
+
     public String getJson_steps() {
         return json_steps;
     }
 
     public void setJson_steps(String json_steps) {
         this.json_steps = json_steps;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

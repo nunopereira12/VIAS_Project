@@ -17,8 +17,18 @@ public class StepInfoServiceImpl implements StepInfoService {
     }
 
     @Override
+    public int distanceValue(JSONObject jsonStep) {
+        return jsonStep.getJSONObject("distance").getInt("value");
+    }
+
+    @Override
     public String duration(JSONObject jsonStep) {
         return jsonStep.getJSONObject("duration").getString("text");
+    }
+
+    @Override
+    public int durationValue(JSONObject jsonStep) {
+        return jsonStep.getJSONObject("duration").getInt("value");
     }
 
     @Override
@@ -71,10 +81,17 @@ public class StepInfoServiceImpl implements StepInfoService {
         return transit_details.getInt("num_stops");
     }
 
+    public void setStepValues(Step step, int distance, int duration) {
+        step.setDistanceValue(distance);
+        step.setDurationValue(duration);
+    }
+
     @Override
     public Step buildStep(JSONObject jsonStep) {
         String mode = travel_mode(jsonStep);
         Step step;
+
+
 
         if (mode.equals("WALKING")) {
             step = new Step(distance(jsonStep), duration(jsonStep), polyline(jsonStep), html_instructions(jsonStep), mode, "http://maps.gstatic.com/mapfiles/transit/iw2/svg/walk.svg");
@@ -87,6 +104,9 @@ public class StepInfoServiceImpl implements StepInfoService {
             step = new Step();
 
         }
+
+        setStepValues(step, distanceValue(jsonStep), durationValue(jsonStep));
+
         return step;
     }
 }

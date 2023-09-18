@@ -14,7 +14,6 @@ public interface AuthService {
     boolean arePasswordsEqual(String password, String password2);
 
 
-
     void registerUser(String username, String password, String email, String firstName, String lastName, String birthday) throws ParseException;
 
     User getUserByEmail(String email);

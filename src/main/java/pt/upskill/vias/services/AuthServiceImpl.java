@@ -6,7 +6,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.Role;
 import pt.upskill.vias.entities.User;
+import pt.upskill.vias.models.viasleague.entities.UserStats;
 import pt.upskill.vias.repositories.UserRepository;
+import pt.upskill.vias.repositories.UserStatsRepository;
 
 import java.text.ParseException;
 
@@ -16,6 +18,8 @@ public class AuthServiceImpl implements AuthService {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    UserStatsRepository userStatsRepository;
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
     /*public void signUp(User user) {
@@ -56,10 +60,12 @@ public class AuthServiceImpl implements AuthService {
     }
 
 
+
     @Override
     public void registerUser(String username, String password, String email, String firstName, String lastName,
                              String birthday) throws ParseException {
         User user = new User();
+
         user.setFirstName(firstName);
         user.setBirthday(user.parseDate(birthday));
         user.setLastName(lastName);

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.models.routes.Step;
+import pt.upskill.vias.repositories.LegRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,8 @@ public class JSONConversionServiceImpl implements JSONConversionService {
 
     @Autowired
     StepInfoService stepInfoService;
+    @Autowired
+    LegRepository legRepository;
 
     @Override
     public JSONObject stringToObject(String obj_string) {
@@ -34,6 +37,7 @@ public class JSONConversionServiceImpl implements JSONConversionService {
             steps.add(step);
         }
         leg.setSteps(steps);
+        legRepository.save(leg);
 
         return leg;
     }

@@ -222,7 +222,10 @@
             <div class="button-box-travel">
                 <button class="button-travel btn btn-primary buttons" style="margin-left: 12px">Começar Viagem</button>
                 <button class="button-travel btn btn-primary buttons">Cancelar</button>
-                <button class="button-travel btn btn-primary buttons">Simular Viagem</button>
+                <form method="post" action="/simulate_trip">
+                    <input type="hidden" name="id" value="${leg.getId()}">
+                <button class="button-travel btn btn-primary buttons" type="submit">Simular Viagem</button>
+                </form>
             </div>
 
 

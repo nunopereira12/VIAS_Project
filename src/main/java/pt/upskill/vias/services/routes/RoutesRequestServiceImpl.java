@@ -75,10 +75,6 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
         return legList;
     }
 
-    @Override
-    public void saveLegs(List<Leg> legs) {
-
-    }
 
 
 }

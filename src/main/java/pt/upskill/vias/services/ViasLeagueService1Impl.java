@@ -8,7 +8,7 @@ import pt.upskill.vias.repositories.UserRepository;
 import java.util.List;
 
 @Service
-public class ViasLeagueServiceImpl implements ViasLeagueService {
+public class ViasLeagueService1Impl implements ViasLeagueService1 {
 
     @Autowired
     private UserRepository userRepository;

@@ -3,10 +3,13 @@ package pt.upskill.vias.models.routes;
 public class Step {
 
     private String distance;
+    private int distanceValue;
     private String duration;
+    private int durationValue;
     private String polyline;
     private String html_instructions;
     private String travel_mode;
+    private double points;
     private String icon;
     private String departure_stop;
     private String departure_time;
@@ -51,6 +54,14 @@ public class Step {
         this.distance = distance;
     }
 
+    public int getDistanceValue() {
+        return distanceValue;
+    }
+
+    public void setDistanceValue(int distanceValue) {
+        this.distanceValue = distanceValue;
+    }
+
     public String getDuration() {
         if(duration.contains("hora")){
             duration = duration.replace(" hora ","h");
@@ -66,6 +77,14 @@ public class Step {
         }
         String finalduration = duration.replace(" ","");
         this.duration = finalduration;
+    }
+
+    public int getDurationValue() {
+        return durationValue;
+    }
+
+    public void setDurationValue(int durationValue) {
+        this.durationValue = durationValue;
     }
 
     public String getPolyline() {
@@ -90,6 +109,14 @@ public class Step {
 
     public void setTravel_mode(String travel_mode) {
         this.travel_mode = travel_mode;
+    }
+
+    public double getPoints() {
+        return points;
+    }
+
+    public void setPoints(double points) {
+        this.points = points;
     }
 
     public String getIcon() {

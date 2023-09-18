@@ -10,7 +10,9 @@ import java.io.IOException;
 public interface StepInfoService {
 
     public String distance(JSONObject jsonStep);
+    public int distanceValue(JSONObject jsonStep);
     public String duration(JSONObject jsonStep);
+    public int durationValue(JSONObject jsonStep);
     public String polyline(JSONObject jsonStep);
     public String html_instructions(JSONObject jsonStep);
     public String travel_mode(JSONObject jsonStep);

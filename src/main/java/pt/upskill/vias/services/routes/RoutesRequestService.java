@@ -14,5 +14,4 @@ public interface RoutesRequestService {
     public JSONObject getJSONResponse(String url) throws IOException;
     public List<Leg> getLegList(String origin, String destination) throws IOException;
 
-    public void saveLegs(List<Leg> legs);
 }

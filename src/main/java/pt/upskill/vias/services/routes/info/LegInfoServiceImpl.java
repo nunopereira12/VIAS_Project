@@ -68,7 +68,6 @@ public class LegInfoServiceImpl implements LegInfoService {
         return String.valueOf(fare);
     }
 
-
     @Override
     public Leg buildLeg(JSONObject jsonLeg) {
         JSONArray steps = jsonLeg.getJSONArray("steps");

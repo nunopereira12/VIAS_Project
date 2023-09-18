@@ -1,6 +1,9 @@
 package pt.upskill.vias.entities;
 
-import pt.upskill.vias.models.viasleague.entities.Trip;
+import org.springframework.beans.factory.annotation.Autowired;
+import pt.upskill.vias.models.routes.Leg;
+import pt.upskill.vias.models.viasleague.entities.UserStats;
+import pt.upskill.vias.repositories.UserStatsRepository;
 
 import javax.persistence.*;
 import java.text.ParseException;
@@ -22,16 +25,14 @@ public class User {
     private String email;
     private int points;
     private String league;
-    //private UserStats userStats;
+
+
+    @OneToOne (mappedBy = "user", cascade = CascadeType.ALL)
+    private UserStats userStats;
     private String role;
     private boolean activated;
     private String profilePicture;
 
-    @OneToMany(mappedBy = "user")
-    private List<Trip> trips_history;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TravelCard> travelCards;
 
     public String getRole() {
         return role;
@@ -115,6 +116,14 @@ public class User {
         this.points = points;
     }
 
+    public UserStats getUserStats() {
+        return userStats;
+    }
+
+    public void setUserStats(UserStats userStats) {
+        this.userStats = userStats;
+    }
+
     public String getLeague() {
         return league;
     }
@@ -131,9 +140,6 @@ public class User {
         this.activated = activated;
     }
 
-    public List<TravelCard> getTravelCards() {
-        return travelCards;
-    }
 
     public Date parseDate(String date) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

@@ -1,17 +1,13 @@
 package pt.upskill.vias.repositories;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import pt.upskill.vias.entities.User;
-import pt.upskill.vias.models.routes.Leg;
-
-import java.util.List;
+import pt.upskill.vias.models.viasleague.entities.UserStats;
 
 @Repository
-public interface LegRepository extends JpaRepository<Leg, Long> {
+public interface UserStatsRepository  extends JpaRepository<UserStats, Long> {
 
-    Leg getLegById(long id);
+    UserStats getUserStatsByUser(User user);
 
-    List<Leg> findAllByUser(User user);
 }
