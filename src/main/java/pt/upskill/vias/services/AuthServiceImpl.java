@@ -75,7 +75,13 @@ public class AuthServiceImpl implements AuthService {
 
         user.setPassword(passwordEncoder.encode(password));
         user.setRole(Role.USER);
+
+        UserStats userStats = new UserStats();
+        userStats.setUser(user);
+
+
         userRepository.save(user);
+        userStatsRepository.save(userStats);
     }
 
     @Override
