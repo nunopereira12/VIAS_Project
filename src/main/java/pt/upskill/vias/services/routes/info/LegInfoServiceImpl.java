@@ -70,10 +70,9 @@ public class LegInfoServiceImpl implements LegInfoService {
 
 
     @Override
-    public Leg buildLeg(JSONObject jsonLeg, int id) {
+    public Leg buildLeg(JSONObject jsonLeg) {
         JSONArray steps = jsonLeg.getJSONArray("steps");
-        Leg leg = new Leg(id, departureTime(jsonLeg), arrivalTime(jsonLeg), distance(jsonLeg), duration(jsonLeg), start_address(jsonLeg), end_address(jsonLeg),  fare(steps));
-        return leg;
+        return new Leg(departureTime(jsonLeg), arrivalTime(jsonLeg), distance(jsonLeg), duration(jsonLeg), start_address(jsonLeg), end_address(jsonLeg),  fare(steps));
     }
 
 }

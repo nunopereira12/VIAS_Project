@@ -40,7 +40,7 @@
         </div>
         <div class="button-box">
             <button class="button">${leg.getDuration()}</button>
-            <button class="button">Destino</button>
+            <button class="button">${leg.getDistance()}</button>
         </div>
         <div class="suggestions-box">
             <div class="card" id="suggestions-small-card">

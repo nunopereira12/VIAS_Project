@@ -17,7 +17,7 @@ public interface LegInfoService {
     public String start_address(JSONObject obj);
     public String end_address(JSONObject obj);
     public String fare(JSONArray steps);
-    public Leg buildLeg(JSONObject jsonLeg, int id);
+    public Leg buildLeg(JSONObject jsonLeg);
 
 
 

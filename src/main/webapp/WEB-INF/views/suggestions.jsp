@@ -109,11 +109,11 @@
 
                     <div class="card-box">
                         <div class="card" id="clickableDiv">
-                            <form id="myForm" action="/traveldetails" method="post">
-                                <input type="hidden" name="distance" value="${leg.distance}">
-                                <input type="hidden" name="duration" value="${leg.duration}">
-                                <input type="submit" value="View Details">
+                            <form id="myForm_${leg.getId()}" action="/traveldetails" method="post">
+                                <input type="hidden" name="id" value="${leg.getId()}">
+                                <input type="submit" value="${leg.getId()}">
                             </form>
+
                                 <div class="time-travel-box">
                                     <div class="travel-box">
                                         <c:forEach var="step" items="${leg.getSteps()}" varStatus="loop">

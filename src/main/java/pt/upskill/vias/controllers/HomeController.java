@@ -13,11 +13,9 @@ import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.HomeService;
 import pt.upskill.vias.services.routes.RoutesRequestService;
 import pt.upskill.vias.services.routes.info.JSONConversionService;
-import pt.upskill.vias.services.routes.info.JSONConversionServiceImpl;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -68,6 +66,8 @@ public class HomeController {
     public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
         ModelAndView mav = new ModelAndView("suggestions");
         List<Leg> legs = routesRequestService.getLegList(origem, destino);
+
+        legRepository.saveAll(legs);
 
         if (legs.isEmpty()) {
             mav.addObject("error2", "Erro na procura. \nPor favor, tente outros locais.");

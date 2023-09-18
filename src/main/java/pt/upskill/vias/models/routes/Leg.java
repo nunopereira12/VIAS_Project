@@ -1,9 +1,6 @@
 package pt.upskill.vias.models.routes;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +18,8 @@ public class Leg /*implements Comparable<Leg>*/ {
     private String start_address;
     private String end_address;
     private String fare;
+
+    @Column(length = 256000)
     private String json_steps;
 
     @Transient
@@ -30,8 +29,7 @@ public class Leg /*implements Comparable<Leg>*/ {
     public Leg() {
     }
 
-    public Leg(long id, String departure_time, String arrival_time, String distance, String duration, String start_address, String end_address, String fare) {
-        this.id = id;
+    public Leg(String departure_time, String arrival_time, String distance, String duration, String start_address, String end_address, String fare) {
         this.departure_time = departure_time;
         this.arrival_time = arrival_time;
         this.distance = distance;

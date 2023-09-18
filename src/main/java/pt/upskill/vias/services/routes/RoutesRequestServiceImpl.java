@@ -58,12 +58,11 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
         JSONArray routes = response.getJSONArray("routes");
         for(int i = 0; i < routes.length(); i++) {
             JSONObject jsonLeg = routes.getJSONObject(i).getJSONArray("legs").getJSONObject(0);
-            Leg leg = legInfoService.buildLeg(jsonLeg, i);
+            Leg leg = legInfoService.buildLeg(jsonLeg);
             JSONArray steps = jsonLeg.getJSONArray("steps");
 
             String json_steps = steps.toString();
             leg.setJson_steps(json_steps);
-            legRepository.save(leg);
 
             for(int j = 0; j< steps.length(); j++) {
                 JSONObject jsonStep = steps.getJSONObject(j);
@@ -74,6 +73,11 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
             legList.add(leg);
         }
         return legList;
+    }
+
+    @Override
+    public void saveLegs(List<Leg> legs) {
+
     }
 
 

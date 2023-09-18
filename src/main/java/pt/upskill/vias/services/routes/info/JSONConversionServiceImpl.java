@@ -32,7 +32,6 @@ public class JSONConversionServiceImpl implements JSONConversionService {
             JSONObject json_step = (JSONObject) array.get(i);
             Step step = stepInfoService.buildStep(json_step);
             steps.add(step);
-
         }
 
         return steps;
