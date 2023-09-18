@@ -7,14 +7,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.models.routes.Leg;
+import pt.upskill.vias.models.routes.Step;
+import pt.upskill.vias.repositories.LegRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.HomeService;
 import pt.upskill.vias.services.routes.RoutesRequestService;
+import pt.upskill.vias.services.routes.info.JSONConversionService;
+import pt.upskill.vias.services.routes.info.JSONConversionServiceImpl;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,11 +28,16 @@ public class HomeController {
     HomeService homeService;
 
     @Autowired
-    private UserRepository userRepository;
-
+    UserRepository userRepository;
 
     @Autowired
     RoutesRequestService routesRequestService;
+
+    @Autowired
+    LegRepository legRepository;
+
+    @Autowired
+    JSONConversionService jsonConversionService;
 
     @GetMapping("/home")
     public ModelAndView homePage(Principal principal) {
@@ -43,13 +51,6 @@ public class HomeController {
         return mav;
     }
 
-
-    /*@GetMapping(value = "/welcome")
-    public ModelAndView welcomePage() {
-        ModelAndView mav = new ModelAndView("welcome");
-        return mav;
-    }*/
-
     @GetMapping(value="/")
     public ModelAndView index(){
         ModelAndView mav = new ModelAndView("welcome");
@@ -62,49 +63,35 @@ public class HomeController {
         return mav;
     }
 
-    @GetMapping(value="/traveldetails")
-    public ModelAndView travelDetailsPage(){
-        ModelAndView mav = new ModelAndView("traveldetails");
-        return mav;
-    }
 
     @PostMapping(value="/perform_travel")
     public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
         ModelAndView mav = new ModelAndView("suggestions");
         List<Leg> legs = routesRequestService.getLegList(origem, destino);
-        Collections.sort(legs, Comparator.comparing(Leg::getDuration));
 
         if (legs.isEmpty()) {
-            /*return new ModelAndView("wallet");*/
             mav.addObject("error2", "Erro na procura. \nPor favor, tente outros locais.");
-
             return mav;
         }
 
         if(principal != null){
             String loggedInUsername = principal.getName();
             mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
-            mav.addObject("legs", legs);
-            return mav;
-
-            //return new ModelAndView("redirect:/suggestions");
         }
 
         mav.addObject("legs", legs);
         return mav;
 
-        //return new ModelAndView("redirect:/suggestions");
     }
 
     @PostMapping(value = "/traveldetails")
-    public ModelAndView travelDetailsPage(@RequestParam("distance") String distance, @RequestParam("duration") String duration) {
+    public ModelAndView travelDetailsPage(@RequestParam("id") long id) {
         ModelAndView mav = new ModelAndView();
 
-        Leg leg1 = new Leg();
-        leg1.setDistance(distance);
-        leg1.setDuration(duration);
+        Leg leg = legRepository.getLegById(id);
+        jsonConversionService.addSteps(leg);
 
-        mav.addObject("leg", leg1);
+        mav.addObject("leg", leg);
 
         return mav;
     }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.models.routes.Step;
+import pt.upskill.vias.repositories.LegRepository;
 import pt.upskill.vias.services.routes.info.LegInfoService;
 import pt.upskill.vias.services.routes.info.StepInfoService;
 
@@ -22,6 +23,8 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
     LegInfoService legInfoService;
     @Autowired
     StepInfoService stepInfoService;
+    @Autowired
+    LegRepository legRepository;
 
     @Override
     public String createPostURL(String origin, String destination) {
@@ -40,8 +43,11 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
         while (scanner.hasNextLine()) {
             response += scanner.nextLine();
         }
+
         return new JSONObject(response);
     }
+
+
 
     @Override
     public List<Leg> getLegList(String origin, String destination) throws IOException {
@@ -54,6 +60,10 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
             JSONObject jsonLeg = routes.getJSONObject(i).getJSONArray("legs").getJSONObject(0);
             Leg leg = legInfoService.buildLeg(jsonLeg, i);
             JSONArray steps = jsonLeg.getJSONArray("steps");
+
+            String json_steps = steps.toString();
+            leg.setJson_steps(json_steps);
+            legRepository.save(leg);
 
             for(int j = 0; j< steps.length(); j++) {
                 JSONObject jsonStep = steps.getJSONObject(j);

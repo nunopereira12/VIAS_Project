@@ -1,11 +1,19 @@
 package pt.upskill.vias.models.routes;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Leg /*implements Comparable<Leg>*/{
+@Entity
+public class Leg /*implements Comparable<Leg>*/ {
 
-    private int id;
+
+    @Id
+    @GeneratedValue
+    private long id;
     private String departure_time;
     private String arrival_time;
     private String distance;
@@ -13,12 +21,16 @@ public class Leg /*implements Comparable<Leg>*/{
     private String start_address;
     private String end_address;
     private String fare;
+    private String json_steps;
+
+    @Transient
     private List<Step> steps = new ArrayList<>();
 
 
-    public Leg(){}
+    public Leg() {
+    }
 
-    public Leg(int id, String departure_time, String arrival_time, String distance, String duration, String start_address, String end_address, String fare) {
+    public Leg(long id, String departure_time, String arrival_time, String distance, String duration, String start_address, String end_address, String fare) {
         this.id = id;
         this.departure_time = departure_time;
         this.arrival_time = arrival_time;
@@ -34,7 +46,7 @@ public class Leg /*implements Comparable<Leg>*/{
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -102,12 +114,13 @@ public class Leg /*implements Comparable<Leg>*/{
         this.steps = steps;
     }
 
-    /*@Override
-    public int compareTo(Leg leg) {
-        if (this.getDuration() > leg.getDuration()) {
-            return 1;
-        } else {
-            return this.getDuration() < leg.getDuration() ? -1 : 0;
-        }
-    }*/
+    public String getJson_steps() {
+        return json_steps;
+    }
+
+    public void setJson_steps(String json_steps) {
+        this.json_steps = json_steps;
+    }
 }
+
+

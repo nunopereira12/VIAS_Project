@@ -39,7 +39,7 @@
             </footer>
         </div>
         <div class="button-box">
-            <button class="button">Origem</button>
+            <button class="button">${leg.getDuration()}</button>
             <button class="button">Destino</button>
         </div>
         <div class="suggestions-box">
