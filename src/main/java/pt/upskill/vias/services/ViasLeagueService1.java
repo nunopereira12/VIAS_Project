@@ -5,6 +5,6 @@ import pt.upskill.vias.entities.User;
 import java.util.List;
 
 public interface ViasLeagueService1 {
-    List<User> getUsersByLoggedInUserLeague(String loggedInUsername);
+    //List<User> getUsersByLoggedInUserLeague(String loggedInUsername);
 
 }

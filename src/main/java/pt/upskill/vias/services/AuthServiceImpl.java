@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.Role;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.viasleague.entities.UserStats;
+import pt.upskill.vias.repositories.LeagueRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.UserStatsRepository;
 
@@ -20,6 +21,8 @@ public class AuthServiceImpl implements AuthService {
     UserRepository userRepository;
     @Autowired
     UserStatsRepository userStatsRepository;
+    @Autowired
+    LeagueRepository leagueRepository;
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
     /*public void signUp(User user) {
@@ -71,17 +74,16 @@ public class AuthServiceImpl implements AuthService {
         user.setLastName(lastName);
         user.setUsername(username);
         user.setEmail(email);
-
-
         user.setPassword(passwordEncoder.encode(password));
         user.setRole(Role.USER);
+        user.setCurrent_league(leagueRepository.getLeagueById(1));
+
 
         UserStats userStats = new UserStats();
-        userStats.setUser(user);
-
-
-        userRepository.save(user);
         userStatsRepository.save(userStats);
+
+        user.setUserStats(userStats);
+        userRepository.save(user);
     }
 
     @Override

@@ -19,17 +19,9 @@ public class UserStats {
     private double money_spent;
     private int total_points;
     private int weekly_points;
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
-
-    public UserStats(Long id) {
-        this.id = id;
-    }
 
     public UserStats() {
-
     }
 
     public int getTotal_distance_walking() {
@@ -94,14 +86,6 @@ public class UserStats {
 
     public void setWeekly_points(int weekly_points) {
         this.weekly_points = weekly_points;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public void setId(Long id) {

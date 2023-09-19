@@ -20,6 +20,7 @@ public class Leg /*implements Comparable<Leg>*/ {
     private String start_address;
     private String end_address;
     private String fare;
+    private String overview_polyline;
     private int points;
     private boolean trip_completed = false;
 
@@ -36,13 +37,14 @@ public class Leg /*implements Comparable<Leg>*/ {
     public Leg() {
     }
 
-    public Leg(String departure_time, String arrival_time, String distance, String duration, String start_address, String end_address, String fare) {
+    public Leg(String departure_time, String arrival_time, String distance, String duration, String start_address, String end_address, String overview_polyline, String fare) {
         this.departure_time = departure_time;
         this.arrival_time = arrival_time;
         this.distance = distance;
         this.duration = duration;
         this.start_address = start_address;
         this.end_address = end_address;
+        this.overview_polyline = overview_polyline;
         this.fare = fare;
     }
 
@@ -109,6 +111,14 @@ public class Leg /*implements Comparable<Leg>*/ {
 
     public void setFare(String fare) {
         this.fare = fare;
+    }
+
+    public String getOverview_polyline() {
+        return overview_polyline;
+    }
+
+    public void setOverview_polyline(String overview_polyline) {
+        this.overview_polyline = overview_polyline;
     }
 
     public List<Step> getSteps() {

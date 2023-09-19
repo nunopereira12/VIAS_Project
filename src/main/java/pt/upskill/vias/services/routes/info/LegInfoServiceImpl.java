@@ -53,6 +53,11 @@ public class LegInfoServiceImpl implements LegInfoService {
     }
 
     @Override
+    public String overview_polyline(JSONObject jsonRoute) {
+        return jsonRoute.getJSONObject("overview_polyline").getString("points");
+    }
+
+    @Override
     public String fare(JSONArray steps) {
         int ticketNumber = 0;
 
@@ -69,9 +74,9 @@ public class LegInfoServiceImpl implements LegInfoService {
     }
 
     @Override
-    public Leg buildLeg(JSONObject jsonLeg) {
+    public Leg buildLeg(JSONObject jsonLeg, JSONObject jsonRoute) {
         JSONArray steps = jsonLeg.getJSONArray("steps");
-        return new Leg(departureTime(jsonLeg), arrivalTime(jsonLeg), distance(jsonLeg), duration(jsonLeg), start_address(jsonLeg), end_address(jsonLeg),  fare(steps));
+        return new Leg(departureTime(jsonLeg), arrivalTime(jsonLeg), distance(jsonLeg), duration(jsonLeg), start_address(jsonLeg), end_address(jsonLeg), overview_polyline(jsonRoute), fare(steps));
     }
 
 }

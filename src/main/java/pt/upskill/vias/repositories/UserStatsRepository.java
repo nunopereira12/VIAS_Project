@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface UserStatsRepository  extends JpaRepository<UserStats, Long> {
 
-    UserStats getUserStatsByUser(User user);
     List<UserStats> findAll();
 
 

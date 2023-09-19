@@ -24,10 +24,11 @@ public class User {
     private String password;
     private String email;
     private int points;
-    private String league;
-
-
-    @OneToOne (mappedBy = "user", cascade = CascadeType.ALL)
+    @ManyToOne
+    private League current_league;
+    @ManyToOne
+    private League previous_league;
+    @OneToOne
     private UserStats userStats;
     private String role;
     private boolean activated;
@@ -45,12 +46,9 @@ public class User {
     public User(String username, int points) {
         this.username = username;
         this.points = points;
-        this.league = "Silver";
     }
 
-    public User() {
-        this.league = "Silver";
-    }
+    public User() {}
 
 
     public long getId() {
@@ -117,20 +115,28 @@ public class User {
         this.points = points;
     }
 
+    public League getCurrent_league() {
+        return current_league;
+    }
+
+    public void setCurrent_league(League current_league) {
+        this.current_league = current_league;
+    }
+
+    public League getPrevious_league() {
+        return previous_league;
+    }
+
+    public void setPrevious_league(League previous_league) {
+        this.previous_league = previous_league;
+    }
+
     public UserStats getUserStats() {
         return userStats;
     }
 
     public void setUserStats(UserStats userStats) {
         this.userStats = userStats;
-    }
-
-    public String getLeague() {
-        return league;
-    }
-
-    public void setLeague(String league) {
-        this.league = league;
     }
 
     public boolean isActivated() {
@@ -175,20 +181,7 @@ public class User {
         this.profilePicture = profilePicture;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthday=" + birthday +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", points=" + points +
-                ", league='" + league + '\'' +
-                '}';
-    }
+
 }
 
 

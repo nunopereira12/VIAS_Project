@@ -33,29 +33,33 @@ public class ViasLeagueController {
     @GetMapping(value = "/vias_league")
     public ModelAndView vias_leaguePage(Principal principal) {
 
-        String loggedInUsername = principal.getName();
+        /*String loggedInUsername = principal.getName();
         List<User> users = viasLeagueService1.getUsersByLoggedInUserLeague(loggedInUsername);
         Collections.sort(users, Comparator.comparing(User::getPoints).reversed());
 
         List<User> allUsers = userRepository.findAll();
         Collections.sort(allUsers, Comparator.comparing(User::getPoints).reversed());
+         */
 
 
         ModelAndView mav = new ModelAndView("vias_league");
+
         /*mav.addObject("players", users);*/
-        mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
-        mav.addObject("allPlayers",allUsers);
+        /*mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
+        mav.addObject("allPlayers", allUsers);
         mav.addObject("targetUsername",loggedInUsername);
+         */
         return mav;
 
     }
 
     @PostMapping("/vias_league")
-    public ModelAndView applyFilter(@RequestParam("filter") String selectedFilter) {
+    public ModelAndView applyFilter(@RequestParam("filter") String selectedFilter, Principal principal) {
+        User user = userRepository.getUserByUsername(principal.getName());
 
         ModelAndView mav = new ModelAndView("vias_league");
-        List<UserStats> userStats = viasLeagueService.getStatsByFilter(selectedFilter);
-        mav.addObject("players", userStats);
+        List<User> userList = viasLeagueService.getStatsByFilter(selectedFilter, user.getCurrent_league());
+        mav.addObject("players", userList);
         mav.addObject("selectedFilter", selectedFilter);
 
         return mav;

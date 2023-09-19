@@ -13,12 +13,14 @@ public class ViasLeagueService1Impl implements ViasLeagueService1 {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public List<User> getUsersByLoggedInUserLeague(String loggedInUsername) {
+    //@Override
+    /*public List<User> getUsersByLoggedInUserLeague(String loggedInUsername) {
 
         User loggedInUser = userRepository.getUserByUsername(loggedInUsername);
-        String userLeague = loggedInUser.getLeague();
+        String userLeague = loggedInUser.getLeague().getName();
 
         return userRepository.findAllByLeague(userLeague);
     }
+
+     */
 }

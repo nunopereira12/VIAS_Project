@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;
-import pt.upskill.vias.models.viasleague.entities.UserStats;
 import pt.upskill.vias.repositories.LegRepository;
 import pt.upskill.vias.repositories.UserRepository;
 
@@ -30,7 +29,7 @@ public class SimulateTripServiceImpl implements SimulateTripService {
     @Override
     public void saveLegToUser(User user, Leg leg) {
         leg.setUser(user);
-        calculatePointsService.calculateStepPoints(leg);
+        calculatePointsService.setTripPoints(leg);
         legRepository.save(leg);
 
 

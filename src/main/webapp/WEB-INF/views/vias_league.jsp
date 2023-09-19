@@ -223,6 +223,7 @@
                 <option value="Viagens Completas">Viagens Completas</option>
                 <option value="Total Gasto">Total Gasto</option>
                 <option value="Distância Percorrida a Andar">Distância Percorrida a Andar</option>
+                <option value="My League">My League</option>
 
 
             </select>
@@ -259,22 +260,25 @@
                         <td id="num1"><strong>${loopStatus.index + 1}</strong></td>
                         <td>
                             <div class="circle">
-                                <img src=/uploads/${player.getUser().getProfilePicture()}
+                                <img src=/uploads/${player.getProfilePicture()}
                                      alt="av1" width="5px">
                             </div>
                         </td>
-                        <td id="username1">${player.getUser().getUsername()}</td>
+                        <td id="username1">${player.getUsername()}</td>
                         <td>
                             <div class="points">
                                 <c:choose>
                                     <c:when test="${selectedFilter eq 'Viagens Completas'}">
-                                        ${player.getTrips_done()}
+                                        ${player.getUserStats().getTrips_done()}
                                     </c:when>
                                     <c:when test="${selectedFilter eq 'Total Gasto'}">
-                                        ${player.getMoney_spent()}
+                                        ${player.getUserStats().getMoney_spent()}
                                     </c:when>
                                     <c:when test="${selectedFilter eq 'Distância Percorrida a Andar'}">
-                                        ${player.getTotal_distance_walking()}
+                                        ${player.getUserStats().getTotal_distance_walking()}
+                                    </c:when>
+                                    <c:when test="${selectedFilter eq 'My League'}">
+                                        ${player.getUserStats().getWeekly_points()}
                                     </c:when>
                                 </c:choose>
                             </div>
