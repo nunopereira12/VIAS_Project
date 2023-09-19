@@ -49,7 +49,7 @@
                                             "uploads/${user.getProfilePicture()}" </c:if>
 
 
-                                     width="80px" heigth="80px" alt="profile picture"
+                                     width="80px" height="80px" alt="profile picture"
                                      style="border: #1E1E1E; border-radius: 80px">
 
 
