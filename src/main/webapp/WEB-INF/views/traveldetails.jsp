@@ -9,27 +9,18 @@
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/traveldetails.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs"></script>
+
+
 
 </head>
-<body class="home-body">
+<body class="home-body" onload="initMap()">
 <button class="arrowbutton" style="z-index: 1000" onclick="window.history.back()">
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
 <div class="home-container">
 
     <div class="mapbox">
-        <iframe
-                width=100%
-                height=100%
-                style="border:0"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs
-    &center=38.77851493507939, -9.33226675574515
-    &zoom=12">
-        </iframe>
+        <div id="map"></div>
     </div>
 
     <div class="home-content" style="margin: -70px 0 0 0;">
@@ -191,7 +182,7 @@
                                         <img src="${step.getIcon()}" width="20px" height="20px">
                                     </div>
                                     <div class="secondLine">
-                                            ${step.getDistance()}
+                                            ${step.getDuration()}
                                     </div>
                                 </div>
                                 <div class="right-column" style="padding-left: 0px;margin-left: 30px;">
@@ -199,7 +190,7 @@
                                             ${step.getHtml_instructions()}
                                     </div>
                                     <div class="secondLine" >
-                                            Cerca de ${step.getDuration()}
+                                            Cerca de ${step.getDistance()}
 
                                     </div>
                                 </div>
@@ -240,6 +231,17 @@
                 </div>
             </div>
 
+            <c:forEach var="step" items="${leg.getSteps()}" varStatus="status">
+                <c:choose>
+                    <c:when test="${step.getTravel_mode().equals('WALKING')}">
+                        <input type="hidden" id="polylineWalkingInput_${status.index}" value="${step.getPolyline()}">
+                    </c:when>
+                    <c:otherwise>
+                        <input type="hidden" id="polylineOtherInput_${status.index}" value="${step.getPolyline()}">
+                        <input type="hidden" id="polylineColors_${status.index}" value="${step.getLine().getColor()}">
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
 
             <div class="button-box-travel">
                 <button class="button-travel btn btn-primary buttons" style="margin-left: 12px">Começar Viagem</button>
@@ -260,6 +262,120 @@
 
     </div>
 </div>
+
+<script>
+    let map;
+    let walkingPolylines = []; // Declare an array to hold walking Polylines
+    let otherPolylines = []; // Declare an array to hold non-walking Polylines
+
+    async function initMap() {
+        const { Map, Polyline, LatLng, SymbolPath } = await google.maps.importLibrary("maps");
+
+        map = new Map(document.getElementById("map"), {
+            center: { lat: 38.77851493507939, lng: -9.33226675574515 },
+            zoom: 12,
+        });
+
+        // Define a custom symbol for walking polylines (gray circle)
+        const walkingSymbol = {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: "#1F7EB2", // Gray color for circle
+            fillOpacity: 0.6, // Reduced opacity
+            scale: 4, // Adjust the scale to control circle size
+            strokeWeight: 0, // No border
+        };
+
+        // Find all hidden input elements with IDs starting with "polylineWalkingInput_"
+        const walkingInputs = document.querySelectorAll('[id^="polylineWalkingInput_"]');
+
+        // Iterate through the hidden input elements for walking steps
+        walkingInputs.forEach((input) => {
+            const polylineString = input.value;
+
+            if (polylineString) {
+                const decodedPath = google.maps.geometry.encoding.decodePath(polylineString);
+
+                // Create an array to hold LatLng objects
+                const path = [];
+                for (const point of decodedPath) {
+                    path.push(new google.maps.LatLng(point.lat(), point.lng()));
+                }
+
+                // Create a Polyline with a series of custom symbols (circles) for walking steps
+                const walkingPolyline = new google.maps.Polyline({
+                    path: path,
+                    map: map,
+                    icons: [
+                        {
+                            icon: walkingSymbol,
+                            offset: "0%",
+                            repeat: "5%", // Adjust the repeat value to control circle spacing
+                        },
+                    ],
+                });
+
+                walkingPolylines.push(walkingPolyline); // Add the walking polyline to the walkingPolylines array
+            }
+        });
+
+        // Find all hidden input elements with IDs starting with "polylineOtherInput_"
+        const otherInputs = document.querySelectorAll('[id^="polylineOtherInput_"]');
+
+        // Iterate through the hidden input elements for non-walking steps
+        otherInputs.forEach((input) => {
+            const polylineString = input.value;
+            const index = input.id.split('_')[1]; // Extract the index from the input ID
+            const colorInput = document.getElementById(`polylineColors_${index}`);
+            const color = colorInput ? colorInput.value : "#FF0000"; // Default color if not specified
+
+            if (polylineString) {
+                const decodedPath = google.maps.geometry.encoding.decodePath(polylineString);
+
+                // Create an array to hold LatLng objects
+                const path = [];
+                for (const point of decodedPath) {
+                    path.push(new google.maps.LatLng(point.lat(), point.lng()));
+                }
+
+                // Create a regular Polyline for non-walking steps with the specified color
+                const otherPolyline = new google.maps.Polyline({
+                    path: path,
+                    map: map,
+                    strokeColor: color, // Use the specified color
+                    strokeOpacity: 0.4, // Reduced opacity for connecting line
+                    strokeWeight: 3,
+                });
+
+                otherPolylines.push(otherPolyline); // Add the polyline to the otherPolylines array
+            }
+        });
+
+        // Automatically fit the map to the bounds of all the polylines (both walking and non-walking)
+        const bounds = new google.maps.LatLngBounds();
+        walkingPolylines.concat(otherPolylines).forEach((polyline) => {
+            polyline.getPath().forEach((point) => bounds.extend(point));
+        });
+        map.fitBounds(bounds);
+    }
+
+    initMap();
+
+</script>
+
+
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core&callback=initMap">
+</script>
+
+
+
+
+<%--<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&callback=initMap">
+</script>--%>
+
+
+
 
 
 </body>
