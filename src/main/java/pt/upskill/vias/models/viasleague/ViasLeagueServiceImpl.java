@@ -116,26 +116,26 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         List<User> userList = userRepository.findAll();
 
         switch (filter) {
-            case "Viagens Completas":
-                userList.sort(Comparator.comparingInt(u -> u.getUserStats().getTrips_done()));
-                break;
-            case "Total Gasto":
-                userList.sort(Comparator.comparingDouble(u -> u.getUserStats().getMoney_spent()));
-                break;
             case "Distância Percorrida a Andar":
-                userList.sort(Comparator.comparingInt(u -> u.getUserStats().getTotal_distance_walking()));
+                userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_distance_walking()));
                 break;
             case "Distância Percorida Transportes":
-                userList.sort(Comparator.comparingInt(u -> u.getUserStats().getTotal_distance_transit()));
-                break;
-            case "Leaderboard":
-                userList.sort(Comparator.comparingInt(u -> u.getUserStats().getTotal_points()));
-                break;
-            case "Tempo Despendido em Transportes":
-                userList.sort(Comparator.comparingInt(u -> u.getUserStats().getTotal_time_transit()));
+                userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_distance_transit()));
                 break;
             case "Tempo Despendido a Andar":
-                userList.sort(Comparator.comparingInt(u -> u.getUserStats().getTotal_time_walking()));
+                userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_time_walking()));
+                break;
+            case "Tempo Despendido em Transportes":
+                userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_time_transit()));
+                break;
+            case "Viagens Completas":
+                userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTrips_done()));
+                break;
+            case "Total Gasto":
+                userList.sort(Comparator.comparingDouble(u -> -u.getUserStats().getMoney_spent()));
+                break;
+            case "Leaderboard":
+                userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_points()));
                 break;
             case "My League":
                 userList = userRepository.findByCurrentLeague(league);
