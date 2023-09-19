@@ -1,4 +1,4 @@
-package pt.upskill.vias.services;
+package pt.upskill.vias.services.auth;
 
 
 import pt.upskill.vias.entities.User;

@@ -1,4 +1,4 @@
-package pt.upskill.vias.services;
+package pt.upskill.vias.services.auth;
 
 public interface EmailService {
 

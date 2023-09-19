@@ -8,13 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.viasleague.ViasLeagueService;
-import pt.upskill.vias.models.viasleague.entities.UserStats;
 import pt.upskill.vias.repositories.UserRepository;
-import pt.upskill.vias.services.ViasLeagueService1;
+import pt.upskill.vias.services.viasleague.ViasLeagueService1;
 
 import java.security.Principal;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @Controller

@@ -1,0 +1,18 @@
+.origin-box{
+    margin: 10px 0 2px 10px;
+    display:block;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.points-box{
+    margin: 10px auto 2px auto;
+    font-size: 12px;
+    font-weight: 500;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+}

@@ -1,4 +1,4 @@
-package pt.upskill.vias.services;
+package pt.upskill.vias.services.viasleague;
 
 import pt.upskill.vias.entities.User;
 

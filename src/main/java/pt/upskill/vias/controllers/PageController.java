@@ -1,11 +1,31 @@
 package pt.upskill.vias.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import pt.upskill.vias.entities.User;
+import pt.upskill.vias.models.routes.Leg;
+import pt.upskill.vias.repositories.LegRepository;
+import pt.upskill.vias.repositories.UserRepository;
+import pt.upskill.vias.services.HistoryService;
+import pt.upskill.vias.services.routes.info.JSONConversionService;
+
+import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class PageController {
+
+    @Autowired
+    HistoryService historyService;
+
+    @Autowired
+    JSONConversionService jsonConversionService;
+
+    @Autowired
+    private UserRepository userRepository;
+
 
     @GetMapping(value = "/settings")
     public ModelAndView settingsPage() {
@@ -16,10 +36,25 @@ public class PageController {
         ModelAndView mav = new ModelAndView("help");
         return mav;
     }
-
     @GetMapping(value = "/validatetitle")
     public ModelAndView validatetitle() {
         return new ModelAndView("validatetitle");
+    }
+
+    @GetMapping(value ="/history")
+    public ModelAndView historyPage(Principal principal){
+        ModelAndView mav = new ModelAndView();
+
+        User user = userRepository.getUserByUsername(principal.getName());
+        List<Leg> legs = historyService.getAllByTrip_completedAndUser(true,user);
+        for(Leg leg: legs){
+            leg = jsonConversionService.addSteps(leg);
+        }
+
+        mav.addObject("legs", legs);
+        mav.addObject("user", user);
+
+        return mav;
     }
 
 

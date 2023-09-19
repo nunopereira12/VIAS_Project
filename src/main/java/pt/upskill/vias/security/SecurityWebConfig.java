@@ -35,7 +35,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/passwordrecovery3/*").permitAll()
                 .antMatchers("/replace_pw").permitAll()
                 .antMatchers("/replace_pw/*").permitAll()
-                .antMatchers("/diagrams","/schedules").permitAll()
+                .antMatchers("/diagrams","/schedules","/history").permitAll()
                 .antMatchers("/wallet").hasRole("USER")
                 .antMatchers("/signup_action").permitAll()
                 .antMatchers("/profile").permitAll()

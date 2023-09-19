@@ -11,9 +11,9 @@ import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.Login;
 import pt.upskill.vias.models.ReplacePassword;
 import pt.upskill.vias.models.SignUp;
-import pt.upskill.vias.services.AuthService;
-import pt.upskill.vias.services.EmailServiceImpl;
-import pt.upskill.vias.services.RecoverPasswordService;
+import pt.upskill.vias.services.auth.AuthService;
+import pt.upskill.vias.services.auth.EmailServiceImpl;
+import pt.upskill.vias.services.auth.RecoverPasswordService;
 
 import java.security.Principal;
 import java.text.ParseException;
@@ -29,9 +29,6 @@ public class AuthController {
 
     @Autowired
     RecoverPasswordService recoverPasswordService;
-
-
-
 
     @GetMapping(value = "/login")
     public ModelAndView loginPage(Principal principal) {

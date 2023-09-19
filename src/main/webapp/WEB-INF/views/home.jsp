@@ -107,7 +107,7 @@
                                 <a class="nav-link" href="http://localhost:8080/wallet">Carteira</a>
                             </li>
                             <li class="nav-item nav-option-big" style="visibility: hidden">
-                                <a class="nav-link" href="#">Histórico</a>
+                                <a class="nav-link" href="http://localhost:8080/history">Histórico</a>
                             </li>
                             <li class="nav-item nav-option-big" style="visibility: hidden">
                                 <a class="nav-link" href="http://localhost:8080/vias_league">Vias League</a>
@@ -130,7 +130,7 @@
                                 <a class="nav-link" href="http://localhost:8080/wallet">Carteira</a>
                             </li>
                             <li class="nav-item nav-option-big">
-                                <a class="nav-link" href="#">Histórico</a>
+                                <a class="nav-link" href="http://localhost:8080/history">Histórico</a>
                             </li>
                             <li class="nav-item nav-option-big">
                                 <a class="nav-link" href="http://localhost:8080/vias_league">Vias League</a>
