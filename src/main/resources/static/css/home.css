@@ -321,14 +321,14 @@
 }
 
 /* remove default browser placeholder when not focused */
-input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-year-field,
+/*input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-year-field,
 input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-month-field,
 input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-day-field,
 input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-hour-field,
 input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-minute-field,
 input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-text {
     color: transparent;
-}
+}*/
 
 /* iOS background fix */
 & > input[type='datetime-local']:empty {
