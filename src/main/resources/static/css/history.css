@@ -16,3 +16,113 @@
     align-self: center;
     text-align: center;
 }
+
+.card-box{
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+    margin-bottom: 30px;
+    vertical-align: center;
+}
+
+.card{
+    background-color: white;
+    width: 280px;
+    margin: 25px auto;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.30);
+    vertical-align: center;
+
+
+}
+.card-button{
+    min-width:255px;
+    background-color: #1F7EB2;
+    margin: -12px auto;
+    height: auto;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+
+
+}
+.card-button-text{
+    margin-top: 17px;
+    font-size: 14px;
+}
+
+.icon{
+    height:20px;
+    width:20px;
+    color: #3C4043;
+    margin:0;
+}
+
+.icon-box{
+    display:inline-block;
+}
+
+.travel-box{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: baseline;
+    width: 60%;
+    margin: 15px;
+}
+.travel-text{
+    font-size: 10px;
+    font-weight: 500;
+    height: fit-content;
+    margin: 0 3px 0 0;
+    border-radius: 2px;
+}
+
+.time-box{
+    display: flex;
+    font-size: 14px;
+    margin: 16px 10px auto auto;
+}
+.time-travel-box{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+}
+.start-end-box{
+    display: flex;
+    align-content: flex-start;
+    margin: 15px;
+    font-weight: 400;
+}
+.fare-box{
+    display: flex;
+    margin: auto 10px auto auto;
+}
+.fare-style{
+    font-size: 12.5px;
+    font-weight: 600;
+    margin: auto 3px auto auto;
+}
+.content{
+    margin: auto;
+    text-align: center;
+}
+.title{
+    margin-bottom: 40px;
+}
+
+@media (min-width: 601px){
+    .card{
+        width: 350px;
+    }
+}

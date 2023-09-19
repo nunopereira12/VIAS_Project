@@ -14,7 +14,7 @@ public interface LegRepository extends JpaRepository<Leg, Long> {
 
     Leg getLegById(long id);
     List<Leg> findAllByUser(User user);
-    @Query("SELECT l FROM Leg l WHERE l.trip_completed = :simulated AND l.user= :user")
-    List<Leg> getAllByTrip_completedAndUser(boolean simulated, User user);
+    @Query("SELECT l FROM Leg l WHERE l.trip_completed = :simulated AND l.user= :user ORDER BY l.id DESC")
+    List<Leg> getAllByTrip_completedAndUserOrderById(boolean simulated, User user);
 
 }

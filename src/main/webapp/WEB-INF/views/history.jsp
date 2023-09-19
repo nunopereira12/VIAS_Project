@@ -8,7 +8,6 @@
     <title>VIAS | Histórico</title>
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/history.css">
-    <link rel="stylesheet" href="/css/suggestions.css">
 </head>
 <body>
 
@@ -16,7 +15,7 @@
     <button class="arrowbutton" onclick="window.history.back()">
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
-    <p class="title">Histórico</p>
+    <p class="title">Histórico de viagens</p>
     <div class="content">
 
         <c:forEach var="leg" items="${legs}">

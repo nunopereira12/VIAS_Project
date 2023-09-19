@@ -46,7 +46,7 @@ public class PageController {
         ModelAndView mav = new ModelAndView();
 
         User user = userRepository.getUserByUsername(principal.getName());
-        List<Leg> legs = historyService.getAllByTrip_completedAndUser(true,user);
+        List<Leg> legs = historyService.getAllByTrip_completedAndUserOrderById(true,user);
         for(Leg leg: legs){
             leg = jsonConversionService.addSteps(leg);
         }
