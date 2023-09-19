@@ -111,7 +111,6 @@
 
 @media(min-width: 920px) {
     .arrowbutton {
-        display: none;
     }
     .home-content {
         overflow: auto;

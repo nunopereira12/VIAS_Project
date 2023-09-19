@@ -14,9 +14,14 @@
 
 </head>
 <body class="home-body" onload="initMap()">
+<body class="home-body">
+<form id="directionsForm" method="POST" action="/perform_travel">
 <button class="arrowbutton" style="z-index: 1000" onclick="window.history.back()">
+    <input type="hidden" name="origem" value="${leg.getStart_address()}">
+    <input type="hidden" name="destino" value="${leg.getEnd_address()}">
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
+</form>
 <div class="home-container">
 
     <div class="mapbox">
@@ -182,7 +187,7 @@
                                         <img src="${step.getIcon()}" width="20px" height="20px">
                                     </div>
                                     <div class="secondLine">
-                                            ${step.getDuration()}
+                                            ${step.getDistance()}
                                     </div>
                                 </div>
                                 <div class="right-column" style="padding-left: 0px;margin-left: 30px;">
@@ -190,7 +195,7 @@
                                             ${step.getHtml_instructions()}
                                     </div>
                                     <div class="secondLine" >
-                                            Cerca de ${step.getDistance()}
+                                            Cerca de ${step.getDuration()}
 
                                     </div>
                                 </div>

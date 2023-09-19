@@ -233,7 +233,7 @@
         </div>
 
 
-        <div class="date-hour-box">
+       <%-- <div class="date-hour-box">
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -262,7 +262,7 @@
                     Agora
                 </button>
             </div>
-        </div>
+        </div>--%>
 
             <button class="wallet-button" onclick="window.location.href='/wallet';">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 34 28" fill="none"

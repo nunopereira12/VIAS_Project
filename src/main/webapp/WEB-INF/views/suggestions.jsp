@@ -13,11 +13,12 @@
 
 </head>
 <body class="home-body" onload="initDirectionsService()">
-<button class="arrowbutton" style="z-index: 1000" onclick="window.history.back()">
+<button class="arrowbutton" style="z-index: 1000" onclick=window.location.href='/home';>
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
 <div class="home-container">
     <div class="mapbox">
+
         <iframe
                 width=100%
                 height=100%
@@ -55,7 +56,7 @@
                         <path d="M20 20C20.9166 20 21.7013 19.6736 22.3541 19.0208C23.0069 18.368 23.3333 17.5833 23.3333 16.6666C23.3333 15.75 23.0069 14.9653 22.3541 14.3125C21.7013 13.6597 20.9166 13.3333 20 13.3333C19.0833 13.3333 18.2986 13.6597 17.6458 14.3125C16.993 14.9653 16.6666 15.75 16.6666 16.6666C16.6666 17.5833 16.993 18.368 17.6458 19.0208C18.2986 19.6736 19.0833 20 20 20ZM20 32.25C23.3888 29.1389 25.9027 26.3125 27.5416 23.7708C29.1805 21.2291 30 18.9722 30 17C30 13.9722 29.0347 11.493 27.1041 9.56248C25.1736 7.63192 22.8055 6.66665 20 6.66665C17.1944 6.66665 14.8263 7.63192 12.8958 9.56248C10.9652 11.493 9.99996 13.9722 9.99996 17C9.99996 18.9722 10.8194 21.2291 12.4583 23.7708C14.0972 26.3125 16.6111 29.1389 20 32.25ZM20 36.6666C15.5277 32.8611 12.1875 29.3264 9.97913 26.0625C7.77079 22.7986 6.66663 19.7778 6.66663 17C6.66663 12.8333 8.0069 9.51387 10.6875 7.04165C13.368 4.56942 16.4722 3.33331 20 3.33331C23.5277 3.33331 26.6319 4.56942 29.3125 7.04165C31.993 9.51387 33.3333 12.8333 33.3333 17C33.3333 19.7778 32.2291 22.7986 30.0208 26.0625C27.8125 29.3264 24.4722 32.8611 20 36.6666Z" fill="white"/>
                     </g>
                 </svg><span style="margin: auto auto auto 0 ">${legs.get(0).getEnd_address()}</span></button>
-            <div class="date-hour-box" style="margin-top: 20px;">
+           <%-- <div class="date-hour-box" style="margin-top: 20px;">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -84,7 +85,7 @@
                         Agora
                     </button>
                 </div>
-            </div>
+            </div>--%>
         </div>
 
         <c:if test="${error2 != null}">
@@ -172,23 +173,5 @@
         <img class="footerimage" src="images/logo_nobg.png" alt="">
     </footer>
 </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const clickableDiv = document.getElementById("clickableDiv");
-        const form = document.getElementById("myForm");
-
-        clickableDiv.addEventListener("click", function () {
-
-            // You can modify the form action and method here
-            form.action = "/traveldetails"; // Set the desired URL
-            form.method = "POST"; // Set the HTTP method to POST
-
-            // Submit the form
-            form.submit();
-        });
-    });
-</script>
-
 </body>
 </html>

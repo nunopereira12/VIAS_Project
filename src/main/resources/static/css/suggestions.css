@@ -109,7 +109,6 @@
     flex-wrap: wrap;
     align-content: flex-start;
     align-items: baseline;
-    flex-wrap: wrap;
     width: 63%;
     margin: 15px;
 }
@@ -194,10 +193,6 @@
         margin:auto;
         text-align: center;
         align-items: center;
-    }
-
-    .arrowbutton{
-        visibility: hidden;
     }
 
 }
