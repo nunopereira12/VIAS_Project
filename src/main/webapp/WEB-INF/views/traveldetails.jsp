@@ -14,7 +14,6 @@
 
 </head>
 <body class="home-body" onload="initMap()">
-<body class="home-body">
 <form id="directionsForm" method="POST" action="/perform_travel">
 <button class="arrowbutton" style="z-index: 1000" onclick="window.history.back()">
     <input type="hidden" name="origem" value="${leg.getStart_address()}">
@@ -29,6 +28,7 @@
     </div>
 
     <div class="home-content" style="margin: -70px 0 0 0;">
+
         <div class="imageDesktop">
             <footer>
                 <img class="imageTopLeft" src="images/logo_nobg.png" alt="">
@@ -187,7 +187,7 @@
                                         <img src="${step.getIcon()}" width="20px" height="20px">
                                     </div>
                                     <div class="secondLine">
-                                            ${step.getDistance()}
+                                            ${step.getDuration()}
                                     </div>
                                 </div>
                                 <div class="right-column" style="padding-left: 0px;margin-left: 30px;">
@@ -195,7 +195,7 @@
                                             ${step.getHtml_instructions()}
                                     </div>
                                     <div class="secondLine" >
-                                            Cerca de ${step.getDuration()}
+                                            Cerca de ${step.getDistance()}
 
                                     </div>
                                 </div>
@@ -250,7 +250,7 @@
 
             <div class="button-box-travel">
                 <button class="button-travel btn btn-primary buttons" style="margin-left: 12px">Começar Viagem</button>
-                <button class="button-travel btn btn-primary buttons">Cancelar</button>
+                <button class="button-travel btn btn-primary buttons" style=" margin-left: 0px;">Cancelar</button>
                 <form method="post" action="/simulate_trip">
                     <input type="hidden" name="id" value="${leg.getId()}">
                 <button class="button-travel btn btn-primary buttons" type="submit">Simular Viagem</button>
@@ -269,6 +269,7 @@
 </div>
 
 <script>
+
     let map;
     let walkingPolylines = []; // Declare an array to hold walking Polylines
     let otherPolylines = []; // Declare an array to hold non-walking Polylines
@@ -279,6 +280,15 @@
         map = new Map(document.getElementById("map"), {
             center: { lat: 38.77851493507939, lng: -9.33226675574515 },
             zoom: 12,
+            streetViewControl: false, // Disable street view
+            mapTypeControl: false, // Disable map/satellite buttons
+            styles: [
+                {
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [{ visibility: "off" }], // Hide location labels
+                },
+            ],
         });
 
         // Define a custom symbol for walking polylines (gray circle)
@@ -314,9 +324,10 @@
                         {
                             icon: walkingSymbol,
                             offset: "0%",
-                            repeat: "5%", // Adjust the repeat value to control circle spacing
+                            repeat: "3%", // Adjust the repeat value to control circle spacing
                         },
                     ],
+                    strokeOpacity: 0.2,
                 });
 
                 walkingPolylines.push(walkingPolyline); // Add the walking polyline to the walkingPolylines array
@@ -329,8 +340,7 @@
         // Iterate through the hidden input elements for non-walking steps
         otherInputs.forEach((input) => {
             const polylineString = input.value;
-            const index = input.id.split('_')[1]; // Extract the index from the input ID
-            const colorInput = document.getElementById(`polylineColors_${index}`);
+            const colorInput = input.nextElementSibling; // Get the next input element (color input)
             const color = colorInput ? colorInput.value : "#FF0000"; // Default color if not specified
 
             if (polylineString) {
@@ -342,28 +352,46 @@
                     path.push(new google.maps.LatLng(point.lat(), point.lng()));
                 }
 
-                // Create a regular Polyline for non-walking steps with the specified color
+                // Create a Polyline with the specified color for non-walking steps
                 const otherPolyline = new google.maps.Polyline({
                     path: path,
                     map: map,
                     strokeColor: color, // Use the specified color
-                    strokeOpacity: 0.4, // Reduced opacity for connecting line
-                    strokeWeight: 3,
+                    strokeOpacity: 1, // Full opacity for connecting line
+                    strokeWeight: 4,
                 });
 
-                otherPolylines.push(otherPolyline); // Add the polyline to the otherPolylines array
+                otherPolylines.push(otherPolyline); // Add the main polyline to the otherPolylines array
+
+                // Create a duplicate polyline behind the main one for the outline effect
+                const outlinePolyline = new google.maps.Polyline({
+                    path: path,
+                    map: map,
+                    strokeColor: "#000000", // Outline color
+                    strokeOpacity: 0.3, // Full opacity for outline
+                    strokeWeight: 7, // Adjust the thickness of the outline
+                });
+
+                outlinePolyline.setMap(map); // Add the outline polyline to the map
+
+                // Set a lower zIndex for the main polyline to ensure it's displayed on top of the outline
+                otherPolyline.setOptions({ zIndex: google.maps.Marker.MAX_ZINDEX + 1 });
             }
         });
 
+        // Create an array to hold all polyline paths
+        const allPolylinePaths = walkingPolylines.concat(otherPolylines).map((polyline) => polyline.getPath());
+
         // Automatically fit the map to the bounds of all the polylines (both walking and non-walking)
         const bounds = new google.maps.LatLngBounds();
-        walkingPolylines.concat(otherPolylines).forEach((polyline) => {
-            polyline.getPath().forEach((point) => bounds.extend(point));
+        allPolylinePaths.forEach((path) => {
+            path.forEach((point) => bounds.extend(point));
         });
         map.fitBounds(bounds);
     }
 
     initMap();
+
 
 </script>
 
