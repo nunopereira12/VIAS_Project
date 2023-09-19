@@ -16,6 +16,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAll();
     @Query("SELECT u FROM User u WHERE u.current_league = :league")
     List<User> findByCurrentLeague(League league);
+    @Query("SELECT u FROM User u WHERE u.current_league.id = :id")
+    List<User> findByCurrentLeagueId(long id);
 
 
 

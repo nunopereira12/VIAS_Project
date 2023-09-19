@@ -12,16 +12,14 @@ import java.util.List;
 public interface ViasLeagueService {
 
 
-    public void updateUserStats(User user, Leg leg);
+    void updateUserStats(User user, Leg leg);
 
-    public int getLegDistanceWalking(List<Step> steps);
-    public int getLegDistanceTransit(List<Step> steps);
-    public int getLegTimeWalking(List<Step> steps);
-    public int getLegTimeTransit(List<Step> steps);
-    public void resetLeague(Date last_update);
-    public List<User> getStatsByFilter(String filter, League league);
-
-
-
-
+    int getLegDistanceWalking(List<Step> steps);
+    int getLegDistanceTransit(List<Step> steps);
+    int getLegTimeWalking(List<Step> steps);
+    int getLegTimeTransit(List<Step> steps);
+    List<User> getStatsByFilter(String filter, League league);
+    void resetLeague();
+    void resetStats(List<User> users);
+    void changeLeagues();
 }

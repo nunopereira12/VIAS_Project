@@ -7,6 +7,7 @@ import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.models.routes.Step;
 import pt.upskill.vias.models.viasleague.entities.UserStats;
+import pt.upskill.vias.repositories.LeagueRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.UserStatsRepository;
 
@@ -21,6 +22,9 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    LeagueRepository leagueRepository;
+
     @Override
     public void updateUserStats(User user, Leg leg) {
         UserStats userStats = user.getUserStats();
@@ -28,8 +32,8 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
 
         int total_distance_walking = userStats.getTotal_distance_walking() + getLegDistanceWalking(steps);
         int total_distance_transit = userStats.getTotal_distance_transit() + getLegDistanceTransit(steps);
-        int total_time_walking = userStats.getTotal_time_walking() + getLegTimeWalking(steps)/60;
-        int total_time_transit = userStats.getTotal_time_transit() + getLegTimeTransit(steps)/60;
+        int total_time_walking = userStats.getTotal_time_walking() + getLegTimeWalking(steps) / 60;
+        int total_time_transit = userStats.getTotal_time_transit() + getLegTimeTransit(steps) / 60;
         int legPoints = leg.getPoints();
         int trips_done = userStats.getTrips_done() + 1;
         double money_spent = userStats.getMoney_spent() + Double.parseDouble(leg.getFare());
@@ -53,8 +57,8 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     public int getLegDistanceWalking(List<Step> steps) {
         int distance = 0;
 
-        for(Step step : steps) {
-            if(step.getTravel_mode().equals("WALKING")) {
+        for (Step step : steps) {
+            if (step.getTravel_mode().equals("WALKING")) {
                 distance += step.getDistanceValue();
             }
         }
@@ -65,8 +69,8 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     public int getLegDistanceTransit(List<Step> steps) {
         int distance = 0;
 
-        for(Step step : steps) {
-            if(step.getTravel_mode().equals("TRANSIT")) {
+        for (Step step : steps) {
+            if (step.getTravel_mode().equals("TRANSIT")) {
                 distance += step.getDistanceValue();
             }
         }
@@ -77,8 +81,8 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     public int getLegTimeWalking(List<Step> steps) {
         int time = 0;
 
-        for(Step step : steps) {
-            if(step.getTravel_mode().equals("WALKING")) {
+        for (Step step : steps) {
+            if (step.getTravel_mode().equals("WALKING")) {
                 time += step.getDurationValue();
             }
         }
@@ -89,25 +93,12 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     public int getLegTimeTransit(List<Step> steps) {
         int time = 0;
 
-        for(Step step : steps) {
-            if(step.getTravel_mode().equals("TRANSIT")) {
+        for (Step step : steps) {
+            if (step.getTravel_mode().equals("TRANSIT")) {
                 time += step.getDurationValue();
             }
         }
         return time;
-    }
-
-
-    @Override
-    public void resetLeague(Date lastupdate) {
-        long now = new Date().getTime();
-        long last_update = lastupdate.getTime();
-        long seven_days = 604800000;
-
-        if(now-last_update >= seven_days) {
-
-        }
-
     }
 
     @Override
@@ -145,6 +136,166 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         }
 
         return userList;
+    }
+
+    @Override
+    public void resetLeague() {
+        long now = new Date().getTime();
+        long last_update = leagueRepository.getLastUpdateById(1).getTime();
+        long seven_days = 604800000;
+        List<User> users = userRepository.findAll();
+
+        if (now - last_update >= seven_days) {
+            resetStats(users);
+            changeLeagues();
+        } else {
+
+        }
+    }
+
+    @Override
+    public void resetStats(List<User> users) {
+        for (User user : users) {
+            user.getUserStats().setWeekly_points(0);
+            userRepository.save(user);
+        }
+    }
+
+    public void changeDiamond(List<User> diamond, double dp_ratio, int number_promoted) {
+        if (diamond.size() > 0) {
+            diamond.sort(Comparator.comparingInt(u -> u.getUserStats().getWeekly_points()));
+            int number_demoted = (int) Math.round(dp_ratio * number_promoted);
+
+            for (int i = 0; i < number_demoted; i++) {
+                User user = diamond.get(i);
+                user.setPrevious_league(user.getCurrent_league());
+                user.setCurrent_league(leagueRepository.getLeagueById(4));
+                userRepository.save(user);
+            }
+
+        }
+    }
+
+    public void changePlatinum(List<User> platinum, double pg_ratio, int number_promoted) {
+        if (platinum.size() > 0) {
+            platinum.sort(Comparator.comparingInt(u -> u.getUserStats().getWeekly_points()));
+
+            int number_demoted = (int) Math.round(pg_ratio * number_promoted);
+
+            for (int i = 0; i < number_demoted; i++) {
+                User user = platinum.get(i);
+                user.setPrevious_league(user.getCurrent_league());
+                user.setCurrent_league(leagueRepository.getLeagueById(3));
+                userRepository.save(user);
+            }
+
+            int promotion = Math.max(number_promoted, platinum.size());
+            platinum.sort(Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points()));
+
+            for (int i = 0; i < promotion; i++) {
+                User user = platinum.get(i);
+                user.setPrevious_league(user.getCurrent_league());
+                user.setCurrent_league(leagueRepository.getLeagueById(5));
+                userRepository.save(user);
+            }
+
+        }
+    }
+
+    public void changeGold(List<User> gold, double gs_ratio, int number_promoted) {
+        if (gold.size() > 0) {
+            gold.sort(Comparator.comparingInt(u -> u.getUserStats().getWeekly_points()));
+
+            int number_demoted = (int) Math.round(gs_ratio * number_promoted);
+
+            for (int i = 0; i < number_demoted; i++) {
+                User user = gold.get(i);
+                user.setPrevious_league(user.getCurrent_league());
+                user.setCurrent_league(leagueRepository.getLeagueById(2));
+                userRepository.save(user);
+            }
+
+            int promotion = Math.max(number_promoted, gold.size());
+            gold.sort(Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points()));
+
+            for (int i = 0; i < promotion; i++) {
+                User user = gold.get(i);
+                user.setPrevious_league(user.getCurrent_league());
+                user.setCurrent_league(leagueRepository.getLeagueById(4));
+                userRepository.save(user);
+            }
+        }
+    }
+
+
+    public void changeSilver(List<User> silver, double sb_ratio, int number_promoted) {
+        if (silver.size() > 0) {
+
+            silver.sort(Comparator.comparingInt(u -> u.getUserStats().getWeekly_points()));
+
+            int number_demoted = (int) Math.round(sb_ratio * number_promoted);
+
+            for (int i = 0; i < number_demoted; i++) {
+                User user = silver.get(i);
+                user.setPrevious_league(user.getCurrent_league());
+                user.setCurrent_league(leagueRepository.getLeagueById(1));
+                userRepository.save(user);
+            }
+
+            int promotion = Math.max(number_promoted, silver.size());
+            silver.sort(Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points()));
+
+            for (int i = 0; i < promotion; i++) {
+                User user = silver.get(i);
+                user.setPrevious_league(user.getCurrent_league());
+                user.setCurrent_league(leagueRepository.getLeagueById(3));
+                userRepository.save(user);
+            }
+        }
+    }
+
+    public void changeBronze(List<User> bronze, int number_promoted) {
+        if (bronze.size() > 0) {
+
+            int promotion = Math.max(number_promoted, bronze.size());
+            bronze.sort(Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points()));
+
+            for (int i = 0; i < promotion; i++) {
+                User user = bronze.get(i);
+                user.setPrevious_league(user.getCurrent_league());
+                user.setCurrent_league(leagueRepository.getLeagueById(2));
+                userRepository.save(user);
+        }
+        }
+    }
+
+
+    @Override
+    public void changeLeagues() {
+        int number_promoted = 5;
+
+        List<User> diamond = userRepository.findByCurrentLeagueId(5);
+        List<User> platinum = userRepository.findByCurrentLeagueId(4);
+        List<User> gold = userRepository.findByCurrentLeagueId(3);
+        List<User> silver = userRepository.findByCurrentLeagueId(2);
+        List<User> bronze = userRepository.findByCurrentLeagueId(1);
+
+        int diamond_size = diamond.size() == 0 ? 1 : diamond.size();
+        int platinum_size = platinum.size() == 0 ? 1 : diamond.size();
+        int gold_size = gold.size() == 0 ? 1 : diamond.size();
+        int silver_size = silver.size() == 0 ? 1 : diamond.size();
+        int bronze_size = bronze.size() == 0 ? 1 : diamond.size();
+
+        double dp_ratio = (double) diamond_size / platinum_size;
+        double pg_ratio = (double) platinum_size / gold_size;
+        double gs_ratio = (double) gold_size / silver_size;
+        double sb_ratio = (double) silver_size / bronze_size;
+
+        changeDiamond(diamond, dp_ratio, number_promoted);
+        changePlatinum(platinum, pg_ratio, number_promoted);
+        changeGold(gold, gs_ratio, number_promoted);
+        changeSilver(silver, sb_ratio, number_promoted);
+        changeBronze(bronze, number_promoted);
     }
 
 }
