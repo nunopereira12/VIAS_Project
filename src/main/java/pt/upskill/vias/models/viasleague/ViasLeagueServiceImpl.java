@@ -8,6 +8,8 @@ import pt.upskill.vias.models.routes.Step;
 import pt.upskill.vias.models.viasleague.entities.UserStats;
 import pt.upskill.vias.repositories.UserStatsRepository;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -92,5 +94,47 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         return time;
     }
 
+    @Override
+    public List<UserStats> getStatsByFilter(String filter) {
+        List<UserStats> userStatsList;
+
+        userStatsList = userStatsRepository.findAll();
+
+        switch (filter) {
+            case "Viagens Completas":
+                userStatsList.sort(Comparator.comparing(UserStats::getTrips_done).reversed());
+                break;
+            case "Total Gasto":
+                userStatsList.sort(Comparator.comparing(UserStats::getMoney_spent).reversed());
+                break;
+            case "Distância Percorrida a Andar":
+                userStatsList.sort(Comparator.comparing(UserStats::getTotal_distance_walking).reversed());
+                break;
+            case "Distância Percorida Transportes":
+                userStatsList.sort(Comparator.comparing(UserStats::getTotal_distance_transit).reversed());
+                break;
+            case "Leaderboard":
+                userStatsList.sort(Comparator.comparing(UserStats::getTotal_points).reversed());
+                break;
+            case "Tempo Despendido em Transportes":
+                userStatsList.sort(Comparator.comparing(UserStats::getTotal_time_transit).reversed());
+                break;
+            case "Tempo Despendido a Andar":
+                userStatsList.sort(Comparator.comparing(UserStats::getTotal_time_walking).reversed());
+                break;
+            case "My League":
+                userStatsList.sort(Comparator.comparing(UserStats::getWeekly_points).reversed());
+                break;
+            default:
+                return Collections.emptyList();
+        }
+
+        return userStatsList;
+    }
+
+    @Override
+    public List<UserStats> getStatsByLeague(Long userId) {
+        return null;
+    }
 
 }

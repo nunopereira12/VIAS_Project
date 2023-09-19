@@ -214,7 +214,7 @@ Estilos Pontos Tabela
 }
 
 button:hover {
-    background-color: #004A89;
+    background-color: white;
 }
 
 .biggerFont {
@@ -262,6 +262,12 @@ button:hover {
     box-sizing: border-box;
 }
 
+.font-buttons:hover {
+    background-color: #004A89;
+}
+.list-button:hover {
+    background-color: #004A89;
+}
 
 
 
