@@ -161,118 +161,21 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         }
     }
 
-    public void changeDiamond(List<User> diamond, double dp_ratio, int number_promoted) {
-        if (diamond.size() > 0) {
-            diamond.sort(Comparator.comparingInt(u -> u.getUserStats().getWeekly_points()));
-            int number_demoted = (int) Math.round(dp_ratio * number_promoted);
-
-            for (int i = 0; i < number_demoted; i++) {
-                User user = diamond.get(i);
-                user.setPrevious_league(user.getCurrent_league());
-                user.setCurrent_league(leagueRepository.getLeagueById(4));
-                userRepository.save(user);
+    public void changeUsersLeague(List<User> leagueUsers, int positions_to_move, int nextLeagueId, Comparator<? super User> c) {
+        leagueUsers.sort(c);
+        for (int i = 0; i < leagueUsers.size(); i++) {
+            User user = leagueUsers.get(i);
+            user.setPrevious_league(user.getCurrent_league());
+            if (i < positions_to_move) {
+                user.setCurrent_league(leagueRepository.getLeagueById(nextLeagueId));
             }
-
+            userRepository.save(user);
         }
     }
-
-    public void changePlatinum(List<User> platinum, double pg_ratio, int number_promoted) {
-        if (platinum.size() > 0) {
-            platinum.sort(Comparator.comparingInt(u -> u.getUserStats().getWeekly_points()));
-
-            int number_demoted = (int) Math.round(pg_ratio * number_promoted);
-
-            for (int i = 0; i < number_demoted; i++) {
-                User user = platinum.get(i);
-                user.setPrevious_league(user.getCurrent_league());
-                user.setCurrent_league(leagueRepository.getLeagueById(3));
-                userRepository.save(user);
-            }
-
-            int promotion = Math.max(number_promoted, platinum.size());
-            platinum.sort(Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points()));
-
-            for (int i = 0; i < promotion; i++) {
-                User user = platinum.get(i);
-                user.setPrevious_league(user.getCurrent_league());
-                user.setCurrent_league(leagueRepository.getLeagueById(5));
-                userRepository.save(user);
-            }
-
-        }
-    }
-
-    public void changeGold(List<User> gold, double gs_ratio, int number_promoted) {
-        if (gold.size() > 0) {
-            gold.sort(Comparator.comparingInt(u -> u.getUserStats().getWeekly_points()));
-
-            int number_demoted = (int) Math.round(gs_ratio * number_promoted);
-
-            for (int i = 0; i < number_demoted; i++) {
-                User user = gold.get(i);
-                user.setPrevious_league(user.getCurrent_league());
-                user.setCurrent_league(leagueRepository.getLeagueById(2));
-                userRepository.save(user);
-            }
-
-            int promotion = Math.max(number_promoted, gold.size());
-            gold.sort(Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points()));
-
-            for (int i = 0; i < promotion; i++) {
-                User user = gold.get(i);
-                user.setPrevious_league(user.getCurrent_league());
-                user.setCurrent_league(leagueRepository.getLeagueById(4));
-                userRepository.save(user);
-            }
-        }
-    }
-
-
-    public void changeSilver(List<User> silver, double sb_ratio, int number_promoted) {
-        if (silver.size() > 0) {
-
-            silver.sort(Comparator.comparingInt(u -> u.getUserStats().getWeekly_points()));
-
-            int number_demoted = (int) Math.round(sb_ratio * number_promoted);
-
-            for (int i = 0; i < number_demoted; i++) {
-                User user = silver.get(i);
-                user.setPrevious_league(user.getCurrent_league());
-                user.setCurrent_league(leagueRepository.getLeagueById(1));
-                userRepository.save(user);
-            }
-
-            int promotion = Math.max(number_promoted, silver.size());
-            silver.sort(Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points()));
-
-            for (int i = 0; i < promotion; i++) {
-                User user = silver.get(i);
-                user.setPrevious_league(user.getCurrent_league());
-                user.setCurrent_league(leagueRepository.getLeagueById(3));
-                userRepository.save(user);
-            }
-        }
-    }
-
-    public void changeBronze(List<User> bronze, int number_promoted) {
-        if (bronze.size() > 0) {
-
-            int promotion = Math.max(number_promoted, bronze.size());
-            bronze.sort(Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points()));
-
-            for (int i = 0; i < promotion; i++) {
-                User user = bronze.get(i);
-                user.setPrevious_league(user.getCurrent_league());
-                user.setCurrent_league(leagueRepository.getLeagueById(2));
-                userRepository.save(user);
-        }
-        }
-    }
-
 
     @Override
     public void changeLeagues() {
-        int number_promoted = 5;
+        int positions_to_move = 3;
 
         List<User> diamond = userRepository.findByCurrentLeagueId(5);
         List<User> platinum = userRepository.findByCurrentLeagueId(4);
@@ -280,22 +183,88 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         List<User> silver = userRepository.findByCurrentLeagueId(2);
         List<User> bronze = userRepository.findByCurrentLeagueId(1);
 
-        int diamond_size = diamond.size() == 0 ? 1 : diamond.size();
-        int platinum_size = platinum.size() == 0 ? 1 : diamond.size();
-        int gold_size = gold.size() == 0 ? 1 : diamond.size();
-        int silver_size = silver.size() == 0 ? 1 : diamond.size();
-        int bronze_size = bronze.size() == 0 ? 1 : diamond.size();
-
-        double dp_ratio = (double) diamond_size / platinum_size;
-        double pg_ratio = (double) platinum_size / gold_size;
-        double gs_ratio = (double) gold_size / silver_size;
-        double sb_ratio = (double) silver_size / bronze_size;
-
-        changeDiamond(diamond, dp_ratio, number_promoted);
-        changePlatinum(platinum, pg_ratio, number_promoted);
-        changeGold(gold, gs_ratio, number_promoted);
-        changeSilver(silver, sb_ratio, number_promoted);
-        changeBronze(bronze, number_promoted);
+        changeDiamond(diamond, positions_to_move);
+        changePlatinum(platinum, positions_to_move);
+        changeGold(gold, positions_to_move);
+        changeSilver(silver, positions_to_move);
+        changeBronze(bronze, positions_to_move);
     }
+
+    public void changeDiamond(List<User> diamond, int positions_to_move) {
+        int size = diamond.size();
+        Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
+
+        if (size > 6) {
+            changeUsersLeague(diamond, positions_to_move, 4, demotionComparator);
+        } else if (size > 1) {
+            int demotions = size / 2;
+            changeUsersLeague(diamond, demotions, 4, demotionComparator);
+        } else if (size == 1) {
+            User user = diamond.get(0);
+            user.setPrevious_league(user.getCurrent_league());
+            userRepository.save(user);
+        }
+    }
+
+    public void changePlatinum(List<User> platinum, int positions_to_move) {
+        int size = platinum.size();
+        Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
+        Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
+
+        if (size > 6) {
+            changeUsersLeague(platinum, positions_to_move, 3, demotionComparator);
+            changeUsersLeague(platinum, positions_to_move, 5, promotionComparator);
+        } else if (size > 2) {
+            changeUsersLeague(platinum, 1, 3, demotionComparator);
+            changeUsersLeague(platinum, 1, 5, promotionComparator);
+        }
+    }
+
+
+    public void changeGold(List<User> gold, int positions_to_move) {
+        int size = gold.size();
+        Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
+        Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
+
+        if (size > 6) {
+            changeUsersLeague(gold, positions_to_move, 2, demotionComparator);
+            changeUsersLeague(gold, positions_to_move, 4, promotionComparator);
+        } else if (size > 2) {
+            changeUsersLeague(gold, 1, 2, demotionComparator);
+            changeUsersLeague(gold, 1, 4, promotionComparator);
+        }
+    }
+
+
+    public void changeSilver(List<User> silver, int positions_to_move) {
+        int size = silver.size();
+        Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
+        Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
+
+        if (size > 6) {
+            changeUsersLeague(silver, positions_to_move, 1, demotionComparator);
+            changeUsersLeague(silver, positions_to_move, 3, promotionComparator);
+        } else if (size > 2) {
+            changeUsersLeague(silver, 1, 1, demotionComparator);
+            changeUsersLeague(silver, 1, 3, promotionComparator);
+        }
+    }
+
+    public void changeBronze(List<User> bronze, int positions_to_move) {
+        int size = bronze.size();
+        Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
+
+        if (size > 6) {
+            changeUsersLeague(bronze, positions_to_move, 2, promotionComparator);
+        } else if (size > 1) {
+            int demotions = size / 2;
+            changeUsersLeague(bronze, demotions, 2, promotionComparator);
+        } else if (size == 1) {
+            User user = bronze.get(0);
+            user.setPrevious_league(user.getCurrent_league());
+            userRepository.save(user);
+        }
+    }
+
 
 }

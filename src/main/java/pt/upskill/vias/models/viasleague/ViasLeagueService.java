@@ -22,4 +22,9 @@ public interface ViasLeagueService {
     void resetLeague();
     void resetStats(List<User> users);
     void changeLeagues();
+    void changeBronze(List<User> bronze, int positions_to_move);
+    void changeSilver(List<User> silver, int positions_to_move);
+    void changeGold(List<User> gold, int positions_to_move);
+    void changePlatinum(List<User> platinum, int positions_to_move);
+    void changeDiamond(List<User> diamond, int positions_to_move);
 }
