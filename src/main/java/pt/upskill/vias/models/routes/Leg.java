@@ -20,6 +20,7 @@ public class Leg /*implements Comparable<Leg>*/ {
     private String start_address;
     private String end_address;
     private String fare;
+    @Column(length = 256000)
     private String overview_polyline;
     private int points;
     private boolean trip_completed = false;
