@@ -249,12 +249,16 @@
             </c:forEach>
 
             <div class="button-box-travel">
+                <c:if test="${user != null}">
                 <button class="button-travel btn btn-primary buttons" style="margin-left: 12px">Começar Viagem</button>
+                </c:if>
                 <button class="button-travel btn btn-primary buttons" style=" margin-left: 0px;">Cancelar</button>
+                <c:if test="${user != null}">
                 <form method="post" action="/simulate_trip">
                     <input type="hidden" name="id" value="${leg.getId()}">
                 <button class="button-travel btn btn-primary buttons" type="submit">Simular Viagem</button>
                 </form>
+                </c:if>
             </div>
 
 
@@ -281,6 +285,7 @@
             zoom: 12,
             streetViewControl: false, // Disable street view
             mapTypeControl: false, // Disable map/satellite buttons
+            zoomControl: false, // Disable zoom in/out buttons
             styles: [
                 {
                     featureType: "poi",

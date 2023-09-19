@@ -9,27 +9,19 @@
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/suggestions.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs"></script>
+    <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs"></script>--%>
 
 </head>
-<body class="home-body" onload="initDirectionsService()">
+<body class="home-body" onload="initMap()">
 <button class="arrowbutton" style="z-index: 1000" onclick=window.location.href='/home';>
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
 <div class="home-container">
     <div class="mapbox">
 
-        <iframe
-                width=100%
-                height=100%
-                style="border:0"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs
-    &center=38.77851493507939, -9.33226675574515
-    &zoom=12">
-        </iframe>
+
+            <div id="map" ></div>
+
     </div>
 
     <div class="suggestions-content">
@@ -163,15 +155,111 @@
                 </c:forEach>
             </div>
         </c:if>
+        <div class="footerlogo">
+            <footer>
+                <img class="footerimage" src="images/logo_nobg.png" alt="">
+            </footer>
+        </div>
 
     </div>
 
+    <c:forEach var="leg" items="${legs}" varStatus="status">
+        <input type="hidden" id="polylineInput_${status.index}" value="${leg.getOverview_polyline()}">
+
+    </c:forEach>
+
+
+    <script>
+        let map;
+        let otherPolylines = []; // Declare an array to hold non-walking Polylines
+
+        async function initMap() {
+            const { Map, Polyline } = await google.maps.importLibrary("maps");
+
+            map = new Map(document.getElementById("map"), {
+                center: { lat: 38.77851493507939, lng: -9.33226675574515 },
+                zoom: 12,
+                streetViewControl: false, // Disable street view
+                mapTypeControl: false, // Disable map/satellite buttons
+                zoomControl: false, // Disable zoom in/out buttons
+                styles: [
+                    {
+                        featureType: "poi",
+                        elementType: "labels",
+                        stylers: [{ visibility: "off" }], // Hide location labels
+                    },
+                ],
+            });
+
+            // Find all hidden input elements with IDs starting with "polylineInput_"
+            const legInputs = document.querySelectorAll('[id^="polylineInput_"]');
+
+            // Define a green color for the first leg
+            const greenColor = '#A4DE41';
+
+            // Iterate through the hidden input elements for legs
+            legInputs.forEach((input, index) => {
+                const polylineString = input.value;
+
+                if (polylineString) {
+                    const decodedPath = google.maps.geometry.encoding.decodePath(polylineString);
+
+                    // Create an array to hold LatLng objects
+                    const path = [];
+                    for (const point of decodedPath) {
+                        path.push(new google.maps.LatLng(point.lat(), point.lng()));
+                    }
+
+                    // Create a Polyline with the specified color for each leg
+                    const legPolyline = new google.maps.Polyline({
+                        path: path,
+                        map: map,
+                        strokeColor: index === 0 ? greenColor : '#CCCCCC', // Green for the first leg, gray for others
+                        strokeOpacity: 1,
+                        strokeWeight: 4,
+                    });
+
+                    otherPolylines.push(legPolyline); // Add the leg polyline to the otherPolylines array
+
+                    // Create a duplicate polyline behind the main one for the outline effect
+                    const outlinePolyline = new google.maps.Polyline({
+                        path: path,
+                        map: map,
+                        strokeColor: "#000000", // Outline color
+                        strokeOpacity: 0.3, // Full opacity for outline
+                        strokeWeight: 7, // Adjust the thickness of the outline
+                    });
+
+                    outlinePolyline.setMap(map); // Add the outline polyline to the map
+
+                    if (index === 0) {
+                        legPolyline.setOptions({ zIndex: google.maps.Marker.MAX_ZINDEX + 1 });
+                    }
+                }
+            });
+
+            // Automatically fit the map to the bounds of all the leg polylines
+            const bounds = new google.maps.LatLngBounds();
+            otherPolylines.forEach((polyline) => {
+                polyline.getPath().forEach((point) => bounds.extend(point));
+            });
+            map.fitBounds(bounds);
+        }
+
+        initMap();
+    </script>
+
+
+
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core&callback=initMap">
+    </script>
 
 </div>
-<div class="footerlogo">
+<%--<div class="footerlogo">
     <footer>
         <img class="footerimage" src="images/logo_nobg.png" alt="">
-    </footer>
+    </footer>--%>
 </div>
 </body>
 </html>

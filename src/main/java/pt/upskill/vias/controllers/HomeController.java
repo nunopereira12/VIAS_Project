@@ -91,12 +91,17 @@ public class HomeController {
     }
 
     @PostMapping(value = "/traveldetails")
-    public ModelAndView travelDetailsPage(@RequestParam("id") long id) {
+    public ModelAndView travelDetailsPage(@RequestParam("id") long id, Principal principal) {
         ModelAndView mav = new ModelAndView("traveldetails");
 
         Leg leg = legRepository.getLegById(id);
         leg = jsonConversionService.addSteps(leg);
         mav.addObject("leg", leg);
+
+        if(principal != null){
+            User user = userRepository.getUserByUsername(principal.getName());
+            mav.addObject("user", user);
+        }
 
         return mav;
     }

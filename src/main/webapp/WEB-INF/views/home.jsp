@@ -166,17 +166,7 @@
 
 <div class="home-container">
     <div class="mapbox">
-        <iframe
-                width=100%
-                height=100%
-                style="border:0"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs
-    &center=38.77851493507939, -9.33226675574515
-    &zoom=12">
-        </iframe>
+        <div id="map" ></div>
     </div>
 
     <div class="home-content">
@@ -311,6 +301,30 @@
     </footer>
 </div>
 
+<script>
+    async function initMap() {
+        const {Map, Polyline} = await google.maps.importLibrary("maps");
+
+        map = new Map(document.getElementById("map"), {
+            center: {lat: 38.77851493507939, lng: -9.33226675574515},
+            zoom: 12,
+            streetViewControl: false, // Disable street view
+            mapTypeControl: false, // Disable map/satellite buttons
+            zoomControl: false, // Disable zoom in/out buttons
+            styles: [
+                {
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [{visibility: "off"}], // Hide location labels
+                },
+            ],
+        });
+    }
+</script>
+
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core&callback=initMap">
+</script>
 
 </body>
 </html>

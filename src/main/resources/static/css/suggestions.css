@@ -88,8 +88,8 @@
 
 .arrowbutton{
     position: absolute;
-    top:15px;
-    left:15px;
+    top:9px;
+    left:10px;
     background-color: #ffffff;
 }
 
@@ -156,6 +156,7 @@
 @media (max-width: 920px) {
     .suggestions-box{
         min-width: auto;
+
     }
 
     .date-hour-box {
@@ -163,6 +164,11 @@
         margin:auto;
         text-align: center;
         align-items: center;
+    }
+
+    .suggestions-content {
+        height: 380px;
+        margin-top: -72px;
     }
 }
 
@@ -202,3 +208,4 @@
     align-items: center;
     max-width: 300px;
 }
+
