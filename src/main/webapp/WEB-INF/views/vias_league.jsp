@@ -247,7 +247,7 @@
             </c:when>
         </c:choose>--%>
             <img class="image_badge center-img" src="images/leaderboard.v2.png" width="45px" alt="Leaderboard Img"/>
-            <div id="leaderboard"><strong>${selectedFilter}</strong></div>
+            <div class="leaderboard"><strong>${selectedFilter}</strong></div>
 
         <hr>
         <div class="table-container">
@@ -292,7 +292,7 @@
     <div class="list-container" id="list2" style="display: none;">
 
         <img class="image_badge center-img" src="images/leaderboard.v2.png" width="45px" alt="Leaderboard Img"/>
-        <div id="leaderboard"><strong>Liga Global - Top 100</strong></div>
+        <div class="leaderboard"><strong>Liga Global - Top 100</strong></div>
 
 
         <hr>

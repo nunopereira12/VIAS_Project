@@ -221,7 +221,7 @@ button:hover {
     font-size: 17px;
 }
 
-#leaderboard {
+.leaderboard {
     text-align: center;
     margin-top: 15px;
 }
