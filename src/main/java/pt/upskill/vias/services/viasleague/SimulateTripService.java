@@ -1,4 +1,4 @@
-package pt.upskill.vias.models.viasleague;
+package pt.upskill.vias.services.viasleague;
 
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;

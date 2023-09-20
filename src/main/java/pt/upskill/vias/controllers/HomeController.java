@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;
-import pt.upskill.vias.models.viasleague.SimulateTripService;
-import pt.upskill.vias.models.viasleague.ViasLeagueService;
+import pt.upskill.vias.services.viasleague.SimulateTripService;
+import pt.upskill.vias.services.viasleague.ViasLeagueService;
 import pt.upskill.vias.repositories.LegRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.HomeService;
@@ -48,7 +48,7 @@ public class HomeController {
     @GetMapping("/home")
     public ModelAndView homePage(Principal principal) {
         ModelAndView mav = new ModelAndView("home");
-        viasLeagueService.changeLeagues();
+        viasLeagueService.resetLeague();
 
         if (principal != null) {
             String loggedInUsername = principal.getName();

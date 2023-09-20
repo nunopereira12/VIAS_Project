@@ -7,18 +7,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.User;
-import pt.upskill.vias.models.viasleague.ViasLeagueService;
+import pt.upskill.vias.services.viasleague.ViasLeagueService;
 import pt.upskill.vias.repositories.UserRepository;
-import pt.upskill.vias.services.viasleague.ViasLeagueService1;
 
 import java.security.Principal;
 import java.util.List;
 
 @Controller
 public class ViasLeagueController {
-
-    @Autowired
-    ViasLeagueService1 viasLeagueService1;
 
     @Autowired
     ViasLeagueService viasLeagueService;

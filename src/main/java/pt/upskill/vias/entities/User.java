@@ -1,15 +1,9 @@
 package pt.upskill.vias.entities;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import pt.upskill.vias.models.routes.Leg;
-import pt.upskill.vias.models.viasleague.entities.UserStats;
-import pt.upskill.vias.repositories.UserStatsRepository;
-
 import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class User {

@@ -10,7 +10,6 @@ public class League {
     @Id
     private long id;
     private String name;
-    private Date last_update;
 
 
     public long getId() {
@@ -21,11 +20,4 @@ public class League {
         return name;
     }
 
-    public Date getLast_update() {
-        return last_update;
-    }
-
-    public void setLast_update(Date last_update) {
-        this.last_update = last_update;
-    }
 }

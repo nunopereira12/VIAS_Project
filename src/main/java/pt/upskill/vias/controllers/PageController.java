@@ -34,6 +34,9 @@ public class PageController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    LegRepository legRepository;
+
 
 
     @GetMapping(value = "/settings")
@@ -51,7 +54,7 @@ public class PageController {
         ModelAndView mav = new ModelAndView();
 
         User user = userRepository.getUserByUsername(principal.getName());
-        List<Leg> legs = historyService.getAllByTrip_completedAndUserOrderById(true,user);
+        List<Leg> legs = historyService.getUserHistory(true, user);
 
         jsonConversionService.addStepsLegList(legs);
 

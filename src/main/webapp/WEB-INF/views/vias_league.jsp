@@ -287,9 +287,6 @@
                                     <c:when test="${selectedFilter eq 'Viagens Completas'}">
                                         ${player.getUserStats().getTrips_done()}
                                     </c:when>
-                                    <c:when test="${selectedFilter eq 'Total Gasto'}">
-                                        ${player.getUserStats().getMoney_spent()}
-                                    </c:when>
                                     <c:when test="${selectedFilter eq 'Distância Percorrida a Andar'}">
                                         ${player.getUserStats().getTotal_distance_walking()}
                                     </c:when>

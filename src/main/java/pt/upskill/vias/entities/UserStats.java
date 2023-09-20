@@ -1,4 +1,4 @@
-package pt.upskill.vias.models.viasleague.entities;
+package pt.upskill.vias.entities;
 
 
 import pt.upskill.vias.entities.User;
@@ -16,7 +16,6 @@ public class UserStats {
     private int total_time_walking;
     private int total_time_transit;
     private int trips_done;
-    private double money_spent;
     private int total_points;
     private int weekly_points;
 
@@ -64,13 +63,6 @@ public class UserStats {
         this.trips_done = trips_done;
     }
 
-    public double getMoney_spent() {
-        return money_spent;
-    }
-
-    public void setMoney_spent(double money_spent) {
-        this.money_spent = money_spent;
-    }
 
     public int getTotal_points() {
         return total_points;

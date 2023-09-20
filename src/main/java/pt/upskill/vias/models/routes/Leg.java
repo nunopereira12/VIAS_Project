@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Leg /*implements Comparable<Leg>*/ {
+public class Leg {
 
 
     @Id

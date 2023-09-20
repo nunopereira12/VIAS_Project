@@ -12,8 +12,5 @@ public interface LeagueRepository extends JpaRepository<League, Long> {
 
     League getLeagueById(long id);
 
-    @Query("SELECT u.last_update FROM League u WHERE u.id = :id")
-    Date getLastUpdateById(long id);
 
-    League getLeagueByName(String league_name);
 }

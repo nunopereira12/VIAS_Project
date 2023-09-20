@@ -6,10 +6,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.Role;
 import pt.upskill.vias.entities.User;
-import pt.upskill.vias.models.viasleague.entities.UserStats;
+import pt.upskill.vias.entities.UserStats;
+import pt.upskill.vias.entities.cards.ViasCard;
 import pt.upskill.vias.repositories.LeagueRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.UserStatsRepository;
+import pt.upskill.vias.repositories.ViasCardRepository;
 
 import java.text.ParseException;
 
@@ -23,6 +25,8 @@ public class AuthServiceImpl implements AuthService {
     UserStatsRepository userStatsRepository;
     @Autowired
     LeagueRepository leagueRepository;
+    @Autowired
+    ViasCardRepository viasCardRepository;
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
     /*public void signUp(User user) {
@@ -82,6 +86,10 @@ public class AuthServiceImpl implements AuthService {
         UserStats userStats = new UserStats();
         userStatsRepository.save(userStats);
 
+        ViasCard viasCard = new ViasCard();
+        viasCardRepository.save(viasCard);
+
+        viasCard.setUser(user);
         user.setUserStats(userStats);
         userRepository.save(user);
     }

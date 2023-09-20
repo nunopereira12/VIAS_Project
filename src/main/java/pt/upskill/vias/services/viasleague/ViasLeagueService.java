@@ -1,12 +1,10 @@
-package pt.upskill.vias.models.viasleague;
+package pt.upskill.vias.services.viasleague;
 
 import pt.upskill.vias.entities.League;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.models.routes.Step;
-import pt.upskill.vias.models.viasleague.entities.UserStats;
 
-import java.util.Date;
 import java.util.List;
 
 public interface ViasLeagueService {

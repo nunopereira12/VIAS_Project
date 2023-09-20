@@ -18,14 +18,13 @@ public class HistoryServiceImpl implements HistoryService{
     LegRepository legRepository;
 
     @Override
-    @Query("SELECT l FROM Leg l WHERE l.trip_completed = :simulated AND l.user= :user ORDER BY l.id DESC")
-    public List<Leg> getAllByTrip_completedAndUserOrderById(boolean simulated, User user){
+    public List<Leg> getUserHistory(boolean simulated, User user){
         List<Leg> legs = legRepository.getAllByTrip_completedAndUserOrderById(simulated, user);
         List<Leg> iteration = new ArrayList<>(legs);
         int count = 0;
         for(Leg leg: iteration){
             count++;
-            if (count >5){
+            if (count > 5){
                 legs.remove(leg);
             }
         }

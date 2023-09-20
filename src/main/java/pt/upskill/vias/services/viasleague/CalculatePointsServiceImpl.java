@@ -1,4 +1,4 @@
-package pt.upskill.vias.models.viasleague;
+package pt.upskill.vias.services.viasleague;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,12 +1,14 @@
-package pt.upskill.vias.models.viasleague;
+package pt.upskill.vias.services.viasleague;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pt.upskill.vias.entities.LastUpdate;
 import pt.upskill.vias.entities.League;
 import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.models.routes.Step;
-import pt.upskill.vias.models.viasleague.entities.UserStats;
+import pt.upskill.vias.entities.UserStats;
+import pt.upskill.vias.repositories.LastUpdateRepository;
 import pt.upskill.vias.repositories.LeagueRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.UserStatsRepository;
@@ -25,6 +27,10 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     @Autowired
     LeagueRepository leagueRepository;
 
+    @Autowired
+    LastUpdateRepository lastUpdateRepository;
+
+
     @Override
     public void updateUserStats(User user, Leg leg) {
         UserStats userStats = user.getUserStats();
@@ -36,7 +42,6 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         int total_time_transit = userStats.getTotal_time_transit() + getLegTimeTransit(steps) / 60;
         int legPoints = leg.getPoints();
         int trips_done = userStats.getTrips_done() + 1;
-        double money_spent = userStats.getMoney_spent() + Double.parseDouble(leg.getFare());
         int total_points = userStats.getTotal_points() + legPoints;
         int weekly_points = userStats.getWeekly_points() + legPoints;
 
@@ -45,7 +50,6 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         userStats.setTotal_time_walking(total_time_walking);
         userStats.setTotal_time_transit(total_time_transit);
         userStats.setTrips_done(trips_done);
-        userStats.setMoney_spent(money_spent);
         userStats.setTotal_points(total_points);
         userStats.setWeekly_points(weekly_points);
 
@@ -122,9 +126,6 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
             case "Viagens Completas":
                 userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTrips_done()));
                 break;
-            case "Total Gasto":
-                userList.sort(Comparator.comparingDouble(u -> -u.getUserStats().getMoney_spent()));
-                break;
             case "Leaderboard":
                 userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_points()));
                 break;
@@ -141,19 +142,18 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     @Override
     public void resetLeague() {
         Date today = new Date();
-        long todayms = today.getTime();
-        long last_update = leagueRepository.getLastUpdateById(1).getTime();
+        LastUpdate last_update = lastUpdateRepository.getLastUpdateById(1);
+        long today_value = today.getTime();
+        long last_update_value = last_update.getDate().getTime();
         long seven_days = 604800000;
 
         List<User> users = userRepository.findAll();
 
-        if (todayms - last_update >= seven_days) {
+        if (today_value - last_update_value >= seven_days) {
             changeLeagues();
             resetStats(users);
-            for(League league : leagueRepository.findAll()) {
-                league.setLast_update(today);
-                leagueRepository.save(league);
-            }
+            last_update.setDate(today);
+            lastUpdateRepository.save(last_update);
         }
     }
 
@@ -198,11 +198,11 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         int size = diamond.size();
         Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
 
-        if (size > positions_to_move*2) {
-            changeUsersLeague(diamond, positions_to_move,5, 4, demotionComparator);
+        if (size > positions_to_move * 2) {
+            changeUsersLeague(diamond, positions_to_move, 5, 4, demotionComparator);
         } else if (size > 1) {
             int demotions = size / 2;
-            changeUsersLeague(diamond, demotions,5, 4, demotionComparator);
+            changeUsersLeague(diamond, demotions, 5, 4, demotionComparator);
         } else if (size == 1) {
             User user = diamond.get(0);
             user.setPrevious_league(leagueRepository.getLeagueById(4));
@@ -216,11 +216,11 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
 
         if (size > positions_to_move * 2) {
-            changeUsersLeague(platinum, positions_to_move,4, 3, demotionComparator);
-            changeUsersLeague(platinum, positions_to_move, 4,5, promotionComparator);
+            changeUsersLeague(platinum, positions_to_move, 4, 3, demotionComparator);
+            changeUsersLeague(platinum, positions_to_move, 4, 5, promotionComparator);
         } else if (size > 2) {
-            changeUsersLeague(platinum, 1,4, 3, demotionComparator);
-            changeUsersLeague(platinum, 1,4, 5, promotionComparator);
+            changeUsersLeague(platinum, 1, 4, 3, demotionComparator);
+            changeUsersLeague(platinum, 1, 4, 5, promotionComparator);
         } else if (size > 0) {
             for (User user : platinum) {
                 user.setPrevious_league(leagueRepository.getLeagueById(4));
@@ -237,9 +237,9 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
 
         if (size > positions_to_move * 2) {
             changeUsersLeague(gold, positions_to_move, 3, 2, demotionComparator);
-            changeUsersLeague(gold, positions_to_move,3, 4, promotionComparator);
+            changeUsersLeague(gold, positions_to_move, 3, 4, promotionComparator);
         } else if (size > 2) {
-            changeUsersLeague(gold, 1,3, 2, demotionComparator);
+            changeUsersLeague(gold, 1, 3, 2, demotionComparator);
             changeUsersLeague(gold, 1, 3, 4, promotionComparator);
         } else if (size > 0) {
             for (User user : gold) {
@@ -256,7 +256,7 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
 
         if (size > positions_to_move * 2) {
-            changeUsersLeague(silver, positions_to_move,2, 1, demotionComparator);
+            changeUsersLeague(silver, positions_to_move, 2, 1, demotionComparator);
             changeUsersLeague(silver, positions_to_move, 2, 3, promotionComparator);
         } else if (size > 2) {
             changeUsersLeague(silver, 1, 2, 1, demotionComparator);
@@ -273,7 +273,7 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         int size = bronze.size();
         Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
 
-        if (size > positions_to_move*2) {
+        if (size > positions_to_move * 2) {
             changeUsersLeague(bronze, positions_to_move, 1, 2, promotionComparator);
         } else if (size > 1) {
             int promotion = size / 2;
