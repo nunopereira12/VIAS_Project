@@ -22,22 +22,22 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes do título de transporte</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="">
+            <form action="/add_navegante" method="post">
                 <div class="modal-body">
                     <%--<label for="nameOwner" class="modal-label">Nome do Titular</label>
                     <input type="text" id="nameOwner" class="form-control" placeholder="Introduza o nome do titular">--%>
 
 
                     <label for="numberTitle" class="modal-label">Número do Título</label>
-                    <input type="text" class="form-control" id="numberTitle" placeholder="Introduza o número do título">
+                    <input type="number" class="form-control" name="naveganteNumber" id="numberTitle" placeholder="Introduza o número do título">
 
 
                     <label for="expiringDate" class="modal-label">Data de Validade</label>
-                    <input type="date" class="form-control" id="expiringDate" placeholder="Data de Validade">
+                    <input type="date" class="form-control" name="expirationDate" id="expiringDate" placeholder="Data de Validade">
                 </div>
                 <div class="modal-footer">
                     <button type="Reset" class="btn btn-secondary buttons-error">Limpar</button>
-                    <button type="button" class="btn btn-primary buttons">Guardar</button>
+                    <button type="submit" class="btn btn-primary buttons">Guardar</button>
                 </div>
             </form>
         </div>
@@ -79,22 +79,47 @@
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/images/new_card.png" class="d-block w-100" alt="..." >
-                            <p class="validuntil">Válido até: Set/2023</p>
+
+                            <c:choose>
+
+                            <c:when test="${navegante == null}">
+                            <img src="/images/new_card.png" class="d-block w-100" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            </c:when>
+                            <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) < 0 }">
+                            <img src="/images/invalidNavegante.png" class="d-block w-100" alt="...">
+                            </c:when>
+                            <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0}">
+                            <img src="/images/validNavegante.png" class="d-block w-100" alt="...">
+                            </c:when>
+
+                            </c:choose>
+
                         </div>
                         <div class="carousel-item ">
                             <img src="/images/vias_card.png" class="d-block w-100" alt="...">
-                            <p class="validuntil">Você tem 30€</p>
+
                         </div>
                     </div>
                 </div>
                 <div id="validationAndInformation" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <p class="validuntil">Válido até: Set/2023</p>
+                            <c:choose>
+                            <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) < 0 }">
+                            <p class="validuntil">Título Expirado</p>
+                            </c:when>
+                            <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0 }">
+                            <p class="validuntil">Válido até: ${currentDate}</p>
+                            </c:when>
+                                <c:when test="${navegate == null}">
+                                    <div class="text-placeholder"></div>
+                                </c:when>
+                            </c:choose>
+
+
                         </div>
                         <div class="carousel-item ">
-                            <p class="validuntil">Você tem 30€</p>
+                            <p class="validuntil">Saldo atual: ${viascard.getBalance()}€</p>
                         </div>
                     </div>
                 </div>
@@ -102,12 +127,34 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
                             <div class="validate-button-container">
-                                    <button class="addbutton" ><span class="addspan">Validar Título</span></button></a>
+                                <c:choose>
+                                <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0}">
+
+                                    <form method="post" action="/validatetitle">
+                                        <input type="hidden" name="card" value="N${navegante.getCard_number()}">
+                                    <button type="submit" class="addbutton" ><span class="addspan">Validar Título</span></button>
+                                    </form>
+
+
+                                </c:when>
+                                <c:when test="${navegante == null}">
+                                    <div class="button-placeholder"></div> <!-- Empty placeholder for the button -->
+                                </c:when>
+                                <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) < 0}">
+                                    <div class="button-placeholder" ></div>
+                                </c:when>
+                                </c:choose>
                             </div>
                         </div>
                         <div class="carousel-item " style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
+
                             <div class="validate-button-container">
-                                    <button class="addbutton" ><span class="addspan">Validar Título</span></button></a>
+                                <form method="post" action="/validatetitle">
+                                    <input type="hidden" name="card" value="V${viascard.getCard_number()}">
+                                    <button type="submit" class="addbutton" ><span class="addspan">Validar Título</span></button>
+                                </form>
+
+
                             </div>
                         </div>
                     </div>
@@ -116,7 +163,17 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
                             <div class="addbutton-container">
+                                <c:choose>
+                                <c:when test="${navegante == null}">
                                 <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Adicionar Título de Transporte</span></button>
+                                </c:when>
+                                <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0}">
+                                    <button class="addbutton" ><span class="addspan">Carregar Título</span></button>
+                                </c:when>
+                                    <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) < 0}">
+                                        <button class="addbutton" ><span class="addspan">Adicionar Novo Título</span></button>
+                                    </c:when>
+                                </c:choose>
                             </div>
                         </div>
                         <div class="carousel-item ">

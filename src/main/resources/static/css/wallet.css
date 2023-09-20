@@ -276,3 +276,13 @@ p {
 
 
 }
+
+.button-placeholder {
+    width: 105px; /* Adjust the width to match your button's width */
+    height: 35px; /* Adjust the height to match your button's height */
+}
+
+.text-placeholder {
+    width: 145px;
+    height: 70px;
+}
