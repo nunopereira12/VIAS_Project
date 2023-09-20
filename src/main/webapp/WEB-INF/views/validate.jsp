@@ -29,11 +29,11 @@
             </svg><span style="margin: 10px">Validar</span>
             </button>
         </div>
-        <div class="validate-box">
+            <video id="camera-feed" autoplay style="width: 100%"></video>
+            <canvas id="qr-canvas" style="display:none;"></canvas>
+            <div id="qr-result"></div>
 
-        </div>
     </div>
-
 </div>
 
 
@@ -42,5 +42,30 @@
         <img class="footerimage" src="images/logo_nobg.png" alt="">
     </footer>
 </div>
+
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<script>
+
+    const videoElement = document.getElementById('camera-feed');
+    const qrCanvas = document.getElementById('qr-canvas');
+    const qrResult = document.getElementById('qr-result');
+
+    const scanner = new Instascan.Scanner({ video: videoElement });
+    scanner.addListener('scan', function (content) {
+        qrResult.textContent = 'QR Code Data: ' + content;
+    });
+
+    Instascan.Camera.getCameras()
+        .then(function (cameras) {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]); // Use the first available camera
+            } else {
+                console.error('No cameras found.');
+            }
+        })
+        .catch(function (error) {
+            console.error('Error accessing camera:', error);
+        });
+</script>
 </body>
 </html>
