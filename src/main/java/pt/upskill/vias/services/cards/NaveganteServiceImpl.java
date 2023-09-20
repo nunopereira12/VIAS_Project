@@ -20,17 +20,17 @@ public class NaveganteServiceImpl implements NaveganteService {
     LastUpdateRepository lastUpdateRepository;
 
 
-public boolean cardExists(long card_number) {
-    return naveganteRepository.getNaveganteByCard_number(card_number) != null;
-}
+    public boolean cardExists(long card_number) {
+        return naveganteRepository.getNaveganteByCard_number(card_number) != null;
+    }
 
-public boolean userHasCard(User user) {
-    return naveganteRepository.getNaveganteByUser(user) != null;
-}
+    public boolean userHasCard(User user) {
+        return naveganteRepository.getNaveganteByUser(user) != null;
+    }
 
     public void setNaveganteToUser(User user, long card_number, Date expiration_date) {
-        if(!cardExists(card_number)) {
-            if(userHasCard(user)) {
+        if (!cardExists(card_number)) {
+            if (userHasCard(user)) {
                 updateNavegante(user, card_number, expiration_date);
             } else {
                 createNavegante(user, card_number, expiration_date);
@@ -44,6 +44,7 @@ public boolean userHasCard(User user) {
         navegante.setExpiration_date(expiration_date);
         naveganteRepository.save(navegante);
     }
+
     @Override
     public void createNavegante(User user, long card_number, Date expiration_date) {
         Navegante navegante = new Navegante(user, card_number, expiration_date);

@@ -330,7 +330,7 @@
 
                         <td>
                             <div class="points">
-                                <div class="points-number">${player.getPoints()}</div>
+                                <div class="points-number">${player.getUserStats().getTotal_points()}</div>
                                 <div class="points-text">pontos</div>
                             </div>
                         </td>
