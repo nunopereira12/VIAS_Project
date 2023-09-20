@@ -24,8 +24,8 @@
             </div>
             <form action="">
                 <div class="modal-body">
-                    <label for="nameOwner" class="modal-label">Nome do Titular</label>
-                    <input type="text" id="nameOwner" class="form-control" placeholder="Introduza o nome do titular">
+                    <%--<label for="nameOwner" class="modal-label">Nome do Titular</label>
+                    <input type="text" id="nameOwner" class="form-control" placeholder="Introduza o nome do titular">--%>
 
 
                     <label for="numberTitle" class="modal-label">Número do Título</label>
@@ -80,40 +80,72 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="/images/new_card.png" class="d-block w-100" alt="..." >
+                            <p class="validuntil">Válido até: Set/2023</p>
                         </div>
                         <div class="carousel-item ">
                             <img src="/images/vias_card.png" class="d-block w-100" alt="...">
+                            <p class="validuntil">Você tem 30€</p>
                         </div>
                     </div>
                 </div>
-
-                <p class="validuntil">Válido até: Set/2023</p>
-
-                <div>
-                    <div>
-                        <a href="http://localhost:8080/validatetitle">
-                        <button class="addbutton" ><span class="addspan">Validar</span></button></a>
-                </div>
-                    <div >
-                        <div >
-                            <button class="addbutton" hidden ><span class="addspan">Ver Títulos</span></button>
+                <div id="validationAndInformation" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <p class="validuntil">Válido até: Set/2023</p>
                         </div>
+                        <div class="carousel-item ">
+                            <p class="validuntil">Você tem 30€</p>
+                        </div>
+                    </div>
                 </div>
+                <div id="ValidateButtons" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
+                            <div id="validate-button-container">
+                                    <button class="addbutton" ><span class="addspan">Validar Título</span></button></a>
+                            </div>
+                        </div>
+                        <div class="carousel-item " style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
+                            <div id="validate-button-container">
+                                    <button class="addbutton" ><span class="addspan">Validar Título</span></button></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div id="chargeOrBuy" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
+                            <div id="addbutton-container">
+                                <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Adicionar Título de Transporte</span></button>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <div id="addbutton-container" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
+                                <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Carregar VIAS Card</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+
 
 
             <%--FUTURE DATA --%>
 
-        </div>
+       <%-- </div>
         <div id="addbutton-container">
             <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Adicionar Título de Transporte</span></button>
         </div>
-    </div>
+    </div>--%>
 
 
 
 
 </div>
+</div>
+
 
 
 <div class="footerlogo">
@@ -124,11 +156,23 @@
     const switchNavigante = document.getElementById('switchNavigante');
     const switchVIASCard = document.getElementById('switchVIAS-Card');
     const carousel = new bootstrap.Carousel(document.getElementById('carouselExampleControls'));
+    const informationCarousel = new bootstrap.Carousel(document.getElementById('validationAndInformation'));
+    const validateButtons = new bootstrap.Carousel(document.getElementById('ValidateButtons'));
+    const chargeOrBuy = new bootstrap.Carousel(document.getElementById('chargeOrBuy'));
+
+    // Function to update the information carousel based on the selected radio button
+    function updateInformationCarousel(index) {
+        informationCarousel.to(index);
+        validateButtons.to(index);
+        chargeOrBuy.to(index);
+    }
 
     switchNavigante.addEventListener('change', () => {
         if (switchNavigante.checked) {
             // Show the first slide with Bootstrap Carousel method
             carousel.to(0);
+            updateInformationCarousel(0);
+
         }
     });
 
@@ -136,20 +180,23 @@
         if (switchVIASCard.checked) {
             // Show the second slide with Bootstrap Carousel method
             carousel.to(1);
+            updateInformationCarousel(1);
         }
     });
 
-    // Listen to the carousel slide event and update the toggle switch accordingly
+    // Listen to the carousel slide event and update the toggle switch and information carousel accordingly
     carousel._element.addEventListener('slide.bs.carousel', (event) => {
         const currentIndex = event.to; // Index of the currently active slide
         if (currentIndex === 0) {
             // Update the toggle switch to Navegante
             switchNavigante.checked = true;
             switchVIASCard.checked = false;
+            updateInformationCarousel(0);
         } else if (currentIndex === 1) {
             // Update the toggle switch to VIAS Card
             switchNavigante.checked = false;
             switchVIASCard.checked = true;
+            updateInformationCarousel(1);
         }
     });
 </script>

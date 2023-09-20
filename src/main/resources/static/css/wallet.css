@@ -267,3 +267,12 @@ p {
 .addspan {
     font-size: 0.8rem;
 }
+
+#validate-button-container {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+}

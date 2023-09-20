@@ -150,6 +150,8 @@
                             </div>
                             <div class="right-column" style="padding-left: 0px;margin-left: 30px;">
                                 <div class="firstLine">
+
+                                        <span>
                                             ${step.getDeparture_stop()} até ${step.getArrival_stop()} (${step.num_stops}
                                                 <c:if test="${step.num_stops == 1}">
                                                     paragem)
@@ -157,11 +159,17 @@
                                                 <c:if test="${step.num_stops != 1}">
                                                     paragens)
                                                 </c:if>
+                                                </span>
+                                                <div class="travel-box">
+                                                <div class="travel-text"
+                                                     style="background-color: ${step.getLine().getColor()}; color: ${step.getLine().getText_color()}">
+                                                    <span style="margin: 0 2px">${step.getLine().getName()}</span></div></div>
+
 
 
                                 </div>
                                 <div class="secondLine">
-                                    <p>${step.getHtml_instructions()};</p>
+                                    <p >${step.getHtml_instructions()};</p>
                                         <p>Duração da viagem: ${step.getDuration()};</p>
                                         <p>Hora prevista de chegada: ${step.getArrival_time()};</p>
 
