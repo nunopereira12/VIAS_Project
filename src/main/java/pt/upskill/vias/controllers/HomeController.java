@@ -48,6 +48,7 @@ public class HomeController {
     @GetMapping("/home")
     public ModelAndView homePage(Principal principal) {
         ModelAndView mav = new ModelAndView("home");
+        viasLeagueService.changeLeagues();
 
         if (principal != null) {
             String loggedInUsername = principal.getName();

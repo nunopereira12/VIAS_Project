@@ -140,16 +140,20 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
 
     @Override
     public void resetLeague() {
-        long now = new Date().getTime();
+        Date today = new Date();
+        long todayms = today.getTime();
         long last_update = leagueRepository.getLastUpdateById(1).getTime();
         long seven_days = 604800000;
+
         List<User> users = userRepository.findAll();
 
-        if (now - last_update >= seven_days) {
-            resetStats(users);
+        if (todayms - last_update >= seven_days) {
             changeLeagues();
-        } else {
-
+            resetStats(users);
+            for(League league : leagueRepository.findAll()) {
+                league.setLast_update(today);
+                leagueRepository.save(league);
+            }
         }
     }
 
@@ -161,11 +165,11 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         }
     }
 
-    public void changeUsersLeague(List<User> leagueUsers, int positions_to_move, int nextLeagueId, Comparator<? super User> c) {
+    public void changeUsersLeague(List<User> leagueUsers, int positions_to_move, int currentLeagueId, int nextLeagueId, Comparator<? super User> c) {
         leagueUsers.sort(c);
         for (int i = 0; i < leagueUsers.size(); i++) {
             User user = leagueUsers.get(i);
-            user.setPrevious_league(user.getCurrent_league());
+            user.setPrevious_league(leagueRepository.getLeagueById(currentLeagueId));
             if (i < positions_to_move) {
                 user.setCurrent_league(leagueRepository.getLeagueById(nextLeagueId));
             }
@@ -194,14 +198,14 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         int size = diamond.size();
         Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
 
-        if (size > 6) {
-            changeUsersLeague(diamond, positions_to_move, 4, demotionComparator);
+        if (size > positions_to_move*2) {
+            changeUsersLeague(diamond, positions_to_move,5, 4, demotionComparator);
         } else if (size > 1) {
             int demotions = size / 2;
-            changeUsersLeague(diamond, demotions, 4, demotionComparator);
+            changeUsersLeague(diamond, demotions,5, 4, demotionComparator);
         } else if (size == 1) {
             User user = diamond.get(0);
-            user.setPrevious_league(user.getCurrent_league());
+            user.setPrevious_league(leagueRepository.getLeagueById(4));
             userRepository.save(user);
         }
     }
@@ -211,12 +215,17 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
         Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
 
-        if (size > 6) {
-            changeUsersLeague(platinum, positions_to_move, 3, demotionComparator);
-            changeUsersLeague(platinum, positions_to_move, 5, promotionComparator);
+        if (size > positions_to_move * 2) {
+            changeUsersLeague(platinum, positions_to_move,4, 3, demotionComparator);
+            changeUsersLeague(platinum, positions_to_move, 4,5, promotionComparator);
         } else if (size > 2) {
-            changeUsersLeague(platinum, 1, 3, demotionComparator);
-            changeUsersLeague(platinum, 1, 5, promotionComparator);
+            changeUsersLeague(platinum, 1,4, 3, demotionComparator);
+            changeUsersLeague(platinum, 1,4, 5, promotionComparator);
+        } else if (size > 0) {
+            for (User user : platinum) {
+                user.setPrevious_league(leagueRepository.getLeagueById(4));
+                userRepository.save(user);
+            }
         }
     }
 
@@ -226,12 +235,17 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
         Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
 
-        if (size > 6) {
-            changeUsersLeague(gold, positions_to_move, 2, demotionComparator);
-            changeUsersLeague(gold, positions_to_move, 4, promotionComparator);
+        if (size > positions_to_move * 2) {
+            changeUsersLeague(gold, positions_to_move, 3, 2, demotionComparator);
+            changeUsersLeague(gold, positions_to_move,3, 4, promotionComparator);
         } else if (size > 2) {
-            changeUsersLeague(gold, 1, 2, demotionComparator);
-            changeUsersLeague(gold, 1, 4, promotionComparator);
+            changeUsersLeague(gold, 1,3, 2, demotionComparator);
+            changeUsersLeague(gold, 1, 3, 4, promotionComparator);
+        } else if (size > 0) {
+            for (User user : gold) {
+                user.setPrevious_league(leagueRepository.getLeagueById(3));
+                userRepository.save(user);
+            }
         }
     }
 
@@ -241,12 +255,17 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         Comparator<User> demotionComparator = Comparator.comparingInt(u -> u.getUserStats().getWeekly_points());
         Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
 
-        if (size > 6) {
-            changeUsersLeague(silver, positions_to_move, 1, demotionComparator);
-            changeUsersLeague(silver, positions_to_move, 3, promotionComparator);
+        if (size > positions_to_move * 2) {
+            changeUsersLeague(silver, positions_to_move,2, 1, demotionComparator);
+            changeUsersLeague(silver, positions_to_move, 2, 3, promotionComparator);
         } else if (size > 2) {
-            changeUsersLeague(silver, 1, 1, demotionComparator);
-            changeUsersLeague(silver, 1, 3, promotionComparator);
+            changeUsersLeague(silver, 1, 2, 1, demotionComparator);
+            changeUsersLeague(silver, 1, 2, 3, promotionComparator);
+        } else if (size > 0) {
+            for (User user : silver) {
+                user.setPrevious_league(leagueRepository.getLeagueById(2));
+                userRepository.save(user);
+            }
         }
     }
 
@@ -254,14 +273,14 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         int size = bronze.size();
         Comparator<User> promotionComparator = Comparator.comparingInt(u -> -u.getUserStats().getWeekly_points());
 
-        if (size > 6) {
-            changeUsersLeague(bronze, positions_to_move, 2, promotionComparator);
+        if (size > positions_to_move*2) {
+            changeUsersLeague(bronze, positions_to_move, 1, 2, promotionComparator);
         } else if (size > 1) {
-            int demotions = size / 2;
-            changeUsersLeague(bronze, demotions, 2, promotionComparator);
+            int promotion = size / 2;
+            changeUsersLeague(bronze, promotion, 1, 2, promotionComparator);
         } else if (size == 1) {
             User user = bronze.get(0);
-            user.setPrevious_league(user.getCurrent_league());
+            user.setPrevious_league(leagueRepository.getLeagueById(1));
             userRepository.save(user);
         }
     }
