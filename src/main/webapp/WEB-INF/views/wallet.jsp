@@ -130,8 +130,8 @@
                                 <c:choose>
                                 <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0}">
 
-                                    <form method="post" action="/validatetitle">
-                                        <input type="hidden" name="card" value="N${navegante.getCard_number()}">
+                                    <form method="post" action="/showticket">
+                                        <input type="hidden" name="card" value="NaveganteCard:${navegante.getCard_number()}">
                                     <button type="submit" class="addbutton" ><span class="addspan">Validar Título</span></button>
                                     </form>
 
@@ -149,8 +149,8 @@
                         <div class="carousel-item " style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
 
                             <div class="validate-button-container">
-                                <form method="post" action="/validatetitle">
-                                    <input type="hidden" name="card" value="V${viascard.getCard_number()}">
+                                <form method="post" action="/showticket">
+                                    <input type="hidden" name="card" value="ViasCard:${viascard.getCard_number()}">
                                     <button type="submit" class="addbutton" ><span class="addspan">Validar Título</span></button>
                                 </form>
 

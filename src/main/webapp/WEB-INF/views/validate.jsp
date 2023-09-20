@@ -28,6 +28,7 @@
                     <path d="M2.5 8.75V2.5H8.75V5H5V8.75H2.5ZM2.5 27.5V21.25H5V25H8.75V27.5H2.5ZM21.25 27.5V25H25V21.25H27.5V27.5H21.25ZM25 8.75V5H21.25V2.5H27.5V8.75H25ZM21.875 21.875H23.75V23.75H21.875V21.875ZM21.875 18.125H23.75V20H21.875V18.125ZM20 20H21.875V21.875H20V20ZM18.125 21.875H20V23.75H18.125V21.875ZM16.25 20H18.125V21.875H16.25V20ZM20 16.25H21.875V18.125H20V16.25ZM18.125 18.125H20V20H18.125V18.125ZM16.25 16.25H18.125V18.125H16.25V16.25ZM23.75 6.25V13.75H16.25V6.25H23.75ZM13.75 16.25V23.75H6.25V16.25H13.75ZM13.75 6.25V13.75H6.25V6.25H13.75ZM11.875 21.875V18.125H8.125V21.875H11.875ZM11.875 11.875V8.125H8.125V11.875H11.875ZM21.875 11.875V8.125H18.125V11.875H21.875Z" fill="white"/>
                 </g>
             </svg><span style="margin: 10px">Validar</span>
+                <div>${validation}</div>
             </button>
                 <input type="hidden" id="qr-input" name="qrcode" value="">
             </form>
@@ -55,8 +56,10 @@
 
     const scanner = new Instascan.Scanner({ video: videoElement });
     scanner.addListener('scan', function (content) {
-        document.getElementById("qr-input").value = content
-        form.submit();
+        if(content.startsWith("NaveganteCard:") || content.startsWith("ViasCard:")) {
+            document.getElementById("qr-input").value = content
+            form.submit();
+        }
     });
 
     Instascan.Camera.getCameras()
