@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <button class="navbar-toggler arrowbutton menubutton" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
-                style="margin: 70px 0 0 5px">
+                style="margin: 55px 0 0 0px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M20 3.5H4V6.5H20V3.5Z" fill="black"/>
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -263,6 +263,11 @@
                 <span style="margin-bottom:10px">Bilhete Digital</span></button>
 
     </div>
+    <div class="footerlogo">
+        <footer>
+            <img class="footerimage" src="images/logo_nobg.png" alt="">
+        </footer>
+    </div>
 </div>
 
 </c:when>
@@ -295,11 +300,11 @@
 </c:choose>
 
 
-<div class="footerlogo">
+<%--<div class="footerlogo">
     <footer>
         <img class="footerimage" src="images/logo_nobg.png" alt="">
     </footer>
-</div>
+</div>--%>
 
 <script>
     async function initMap() {
