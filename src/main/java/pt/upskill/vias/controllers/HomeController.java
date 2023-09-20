@@ -48,7 +48,6 @@ public class HomeController {
     @GetMapping("/home")
     public ModelAndView homePage(Principal principal) {
         ModelAndView mav = new ModelAndView("home");
-        viasLeagueService.resetLeague();
 
         if (principal != null) {
             String loggedInUsername = principal.getName();
@@ -73,7 +72,6 @@ public class HomeController {
 
 
         legRepository.saveAll(legs);
-
 
         if (legs.isEmpty()) {
             mav.addObject("error2", "Erro na procura. \nPor favor, tente outros locais.");

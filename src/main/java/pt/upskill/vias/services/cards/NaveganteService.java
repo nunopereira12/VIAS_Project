@@ -7,9 +7,10 @@ import java.util.Date;
 
 public interface NaveganteService {
 
-
+    boolean cardExists(long card_number);
+    boolean userHasCard(User user);
     void setNaveganteToUser(User user, long card_number, Date expiration_date);
-    void updateNavegante(Navegante navegante, long card_number, Date expiration_date);
+    void updateNavegante(User user, long card_number, Date expiration_date);
 
     void createNavegante(User user, long card_number, Date expiration_date);
 

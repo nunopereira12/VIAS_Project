@@ -3,7 +3,6 @@ package pt.upskill.vias.entities.cards;
 import pt.upskill.vias.entities.User;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.util.Date;

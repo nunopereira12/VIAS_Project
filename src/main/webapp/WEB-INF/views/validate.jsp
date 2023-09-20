@@ -19,7 +19,8 @@
     <p class="title">Validar Títulos</p>
     <div class="content">
         <div class="div-button">
-            <button class="validate-button"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <form action="/cardscan" method="post" id="qr-form">
+            <button type="submit" class="validate-button"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                 <mask id="mask0_341_1247" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="30">
                     <rect width="30" height="30" fill="#D9D9D9"/>
                 </mask>
@@ -28,11 +29,12 @@
                 </g>
             </svg><span style="margin: 10px">Validar</span>
             </button>
+                <input type="hidden" id="qr-input" name="qrcode" value="">
+            </form>
         </div>
             <video id="camera-feed" autoplay style="width: 100%"></video>
             <canvas id="qr-canvas" style="display:none;"></canvas>
-            <div id="qr-result"></div>
-
+            <div id="qr-ready"></div>
     </div>
 </div>
 
@@ -46,13 +48,15 @@
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <script>
 
+    const form = document.getElementById("qr-form");
     const videoElement = document.getElementById('camera-feed');
     const qrCanvas = document.getElementById('qr-canvas');
-    const qrResult = document.getElementById('qr-result');
+
 
     const scanner = new Instascan.Scanner({ video: videoElement });
     scanner.addListener('scan', function (content) {
-        qrResult.textContent = 'QR Code Data: ' + content;
+        document.getElementById("qr-input").value = content
+        form.submit();
     });
 
     Instascan.Camera.getCameras()
@@ -66,6 +70,8 @@
         .catch(function (error) {
             console.error('Error accessing camera:', error);
         });
+
+
 </script>
 </body>
 </html>

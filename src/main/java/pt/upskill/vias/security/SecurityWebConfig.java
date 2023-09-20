@@ -49,6 +49,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/validate").hasRole("PICA")
                 .antMatchers("/id_pica").hasRole("PICA")
                 .antMatchers("/template").permitAll()
+                .antMatchers("/cardscan").permitAll()
                 .antMatchers("/contactos").permitAll()
                 .antMatchers("/contact_success").permitAll()
                 .antMatchers("/send_message").permitAll()

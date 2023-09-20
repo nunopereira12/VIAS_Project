@@ -26,7 +26,6 @@ public class ValidateTitleController {
     private QRCodeService qrCodeService;
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     ViasCardRepository viasCardRepository;
 
