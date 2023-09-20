@@ -256,6 +256,9 @@
                 </c:choose>
             </c:forEach>
 
+
+            <input type="hidden" id="polylineLeg" value="${leg.getOverview_polyline()}">
+
             <div class="button-box-travel">
                 <c:if test="${user != null}">
                 <button class="button-travel btn btn-primary buttons" style="margin-left: 12px">Começar Viagem</button>
@@ -393,6 +396,25 @@
 
         // Create an array to hold all polyline paths
         const allPolylinePaths = walkingPolylines.concat(otherPolylines).map((polyline) => polyline.getPath());
+
+
+
+        const encodedPolyline = document.getElementById("polylineLeg").value;
+        const path = google.maps.geometry.encoding.decodePath(encodedPolyline);
+
+        // Create start and end markers for the polyline
+        const startMarker = new google.maps.Marker({
+            position: path[0], // Start of the polyline
+            map: map,
+            label: 'S', // Label 'S' for start
+        });
+
+        const endMarker = new google.maps.Marker({
+            position: path[path.length - 1], // End of the polyline
+            map: map,
+            label: 'E', // Label 'E' for end
+        });
+
 
         // Automatically fit the map to the bounds of all the polylines (both walking and non-walking)
         const bounds = new google.maps.LatLngBounds();

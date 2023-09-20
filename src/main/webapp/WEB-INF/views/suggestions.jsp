@@ -238,6 +238,21 @@
                 }
             });
 
+            // Create markers for the start and end of the first polyline
+            const firstPolyline = otherPolylines[0];
+
+            const startMarker = new google.maps.Marker({
+                position: firstPolyline.getPath().getAt(0), // Start of the first polyline
+                map: map,
+                label: 'S', // Label 'S' for start
+            });
+
+            const endMarker = new google.maps.Marker({
+                position: firstPolyline.getPath().getAt(firstPolyline.getPath().getLength() - 1), // End of the first polyline
+                map: map,
+                label: 'E', // Label 'E' for end
+            });
+
             // Automatically fit the map to the bounds of all the leg polylines
             const bounds = new google.maps.LatLngBounds();
             otherPolylines.forEach((polyline) => {

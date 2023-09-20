@@ -178,7 +178,7 @@
                         </div>
                         <div class="carousel-item ">
                             <div class="addbutton-container" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
-                                <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Carregar VIAS Card</span></button>
+                                <button class="addbutton"><span class="addspan">Carregar VIAS Card</span></button>
                             </div>
                         </div>
                     </div>
