@@ -17,7 +17,6 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private int points;
     @ManyToOne
     private League current_league;
     @ManyToOne
@@ -37,10 +36,6 @@ public class User {
         this.role = role;
     }
 
-    public User(String username, int points) {
-        this.username = username;
-        this.points = points;
-    }
 
     public User() {}
 
@@ -99,14 +94,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
 
     public League getCurrent_league() {
