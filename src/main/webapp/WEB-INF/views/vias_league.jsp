@@ -1,4 +1,3 @@
-<%--
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -58,15 +57,15 @@
 
     <div class="list-container" id="list1">
         <c:choose>
-            <c:when test="${userr.getLeague() eq 'Gold'}">
+            <c:when test="${userr.getCurrent_league().getId() eq 1}">
                 <img class="image_badge center-img" src="images/badge_gold.png" width="45px" alt="Gold Image"/>
                 <div id="liga"><strong>Liga de Ouro</strong></div>
             </c:when>
-            <c:when test="${userr.getLeague() eq 'Silver'}">
+            <c:when test="${userr.getCurrent_league().getId() eq 2}">
                 <img class="image_badge center-img" src="images/badge_silver.png" width="45px" alt="Silver Image"/>
             <div id="liga"><strong>Liga de Prata</strong></div>
             </c:when>
-            <c:when test="${userr.getLeague() eq 'Bronze'}">
+            <c:when test="${userr.getCurrent_league().getId() eq 3}">
                 <img class="image_badge center-img" src="images/badge_bronze.png" width="45px" alt="Silver Image"/>
                 <div id="liga"><strong>Liga de Bronze</strong></div>
             </c:when>
@@ -94,9 +93,9 @@
                             </div>
                         </td>
                     </tr>
-                   &lt;%&ndash; <!-- Debugging output -->
+                   <%-- <!-- Debugging output -->
                     <c:out value="targetUsername: ${targetUsername}" />
-                    <c:out value="player.getUsername(): ${player.getUsername()}" />&ndash;%&gt;
+                    <c:out value="player.getUsername(): ${player.getUsername()}" />--%>
                 </c:forEach>
 
 
@@ -110,6 +109,22 @@
 
         <img class="image_badge center-img" src="images/leaderboard.v2.png" width="45px" alt="Leaderboard Img"/>
         <div id="leaderboard"><strong>Liga Global - Top 100</strong></div>
+
+        <div class="buttons-container">
+            <form id="filterForm" action="/vias_league" method="post">
+                <label for="filter">Selecione uma opção:</label>
+                <select id="filter" name="filter">
+                    <option value="Viagens Completas">Viagens Completas</option>
+                    <option value="Total Gasto">Total Gasto</option>
+                    <option value="Distância Percorrida a Andar">Distância Percorrida a Andar</option>
+                    <option value="My League">My League</option>
+
+
+                </select>
+                <input type="submit" value="Visualizar Tabela">
+            </form>
+
+        </div>
 
 
         <hr>
@@ -193,8 +208,9 @@
 </script>
 
 </body>
-</html>--%>
+</html>
 
+<%--
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -233,7 +249,7 @@
     </div>
 
     <div class="list-container" id="list1">
-        <%--<c:choose>
+        &lt;%&ndash;<c:choose>
             <c:when test="${userr.getLeague() eq 'Gold'}">
                 <img class="image_badge center-img" src="images/badge_gold.png" width="45px" alt="Gold Image"/>
                 <div id="liga"><strong>Liga de Ouro</strong></div>
@@ -246,7 +262,7 @@
                 <img class="image_badge center-img" src="images/badge_bronze.png" width="45px" alt="Silver Image"/>
                 <div id="liga"><strong>Liga de Bronze</strong></div>
             </c:when>
-        </c:choose>--%>
+        </c:choose>&ndash;%&gt;
             <img class="image_badge center-img" src="images/leaderboard.v2.png" width="45px" alt="Leaderboard Img"/>
             <div class="leaderboard"><strong>${selectedFilter}</strong></div>
 
@@ -256,7 +272,7 @@
             <table class="table">
                 <tbody>
                 <c:forEach var="player" items="${players}" varStatus="loopStatus">
-                   <%-- <tr class="${targetUsername == player.getUsername() ? 'highlighted-row' : ''}">--%>
+                   &lt;%&ndash; <tr class="${targetUsername == player.getUsername() ? 'highlighted-row' : ''}">&ndash;%&gt;
                         <td id="num1"><strong>${loopStatus.index + 1}</strong></td>
                         <td>
                             <div class="circle">
@@ -381,3 +397,4 @@
 
 </body>
 </html>
+--%>
