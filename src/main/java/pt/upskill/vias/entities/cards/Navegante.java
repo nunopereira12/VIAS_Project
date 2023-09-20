@@ -30,6 +30,8 @@ public class Navegante {
         this.user = user;
     }
 
+    public Navegante() {}
+
     public long getCard_number() {
         return card_number;
     }
