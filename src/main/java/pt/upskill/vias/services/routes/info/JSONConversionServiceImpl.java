@@ -42,4 +42,10 @@ public class JSONConversionServiceImpl implements JSONConversionService {
         return leg;
     }
 
+    public void addStepsLegList(List<Leg> legs) {
+        for(Leg leg : legs) {
+            addSteps(leg);
+        }
+    }
+
 }

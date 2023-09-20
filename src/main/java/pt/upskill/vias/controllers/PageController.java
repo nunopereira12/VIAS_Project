@@ -47,9 +47,8 @@ public class PageController {
 
         User user = userRepository.getUserByUsername(principal.getName());
         List<Leg> legs = historyService.getAllByTrip_completedAndUserOrderById(true,user);
-        for(Leg leg: legs){
-            leg = jsonConversionService.addSteps(leg);
-        }
+
+        jsonConversionService.addStepsLegList(legs);
 
         mav.addObject("legs", legs);
         mav.addObject("user", user);
