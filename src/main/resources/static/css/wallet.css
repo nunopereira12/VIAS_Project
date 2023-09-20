@@ -197,7 +197,7 @@ p {
 
 }
 
-#addbutton-container {
+.addbutton-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -268,7 +268,7 @@ p {
     font-size: 0.8rem;
 }
 
-#validate-button-container {
+.validate-button-container {
 
         display: flex;
         justify-content: center;

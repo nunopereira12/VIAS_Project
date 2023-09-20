@@ -101,12 +101,12 @@
                 <div id="ValidateButtons" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
-                            <div id="validate-button-container">
+                            <div class="validate-button-container">
                                     <button class="addbutton" ><span class="addspan">Validar Título</span></button></a>
                             </div>
                         </div>
                         <div class="carousel-item " style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
-                            <div id="validate-button-container">
+                            <div class="validate-button-container">
                                     <button class="addbutton" ><span class="addspan">Validar Título</span></button></a>
                             </div>
                         </div>
@@ -115,12 +115,12 @@
                 <div id="chargeOrBuy" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
-                            <div id="addbutton-container">
+                            <div class="addbutton-container">
                                 <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Adicionar Título de Transporte</span></button>
                             </div>
                         </div>
                         <div class="carousel-item ">
-                            <div id="addbutton-container" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
+                            <div class="addbutton-container" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
                                 <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Carregar VIAS Card</span></button>
                             </div>
                         </div>
