@@ -11,6 +11,8 @@ import pt.upskill.vias.services.viasleague.ViasLeagueService;
 import pt.upskill.vias.repositories.UserRepository;
 
 import java.security.Principal;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -26,22 +28,21 @@ public class ViasLeagueController {
     @GetMapping(value = "/vias_league")
     public ModelAndView vias_leaguePage(Principal principal) {
 
-        /*String loggedInUsername = principal.getName();
-        List<User> users = viasLeagueService1.getUsersByLoggedInUserLeague(loggedInUsername);
+        String loggedInUsername = principal.getName();
+        User user = userRepository.getUserByUsername(loggedInUsername);
+        List<User> users = viasLeagueService.getUsersLeague(user);
         Collections.sort(users, Comparator.comparing(User::getPoints).reversed());
 
         List<User> allUsers = userRepository.findAll();
         Collections.sort(allUsers, Comparator.comparing(User::getPoints).reversed());
-         */
 
 
         ModelAndView mav = new ModelAndView("vias_league");
 
-        /*mav.addObject("players", users);*/
-        /*mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
+        mav.addObject("players", users);
+        mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
         mav.addObject("allPlayers", allUsers);
         mav.addObject("targetUsername",loggedInUsername);
-         */
         return mav;
 
     }

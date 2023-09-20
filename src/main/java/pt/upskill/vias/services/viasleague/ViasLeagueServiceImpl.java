@@ -56,6 +56,20 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         userStatsRepository.save(userStats);
     }
 
+    @Override
+    public List<User> getUsersLeague(User user) {
+        List<User> users = userRepository.findAll();
+        List<User> leagueUsers = new ArrayList<>();
+
+        for (User userToAdd : users) {
+            if (userToAdd.getCurrent_league().equals(user.getCurrent_league())) {
+                leagueUsers.add(userToAdd);
+            }
+        }
+
+        return leagueUsers;
+    }
+
 
     @Override
     public int getLegDistanceWalking(List<Step> steps) {

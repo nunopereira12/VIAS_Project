@@ -1,3 +1,4 @@
+<%--
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -93,9 +94,9 @@
                             </div>
                         </td>
                     </tr>
-                   <%-- <!-- Debugging output -->
+                   &lt;%&ndash; <!-- Debugging output -->
                     <c:out value="targetUsername: ${targetUsername}" />
-                    <c:out value="player.getUsername(): ${player.getUsername()}" />--%>
+                    <c:out value="player.getUsername(): ${player.getUsername()}" />&ndash;%&gt;
                 </c:forEach>
 
 
@@ -209,8 +210,8 @@
 
 </body>
 </html>
+--%>
 
-<%--
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -249,7 +250,7 @@
     </div>
 
     <div class="list-container" id="list1">
-        &lt;%&ndash;<c:choose>
+        <%--<c:choose>
             <c:when test="${userr.getLeague() eq 'Gold'}">
                 <img class="image_badge center-img" src="images/badge_gold.png" width="45px" alt="Gold Image"/>
                 <div id="liga"><strong>Liga de Ouro</strong></div>
@@ -262,7 +263,7 @@
                 <img class="image_badge center-img" src="images/badge_bronze.png" width="45px" alt="Silver Image"/>
                 <div id="liga"><strong>Liga de Bronze</strong></div>
             </c:when>
-        </c:choose>&ndash;%&gt;
+        </c:choose>--%>
             <img class="image_badge center-img" src="images/leaderboard.v2.png" width="45px" alt="Leaderboard Img"/>
             <div class="leaderboard"><strong>${selectedFilter}</strong></div>
 
@@ -272,7 +273,7 @@
             <table class="table">
                 <tbody>
                 <c:forEach var="player" items="${players}" varStatus="loopStatus">
-                   &lt;%&ndash; <tr class="${targetUsername == player.getUsername() ? 'highlighted-row' : ''}">&ndash;%&gt;
+                   <%-- <tr class="${targetUsername == player.getUsername() ? 'highlighted-row' : ''}">--%>
                         <td id="num1"><strong>${loopStatus.index + 1}</strong></td>
                         <td>
                             <div class="circle">
@@ -394,4 +395,3 @@
 
 </body>
 </html>
---%>

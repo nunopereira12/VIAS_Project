@@ -11,6 +11,7 @@ public interface ViasLeagueService {
 
 
     void updateUserStats(User user, Leg leg);
+    List<User> getUsersLeague(User user);
 
     int getLegDistanceWalking(List<Step> steps);
     int getLegDistanceTransit(List<Step> steps);
@@ -25,4 +26,5 @@ public interface ViasLeagueService {
     void changeGold(List<User> gold, int positions_to_move);
     void changePlatinum(List<User> platinum, int positions_to_move);
     void changeDiamond(List<User> diamond, int positions_to_move);
+
 }
