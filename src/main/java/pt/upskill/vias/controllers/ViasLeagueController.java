@@ -74,6 +74,7 @@ public class ViasLeagueController {
         List<User> userList = viasLeagueService.getStatsByFilter(selectedFilter, user.getCurrent_league());
         mav.addObject("players", userList);
         mav.addObject("selectedFilter", selectedFilter);
+        mav.addObject("user", user);
 
         mav.addObject("targetUsername", user.getUsername());
 
