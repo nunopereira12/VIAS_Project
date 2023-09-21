@@ -113,32 +113,7 @@
 </div>
 
 <script>
-    /*const toggleButtons = document.querySelectorAll('.toggle-button');
 
-    toggleButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const inputField = button.nextElementSibling; // Assuming the input field is the next element
-
-            if (inputField.disabled) {
-                inputField.removeAttribute('disabled');
-            } else {
-                inputField.setAttribute('disabled', true);
-            }
-        });
-    });
-
-    button.addEventListener('click', () => {
-        const attribute = button.getAttribute('data-attribute');
-        const inputField = document.querySelector(`input[name="${attribute}"]`);
-
-        if (inputField.disabled) {
-            inputField.removeAttribute('disabled');
-            button.textContent = 'Save'; // Optionally change button text to "Save"
-        } else {
-            inputField.setAttribute('disabled', true);
-            button.textContent = 'Edit'; // Optionally change button text back to "Edit"
-        }
-    });*/
     const toggleButtons = document.querySelectorAll('.toggle-button');
 
     toggleButtons.forEach((button) => {
@@ -147,11 +122,11 @@
 
             if (inputField.disabled) {
                 inputField.removeAttribute('disabled');
-            } else {
-                inputField.setAttribute('disabled', true);
             }
         });
     });
+
+
 </script>
 </body>
 </html>

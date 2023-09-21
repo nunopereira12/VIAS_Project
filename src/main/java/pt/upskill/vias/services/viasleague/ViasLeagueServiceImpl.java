@@ -128,13 +128,13 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
             case "Distância Percorrida a Andar":
                 userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_distance_walking()));
                 break;
-            case "Distância Percorida Transportes":
+            case "Distância Percorrida Transportes":
                 userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_distance_transit()));
                 break;
             case "Tempo Despendido a Andar":
                 userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_time_walking()));
                 break;
-            case "Tempo Despendido em Transportes":
+            case "Tempo Despendido Transportes":
                 userList.sort(Comparator.comparingInt(u -> -u.getUserStats().getTotal_time_transit()));
                 break;
             case "Viagens Completas":
