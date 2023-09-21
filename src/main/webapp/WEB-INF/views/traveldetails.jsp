@@ -54,7 +54,8 @@
                 </svg><span style="margin: auto auto auto 0 ">${leg.getEnd_address()}</span></button>
         </div>
         <div class="suggestions-box">
-            <h3 class="yourRoute">Rota detalhada:</h3>
+            <div class="title-route">
+            <h3 class="yourRoute">Rota detalhada:</h3></div>
 
             <div class="card" id="suggestions-small-card" style="margin:40px 10px 10px 10px;">
                 <div>
