@@ -54,21 +54,17 @@
                 </svg><span style="margin: auto auto auto 0 ">${leg.getEnd_address()}</span></button>
         </div>
         <div class="suggestions-box">
-            <div class="card" id="suggestions-small-card" style="margin-bottom: 10px;">
-                <h4 class="yourRoute">A sua rota:</h4>
+            <h3 class="yourRoute">Rota detalhada:</h3>
+
+            <div class="card" id="suggestions-small-card" style="margin:40px 10px 10px 10px;">
                 <div>
                     <h1 style="font-size: 1.375rem;">
                     <span>${leg.getDeparture_time()} - ${leg.getArrival_time()}</span>
                     <span class="totalDuration">(${leg.getDuration()})</span>
-                        <p>${leg.getDistance()}</p>
-
                     </h1>
 
                 </div>
-
-
                 <div>
-
                     <div class="time-travel-box">
                         <div class="travel-box">
                             <c:forEach var="step" items="${leg.getSteps()}" varStatus="loop" >
@@ -93,10 +89,14 @@
                             </c:forEach>
                         </div>
                     </div>
+                    <div>
+                        <p style="font-weight: 400"><span style="font-weight: 500">Distância total: </span>${leg.getDistance()}</p>
+                        <span style="font-weight: 500">VIAS Card: </span> ${leg.getFare()}<span>€</span>
+                    </div>
                 </div>
             </div>
 
-
+            <div class="detailed-box">
             <div class="detailed-card" style="padding-bottom: 20px;margin-bottom: 30px;padding-top: 30px;margin-top: 5px;">
                 <div class="detailed-card-box">
                <div>
@@ -134,7 +134,7 @@
                     <c:when test="${!step.getTravel_mode().equals('WALKING')}">
 
 
-            <div class="detailed-card" style="margin-top: 20px;padding-bottom: 30px;margin-bottom: 20px;">
+            <div class="detailed-card" style="margin-left: 10px; margin-right: 10px;padding-bottom: 30px;">
                 <div class="detailed-card-box">
                     <div>
                         <div class="eachStepDiv">
@@ -261,9 +261,8 @@
 
             <div class="button-box-travel">
                 <c:if test="${user != null}">
-                <button class="button-travel btn btn-primary buttons" style="margin-left: 12px">Começar Viagem</button>
+                <button class="button-travel btn btn-primary buttons">Começar Viagem</button>
                 </c:if>
-                <button class="button-travel btn btn-primary buttons" style=" margin-left: 0px;">Cancelar</button>
                 <c:if test="${user != null}">
                 <form method="post" action="/simulate_trip">
                     <input type="hidden" name="id" value="${leg.getId()}">
@@ -271,8 +270,7 @@
                 </form>
                 </c:if>
             </div>
-
-
+            </div>
         </div>
         <div class="footerlogo">
             <footer>
