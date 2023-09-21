@@ -1,0 +1,14 @@
+.pica-box{
+    padding:0;
+    justify-content: center;
+}
+
+.content{
+    margin: auto 0 auto 0;
+    min-height: 300px;
+
+}
+
+.qr-code{
+  border-radius:20px;
+}
