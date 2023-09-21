@@ -171,7 +171,7 @@
                                     <button class="addbutton" ><span class="addspan">Carregar Título</span></button>
                                 </c:when>
                                     <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) < 0}">
-                                        <button class="addbutton" ><span class="addspan">Adicionar Novo Título</span></button>
+                                        <button class="addbutton"  data-bs-toggle="modal" data-bs-target="#exampleModal" ><span class="addspan">Adicionar Novo Título</span></button>
                                     </c:when>
                                 </c:choose>
                             </div>
