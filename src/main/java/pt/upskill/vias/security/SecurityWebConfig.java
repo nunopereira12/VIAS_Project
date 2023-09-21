@@ -56,7 +56,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/upload").permitAll()
                 .antMatchers("//generateQRCode/{cardData}").permitAll()
                 .antMatchers("/tarefas").hasRole("ADMIN")
-                .antMatchers("/images/**", "/css/**","/js/**").permitAll()
+                .antMatchers("/images/**", "/css/**","/js/**","/sounds/**").permitAll()
                 .antMatchers("**").denyAll()
         .and()
             .logout()

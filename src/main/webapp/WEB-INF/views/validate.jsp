@@ -38,7 +38,6 @@
                 <canvas id="qr-canvas" style="display:none;"></canvas>
                 <div id="qr-ready"></div><div class="valid"></div>
                 <c:if test="${validation == true}">
-                <audio autoplay>
                     <div id="validation" class="invalid" style="background-color: #A3DD41"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <mask id="mask0_891_719" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                             <rect width="24" height="24" fill="#D9D9D9"/>
@@ -76,28 +75,22 @@
     const form = document.getElementById("qr-form");
     const videoElement = document.getElementById('camera-feed');
     const qrCanvas = document.getElementById('qr-canvas');
-    const validateButton = document.getElementById('validate-button');
-
+    const validation = document.getElementById('validation');
+    const audio = new Audio('sounds/beep-08b.mp3');
 
     const scanner = new Instascan.Scanner({ video: videoElement });
     scanner.addListener('scan', function (content) {
         if(content.startsWith("NaveCard") || content.startsWith("ViasCard")) {
             document.getElementById("qr-input").value = content
             form.submit();
+            audio.play();
         }
     });
 
-    const myDiv = document.getElementById("invalid");
-
     setTimeout(function () {
-        myDiv.style.display = "none";
+        validation.style.display = 'none';
     }, 2000);
 
-    const myDiv1 = document.getElementById("validation");
-
-    setTimeout(function () {
-        myDiv1.style.display = "none";
-    }, 2000);
 
     Instascan.Camera.getCameras()
         .then(function (cameras) {
@@ -110,9 +103,6 @@
         .catch(function (error) {
             console.error('Error accessing camera:', error);
         });
-
-
-
 
 
 </script>

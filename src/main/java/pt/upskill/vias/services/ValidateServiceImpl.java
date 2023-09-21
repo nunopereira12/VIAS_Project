@@ -33,6 +33,7 @@ public class ValidateServiceImpl implements ValidateService {
 
     @Override
     public boolean validateViasCard(long card_number) {
+
         ViasCard viasCard = viasCardRepository.getViasCardByCard_number(card_number);
         double balance = viasCard.getBalance();
         if (balance >= 1.5) {
