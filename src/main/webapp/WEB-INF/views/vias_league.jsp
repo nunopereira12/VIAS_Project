@@ -233,7 +233,7 @@
             <label id="opcao" for="filter" style="font-size: 18px;">Selecione uma opção:</label>
 
             <br>
-            <select id="filter" name="filter" onchange="saveSelectedFilter()">
+            <select id="filter" name="filter" onchange="saveSelectedFilter()" size="1">
                 <option value="My League" ${selectedFilter eq 'My League' ? 'selected' : ''}>My League</option>
                 <option value="Leaderboard" ${selectedFilter eq 'Leaderboard' ? 'selected' : ''}>Global League</option>
                 <option value="Distância Percorrida a Andar" ${selectedFilter eq 'Distância Percorrida a Andar' ? 'selected' : ''}>Distância Percorrida a Andar</option>
@@ -291,7 +291,7 @@
                 </c:choose>
             </c:if>
             <c:if test="${selectedFilter ne 'My League'}">
-                <img class="image_badge center-img" src="images/leaderboard.v2.png" width="45px" alt="Leaderboard Img"/>
+                <img class="image_badge center-img" src="images/leaderboard.v2.png" width="65px" alt="Leaderboard Img"/>
                 <div class="leaderboard"><strong>${selectedFilter}</strong></div>
             </c:if>
 

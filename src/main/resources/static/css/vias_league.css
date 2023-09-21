@@ -22,10 +22,10 @@
 .table-container {
     max-width: 100%; /* Set a maximum width for the container */
     overflow-x: auto; /* Allow horizontal scrolling if the content overflows */
-    max-height: 278px; /* Set a maximum height for the container */
+    max-height: 250px; /* Set a maximum height for the container */
     overflow-y: auto; /* Allow vertical scrolling if the content exceeds the container's height */
-    /*width: 240px;*/
-    /*height: 3000px;*/
+    scrollbar-width: none; /* tira no firefox */
+    -ms-overflow-style: none; /* tira no ie e edge */
 }
 
 .center-img {
@@ -64,10 +64,6 @@ img {
     line-height: 1.2; /* Adjust line height for vertical centering */
 }
 
-.table-container {
-    scrollbar-width: none; /* tira no firefox */
-    -ms-overflow-style: none; /* tira no ie e edge */
-}
 
 .table-container::-webkit-scrollbar {
     display: none; /* tira no chrome e restantes browsers*/
@@ -327,6 +323,36 @@ select option:hover {
     margin-bottom: 10px;
 }
 
+
+@media (max-width: 768px) {
+    select {
+        font-size: 14px; /* Further adjust font size for smaller screens */
+        padding: 3px;   /* Further adjust padding for smaller screens */
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+    }
+
+    .table-container {
+
+        max-height: 237px; /* Set a maximum height for the container */
+    }
+    .table td {
+        font-size: 10px; /* Adjust font size for smaller screens */
+        padding: 5px;    /* Adjust padding for smaller screens */
+    }
+
+    /* You can also reduce the font size for headers if needed */
+    .table th {
+        font-size: 10px; /* Adjust font size for header cells */
+    }
+
+    /* If you want to reduce the overall size of the table, you can adjust the table width */
+    .table {
+        width: 100%; /* Make the table take up the full width of the container */
+    }
+}
 
 
 
