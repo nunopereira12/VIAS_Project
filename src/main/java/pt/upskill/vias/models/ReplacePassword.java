@@ -5,15 +5,15 @@ public class ReplacePassword {
 
     private String password;
 
-    private String confirmPassword;
+    private String confirm_password;
 
 
-    public String getConfirmPassword() {
-        return confirmPassword;
+    public String getConfirm_password() {
+        return confirm_password;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void setConfirm_password(String confirm_password) {
+        this.confirm_password = confirm_password;
     }
 
     public String getPassword() {

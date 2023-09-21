@@ -6,23 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.models.Contact;
-import pt.upskill.vias.services.auth.EmailServiceImpl;
+import pt.upskill.vias.services.auth.EmailService;
 @Controller
 public class EmailController {
 
     @Autowired
-    private EmailServiceImpl emailServiceImpl;
+    private EmailService emailService;
     @GetMapping(value = "/contactos")
     public ModelAndView contactPage() {
-        return new ModelAndView("contactos");
+        return new ModelAndView("/email/contactos");
     }
 
     @PostMapping(value= "/send_message")
     public ModelAndView sendMessageAction(Contact contact) {
-        String emailContent = "<html><body>" + "<p>Pedido de Contacto por: " +  contact.getName() + " | " +
-                contact.getEmail() + "</p><p>" + contact.getText() + "</p>";
-        emailServiceImpl.sendEmail("the.vias.app@gmail.com", "Pedido de contacto", emailContent);
-        return new ModelAndView("/contact_success");
+        String emailContent = "<html><body>" + "<p>Pedido de Contacto por: " +  contact.getName() + " | " + contact.getEmail() + "</p><p>" + contact.getText() + "</p>";
+        emailService.sendEmail("the.vias.app@gmail.com", "Pedido de contacto", emailContent);
+        return new ModelAndView("/email/contact_success");
 
     }
 

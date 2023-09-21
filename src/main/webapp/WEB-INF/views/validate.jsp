@@ -81,7 +81,7 @@
 
     const scanner = new Instascan.Scanner({ video: videoElement });
     scanner.addListener('scan', function (content) {
-        if(content.startsWith("NaveganteCard:") || content.startsWith("ViasCard:")) {
+        if(content.startsWith("NaveCard") || content.startsWith("ViasCard")) {
             document.getElementById("qr-input").value = content
             form.submit();
         }

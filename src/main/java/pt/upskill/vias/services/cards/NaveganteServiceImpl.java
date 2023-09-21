@@ -69,8 +69,8 @@ public class NaveganteServiceImpl implements NaveganteService {
 
     @Override
     public void useCard(Navegante navegante) {
-        int times_used = navegante.getTimes_used() + 1;
-        navegante.setTimes_used(times_used);
+        navegante.setTimes_used(navegante.getTimes_used() + 1);
+        naveganteRepository.save(navegante);
     }
 
     @Override

@@ -1,4 +1,5 @@
 package pt.upskill.vias.controllers;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +12,10 @@ import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.Login;
 import pt.upskill.vias.models.ReplacePassword;
 import pt.upskill.vias.models.SignUp;
+import pt.upskill.vias.repositories.TokenRepository;
+import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.auth.AuthService;
-import pt.upskill.vias.services.auth.EmailServiceImpl;
-import pt.upskill.vias.services.auth.RecoverPasswordService;
+import pt.upskill.vias.services.auth.EmailService;
 
 import java.security.Principal;
 import java.text.ParseException;
@@ -23,170 +25,121 @@ public class AuthController {
 
     @Autowired
     AuthService authService;
-
     @Autowired
-    private EmailServiceImpl emailServiceImpl;
-
+    UserRepository userRepository;
     @Autowired
-    RecoverPasswordService recoverPasswordService;
+    TokenRepository tokenRepository;
+    @Autowired
+    EmailService emailService;
 
+
+    //Login page
     @GetMapping(value = "/login")
     public ModelAndView loginPage(Principal principal) {
-        if(principal != null) {
+        if (principal != null) {
             return new ModelAndView("redirect:/home");
         }
-        return new ModelAndView("login");
+        return new ModelAndView("auth/login");
     }
+
+    //Signup page
     @GetMapping(value = "/signup")
     public ModelAndView signupPage(Principal principal) {
-        if(principal != null){
+        if (principal != null) {
+            //Checkar caminho da /home
             return new ModelAndView("redirect:/home");
         }
-        return new ModelAndView("signup");
+        return new ModelAndView("auth/signup");
     }
 
-    @GetMapping(value = "/passwordrecovery")
-    public ModelAndView passwordRecoveryPage(Principal principal){
-        if(principal != null){
-            return new ModelAndView("redirect:/home");
-        }
-        return new ModelAndView("passwordrecovery");
-    }
-
-
-    //Define o POST para ser enviado o e-mail ao utilizador.
-    //Se o e-mail não existir na base de dados, não é enviado nenhum e-mail.
-    //O e-mail contém um link (hyperlink) para a página de recuperação de password.
-
-
-    @PostMapping(value = "/recover_password")
-    public ModelAndView passwordRecoveryAction(User user) {
-        if (authService.isEmailTaken(user.getEmail())) {
-            Token token = recoverPasswordService.generateToken(authService.getUserByEmail(user.getEmail()));
-
-            String emailContent = "<html><body>" +
-                    "<p>Para repor a sua palavra-chave, por favor, siga o seguinte link:</p>" +
-                    "<a href='http://localhost:8080/passwordrecovery3/" + token.getTokenID() + "'>Recuperação de Password</a>" +
-                    "</body></html>";
-
-
-            emailServiceImpl.sendEmail(user.getEmail(), "Recuperação de Password", emailContent);
-        }
-
-        return new ModelAndView("passwordrecovery2");
-    }
-
-
-    //Define o GET para a página de recuperação de password.
-    //Se o token não existir, ou já tiver sido utilizado, ou já tiver expirado, é redirecionado para a página de recuperação de password (envio de e-mail).
-
-
-    @GetMapping(value="/passwordrecovery3/{tokenID}")
-    public ModelAndView recoverPasswordPage(@PathVariable("tokenID") String tokenID) {
-        Token token = recoverPasswordService.getToken(tokenID);
-        if(token != null && !token.isUsed() && !token.isExpired()) {
-            return new ModelAndView("passwordrecovery3");
-        }
-        return new ModelAndView("redirect:/passwordrecovery");
-
-    }
-
-    // Define o POST para a página de recuperação de password.
-    // Se as passwords não coincidirem, é redirecionado para a página de recuperação de password (envio de e-mail).
-    // Se o token não existir, ou já tiver sido utilizado, ou já tiver expirado, é redirecionado para a página de recuperação de password (envio de e-mail).
-    // Se tudo estiver correto, a password é alterada e o token é marcado como utilizado.
-
-
-    @PostMapping(value="/replace_pw/")
-    public ModelAndView replacePassword(ReplacePassword replacePassword, @RequestParam("tokenID") String tokenID ) {
-        Token token = recoverPasswordService.getToken(tokenID);
-        if(token != null) {
-            if (!authService.arePasswordsEqual(replacePassword.getPassword(), replacePassword.getConfirmPassword())) {
-                ModelAndView modelAndView = new ModelAndView("redirect:/passwordrecovery3/{tokenID}");
-                modelAndView.addObject("error");
-                modelAndView.addObject("tokenID", tokenID);
-                return modelAndView;
-            }
-            authService.replacePassword(token.getUser(), replacePassword.getPassword());
-            recoverPasswordService.setTokenUsed(token);
-            return new ModelAndView("redirect:/login");
-        }
-        return new ModelAndView("redirect:/passwordrecovery");
-    }
-
-    //Define o POST para o login.
-    //Se o login for bem sucedido, é redirecionado para a página da carteira.
-    //Se o login não for bem sucedido, é redirecionado para a página de login.
-
-
-    @PostMapping(value="/perform_login")
-    public ModelAndView login(Login user) {
-        User loggedUser = authService.validateLogin(user.getUsername(), user.getPassword());
-        if(loggedUser != null) {
-            return new ModelAndView("home");
-        }
-        return new ModelAndView("login");
-    }
-
-
-
-
-    //Define o POST para o registo de utilizador.
-    //Se o username já existir na base de dados, é informado desse problema.
-    //Se o e-mail já existir na base de dados, é é informado desse problema.
-    //Se as passwords não coincidirem,  é informado desse problema.
-    //Se tudo estiver correto, o utilizador é registado e é redirecionado para a página de login.
-    //O utilizador só pode fazer login depois de ativar a conta.
-    //O utilizador recebe um e-mail com um link (hyperlink) para ativar a conta.
-    //O link (hyperlink) tem um token que é gerado e guardado na base de dados.
-
-
-
+    //Receive signup form
     @PostMapping(value = "/signup_action")
-    public ModelAndView signUp(SignUp newUser) throws ParseException {
-        if (authService.isUsernameTaken(newUser.getUsername())){
-            ModelAndView modelAndView = new ModelAndView("signup");
-            modelAndView.addObject("error", "Username não está disponível.");
-            return modelAndView;
-        } else if (authService.isEmailTaken(newUser.getEmail())) {
-            ModelAndView modelAndView = new ModelAndView("signup");
-            modelAndView.addObject("error2", "Email não está disponível.");
-            return modelAndView;
-
+    public ModelAndView signupAction(SignUp signup_form) throws ParseException {
+        if (authService.isSignupPossible(signup_form)) {
+            authService.registerUser(signup_form);
+            return new ModelAndView("auth/register_success");
+        } else {
+            return authService.signupErrorMav(signup_form);
         }
-        else if (!authService.arePasswordsEqual(newUser.getPassword(), newUser.getConfirmPassword())) {
-            ModelAndView modelAndView = new ModelAndView("signup");
-            modelAndView.addObject("error3", "Passwords não coincidem.");
-            return modelAndView;
-        }
-
-        authService.registerUser(newUser.getUsername(), newUser.getPassword(),
-                newUser.getEmail(), newUser.getFirstName(), newUser.getLastName(), newUser.getDOB());
-
-
-        Token token = recoverPasswordService.generateToken(authService.getUserByEmail(newUser.getEmail()));
-
-        String emailContent = "<html><body>" +
-                "<p>Para ativar a sua conta, por favor, siga o seguinte link:</p>" +
-                "<a href='http://localhost:8080/activation_success/" + token.getTokenID() + "'>Ativar conta</a>" +
-                "</body></html>";
-
-
-        emailServiceImpl.sendEmail(newUser.getEmail(), "Ativação da conta", emailContent);
-
-
-        return new ModelAndView("register_success");
     }
 
+
+    //Click link in activation email
     @GetMapping(value = "/activation_success/{tokenID}")
     public ModelAndView activationSuccess(@PathVariable("tokenID") String tokenID) {
-        Token token = recoverPasswordService.getToken(tokenID);
-        if(token != null && !token.isUsed() && !token.isExpired()) {
+
+        Token token = tokenRepository.getTokenByTokenId(tokenID);
+        if (authService.isActivationPossible(token)) {
             authService.activateUser(token.getUser());
-            recoverPasswordService.setTokenUsed(token);
-            return new ModelAndView("activation_success");
+            return new ModelAndView("auth/activation_success");
+        } else {
+            emailService.sendAccountVerificationEmail(token.getUser().getEmail());
+            //CRIAR PÁGINA DE /activation_fail
+            return new ModelAndView("auth/activation_fail");
         }
-        return new ModelAndView("redirect:/login");
+    }
+
+    //Recover Password page
+    @GetMapping(value = "/recover_password")
+    public ModelAndView recoverPasswordPage(Principal principal) {
+        if (principal != null) {
+            //Checkar caminho para /home
+            return new ModelAndView("redirect:/home");
+        }
+        return new ModelAndView("auth/recover_password");
+    }
+
+    //Receive recover request and send email
+    @PostMapping(value = "/recovery_request")
+    public ModelAndView recoveryRequestAction(String email) {
+        if (authService.isEmailTaken(email) && authService.isUserActive(email)) {
+            emailService.sendPasswordRecoveryEmail(userRepository.getUserByEmail(email));
+            return new ModelAndView("auth/recovery_email_sent");
+        } else {
+            ModelAndView mav = new ModelAndView("auth/recover_password");
+            //Inserir erro no .jsp
+            mav.addObject("email_error", "Email inválido. Tente novamente.");
+            return mav;
+        }
+    }
+
+    //Change Password page
+    @GetMapping(value = "/change_password/{tokenID}")
+    public ModelAndView recoverPasswordPage(@PathVariable("tokenID") String tokenId) {
+        if (authService.isTokenFunctional(tokenId)) {
+            return new ModelAndView("auth/change_password");
+        }
+        ModelAndView mav = new ModelAndView("redirect:/recover_password");
+        mav.addObject("token_error", "Link inválido. Tente novamente.");
+        return mav;
+    }
+
+    //Receive new password form and change password
+    @PostMapping(value = "/set_password")
+    public ModelAndView replacePassword(ReplacePassword replacePassword, @RequestParam("tokenID") String tokenId) {
+        if (authService.areReplacePasswordsEqual(replacePassword)) {
+            Token token = tokenRepository.getTokenByTokenId(tokenId);
+            authService.replacePassword(token.getUser(), replacePassword.getPassword());
+            authService.useToken(token);
+            return new ModelAndView("redirect:/login");
+        } else {
+            ModelAndView mav = new ModelAndView("redirect:/change_password/" + tokenId);
+            mav.addObject("password_error");
+            mav.addObject("tokenID", tokenId);
+            return mav;
+        }
+    }
+
+
+    //Receive login info
+    @PostMapping(value = "/perform_login")
+    public ModelAndView login(Login login) {
+
+        User loggedUser = authService.validateLogin(login.getUsername(), login.getPassword());
+        if (loggedUser != null) {
+            return new ModelAndView("/home");
+        }
+        return new ModelAndView("/auth/login");
     }
 
 

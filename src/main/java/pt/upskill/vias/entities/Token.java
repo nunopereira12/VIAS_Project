@@ -11,7 +11,7 @@ public class Token {
     private Long id;
     @OneToOne
     private User user;
-    private String tokenID;
+    private String tokenId;
     private Date timestamp;
 
     private boolean used = false;
@@ -28,7 +28,7 @@ public class Token {
 
     public Token(User user, String token, Date timestamp) {
         this.user = user;
-        this.tokenID = token;
+        this.tokenId = token;
         this.timestamp = timestamp;
     }
 
@@ -41,12 +41,12 @@ public class Token {
         this.user = user;
     }
 
-    public String getTokenID() {
-        return tokenID;
+    public String getTokenId() {
+        return tokenId;
     }
 
-    public void setTokenID(String token) {
-        this.tokenID = token;
+    public void setTokenId(String token) {
+        this.tokenId = token;
     }
 
     public Date getTimestamp() {
@@ -70,7 +70,7 @@ public class Token {
         return "Token{" +
                 "id=" + id +
                 ", user=" + user +
-                ", tokenID='" + tokenID + '\'' +
+                ", tokenID='" + tokenId + '\'' +
                 ", timestamp=" + timestamp +
                 ", used=" + used +
                 '}';

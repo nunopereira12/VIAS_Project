@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<%@include file="header.jsp" %>
+<%@include file="../header.jsp" %>
 <head>
     <title>VIAS | Estamos na via</title>
     <link rel="stylesheet" href="/css/login.css">
@@ -18,7 +18,7 @@
             <img class="imagelogo" src="images/logo_whitebg.png" alt="VIAS logo with white BG">
             <c:if test="${param.error != null}">
                 <div class="alert alert-danger">
-                        Credenciais incorrectas ou Utilizador inactivo.
+                        Credenciais incorrectas ou utilizador inactivo.
                 </div>
             </c:if>
             <div class="mb-3">
@@ -45,13 +45,15 @@
         </div>
 
         <div class="d-grid card padb">
-            <a href="/passwordrecovery" class="btn btn-primary buttons">Recuperar Password</a>
+            <a href="/recover_password" class="btn btn-primary buttons">Recuperar Password</a>
         </div>
     </div>
 </div>
 
 <div class="footerlogo">
-    <jsp:include page="footer.jsp"/>
+    <footer>
+        <img class="footerimage" src="images/logo_nobg.png" alt="">
+    </footer>
 </div>
 </body>
 </html>

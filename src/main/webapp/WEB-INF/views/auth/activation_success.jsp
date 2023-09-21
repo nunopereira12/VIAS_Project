@@ -3,7 +3,7 @@
 
 <!doctype html>
 <html lang="en">
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <head>
     <title>VIAS | Ativação com sucesso</title>
     <link rel="stylesheet" href="/css/passwordrecovery.css">

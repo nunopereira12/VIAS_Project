@@ -24,8 +24,7 @@ public class ValidateController {
     @PostMapping(value = "/cardscan")
     public ModelAndView validadeScan(@RequestParam("qrcode") String qrcode) {
         ModelAndView mav = new ModelAndView("validate");
-        boolean validation = validateService.isValid(qrcode);
-        mav.addObject("validation",validation);
+        mav.addObject("validation",validateService.isValid(qrcode));
         return mav;
     }
 }

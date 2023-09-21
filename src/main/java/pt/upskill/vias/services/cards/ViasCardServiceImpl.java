@@ -19,10 +19,8 @@ public class ViasCardServiceImpl implements ViasCardService {
 
     @Override
     public void useCard(ViasCard viasCard) {
-        double balance = viasCard.getBalance() - 1.5;
-        int times_used = viasCard.getTimes_used() + 1;
-        viasCard.setBalance(balance);
-        viasCard.setTimes_used(times_used);
+        viasCard.setBalance(viasCard.getBalance() - 1.5);
+        viasCard.setTimes_used(viasCard.getTimes_used() + 1);
         viasCardRepository.save(viasCard);
     }
 

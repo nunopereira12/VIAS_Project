@@ -134,7 +134,7 @@
 
 <!doctype html>
 <html lang="en">
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <head>
     <title>VIAS - Registo</title>
     <link rel="stylesheet" href="/css/login.css">
@@ -148,19 +148,19 @@
     <div class="content">
         <form action="/signup_action" method="POST" class="card p-3" onsubmit="return validateCheckbox()">
             <img class="imagelogo" src="images/logo_whitebg.png" >
-            <c:if test="${error != null}">
+            <c:if test="${username_unavailable != null}">
                 <div class="alert alert-danger">
-                        ${error}
+                        ${username_unavailable}
                 </div>
             </c:if>
-            <c:if test="${error2 != null}">
+            <c:if test="${email_unavailable != null}">
                 <div class="alert alert-danger">
-                        ${error2}
+                        ${email_unavailable}
                 </div>
             </c:if>
-            <c:if test="${error3 != null}">
+            <c:if test="${passwords_different != null}">
                 <div class="alert alert-danger">
-                        ${error3}
+                        ${passwords_different}
                 </div>
             </c:if>
             <div class="mb-3">

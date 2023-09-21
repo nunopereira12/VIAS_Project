@@ -1,4 +1,4 @@
-package pt.upskill.vias.services.viasleague;
+package pt.upskill.vias.services;
 
 
 import org.springframework.stereotype.Service;

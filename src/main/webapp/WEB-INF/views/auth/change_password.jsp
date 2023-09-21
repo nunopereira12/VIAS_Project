@@ -3,7 +3,7 @@
 
 <!doctype html>
 <html lang="en">
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <head>
     <title>VIAS - Repôr Palavra-Chave</title>
     <link rel="stylesheet" href="/css/login.css">
@@ -15,13 +15,13 @@
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <div class="content">
-        <form action="/replace_pw/" method="POST" class="card p-3">
+        <form action="/set_password" method="POST" class="card p-3">
             <!-- Hidden input to store the token ID -->
             <input type="hidden" name="tokenID" value="${tokenID}">
-            <img class="imagelogo" src="/images/logo_whitebg.png" >
-            <c:if test="${param.error != null}">
+            <img class="imagelogo" src="/images/logo_whitebg.png">
+            <c:if test="${param.password_error != null}">
                 <div class="alert alert-danger">
-                        <p>Palavras-chave não coincidem!</p>
+                        <p>${password_error}erro</p>
                 </div>
             </c:if>
             <div class="mb-3">
@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label text-start">Confirmar Password</label>
-                <input type="password" name="confirmPassword" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua nova password" required>
+                <input type="password" name="confirm_password" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua nova password" required>
             </div>
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary buttons">Alterar Palavra-Chave</button>

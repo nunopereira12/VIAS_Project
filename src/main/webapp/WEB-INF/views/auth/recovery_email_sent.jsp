@@ -3,23 +3,23 @@
 
 <!doctype html>
 <html lang="en">
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <head>
-    <title>VIAS | Contacto</title>
+    <title>VIAS | Recuperação de password</title>
     <link rel="stylesheet" href="/css/passwordrecovery.css">
 </head>
 <body id="login-page">
 
 <div class="container">
-    <button class="arrowbutton" onclick="window.location.href='/contactos';">
+    <button class="arrowbutton" onclick="window.location.href='/login';">
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <div class="content">
-            <div class="image-container">
-                <img class="imagelogo" src="images/logo_whitebg.png" >
-            </div>
-            <p class="title">E-mail enviado.</p>
-            <p class="subtitle-text">Agradecemos o seu contacto. Iremos responder o mais brevemente possível!</p>
+        <div class="image-container">
+            <img class="imagelogo" src="images/logo_whitebg.png" >
+        </div>
+        <p class="title">E-mail enviado.</p>
+            <p class="subtitle-text">Foi enviado um e-mail para o endereço indicado. Por favor siga as intruções para recuperar a sua password.</p>
 
     </div>
 </div>

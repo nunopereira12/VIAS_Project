@@ -6,6 +6,8 @@ import pt.upskill.vias.entities.cards.Navegante;
 import pt.upskill.vias.entities.cards.ViasCard;
 import pt.upskill.vias.repositories.NaveganteRepository;
 import pt.upskill.vias.repositories.ViasCardRepository;
+import pt.upskill.vias.services.cards.NaveganteService;
+import pt.upskill.vias.services.cards.ViasCardService;
 
 @Service
 public class ValidateServiceImpl implements ValidateService {
@@ -14,32 +16,27 @@ public class ValidateServiceImpl implements ValidateService {
     NaveganteRepository naveganteRepository;
     @Autowired
     ViasCardRepository viasCardRepository;
+    @Autowired
+    NaveganteService naveganteService;
+    @Autowired
+    ViasCardService viasCardService;
 
     @Override
     public boolean isNavegante(String qrcode) {
-        return qrcode.contains("NaveganteCard:");
+        return qrcode.contains("NaveCard");
     }
 
     @Override
     public long parseCardNumber(String qrcode) {
-        if(isNavegante(qrcode)) {
-            return Long.parseLong(qrcode.substring(14));
-        } else {
-            return Long.parseLong(qrcode.substring(9));
-        }
-
+        return Long.parseLong(qrcode.substring(8));
     }
 
     @Override
     public boolean validateViasCard(long card_number) {
-        System.out.println(card_number);
         ViasCard viasCard = viasCardRepository.getViasCardByCard_number(card_number);
         double balance = viasCard.getBalance();
-        if(balance >= 1.5) {
-            balance -= 1.5;
-            viasCard.setBalance(balance);
-            viasCard.setTimes_used(viasCard.getTimes_used()+1);
-            viasCardRepository.save(viasCard);
+        if (balance >= 1.5) {
+            viasCardService.useCard(viasCard);
             return true;
         }
         return false;
@@ -48,9 +45,8 @@ public class ValidateServiceImpl implements ValidateService {
     @Override
     public boolean validateNavegante(long card_number) {
         Navegante navegante = naveganteRepository.getNaveganteByCard_number(card_number);
-        if(navegante.isValid()) {
-            navegante.setTimes_used(navegante.getTimes_used()+1);
-            naveganteRepository.save(navegante);
+        if (navegante.isValid()) {
+            naveganteService.useCard(navegante);
             return true;
         }
         return false;
@@ -59,6 +55,10 @@ public class ValidateServiceImpl implements ValidateService {
     @Override
     public boolean isValid(String qrcode) {
         long card_number = parseCardNumber(qrcode);
-        return isNavegante(qrcode) ? validateNavegante(card_number) : validateViasCard(card_number);
+        try {
+            return isNavegante(qrcode) ? validateNavegante(card_number) : validateViasCard(card_number);
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

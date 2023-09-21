@@ -3,7 +3,7 @@
 
 <!doctype html>
 <html lang="en">
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <head>
     <title>VIAS | Recuperação de Password</title>
     <link rel="stylesheet" href="/css/passwordrecovery.css">
@@ -16,7 +16,7 @@
     </button>
     <p class="title">Recuperar Password</p>
     <div class="content">
-        <form class="card p-3" action="/recover_password" method="post" >
+        <form class="card p-3" action="/recovery_request" method="post" >
         <div class="mb-3">
             <label  for="email" class="form-label text-start">Insira o seu e-mail</label>
             <input type="email" name="email" class="form-control formtext" id="email" placeholder="Inserir e-mail" required>
