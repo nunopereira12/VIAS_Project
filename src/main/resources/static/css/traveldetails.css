@@ -104,10 +104,7 @@
         min-width: auto;
     }
 
-
 }
-
-
 
 .home-content {
     scrollbar-width: none; /* tira no firefox */
@@ -127,6 +124,7 @@
 
 @media(min-width: 920px) {
     .arrowbutton {
+        visibility:hidden;
     }
     .home-content {
         overflow: auto;

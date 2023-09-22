@@ -153,6 +153,16 @@
 
 }
 
+.return-button{
+    width: 95%;
+    background-color: #1F7EB2;
+    height: 50px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
 @media (max-width: 920px) {
     .suggestions-box{
         min-width: auto;
@@ -169,6 +179,9 @@
     .suggestions-content {
         height: 380px;
         margin-top: -72px;
+    }
+    .return-button{
+        visibility: hidden;
     }
 }
 
@@ -199,6 +212,9 @@
         margin:auto;
         text-align: center;
         align-items: center;
+    }
+    .arrowbutton{
+        visibility:hidden;
     }
 
 }

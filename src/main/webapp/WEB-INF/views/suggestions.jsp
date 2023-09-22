@@ -153,8 +153,11 @@
                             <span class="card-button-text">Títulos de Transporte</span></div>
                     </div>
                 </c:forEach>
+                </c:if>
+                <button class="return-button" onclick=window.location.href='/home';>Regressar</button>
             </div>
-        </c:if>
+
+
         <div class="footerlogo">
             <footer>
                 <img class="footerimage" src="images/logo_nobg.png" alt="">

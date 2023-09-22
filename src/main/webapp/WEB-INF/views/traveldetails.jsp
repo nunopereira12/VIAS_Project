@@ -261,6 +261,13 @@
             <input type="hidden" id="polylineLeg" value="${leg.getOverview_polyline()}">
 
             <div class="button-box-travel">
+
+                <form id="directionsForm" method="POST" action="/perform_travel">
+                    <button class="button-travel btn btn-primary buttons">
+                        <input type="hidden" name="origem" value="${leg.getStart_address()}">
+                        <input type="hidden" name="destino" value="${leg.getEnd_address()}">
+                        Cancelar</button>
+                </form>
                 <c:if test="${user != null}">
                 <button class="button-travel btn btn-primary buttons">Começar Viagem</button>
                 </c:if>
