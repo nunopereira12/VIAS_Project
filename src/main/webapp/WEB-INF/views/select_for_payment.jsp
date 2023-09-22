@@ -19,16 +19,16 @@
     <p class="subtitle">Título(s) de Transporte</p>
     <div class="content">
         <p class="typeOfPurchase" style="margin-bottom: 1rem;">
-            <button class="choice-button"> 5.00 €</button>
-            <button class="choice-button"> 10.00 €</button>
-            <button class="choice-button"> 15.00 €</button></p>
+            <button id=valueSelection class="choice-button" value="5.00"> 5.00 €</button>
+            <button id=valueSelection1 class="choice-button" value="10.00"> 10.00 €</button>
+            <button id=valueSelection2 class="choice-button" value="15.00"> 15.00 €</button></p>
         <div class="totalContainer">
             <span class="subTotal left">Subtotal</span>
-            <span class="subTotal right">2.50€</span>
+            <span id=valueDisplay class="subTotal right"></span>
         </div>
         <div id="tx" class="totalContainer">
             <span class="subTotal left">Taxas</span>
-            <span class="subTotal right">0.50€</span>
+            <span class="subTotal right">0.00€</span>
         </div>
 
         <div class="center-container" style="padding-top: 1rem;padding-bottom: 1rem;">
@@ -37,7 +37,7 @@
 
         <div class="totalContainer">
             <span class="totalData left">Total</span>
-            <span class="totalData right">3.00€</span>
+            <span id=valueDisplay1 class="totalData right"></span>
         </div>
 
 
@@ -68,7 +68,11 @@
 
         </div>
         <div class="d-grid">
-            <button type="submit" class="btn btn-primary buttons">Prosseguir</button>
+            <form>
+                <input id=valuePurchase type="hidden" name="valuePurchase" value="">
+                <input type="hidden" name="cardID" value="${card.getID()}">
+                <button type="submit" class="btn btn-primary buttons">Prosseguir</button>
+            </form>
         </div>
 
     </div>
@@ -83,6 +87,34 @@
     </footer>
 </div>
 <script>
+
+        const selectButton = document.getElementById('valueSelection');
+        const selectButton1 = document.getElementById('valueSelection1');
+        const selectButton2 = document.getElementById('valueSelection2');
+        const valueDisplay = document.getElementById('valueDisplay');
+        const valueDisplay1 = document.getElementById('valueDisplay1');
+        const valuePurchase = document.getElementById('valuePurchase')
+
+        selectButton.addEventListener('click', () => {
+        const selectedValue = selectButton.value;
+            valueDisplay.textContent = selectedValue+'€';
+            valueDisplay1.textContent = selectedValue+'€';
+            valuePurchase.value = selectedValue;
+        });
+
+        selectButton1.addEventListener('click', () => {
+        const selectedValue = selectButton1.value;
+            valueDisplay.textContent = selectedValue+'€';
+            valueDisplay1.textContent = selectedValue+'€';
+            valuePurchase.value = selectedValue;
+        });
+
+        selectButton2.addEventListener('click', () => {
+        const selectedValue = selectButton2.value;
+            valueDisplay.textContent = selectedValue+'€';
+            valueDisplay1.textContent = selectedValue+'€';
+            valuePurchase.value = selectedValue;
+        });
 
 </script>
 </body>

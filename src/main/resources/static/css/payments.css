@@ -127,6 +127,15 @@ margin-right: 1rem;
     font-weight: 500;
     line-height: normal;
 }
+.choice-button:active{
+    background: #D9D9D9;
+}
+.choice-button:hover{
+    background: #D9D9D9;
+}
+.choice-button:checked{
+    background: #D9D9D9;
+}
 
 .totalData {
     color: #000;
