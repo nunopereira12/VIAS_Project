@@ -6,13 +6,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import pt.upskill.vias.entities.LastUpdate;
 import pt.upskill.vias.entities.User;
+import pt.upskill.vias.repositories.LastUpdateRepository;
 import pt.upskill.vias.services.viasleague.ViasLeagueService;
 import pt.upskill.vias.repositories.UserRepository;
 
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -23,6 +29,9 @@ public class ViasLeagueController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private LastUpdateRepository lastUpdateRepository;
 
 
 
@@ -76,6 +85,10 @@ public class ViasLeagueController {
         mav.addObject("selectedFilter", selectedFilter);
         mav.addObject("user", user);
 
+        Date last_update = lastUpdateRepository.getLastUpdateById(1).getDate();
+        String formattedDate = viasLeagueService.lastUpdatePlus7(last_update);
+
+        mav.addObject("formattedDate", formattedDate);
         mav.addObject("targetUsername", user.getUsername());
 
         return mav;

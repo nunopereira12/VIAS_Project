@@ -5,6 +5,7 @@ import pt.upskill.vias.entities.User;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.models.routes.Step;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ViasLeagueService {
@@ -26,5 +27,6 @@ public interface ViasLeagueService {
     void changeGold(List<User> gold, int positions_to_move);
     void changePlatinum(List<User> platinum, int positions_to_move);
     void changeDiamond(List<User> diamond, int positions_to_move);
+    public String lastUpdatePlus7(Date my_date);
 
 }

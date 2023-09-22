@@ -13,6 +13,7 @@ import pt.upskill.vias.repositories.LeagueRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.UserStatsRepository;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -149,6 +150,15 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
             default:
                 return Collections.emptyList();
         }
+
+        List<User> userListCopy = new ArrayList<>(userList);
+
+        for (User user : userListCopy) {
+            if (!user.getRole().equals("USER")) {
+                userList.remove(user);
+            }
+        }
+
 
         return userList;
     }
@@ -299,5 +309,10 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         }
     }
 
-
+    public String lastUpdatePlus7(Date my_date) {
+        long sevenDaysInMillis = 7L * 24 * 60 * 60 * 1000;
+        Date next_update = new Date(my_date.getTime() + sevenDaysInMillis);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        return sdf.format(next_update);
+    }
 }

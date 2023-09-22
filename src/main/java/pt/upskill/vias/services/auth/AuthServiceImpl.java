@@ -145,6 +145,7 @@ public class AuthServiceImpl implements AuthService {
         user.setPassword(passwordEncoder.encode(signup_form.getPassword()));
         user.setRole(Role.USER);
         user.setCurrent_league(leagueRepository.getLeagueById(1));
+        user.setProfilePicture("default_profile_pic.png");
 
         UserStats userStats = new UserStats();
         userStatsRepository.save(userStats);

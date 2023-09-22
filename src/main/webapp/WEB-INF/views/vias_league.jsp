@@ -1,3 +1,210 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!doctype html>
+<html lang="en">
+<%@include file="header.jsp" %>
+<head>
+    <title>VIAS - VIAS League</title>
+    <link rel="stylesheet" href="/css/template.css">
+    <link rel="stylesheet" href="/css/vias_league.css">
+</head>
+<body>
+
+<div class="container">
+    <button class="arrowbutton" onclick="window.location.href='/home';">
+        <img src="/images/backarrow.png" alt="Go back!" width="30px">
+    </button>
+
+    <img class="imagelogo center-img" src="images/vias_league.v3.png" width="200px">
+
+    <div class="buttons-container">
+        <form id="filterForm" action="/vias_league" method="get">
+            <label id="opcao" for="filter" style="font-size: 18px;">Selecione uma leaderboard:</label>
+            <br>
+            <select id="filter" name="filter" onchange="saveSelectedFilter()" size="1">
+                <option value="My League" ${selectedFilter eq 'My League' ? 'selected' : ''} class="highlighted-option">
+                    My League
+                </option>
+                <option value="Leaderboard" ${selectedFilter eq 'Leaderboard' ? 'selected' : ''}
+                        class="highlighted-option">Global League
+                </option>
+                <option value="Distância Percorrida a Andar" ${selectedFilter eq 'Distância Percorrida a Andar' ? 'selected' : ''}>
+                    Distância Percorrida a Andar
+                </option>
+                <option value="Distância Percorrida Transportes" ${selectedFilter eq 'Distância Percorrida Transportes' ? 'selected' : ''}>
+                    Distância Percorrida Transportes
+                </option>
+                <option value="Tempo Despendido a Andar" ${selectedFilter eq 'Tempo Despendido a Andar' ? 'selected' : ''}>
+                    Tempo Despendido a Andar
+                </option>
+                <option value="Tempo Despendido Transportes" ${selectedFilter eq 'Tempo Despendido Transportes' ? 'selected' : ''}>
+                    Tempo Despendido Transportes
+                </option>
+                <option value="Viagens Completas" ${selectedFilter eq 'Viagens Completas' ? 'selected' : ''}>Viagens
+                    Completas
+                </option>
+            </select>
+        </form>
+
+    </div>
+
+    <div class="list-container" id="list1">
+
+        <c:if test="${selectedFilter eq 'My League'}">
+            <c:choose>
+                <c:when test="${user.getCurrent_league().getId() eq '1'}">
+                    <div class="container-liga">
+                        <div class="left">
+                            <img class="image_badge center-img" src="images/vias_league/bronze_badge.png" width="65px"
+                                 alt="Bronze Image"/>
+                            <div class="liga"><strong>Liga Bronze</strong></div>
+                        </div>
+                        <div class="right">
+                            <p>Reset Semanal em: </p>
+                            <div id="countdown"></div>
+                        </div>
+                    </div>
+                </c:when>
+                <c:when test="${user.getCurrent_league().getId() eq '2'}">
+                    <img class="image_badge center-img" src="images/vias_league/silver_badge.png" width="65px"
+                         alt="Silver Image"/>
+                    <div class="liga"><strong>Liga Prata</strong></div>
+                </c:when>
+                <c:when test="${user.getCurrent_league().getId() eq '3'}">
+                    <img class="image_badge center-img" src="images/vias_league/gold_badge.png" width="65px"
+                         alt="Gold Image"/>
+                    <div class="liga"><strong>Liga Ouro</strong></div>
+                </c:when>
+                <c:when test="${user.getCurrent_league().getId() eq '4'}">
+                    <img class="image_badge center-img" src="images/vias_league/platinum_badge.png" width="65px"
+                         alt="Platinum Image"/>
+                    <div class="liga"><strong>Liga Platina</strong></div>
+                </c:when>
+                <c:when test="${user.getCurrent_league().getId() eq '5'}">
+                    <img class="image_badge center-img" src="images/vias_league/diamond_badge.png" width="65px"
+                         alt="Diamond Image"/>
+                    <div class="liga"><strong>Liga Diamante</strong></div>
+                </c:when>
+            </c:choose>
+        </c:if>
+        <c:if test="${selectedFilter ne 'My League'}">
+            <img class="image_badge center-img" src="images/leaderboard.v2.png" width="65px" alt="Leaderboard Img"/>
+            <div class="leaderboard"><strong>${selectedFilter}</strong></div>
+        </c:if>
+
+        <hr>
+        <div class="table-container">
+
+            <table class="table">
+                <tbody>
+                <c:forEach var="player" items="${players}" varStatus="loopStatus">
+                    <tr class="${targetUsername == player.getUsername() ? 'highlighted-row' : ''}">
+                        <td id="num1"><strong>${loopStatus.index + 1}</strong></td>
+                        <td>
+                            <div class="circle">
+                                <img src=/uploads/${player.getProfilePicture()}
+ alt="av1" width="5px">
+                            </div>
+                        </td>
+                        <td id="username1">${player.getUsername()}</td>
+                        <td>
+                            <div class="points">
+                                <c:choose>
+                                    <c:when test="${selectedFilter eq 'My League'}">
+                                        ${player.getUserStats().getWeekly_points()}
+                                    </c:when>
+                                    <c:when test="${selectedFilter eq 'Leaderboard'}">
+                                        ${player.getUserStats().getTotal_points()}
+                                    </c:when>
+                                    <c:when test="${selectedFilter eq 'Distância Percorrida a Andar'}">
+                                        ${player.getUserStats().getTotal_distance_walking()}
+                                    </c:when>
+                                    <c:when test="${selectedFilter eq 'Distância Percorrida Transportes'}">
+                                        ${player.getUserStats().getTotal_distance_transit()}
+                                    </c:when>
+                                    <c:when test="${selectedFilter eq 'Tempo Despendido a Andar'}">
+                                        ${player.getUserStats().getTotal_time_walking()}
+                                    </c:when>
+                                    <c:when test="${selectedFilter eq 'Tempo Despendido Transportes'}">
+                                        ${player.getUserStats().getTotal_time_transit()}
+                                    </c:when>
+                                    <c:when test="${selectedFilter eq 'Viagens Completas'}">
+                                        ${player.getUserStats().getTrips_done()}
+                                    </c:when>
+                                </c:choose>
+                            </div>
+                        </td>
+                    </tr>
+                </c:forEach>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="footerlogo">
+    <footer>
+        <img class="footerimage" src="images/logo_nobg.png" alt="">
+    </footer>
+</div>
+
+<script>
+
+    // Get the select element
+    const select = document.getElementById("filter");
+
+    // Listen for changes to the select element
+    select.addEventListener("change", function () {
+        // Submit the form when a change occurs
+        document.getElementById("filterForm").submit();
+    });
+
+    function saveSelectedFilter() {
+        var selectedFilter = document.getElementById("filter").value;
+
+        // Store the selected filter in localStorage (you can also use cookies or session storage)
+        localStorage.setItem("selectedFilter", selectedFilter);
+    }
+
+
+    var targetDate = new Date("${formattedDate}");
+    console.log("${formattedDate}")
+
+    // Function to update the countdown
+    function updateCountdown() {
+        var now = new Date();
+        var timeDifference = targetDate - now;
+
+        if (timeDifference <= 0) {
+            // Display a message when the countdown reaches the target date
+            document.getElementById("countdown").innerHTML = "Countdown expired!";
+        } else {
+            // Calculate days, hours, minutes, and seconds
+            var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            document.getElementById("countdown").innerHTML = days + " dias " + hours + " horas " + minutes + " minutos " + seconds + " segundos";
+        }
+    }
+
+    // Call the updateCountdown function initially
+    updateCountdown();
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+
+
+</script>
+
+</body>
+</html>
+
 <%--
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -207,210 +414,3 @@
 
 </body>
 </html>--%>
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!doctype html>
-<html lang="en">
-<%@include file="header.jsp" %>
-<head>
-    <title>VIAS - VIAS League</title>
-    <link rel="stylesheet" href="/css/template.css">
-    <link rel="stylesheet" href="/css/vias_league.css">
-</head>
-<body>
-
-<div class="container">
-    <button class="arrowbutton" onclick="window.history.back()">
-        <img src="/images/backarrow.png" alt="Go back!" width="30px">
-    </button>
-
-    <img class="imagelogo center-img" src="images/vias_league.v3.png" width="200px">
-
-    <div class="buttons-container">
-        <form id="filterForm" action="/vias_league" method="get">
-            <label id="opcao" for="filter" style="font-size: 18px;">Selecione uma opção:</label>
-
-            <br>
-            <select id="filter" name="filter" onchange="saveSelectedFilter()" size="1">
-                <option value="My League" ${selectedFilter eq 'My League' ? 'selected' : ''}>My League</option>
-                <option value="Leaderboard" ${selectedFilter eq 'Leaderboard' ? 'selected' : ''}>Global League</option>
-                <option value="Distância Percorrida a Andar" ${selectedFilter eq 'Distância Percorrida a Andar' ? 'selected' : ''}>Distância Percorrida a Andar</option>
-                <option value="Distância Percorrida Transportes" ${selectedFilter eq 'Distância Percorrida Transportes' ? 'selected' : ''}>Distância Percorrida Transportes</option>
-                <option value="Tempo Despendido a Andar" ${selectedFilter eq 'Tempo Despendido a Andar' ? 'selected' : ''}>Tempo Despendido a Andar</option>
-                <option value="Tempo Despendido Transportes" ${selectedFilter eq 'Tempo Despendido Transportes' ? 'selected' : ''}>Tempo Despendido Transportes</option>
-                <option value="Viagens Completas" ${selectedFilter eq 'Viagens Completas' ? 'selected' : ''}>Viagens Completas</option>
-            </select>
-            <%--<input type="submit" value="Visualizar Tabela">--%>
-        </form>
-
-    </div>
-
-    <div class="list-container" id="list1">
-        <%--<c:choose>
-            <c:when test="${userr.getLeague() eq 'Gold'}">
-                <img class="image_badge center-img" src="images/badge_gold.png" width="45px" alt="Gold Image"/>
-                <div id="liga"><strong>Liga de Ouro</strong></div>
-            </c:when>
-            <c:when test="${userr.getLeague() eq 'Silver'}">
-                <img class="image_badge center-img" src="images/badge_silver.png" width="45px" alt="Silver Image"/>
-                <div id="liga"><strong>Liga de Prata</strong></div>
-            </c:when>
-            <c:when test="${userr.getLeague() eq 'Bronze'}">
-                <img class="image_badge center-img" src="images/badge_bronze.png" width="45px" alt="Silver Image"/>
-                <div id="liga"><strong>Liga de Bronze</strong></div>
-            </c:when>
-        </c:choose>--%>
-
-
-
-
-            <c:if test="${selectedFilter eq 'My League'}">
-                <c:choose>
-                    <c:when test="${user.getCurrent_league().getId() eq '1'}">
-                        <img class="image_badge center-img" src="images/vias_league/bronze_badge.png" width="65px" alt="Bronze Image"/>
-                        <div id="liga"><strong>Liga de Bronze</strong></div>
-                    </c:when>
-                    <c:when test="${user.getCurrent_league().getId() eq '2'}">
-                        <img class="image_badge center-img" src="images/vias_league/silver_badge.png" width="65px" alt="Silver Image"/>
-                        <div id="liga"><strong>Liga de Prata</strong></div>
-                    </c:when>
-                    <c:when test="${user.getCurrent_league().getId() eq '3'}">
-                        <img class="image_badge center-img" src="images/vias_league/gold_badge.png" width="65px" alt="Gold Image"/>
-                        <div id="liga"><strong>Liga de Ouro</strong></div>
-                    </c:when>
-                    <c:when test="${user.getCurrent_league().getId() eq '4'}">
-                        <img class="image_badge center-img" src="images/vias_league/platinum_badge.png" width="65px" alt="Platinum Image"/>
-                        <div id="liga"><strong>Liga de Platina</strong></div>
-                    </c:when>
-                    <c:when test="${user.getCurrent_league().getId() eq '5'}">
-                        <img class="image_badge center-img" src="images/vias_league/diamond_badge.png" width="65px" alt="Diamond Image"/>
-                        <div id="liga"><strong>Liga de Diamante</strong></div>
-                    </c:when>
-                </c:choose>
-            </c:if>
-            <c:if test="${selectedFilter ne 'My League'}">
-                <img class="image_badge center-img" src="images/leaderboard.v2.png" width="65px" alt="Leaderboard Img"/>
-                <div class="leaderboard"><strong>${selectedFilter}</strong></div>
-            </c:if>
-
-        <hr>
-        <div class="table-container">
-
-            <table class="table">
-                <tbody>
-                <c:forEach var="player" items="${players}" varStatus="loopStatus">
-                    <tr class="${targetUsername == player.getUsername() ? 'highlighted-row' : ''}">
-                        <td id="num1"><strong>${loopStatus.index + 1}</strong></td>
-                        <td>
-                            <div class="circle">
-                                <img src=/uploads/${player.getProfilePicture()}
-                                     alt="av1" width="5px">
-                            </div>
-                        </td>
-                        <td id="username1">${player.getUsername()}</td>
-                        <td>
-                            <div class="points">
-                                <c:choose>
-                                    <c:when test="${selectedFilter eq 'My League'}">
-                                        ${player.getUserStats().getWeekly_points()}
-                                    </c:when>
-                                    <c:when test="${selectedFilter eq 'Leaderboard'}">
-                                        ${player.getUserStats().getTotal_points()}
-                                    </c:when>
-                                    <c:when test="${selectedFilter eq 'Distância Percorrida a Andar'}">
-                                        ${player.getUserStats().getTotal_distance_walking()}
-                                    </c:when>
-                                    <c:when test="${selectedFilter eq 'Distância Percorrida Transportes'}">
-                                        ${player.getUserStats().getTotal_distance_transit()}
-                                    </c:when>
-                                    <c:when test="${selectedFilter eq 'Tempo Despendido a Andar'}">
-                                        ${player.getUserStats().getTotal_time_walking()}
-                                    </c:when>
-                                    <c:when test="${selectedFilter eq 'Tempo Despendido Transportes'}">
-                                        ${player.getUserStats().getTotal_time_transit()}
-                                    </c:when>
-                                    <c:when test="${selectedFilter eq 'Viagens Completas'}">
-                                        ${player.getUserStats().getTrips_done()}
-                                    </c:when>
-                                </c:choose>
-                            </div>
-                        </td>
-                    </tr>
-                </c:forEach>
-
-
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<div class="footerlogo">
-    <footer>
-        <img class="footerimage" src="images/logo_nobg.png" alt="">
-    </footer>
-</div>
-
-<script>
-
-    /*function toggleList(listNumber) {
-        if (listNumber === 1) {
-            document.getElementById("list1").style.display = "block";
-            document.getElementById("list2").style.display = "none";
-
-            // Remove the "active-button" class from all buttons
-            const buttons = document.querySelectorAll('.list-button');
-            buttons.forEach(button => {
-                button.classList.remove('active-button');
-            });
-
-            // Add the "active-button" class to the clicked button
-            document.getElementById("button1").classList.add("active-button");
-        } else if (listNumber === 2) {
-            document.getElementById("list1").style.display = "none";
-            document.getElementById("list2").style.display = "block";
-
-            // Remove the "active-button" class from all buttons
-            const buttons = document.querySelectorAll('.list-button');
-            buttons.forEach(button => {
-                button.classList.remove('active-button');
-            });
-
-            // Add the "active-button" class to the clicked button
-            document.getElementById("button2").classList.add("active-button");
-        }
-    }
-
-    // Function to highlight the first button and display its content by default
-    function initializePage() {
-        document.getElementById("list1").style.display = "block";
-        document.getElementById("list2").style.display = "none";
-        document.getElementById("button1").classList.add("active-button");
-    }
-
-    // Call the initialization function when the page loads
-    window.onload = initializePage;*/
-
-    // Get the select element
-    const select = document.getElementById("filter");
-
-    // Listen for changes to the select element
-    select.addEventListener("change", function() {
-        // Submit the form when a change occurs
-        document.getElementById("filterForm").submit();
-    });
-
-    function saveSelectedFilter() {
-        var selectedFilter = document.getElementById("filter").value;
-
-        // Store the selected filter in localStorage (you can also use cookies or session storage)
-        localStorage.setItem("selectedFilter", selectedFilter);
-    }
-
-</script>
-
-</body>
-</html>

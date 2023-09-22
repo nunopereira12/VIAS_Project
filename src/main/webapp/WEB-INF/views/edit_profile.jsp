@@ -65,8 +65,8 @@
                 <input type="text" name="datee" class="form-control formtext" id="datee" value="${userr.formatDateToDDMMYY(userr.getBirthday())}" disabled required>
             </div>
             <div class="mb-3">
-                <label  for="usernamee" class="form-label text-start">Username</label>
-                <button class="svg-button float-end toggle-button" type="button" data-attribute="usernamee">
+                <label  for="password1" class="form-label text-start">Password</label>
+                <button class="svg-button float-end toggle-button" type="button" data-attribute="password1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="42" viewBox="0 0 56 52" fill="none" class="svg-image">
                         <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
                         <mask id="mask0_305_3024" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="14" y="16" width="24" height="24">
@@ -77,11 +77,11 @@
                         </g>
                     </svg>
                 </button>
-                <input type="usernamee" name="usernamee" class="form-control formtext" id="usernamee" value=${userr.getUsername()} disabled required>
+                <input type="password" name="password1" class="form-control formtext" id="password1" disabled required>
             </div>
             <div class="mb-3">
-                <label  for="emaill" class="form-label text-start">Email</label>
-                <button class="svg-button float-end toggle-button" type="button" data-attribute="emaill" >
+                <label  for="password2" class="form-label text-start">Confirmar Password</label>
+                <button class="svg-button float-end toggle-button" type="button" data-attribute="password2" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="42" viewBox="0 0 56 52" fill="none" class="svg-image">
                         <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
                         <mask id="mask0_305_3024" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="14" y="16" width="24" height="24">
@@ -92,9 +92,8 @@
                         </g>
                     </svg>
                 </button>
-                <input type="email" name="emaill" class="form-control formtext" id="emaill" value=${userr.getEmail()} disabled required>
+                <input type="password" name="password2" class="form-control formtext" id="password2" disabled required>
             </div>
-
 
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary buttons">Confirmar Alterações</button>

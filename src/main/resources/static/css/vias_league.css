@@ -13,7 +13,7 @@
     text-align: left; /* Adjust text alignment as needed */
     max-width: 100%; /* Set the maximum width to match the previous container */
     margin: 0 auto; /* Center the container horizontally */
-    height: 420px;
+    height: auto;
     width: auto;
     margin-top: 15px;
 }
@@ -54,7 +54,6 @@ img {
 }
 
 
-/* Target table headers and table data cells */
 .table th,
 .table td {
     font-size: 10px; /* Set the desired smaller font size */
@@ -82,83 +81,9 @@ img {
     object-fit: cover; /* Ensure the image covers the entire circle */
 }
 
-
-.switches-container {
-    width: 16rem;
-    position: relative;
-    display: flex;
-    padding: 0;
-    background: #1F7EB2;
-    line-height: 3rem;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1.5rem;
-}
-
-/* input (radio) for toggling. hidden - use labels for clicking on */
-.switches-container input {
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-}
-
-/* labels for the input (radio) boxes - something to click on */
-.switches-container label {
-    width: 50%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    cursor: pointer;
-    color: white;
-
-}
-
-
-/* switch highlighters wrapper (sliding left / right)
-    - need wrapper to enable the even margins around the highlight box
-*/
-.switch-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    /*padding: 0.15rem;*/
-    z-index: 3;
-    transition: transform .5s cubic-bezier(.77, 0, .175, 1);
-
-    /* transition: transform 1s; */
-}
-
-/* switch box highlighter */
-.switch {
-    border-radius: 10px;
-    background: #004A89;
-    height: 100%;
-}
-
-/*.switch-wrapper {
-    background-color: #004A89;
-}*/
-
-
-.switch div {
-    width: 100%;
-    text-align: center;
-    opacity: 0;
-    display: block;
-    color: white ;
-    transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
-    will-change: opacity;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-
 .centered-content {
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center;
 }
 
 .centered-content img {
@@ -170,12 +95,12 @@ Estilos Pontos Tabela
  */
 
 .points {
-    text-align: center; /* Center the content horizontally */
+    text-align: center;
 }
 
 .points-number {
-    font-size: 18px; /* Adjust the font size for the number */
-    font-weight: bold; /* Make the number bold */
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .points-text {
@@ -266,7 +191,6 @@ button:hover {
 
 
 
-
 .buttons-container {
     margin-top: 50px;
     margin-bottom: 20px;
@@ -323,8 +247,17 @@ select option:hover {
     margin-bottom: 10px;
 }
 
+.highlighted-option {
+    background-color: #337ab7;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
 
 @media (max-width: 768px) {
+    .container {
+        background: linear-gradient(0deg, rgba(31, 126, 178, 1) 76%, rgba(255, 255, 255, 1) 60%);
+    }
+
     select {
         font-size: 14px; /* Further adjust font size for smaller screens */
         padding: 3px;   /* Further adjust padding for smaller screens */
@@ -336,23 +269,80 @@ select option:hover {
 
     .table-container {
 
-        max-height: 237px; /* Set a maximum height for the container */
+        max-height: 237px;
     }
     .table td {
-        font-size: 10px; /* Adjust font size for smaller screens */
-        padding: 5px;    /* Adjust padding for smaller screens */
+        font-size: 10px;
+        padding: 5px;
     }
 
-    /* You can also reduce the font size for headers if needed */
     .table th {
-        font-size: 10px; /* Adjust font size for header cells */
+        font-size: 10px;
     }
 
-    /* If you want to reduce the overall size of the table, you can adjust the table width */
     .table {
-        width: 100%; /* Make the table take up the full width of the container */
+        width: 100%;
     }
+
+
+    #filter {
+        width: 250px;
+    }
+
+    #countdown {
+        margin-left: 12px;
+    }
+
+
+
 }
+
+.container-liga {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    order: 1;
+    text-align: center;
+
+}
+
+.right {
+    text-align: center;
+    order: 2;
+}
+
+.liga {
+    margin-top: 5px;
+}
+
+#liga {
+
+}
+
+#countdown {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 300px;
+}
+
+#countdown span {
+    font-size: 18px;
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+/* Uso Futuro? */
+#countdown.expired {
+}
+
+
 
 
 
