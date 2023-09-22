@@ -2,6 +2,8 @@ package pt.upskill.vias.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,5 +23,11 @@ public class PaymentsController {
         return new ModelAndView("select_for_payment");
     }
 
+   /* @PostMapping("/payments")
+    public ModelAndView finalizePayments(@RequestParam("valuePurchase")int value,@RequestParam("cardID")int cardID){
+        ModelAndView mav= new ModelAndView("/payments");
+        return mav;
+    }
+*/
 
 }
