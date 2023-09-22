@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import pt.upskill.vias.entities.Token;
-import pt.upskill.vias.entities.User;
-import pt.upskill.vias.models.Login;
-import pt.upskill.vias.models.ReplacePassword;
-import pt.upskill.vias.models.SignUp;
+import pt.upskill.vias.entities.user.Token;
+import pt.upskill.vias.entities.user.User;
+import pt.upskill.vias.models.auth.Login;
+import pt.upskill.vias.models.auth.ReplacePassword;
+import pt.upskill.vias.models.auth.SignUp;
 import pt.upskill.vias.repositories.TokenRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.services.auth.AuthService;
@@ -25,13 +25,15 @@ public class AuthController {
 
     @Autowired
     AuthService authService;
+
     @Autowired
     UserRepository userRepository;
+
     @Autowired
     TokenRepository tokenRepository;
+
     @Autowired
     EmailService emailService;
-
 
     //Login page
     @GetMapping(value = "/login")
@@ -54,12 +56,12 @@ public class AuthController {
 
     //Receive signup form
     @PostMapping(value = "/signup_action")
-    public ModelAndView signupAction(SignUp signup_form) throws ParseException {
-        if (authService.isSignupPossible(signup_form)) {
-            authService.registerUser(signup_form);
+    public ModelAndView signupAction(SignUp signUp_form) throws ParseException {
+        if (authService.isSignupPossible(signUp_form)) {
+            authService.registerUser(signUp_form);
             return new ModelAndView("auth/register_success");
         } else {
-            return authService.signupErrorMav(signup_form);
+            return authService.signupErrorMav(signUp_form);
         }
     }
 
@@ -141,6 +143,5 @@ public class AuthController {
         }
         return new ModelAndView("/auth/login");
     }
-
 
 }

@@ -8,9 +8,6 @@ import java.util.List;
 
 public interface JSONConversionService {
 
-    public JSONObject stringToObject(String obj_string);
-
-    public Leg addSteps(Leg leg);
-
-    public void addStepsLegList(List<Leg> legs);
+    Leg addSteps(Leg leg);
+    void addStepsLegList(List<Leg> legs);
 }

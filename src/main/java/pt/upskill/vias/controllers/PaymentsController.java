@@ -10,17 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class PaymentsController {
 
     @GetMapping("/payments")
-    public String payments() {
-        return "payments";
+    public ModelAndView payments() {
+        return new ModelAndView("payments/payments");
     }
 
     @GetMapping("/payment_success")
     public ModelAndView paymentSuccessPage(){
-        return new ModelAndView("payment_success");
+        return new ModelAndView("payments/payment_success");
     }
     @GetMapping("/select_for_payment")
     public ModelAndView selectForPaymentPage(){
-        return new ModelAndView("select_for_payment");
+        return new ModelAndView("payments/select_for_payment");
     }
 
    /* @PostMapping("/payments")

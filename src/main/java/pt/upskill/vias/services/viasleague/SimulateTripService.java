@@ -1,6 +1,6 @@
 package pt.upskill.vias.services.viasleague;
 
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.models.routes.Leg;
 
 import java.util.List;

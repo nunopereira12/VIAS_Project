@@ -12,9 +12,9 @@ public class EmailController {
 
     @Autowired
     private EmailService emailService;
-    @GetMapping(value = "/contactos")
+    @GetMapping(value = "/contacts")
     public ModelAndView contactPage() {
-        return new ModelAndView("/email/contactos");
+        return new ModelAndView("/email/contacts");
     }
 
     @PostMapping(value= "/send_message")

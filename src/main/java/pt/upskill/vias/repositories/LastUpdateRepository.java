@@ -9,6 +9,6 @@ import pt.upskill.vias.entities.League;
 public interface LastUpdateRepository extends JpaRepository<LastUpdate, Long> {
 
     LastUpdate getLastUpdateById(long id);
-    LastUpdate getLastUpdateByName(String name);
+
 
 }

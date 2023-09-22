@@ -1,19 +1,16 @@
 package pt.upskill.vias.services.viasleague;
 
 import pt.upskill.vias.entities.League;
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.models.routes.Step;
 
-import java.util.Date;
 import java.util.List;
 
 public interface ViasLeagueService {
 
 
     void updateUserStats(User user, Leg leg);
-    List<User> getUsersLeague(User user);
-
     int getLegDistanceWalking(List<Step> steps);
     int getLegDistanceTransit(List<Step> steps);
     int getLegTimeWalking(List<Step> steps);
@@ -27,6 +24,6 @@ public interface ViasLeagueService {
     void changeGold(List<User> gold, int positions_to_move);
     void changePlatinum(List<User> platinum, int positions_to_move);
     void changeDiamond(List<User> diamond, int positions_to_move);
-    public String lastUpdatePlus7(Date my_date);
+    String nextUpdate();
 
 }

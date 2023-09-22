@@ -5,15 +5,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-import pt.upskill.vias.entities.Role;
-import pt.upskill.vias.entities.Token;
-import pt.upskill.vias.entities.User;
-import pt.upskill.vias.entities.UserStats;
+import pt.upskill.vias.entities.user.Role;
+import pt.upskill.vias.entities.user.Token;
+import pt.upskill.vias.entities.user.User;
+import pt.upskill.vias.entities.user.UserStats;
 import pt.upskill.vias.entities.cards.ViasCard;
-import pt.upskill.vias.models.Login;
-import pt.upskill.vias.models.ReplacePassword;
-import pt.upskill.vias.models.SignUp;
+import pt.upskill.vias.models.auth.ReplacePassword;
+import pt.upskill.vias.models.auth.SignUp;
 import pt.upskill.vias.repositories.*;
+import pt.upskill.vias.services.utils.CalendarService;
 
 import java.security.SecureRandom;
 import java.text.ParseException;
@@ -37,6 +37,8 @@ public class AuthServiceImpl implements AuthService {
     EmailService emailService;
     @Autowired
     TokenRepository tokenRepository;
+    @Autowired
+    CalendarService calendarService;
 
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
@@ -45,29 +47,17 @@ public class AuthServiceImpl implements AuthService {
 
         User user = userRepository.getUserByUsername(login_credential);
 
-        User userEmail = userRepository.getUserByEmail(login_credential);
+        User user_email = userRepository.getUserByEmail(login_credential);
 
 
         if (user != null && user.isActivated() && passwordEncoder.matches(password, user.getPassword())) {
             return user;
         }
-        if (userEmail != null && userEmail.isActivated() && passwordEncoder.matches(password, userEmail.getPassword())) {
-            return userEmail;
+        if (user_email != null && user_email.isActivated() && passwordEncoder.matches(password, user_email.getPassword())) {
+            return user_email;
         }
 
         return null;
-    }
-
-    @Override
-    public boolean isLoginValid(Login login) {
-        User user = userRepository.getUserByUsername(login.getUsername());
-        User userEmail = userRepository.getUserByEmail(login.getUsername());
-
-        if (user != null && user.isActivated() && passwordEncoder.matches(login.getPassword(), user.getPassword())) {
-           return true;
-        }
-
-        return userEmail != null && userEmail.isActivated() && passwordEncoder.matches(login.getPassword(), userEmail.getPassword());
     }
 
     @Override
@@ -81,8 +71,8 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public boolean isSignupPossible(SignUp signup_form) {
-        return !isUsernameTaken(signup_form.getUsername()) && !isEmailTaken(signup_form.getEmail()) && passwordsMatch(signup_form.getPassword(), signup_form.getConfirmPassword());
+    public boolean isSignupPossible(SignUp signUp_form) {
+        return !isUsernameTaken(signUp_form.getUsername()) && !isEmailTaken(signUp_form.getEmail()) && passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password());
     }
 
     @Override
@@ -108,15 +98,15 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public ModelAndView signupErrorMav(SignUp signup_form) {
+    public ModelAndView signupErrorMav(SignUp signUp_form) {
         ModelAndView mav = new ModelAndView("auth/signup");
-        if (isUsernameTaken(signup_form.getUsername())) {
+        if (isUsernameTaken(signUp_form.getUsername())) {
             mav.addObject("username_unavailable", "Username não está disponível.");
         }
-        if (isEmailTaken(signup_form.getEmail())) {
+        if (isEmailTaken(signUp_form.getEmail())) {
             mav.addObject("email_unavailable", "Email não está disponível.");
         }
-        if (!passwordsMatch(signup_form.getPassword(), signup_form.getConfirmPassword())) {
+        if (!passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password())) {
             mav.addObject("passwords_different", "Passwords não coincidem.");
         }
         return mav;
@@ -133,19 +123,19 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void registerUser(SignUp signup_form) throws ParseException {
+    public void registerUser(SignUp signUp_form) throws ParseException {
 
         User user = new User();
 
-        user.setFirstName(signup_form.getFirstName());
-        user.setLastName(signup_form.getLastName());
-        user.setBirthday(user.parseDate(signup_form.getDOB()));
-        user.setUsername(signup_form.getUsername());
-        user.setEmail(signup_form.getEmail());
-        user.setPassword(passwordEncoder.encode(signup_form.getPassword()));
+        user.setFirst_name(signUp_form.getFirst_name());
+        user.setLast_name(signUp_form.getLast_name());
+        user.setBirthday(calendarService.parseDate(signUp_form.getBirthday()));
+        user.setUsername(signUp_form.getUsername());
+        user.setEmail(signUp_form.getEmail());
+        user.setPassword(passwordEncoder.encode(signUp_form.getPassword()));
         user.setRole(Role.USER);
         user.setCurrent_league(leagueRepository.getLeagueById(1));
-        user.setProfilePicture("default_profile_pic.png");
+        user.setProfile_picture("default_profile_pic.png");
 
         UserStats userStats = new UserStats();
         userStatsRepository.save(userStats);
@@ -153,7 +143,7 @@ public class AuthServiceImpl implements AuthService {
         ViasCard viasCard = new ViasCard();
         viasCardRepository.save(viasCard);
 
-        user.setUserStats(userStats);
+        user.setUser_stats(userStats);
         viasCard.setUser(user);
         userRepository.save(user);
 

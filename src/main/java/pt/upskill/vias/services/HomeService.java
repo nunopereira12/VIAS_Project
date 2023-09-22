@@ -1,8 +1,6 @@
 package pt.upskill.vias.services;
 
-import pt.upskill.vias.entities.User;
-
-import java.util.List;
+import pt.upskill.vias.entities.user.User;
 
 public interface HomeService {
 

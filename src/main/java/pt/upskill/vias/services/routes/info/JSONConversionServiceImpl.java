@@ -20,11 +20,6 @@ public class JSONConversionServiceImpl implements JSONConversionService {
     LegRepository legRepository;
 
     @Override
-    public JSONObject stringToObject(String obj_string) {
-        return (JSONObject) JSONObject.stringToValue(obj_string);
-    }
-
-    @Override
     public Leg addSteps(Leg leg) {
         List<Step> steps = new ArrayList<>();
 

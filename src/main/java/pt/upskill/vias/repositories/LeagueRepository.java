@@ -9,8 +9,6 @@ import java.util.Date;
 
 @Repository
 public interface LeagueRepository extends JpaRepository<League, Long> {
-
     League getLeagueById(long id);
-
 
 }

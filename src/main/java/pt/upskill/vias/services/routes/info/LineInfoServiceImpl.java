@@ -9,12 +9,20 @@ import pt.upskill.vias.models.routes.Line;
 public class LineInfoServiceImpl implements LineInfoService {
     @Override
     public String color(JSONObject line) {
-        return line.getString("color");
+        try {
+            return line.getString("color");
+        } catch (JSONException e) {
+            return "#000000";
+        }
     }
 
     @Override
     public String text_color(JSONObject line) {
-        return line.getString("text_color");
+        try {
+            return line.getString("text_color");
+        } catch (JSONException e) {
+            return "#FFFFFF";
+        }
     }
 
     @Override
@@ -28,14 +36,16 @@ public class LineInfoServiceImpl implements LineInfoService {
     }
 
     public Line buildLine(JSONObject transit_details) {
-        JSONObject jsonLine = transit_details.getJSONObject("line");
         Line line;
+
+        JSONObject jsonLine = transit_details.getJSONObject("line");
         try {
             String short_name = short_name(jsonLine);
             line = new Line(color(jsonLine), text_color(jsonLine), short_name);
         } catch (JSONException e) {
             line = new Line(color(jsonLine), text_color(jsonLine), name(jsonLine));
         }
+
         return line;
     }
 }

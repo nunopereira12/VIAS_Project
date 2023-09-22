@@ -9,7 +9,7 @@ public class IDController {
 
     @GetMapping(value = "/id_pica")
     public ModelAndView picaPage() {
-        ModelAndView mav = new ModelAndView("id_pica");
+        ModelAndView mav = new ModelAndView("pica/id_pica");
         return mav;
     }
 }

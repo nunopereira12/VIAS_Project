@@ -165,11 +165,11 @@
             </c:if>
             <div class="mb-3">
                 <label  for="firstName" class="form-label text-start">Primeiro Nome</label>
-                <input type="firstName" name="firstName" class="form-control formtext" id="firstName" placeholder="Inserir primeiro nome" required>
+                <input type="firstName" name="first_name" class="form-control formtext" id="firstName" placeholder="Inserir primeiro nome" required>
             </div>
             <div class="mb-3">
                 <label for="lastName" class="form-label text-start">Último Nome</label>
-                <input type="lastName" name="lastName" class="form-control formtext" id="lastName" placeholder="Inserir último nome" required>
+                <input type="lastName" name="last_name" class="form-control formtext" id="lastName" placeholder="Inserir último nome" required>
             </div>
             <div class="mb-3">
                 <label for="username" class="form-label text-start">Username VIAS League</label>
@@ -181,7 +181,7 @@
             </div>
             <div class="mb-3">
                 <label for="birthday" class="form-label text-start">Data de Nascimento</label>
-                <input type="date" name="DOB" class="form-control formtext" id="birthday" placeholder="Seleccionar data de nascimento" required>
+                <input type="date" name="birthday" class="form-control formtext" id="birthday" placeholder="Seleccionar data de nascimento" required>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label text-start">Password</label>
@@ -189,7 +189,7 @@
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label text-start">Confirmar Password</label>
-                <input type="password" name="confirmPassword" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua password" required>
+                <input type="password" name="confirm_password" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua password" required>
             </div>
             <label class="container-checkbox">
                 <input type="checkbox" id="myCheckbox" disabled required>Li e aceito <button type="button" class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os termos e condições</button>  da VIAS

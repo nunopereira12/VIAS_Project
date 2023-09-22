@@ -8,7 +8,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.services.auth.AuthService;
 
 import java.util.ArrayList;

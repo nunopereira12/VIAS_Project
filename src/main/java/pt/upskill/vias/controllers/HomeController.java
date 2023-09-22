@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.services.viasleague.SimulateTripService;
 import pt.upskill.vias.services.viasleague.ViasLeagueService;
@@ -47,40 +47,36 @@ public class HomeController {
 
     @GetMapping("/home")
     public ModelAndView homePage(Principal principal) {
-        ModelAndView mav = new ModelAndView("home");
+        ModelAndView mav = new ModelAndView("home/home");
 
         if (principal != null) {
-            String loggedInUsername = principal.getName();
-            mav.addObject("user", userRepository.getUserByUsername(loggedInUsername));
+            String username = principal.getName();
+            mav.addObject("user", userRepository.getUserByUsername(username));
         }
-
 
         return mav;
     }
 
     @GetMapping(value="/")
     public ModelAndView index(){
-        ModelAndView mav = new ModelAndView("welcome");
-        return mav;
+        return new ModelAndView("home/welcome");
     }
 
 
     @PostMapping(value="/perform_travel")
     public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
-        ModelAndView mav = new ModelAndView("suggestions");
+        ModelAndView mav = new ModelAndView("home/suggestions");
         List<Leg> legs = routesRequestService.getLegList(origem, destino);
-
 
         legRepository.saveAll(legs);
 
         if (legs.isEmpty()) {
-            mav.addObject("error2", "Erro na procura. \nPor favor, tente outros locais.");
+            mav.addObject("search_error", "Erro na procura. \nPor favor, tente outros locais.");
             return mav;
         }
 
         if(principal != null){
             User user = userRepository.getUserByUsername(principal.getName());
-            mav.addObject("user", user);
             simulateTripService.saveLegsToUser(user, legs);
         }
 
@@ -89,9 +85,9 @@ public class HomeController {
 
     }
 
-    @PostMapping(value = "/traveldetails")
+    @PostMapping(value = "/travel_details")
     public ModelAndView travelDetailsPage(@RequestParam("id") long id, Principal principal) {
-        ModelAndView mav = new ModelAndView("traveldetails");
+        ModelAndView mav = new ModelAndView("home/travel_details");
 
         Leg leg = legRepository.getLegById(id);
         leg = jsonConversionService.addSteps(leg);
@@ -107,8 +103,7 @@ public class HomeController {
 
     @PostMapping(value = "/simulate_trip")
     public ModelAndView simulateTripRequest(@RequestParam("id")long legId, Principal principal) {
-        ModelAndView mav = new ModelAndView("traveldetails");
-
+        ModelAndView mav = new ModelAndView("home/travel_details");
 
         User user = userRepository.getUserByUsername(principal.getName());
         long userId = user.getId();

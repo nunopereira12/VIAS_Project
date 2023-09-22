@@ -1,6 +1,6 @@
 package pt.upskill.vias.entities.cards;
 
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +20,10 @@ public class ViasCard {
 
     public long getCard_number() {
         return card_number;
+    }
+
+    public void setCard_number(long card_number) {
+        this.card_number = card_number;
     }
 
     public double getBalance() {

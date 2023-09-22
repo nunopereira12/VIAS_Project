@@ -1,6 +1,6 @@
 package pt.upskill.vias.models.routes;
 
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,16 +24,12 @@ public class Leg {
     private String overview_polyline;
     private int points;
     private boolean trip_completed = false;
-
     @ManyToOne
     private User user;
-
     @Column(length = 256000)
     private String json_steps;
-
     @Transient
     private List<Step> steps = new ArrayList<>();
-
 
     public Leg() {
     }
@@ -56,6 +52,10 @@ public class Leg {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getDeparture_time() {
@@ -122,14 +122,6 @@ public class Leg {
         this.overview_polyline = overview_polyline;
     }
 
-    public List<Step> getSteps() {
-        return steps;
-    }
-
-    public void setSteps(List<Step> steps) {
-        this.steps = steps;
-    }
-
     public int getPoints() {
         return points;
     }
@@ -146,6 +138,14 @@ public class Leg {
         this.trip_completed = trip_completed;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public String getJson_steps() {
         return json_steps;
     }
@@ -154,12 +154,12 @@ public class Leg {
         this.json_steps = json_steps;
     }
 
-    public User getUser() {
-        return user;
+    public List<Step> getSteps() {
+        return steps;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setSteps(List<Step> steps) {
+        this.steps = steps;
     }
 }
 

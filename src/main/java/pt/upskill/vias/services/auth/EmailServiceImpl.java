@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import pt.upskill.vias.entities.Token;
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.Token;
+import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.repositories.UserRepository;
 
 import javax.mail.internet.MimeMessage;
@@ -14,7 +14,7 @@ import javax.mail.internet.MimeMessage;
 public class EmailServiceImpl implements EmailService{
 
     @Autowired
-    private JavaMailSender javaMailSender;
+    JavaMailSender javaMailSender;
     @Autowired
     AuthService authService;
     @Autowired

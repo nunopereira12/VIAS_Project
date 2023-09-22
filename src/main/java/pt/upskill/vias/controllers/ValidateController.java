@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import pt.upskill.vias.services.ValidateService;
+import pt.upskill.vias.services.cards.validate.ValidateService;
 
 @Controller
 public class ValidateController {
@@ -16,21 +16,13 @@ public class ValidateController {
 
     @GetMapping(value = "/validate")
     public ModelAndView validatePage() {
-        ModelAndView mav = new ModelAndView("validate");
-
-        return mav;
+        return new ModelAndView("pica/validate");
     }
 
-    @PostMapping(value = "/cardscan")
+    @PostMapping(value = "/card_scan")
     public ModelAndView validadeScan(@RequestParam("qrcode") String qrcode) {
-        ModelAndView mav = new ModelAndView("validate");
-        if(validateService.isValid(qrcode)){
-            mav.addObject("validation", true);
-        }
-        else{
-            mav.addObject("validation",false);
-        }
-
+        ModelAndView mav = new ModelAndView("pica/validate");
+        validateService.addValidation(mav, qrcode);
         return mav;
     }
 }

@@ -9,11 +9,11 @@ public class DiagramScheduleController {
 
     @GetMapping(value = "/diagrams")
     public ModelAndView diagramPage() {
-        return new ModelAndView("diagrams");
+        return new ModelAndView("info/diagrams");
     }
 
     @GetMapping(value = "/schedules")
     public ModelAndView schedulePage() {
-        return new ModelAndView("schedules");
+        return new ModelAndView("info/schedules");
     }
 }

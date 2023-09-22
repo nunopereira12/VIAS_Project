@@ -1,6 +1,6 @@
 package pt.upskill.vias.entities.cards;
 
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +14,7 @@ public class Navegante {
     @Id
     @GeneratedValue
     long id;
-
-    long card_number;
+    String card_number;
     String name;
     Date expiration_date;
     boolean valid;
@@ -24,9 +23,9 @@ public class Navegante {
     @OneToOne
     User user;
 
-    public Navegante(User user, long card_number, Date expiration_date) {
+    public Navegante(User user, String card_number, Date expiration_date) {
         this.card_number = card_number;
-        this.name = user.getFirstName() + " " + user.getLastName();
+        this.name = user.getFirst_name() + " " + user.getLast_name();
         this.expiration_date = expiration_date;
         this.valid = false;
         this.valid_next_month = false;
@@ -35,28 +34,20 @@ public class Navegante {
 
     public Navegante() {}
 
-    public long getCard_number() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getCard_number() {
         return card_number;
     }
 
-    public void setCard_number(long card_number) {
+    public void setCard_number(String card_number) {
         this.card_number = card_number;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-    public boolean isValid_next_month() {
-        return valid_next_month;
-    }
-
-    public void setValid_next_month(boolean valid_next_month) {
-        this.valid_next_month = valid_next_month;
     }
 
     public String getName() {
@@ -73,6 +64,22 @@ public class Navegante {
 
     public void setExpiration_date(Date expiration_date) {
         this.expiration_date = expiration_date;
+    }
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
+
+    public boolean isValid_next_month() {
+        return valid_next_month;
+    }
+
+    public void setValid_next_month(boolean valid_next_month) {
+        this.valid_next_month = valid_next_month;
     }
 
     public int getTimes_used() {

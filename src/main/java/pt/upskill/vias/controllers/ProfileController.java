@@ -1,21 +1,23 @@
 package pt.upskill.vias.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
+import pt.upskill.vias.models.routes.Leg;
 import pt.upskill.vias.repositories.UserRepository;
+import pt.upskill.vias.services.profile.HistoryService;
+import pt.upskill.vias.services.routes.info.JSONConversionService;
+import pt.upskill.vias.services.utils.CalendarService;
+import pt.upskill.vias.services.profile.ProfileService;
 import pt.upskill.vias.services.auth.AuthService;
 
 import java.security.Principal;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 
 @Controller
 public class ProfileController {
@@ -24,61 +26,59 @@ public class ProfileController {
     UserRepository userRepository;
     @Autowired
     AuthService authService;
+    @Autowired
+    ProfileService profileService;
+    @Autowired
+    CalendarService calendarService;
+    @Autowired
+    HistoryService historyService;
+    @Autowired
+    JSONConversionService jsonConversionService;
 
     @GetMapping(value="/profile")
     public ModelAndView profilePage(Principal principal) {
-        String loggedInUsername = principal.getName();
-
-        ModelAndView mav = new ModelAndView("profile");
-        mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
+        String username = principal.getName();
+        ModelAndView mav = new ModelAndView("user/profile");
+        User user = userRepository.getUserByUsername(username);
+        mav.addObject("user", user);
+        mav.addObject("birthday", calendarService.dateToString(user.getBirthday()));
         return mav;
     }
 
     @GetMapping(value="/edit_profile")
     public ModelAndView editProfilePage(Principal principal) {
-        String loggedInUsername = principal.getName();
-        ModelAndView mav = new ModelAndView("edit_profile");
-        mav.addObject("userr", userRepository.getUserByUsername(loggedInUsername));
+        String username = principal.getName();
+        ModelAndView mav = new ModelAndView("user/edit_profile");
+        mav.addObject("user", userRepository.getUserByUsername(username));
         return mav;
     }
 
     @PostMapping(value="update_user")
     public ModelAndView updateProfile(
             Principal principal,
-            @RequestParam(name = "firstName", required = false) String newFirstName,
-            @RequestParam(name = "lastName", required = false) String newLastName,
-            @RequestParam(name = "datee", required = false) String newDate,
-            @RequestParam(name = "password1", required = false) String password1,
-            @RequestParam(name = "password2", required = false) String password2) throws ParseException {
+            @RequestParam(name = "first_name", required = false) String first_name,
+            @RequestParam(name = "last_name", required = false) String last_name,
+            @RequestParam(name = "date", required = false) String date,
+            @RequestParam(name = "password", required = false) String password,
+            @RequestParam(name = "confirm_password", required = false) String confirm_password) throws ParseException {
 
-        String loggedInUsername = principal.getName();
-        User user = userRepository.getUserByUsername(loggedInUsername);
+        return profileService.updateUserInfo(principal, first_name, last_name, date, password, confirm_password);
 
-        if (newFirstName != null) {
-            user.setFirstName(newFirstName);
-        }
+    }
 
-        if (newLastName != null) {
-            user.setLastName(newLastName);
-        }
+    @GetMapping(value ="/history")
+    public ModelAndView historyPage(Principal principal){
+        ModelAndView mav = new ModelAndView("user/history");
 
-        if (newDate != null) {
-            /*Date date = user.parseDate2(newDate);*/
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date newDatee = dateFormat.parse(newDate);
-            user.setBirthday(newDatee);
-        }
+        User user = userRepository.getUserByUsername(principal.getName());
+        List<Leg> legs = historyService.getUserHistory(user);
 
-        if (password1 != null && password1.equals(password2)) {
-            authService.replacePassword(user,password1);
-            //falta mensagem a avisar que terá de fazer login e novo
-            return new ModelAndView("redirect:/logout").addObject("redirect", "/login");
-        } //caso as passwords n sejam identicas, acrescentar um erro no edit
+        jsonConversionService.addStepsLegList(legs);
 
-        userRepository.save(user);
+        mav.addObject("legs", legs);
+        mav.addObject("user", user);
 
-        return new ModelAndView("redirect:/profile");
-
+        return mav;
     }
 
 }

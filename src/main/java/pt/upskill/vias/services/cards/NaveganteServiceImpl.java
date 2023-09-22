@@ -3,7 +3,7 @@ package pt.upskill.vias.services.cards;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.LastUpdate;
-import pt.upskill.vias.entities.User;
+import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.entities.cards.Navegante;
 import pt.upskill.vias.repositories.LastUpdateRepository;
 import pt.upskill.vias.repositories.NaveganteRepository;
@@ -20,7 +20,7 @@ public class NaveganteServiceImpl implements NaveganteService {
     LastUpdateRepository lastUpdateRepository;
 
 
-    public boolean cardExists(long card_number) {
+    public boolean cardExists(String card_number) {
         return naveganteRepository.getNaveganteByCard_number(card_number) != null;
     }
 
@@ -28,7 +28,7 @@ public class NaveganteServiceImpl implements NaveganteService {
         return naveganteRepository.getNaveganteByUser(user) != null;
     }
 
-    public void setNaveganteToUser(User user, long card_number, Date expiration_date) {
+    public void setNaveganteToUser(User user, String card_number, Date expiration_date) {
         if (!cardExists(card_number)) {
             if (userHasCard(user)) {
                 updateNavegante(user, card_number, expiration_date);
@@ -38,7 +38,7 @@ public class NaveganteServiceImpl implements NaveganteService {
         }
     }
 
-    public void updateNavegante(User user, long card_number, Date expiration_date) {
+    public void updateNavegante(User user, String card_number, Date expiration_date) {
         Navegante navegante = naveganteRepository.getNaveganteByUser(user);
         navegante.setCard_number(card_number);
         navegante.setExpiration_date(expiration_date);
@@ -46,7 +46,7 @@ public class NaveganteServiceImpl implements NaveganteService {
     }
 
     @Override
-    public void createNavegante(User user, long card_number, Date expiration_date) {
+    public void createNavegante(User user, String card_number, Date expiration_date) {
         Navegante navegante = new Navegante(user, card_number, expiration_date);
         naveganteRepository.save(navegante);
     }

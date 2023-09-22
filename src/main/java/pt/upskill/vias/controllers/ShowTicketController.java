@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.repositories.ViasCardRepository;
-import pt.upskill.vias.services.QRCodeService;
+import pt.upskill.vias.services.cards.validate.QRCodeService;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -22,14 +22,12 @@ public class ShowTicketController {
     @Autowired
     ViasCardRepository viasCardRepository;
 
-    @PostMapping(value = "/showticket")
+    @PostMapping(value = "/show_ticket")
     public ModelAndView showticket(@RequestParam("card") String cardqr) {
-        ModelAndView mav = new ModelAndView("showticket");
+        ModelAndView mav = new ModelAndView("user/show_ticket");
         mav.addObject("cardqr", cardqr);
         return mav;
     }
-
-
     @GetMapping(value = "/generateQRCode/{cardData}", produces = "image/png")
     @ResponseBody
     public byte[] generateQRCode(@PathVariable String cardData) throws IOException, WriterException {
@@ -38,25 +36,4 @@ public class ShowTicketController {
         ImageIO.write(qrCodeImage, "png", baos);
         return baos.toByteArray();
     }
-
-
-/*
-    @GetMapping(value = "/generateQRCode/{cardId}", produces = "image/png")
-    @ResponseBody
-    public byte[] generateQRCode(@PathVariable Long cardId) throws IOException, WriterException {
-        // Retrieve the UserCard based on the cardId (you'll need to implement this logic)
-        ViasCard vais_card = userCardService.getUserCardById(cardId);
-
-        if (userCard != null) {
-
-            BufferedImage qrCodeImage = qrCodeService.generateQRCode(userCard);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(qrCodeImage, "png", baos);
-            return baos.toByteArray();
-        } else {
-
-            return new byte[0]; // Empty response
-        }
-    }*/
-
 }

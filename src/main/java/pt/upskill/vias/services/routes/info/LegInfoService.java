@@ -10,15 +10,15 @@ import java.util.List;
 
 public interface LegInfoService {
 
-     public String departureTime(JSONObject obj);
-    public String arrivalTime(JSONObject obj);
-    public String distance(JSONObject obj);
-    public String duration(JSONObject obj);
-    public String start_address(JSONObject obj);
-    public String end_address(JSONObject obj);
-    public String overview_polyline(JSONObject jsonRoute);
-    public String fare(JSONArray steps);
-    public Leg buildLeg(JSONObject jsonLeg, JSONObject jsonRoute);
+    String departureTime(JSONObject obj);
+    String arrivalTime(JSONObject obj);
+    String distance(JSONObject obj);
+    String duration(JSONObject obj);
+    String start_address(JSONObject obj);
+    String end_address(JSONObject obj);
+    String overview_polyline(JSONObject jsonRoute);
+    String fare(JSONArray steps);
+    Leg buildLeg(JSONObject jsonLeg, JSONObject jsonRoute);
 
 
 
