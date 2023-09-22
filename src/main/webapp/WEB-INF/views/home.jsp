@@ -11,7 +11,7 @@
 
 
 </head>
-<body class="home-body">
+<body class="home-body" onload="initAutocomplete()">
 
 <nav class="navbar bg-body-tertiary fixed-top " style="padding: 0">
     <div class="container-fluid">
@@ -332,10 +332,46 @@
             ],
         });
     }
+    function initAutocomplete() {
+
+        const defaultBounds = {
+            north: map.center + 0.1,
+            south: map.center - 0.1,
+            east: map.center + 0.1,
+            west: map.center - 0.1,
+        }
+
+
+
+        const options = {
+            bounds: defaultBounds,
+            componentRestrictions: { country: "pt" },
+            strictBounds: true,
+
+
+        }
+
+        const input1 = document.getElementById("origem1");
+        const autocomplete = new google.maps.places.Autocomplete(input1, options);
+        const place = autocomplete.getPlace();
+        autocomplete.bindTo("bounds", map);
+        console.log(place);
+
+        const input2 = document.getElementById("destino1");
+        const autocomplete2 = new google.maps.places.Autocomplete(input2, options);
+        const place2 = autocomplete2.getPlace();
+        autocomplete2.bindTo("bounds", map);
+
+        console.log(place2);
+
+    }
+
+
+
 </script>
 
 <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core,places&callback=initMap">
 </script>
 
 </body>

@@ -408,17 +408,46 @@
         const encodedPolyline = document.getElementById("polylineLeg").value;
         const path = google.maps.geometry.encoding.decodePath(encodedPolyline);
 
+
+        const svgMarkerStart = {
+            path: "M12 2a8 8 0 0 0-7.992 8A12.816 12.816 0 0 0 12 22a12.816 12.816 0 0 0 7.988-12A8 8 0 0 0 12 2zm0 11a3 3 0 1 1 3-3 3 3 0 0 1-3 3z",
+            opacity: 1,
+            strokeColor: '#041F48',
+                fillColor: '#041F48',
+            fillOpacity: 1,
+            anchor: new google.maps.Point(12, 22),
+            scale: 1.2
+
+
+        };
+
         // Create start and end markers for the polyline
         const startMarker = new google.maps.Marker({
             position: path[0], // Start of the polyline
             map: map,
-            label: 'S', // Label 'S' for start
+            icon: svgMarkerStart,
+
+
+
         });
+
+        const svgMakerEnd = {
+            path: "M2 15h9v3h8V5h-8V2H2V0H0v23h2zM8 4v3h3v3h3V7h3v3h-3v3h3v3h-3v-3h-3v-3H8v3H5v-3H2V7h3V4z M4 7h3v3H5z",
+            opacity: 1,
+            strokeColor: '#041F48',
+            fillColor: '#041F48',
+            fillOpacity: 1,
+            anchor: new google.maps.Point(2, 24),
+            scale: 1.4,
+            strokeWeight: 0.1,
+
+
+        };
 
         const endMarker = new google.maps.Marker({
             position: path[path.length - 1], // End of the polyline
             map: map,
-            label: 'E', // Label 'E' for end
+            icon: svgMakerEnd,
         });
 
 
