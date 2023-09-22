@@ -50,44 +50,47 @@
     </div>
 
     <div class="list-container" id="list1">
+        <div class="container-liga">
 
-        <c:if test="${selectedFilter eq 'My League'}">
-            <c:choose>
-                <c:when test="${user.getCurrent_league().getId() eq '1'}">
-                    <div class="container-liga">
+            <c:if test="${selectedFilter eq 'My League'}">
+                <c:choose>
+                    <c:when test="${user.getCurrent_league().getId() eq '1'}">
+
                         <div class="left">
                             <img class="image_badge center-img" src="images/vias_league/bronze_badge.png" width="65px"
                                  alt="Bronze Image"/>
                             <div class="liga"><strong>Liga Bronze</strong></div>
                         </div>
-                        <div class="right">
-                            <p>Reset Semanal em: </p>
-                            <div id="countdown"></div>
+                    </c:when>
+                    <c:when test="${user.getCurrent_league().getId() eq '2'}">
+                        <div class="left">
+                            <img class="image_badge center-img" src="images/vias_league/silver_badge.png" width="65px"
+                                 alt="Silver Image"/>
+                            <div class="liga"><strong>Liga Prata</strong></div>
                         </div>
-                    </div>
-                </c:when>
-                <c:when test="${user.getCurrent_league().getId() eq '2'}">
-                    <img class="image_badge center-img" src="images/vias_league/silver_badge.png" width="65px"
-                         alt="Silver Image"/>
-                    <div class="liga"><strong>Liga Prata</strong></div>
-                </c:when>
-                <c:when test="${user.getCurrent_league().getId() eq '3'}">
-                    <img class="image_badge center-img" src="images/vias_league/gold_badge.png" width="65px"
-                         alt="Gold Image"/>
-                    <div class="liga"><strong>Liga Ouro</strong></div>
-                </c:when>
-                <c:when test="${user.getCurrent_league().getId() eq '4'}">
-                    <img class="image_badge center-img" src="images/vias_league/platinum_badge.png" width="65px"
-                         alt="Platinum Image"/>
-                    <div class="liga"><strong>Liga Platina</strong></div>
-                </c:when>
-                <c:when test="${user.getCurrent_league().getId() eq '5'}">
-                    <img class="image_badge center-img" src="images/vias_league/diamond_badge.png" width="65px"
-                         alt="Diamond Image"/>
-                    <div class="liga"><strong>Liga Diamante</strong></div>
-                </c:when>
-            </c:choose>
-        </c:if>
+                    </c:when>
+                    <c:when test="${user.getCurrent_league().getId() eq '3'}">
+                        <img class="image_badge center-img" src="images/vias_league/gold_badge.png" width="65px"
+                             alt="Gold Image"/>
+                        <div class="liga"><strong>Liga Ouro</strong></div>
+                    </c:when>
+                    <c:when test="${user.getCurrent_league().getId() eq '4'}">
+                        <img class="image_badge center-img" src="images/vias_league/platinum_badge.png" width="65px"
+                             alt="Platinum Image"/>
+                        <div class="liga"><strong>Liga Platina</strong></div>
+                    </c:when>
+                    <c:when test="${user.getCurrent_league().getId() eq '5'}">
+                        <img class="image_badge center-img" src="images/vias_league/diamond_badge.png" width="65px"
+                             alt="Diamond Image"/>
+                        <div class="liga"><strong>Liga Diamante</strong></div>
+                    </c:when>
+                </c:choose>
+                <div class="right">
+                    <p>Reset Semanal em: </p>
+                    <div id="countdown"></div>
+                </div>
+            </c:if>
+        </div>
         <c:if test="${selectedFilter ne 'My League'}">
             <img class="image_badge center-img" src="images/leaderboard.v2.png" width="65px" alt="Leaderboard Img"/>
             <div class="leaderboard"><strong>${selectedFilter}</strong></div>

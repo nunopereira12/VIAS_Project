@@ -14,6 +14,7 @@ import pt.upskill.vias.services.auth.AuthService;
 
 import java.security.Principal;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
@@ -62,8 +63,10 @@ public class ProfileController {
         }
 
         if (newDate != null) {
-            Date date = user.parseDate2(newDate);
-            user.setBirthday(date);
+            /*Date date = user.parseDate2(newDate);*/
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date newDatee = dateFormat.parse(newDate);
+            user.setBirthday(newDatee);
         }
 
         if (password1 != null && password1.equals(password2)) {

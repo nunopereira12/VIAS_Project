@@ -22,6 +22,7 @@
 .table-container {
     max-width: 100%; /* Set a maximum width for the container */
     overflow-x: auto; /* Allow horizontal scrolling if the content overflows */
+    min-height: 200px;
     max-height: 250px; /* Set a maximum height for the container */
     overflow-y: auto; /* Allow vertical scrolling if the content exceeds the container's height */
     scrollbar-width: none; /* tira no firefox */

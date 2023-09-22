@@ -49,6 +49,10 @@
     display: none;
 }
 
+.pass {
+    margin-top: 65px;
+}
+
 @media (min-width: 601px) {
     .container {
         margin-top: 80px;

@@ -32,7 +32,7 @@
                         </g>
                     </svg>
                 </button>
-                <input type="text" name="firstName" class="form-control formtext" id="firstName" value=${userr.getFirstName()} disabled required>
+                <input type="text" name="firstName" class="form-control formtext" id="firstName" value=${userr.getFirstName()} oninput="validateInput(this)" maxlength="25" pattern="[A-Za-z]+" disabled required>
             </div>
             <div class="mb-3">
                 <label  for="lastName" class="form-label text-start">Último Nome</label>
@@ -47,7 +47,8 @@
                         </g>
                     </svg>
                 </button>
-                <input type="text" name="lastName" class="form-control formtext" id="lastName" value=${userr.getLastName()} disabled required>
+                <input type="text" name="lastName" class="form-control formtext" id="lastName" value="${userr.getLastName()}" maxlength="25" pattern="[A-Za-z]+" disabled required oninput="validateLastName()">
+
             </div>
             <div class="mb-3">
                 <label  for="datee" class="form-label text-start">Data Nascimento</label>
@@ -62,10 +63,10 @@
                         </g>
                     </svg>
                 </button>
-                <input type="text" name="datee" class="form-control formtext" id="datee" value="${userr.formatDateToDDMMYY(userr.getBirthday())}" disabled required>
+                <input type="date" name="datee" class="form-control formtext" id="datee" disabled required>
             </div>
-            <div class="mb-3">
-                <label  for="password1" class="form-label text-start">Password</label>
+            <div class="mb-3 pass">
+                <label  for="password1" class="form-label text-start">Password *</label>
                 <button class="svg-button float-end toggle-button" type="button" data-attribute="password1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="42" viewBox="0 0 56 52" fill="none" class="svg-image">
                         <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
@@ -80,7 +81,7 @@
                 <input type="password" name="password1" class="form-control formtext" id="password1" disabled required>
             </div>
             <div class="mb-3">
-                <label  for="password2" class="form-label text-start">Confirmar Password</label>
+                <label  for="password2" class="form-label text-start">Confirmar Password *</label>
                 <button class="svg-button float-end toggle-button" type="button" data-attribute="password2" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="42" viewBox="0 0 56 52" fill="none" class="svg-image">
                         <circle cx="25.5" cy="28.5" r="17.5" fill="white"/>
@@ -124,6 +125,49 @@
             }
         });
     });
+
+    function validateInput() {
+        const inputElement = document.getElementById('firstName');
+        const inputValue = inputElement.value;
+
+        // Remove any non-alphabet characters
+        const sanitizedValue = inputValue.replace(/[^A-Za-z]/g, '');
+
+        // Truncate the value to a maximum of 25 characters
+        const truncatedValue = sanitizedValue.slice(0, 25);
+
+        // Update the input value with the sanitized and truncated value
+        inputElement.value = truncatedValue;
+    }
+
+    function validateLastName() {
+        const inputElement = document.getElementById('lastName');
+        const inputValue = inputElement.value;
+
+        // Remove any non-alphabet characters
+        const sanitizedValue = inputValue.replace(/[^A-Za-z]/g, '');
+
+        // Truncate the value to a maximum of 25 characters
+        const truncatedValue = sanitizedValue.slice(0, 25);
+
+        // Update the input value with the sanitized and truncated value
+        inputElement.value = truncatedValue;
+    }
+
+    validateInput();
+    validateLastName();
+
+    // Assuming userr.getBirthday() returns a date in a format that can be parsed by the Date constructor
+    const userBirthday = new Date("${userr.getBirthday()}");
+
+    // Get the date input element by its ID
+    const dateInput = document.getElementById("datee");
+
+    // Format the date as yyyy-MM-dd
+    const formattedBirthday = userBirthday.toISOString().slice(0, 10);
+
+    // Set the default value for the date input
+    dateInput.value = formattedBirthday;
 
 
 </script>
