@@ -36,4 +36,27 @@ public class CalendarServiceImpl implements CalendarService {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         return formatter.parse(date);
     }
+
+    @Override
+    public String getNextMonth() {
+        // Get the current date
+        Date currentDate = new Date();
+
+        // Create a Calendar instance and set it to the current date
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+
+        // Add 1 to the month field to get the next month
+        calendar.add(Calendar.MONTH, 1);
+
+        // Format the resulting date
+        Locale locale = new Locale("pt", "PT");
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM/yyyy", locale);
+        String formattedDate = sdf.format(calendar.getTime());
+
+        // Capitalize the first letter of the month
+        formattedDate = formattedDate.substring(0, 1).toUpperCase() + formattedDate.substring(1);
+
+        return formattedDate;
+    }
 }

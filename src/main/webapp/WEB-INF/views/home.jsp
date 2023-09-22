@@ -294,6 +294,14 @@
             </svg>
             <span style="margin-bottom:10px">ID Oficial</span></button>
 
+    </div>
+    <div class="footerlogo">
+        <footer>
+            <img class="footerimage" src="images/logo_nobg.png" alt="">
+        </footer>
+    </div>
+    </div>
+
 
 </c:when>
 </c:choose>

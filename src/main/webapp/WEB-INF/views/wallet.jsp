@@ -29,7 +29,7 @@
 
 
                     <label for="numberTitle" class="modal-label">Número do Título</label>
-                    <input type="number" class="form-control" name="naveganteNumber" id="numberTitle" placeholder="Introduza o número do título">
+                    <input type="number" class="form-control" name="naveganteNumber" id="numberTitle" placeholder="Introduza o número do título" max="999999999999">
 
 
                     <label for="expiringDate" class="modal-label">Data de Validade</label>
@@ -109,7 +109,19 @@
                             <p class="validuntil">Título Expirado</p>
                             </c:when>
                             <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0 }">
-                            <p class="validuntil">Válido até: ${currentDate}</p>
+                            <p class="validuntil">
+
+                                <c:if test="${!navegante.isValid()}">
+                                    Título Inválido.
+                                </c:if>
+                               <c:if test="${navegante.isValid() && !navegante.isValid_next_month()}">
+                                   Válido até: ${currentDate}
+                               </c:if>
+
+                                <c:if test="${navegante.isValid_next_month()}">
+                                    Válido até: ${nextMonth}
+                                </c:if>
+                            </p>
                             </c:when>
                                 <c:when test="${navegate == null}">
                                     <div class="text-placeholder"></div>
@@ -210,12 +222,16 @@
 </div>
 
 <script>
-    const switchNavigante = document.getElementById('switchNavigante');
-    const switchVIASCard = document.getElementById('switchVIAS-Card');
-    const carousel = new bootstrap.Carousel(document.getElementById('carouselExampleControls'));
-    const informationCarousel = new bootstrap.Carousel(document.getElementById('validationAndInformation'));
-    const validateButtons = new bootstrap.Carousel(document.getElementById('ValidateButtons'));
-    const chargeOrBuy = new bootstrap.Carousel(document.getElementById('chargeOrBuy'));
+
+    // Function to save the selected toggle state to localStorage
+    function saveToggleState(selectedToggleState) {
+        localStorage.setItem('selectedToggleState', selectedToggleState);
+    }
+
+    // Function to retrieve the selected toggle state from localStorage
+    function getToggleState() {
+        return localStorage.getItem('selectedToggleState');
+    }
 
     // Function to update the information carousel based on the selected radio button
     function updateInformationCarousel(index) {
@@ -224,20 +240,38 @@
         chargeOrBuy.to(index);
     }
 
-    switchNavigante.addEventListener('change', () => {
-        if (switchNavigante.checked) {
+    // Function to update the carousel and toggle switch based on the selected toggle state
+    function updateCarouselAndToggle(selectedToggleState) {
+        if (selectedToggleState === 'Navegante') {
             // Show the first slide with Bootstrap Carousel method
             carousel.to(0);
             updateInformationCarousel(0);
+        } else if (selectedToggleState === 'VIAS Card') {
+            // Show the second slide with Bootstrap Carousel method
+            carousel.to(1);
+            updateInformationCarousel(1);
+        }
+    }
 
+    const switchNavigante = document.getElementById('switchNavigante');
+    const switchVIASCard = document.getElementById('switchVIAS-Card');
+    const carousel = new bootstrap.Carousel(document.getElementById('carouselExampleControls'));
+    const informationCarousel = new bootstrap.Carousel(document.getElementById('validationAndInformation'));
+    const validateButtons = new bootstrap.Carousel(document.getElementById('ValidateButtons'));
+    const chargeOrBuy = new bootstrap.Carousel(document.getElementById('chargeOrBuy'));
+
+    // Event listener for the radio buttons
+    switchNavigante.addEventListener('change', () => {
+        if (switchNavigante.checked) {
+            saveToggleState('Navegante'); // Save the selected toggle state
+            updateCarouselAndToggle('Navegante'); // Update the carousel
         }
     });
 
     switchVIASCard.addEventListener('change', () => {
         if (switchVIASCard.checked) {
-            // Show the second slide with Bootstrap Carousel method
-            carousel.to(1);
-            updateInformationCarousel(1);
+            saveToggleState('VIAS Card'); // Save the selected toggle state
+            updateCarouselAndToggle('VIAS Card'); // Update the carousel
         }
     });
 
@@ -254,6 +288,19 @@
             switchNavigante.checked = false;
             switchVIASCard.checked = true;
             updateInformationCarousel(1);
+        }
+    });
+
+    // Initialize the page on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+        const selectedToggleState = getToggleState();
+
+        if (selectedToggleState === 'Navegante' || selectedToggleState === 'VIAS Card') {
+            // Update the carousel and toggle switch based on the saved state
+            updateCarouselAndToggle(selectedToggleState);
+        } else {
+            // Default to 'Navegante' if no state is saved
+            saveToggleState('Navegante');
         }
     });
 </script>

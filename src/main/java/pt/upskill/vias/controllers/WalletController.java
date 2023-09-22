@@ -14,6 +14,7 @@ import pt.upskill.vias.repositories.ViasCardRepository;
 import pt.upskill.vias.services.CalendarService;
 import pt.upskill.vias.services.cards.NaveganteService;
 
+import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.text.ParseException;
 import java.util.Date;
@@ -46,6 +47,8 @@ public class WalletController {
         mav.addObject("currentDate", currentDate);
         mav.addObject("today", today);
         mav.addObject("viascard", viascard);
+        mav.addObject("nextMonth", calendarService.getNextMonth());
+
 
         return mav;
     }

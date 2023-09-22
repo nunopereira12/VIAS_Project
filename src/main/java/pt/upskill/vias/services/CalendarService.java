@@ -7,4 +7,7 @@ public interface CalendarService {
 
     String getCalendar();
     Date parseDate(String date) throws ParseException;
+
+     String getNextMonth();
+
 }
