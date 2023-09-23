@@ -65,6 +65,7 @@ public class NaveganteServiceImpl implements NaveganteService {
                 }
             }
         }
+        naveganteRepository.save(navegante);
     }
 
     @Override

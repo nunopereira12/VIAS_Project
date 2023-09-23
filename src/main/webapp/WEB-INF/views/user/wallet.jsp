@@ -112,7 +112,7 @@
                             <p class="validuntil">
 
                                 <c:if test="${!navegante.isValid()}">
-                                    Título Inválido.
+                                    Título Inválido
                                 </c:if>
                                <c:if test="${navegante.isValid() && !navegante.isValid_next_month()}">
                                    Válido até: ${current_date}
@@ -165,8 +165,6 @@
                                     <input type="hidden" name="card" value="ViasCard${vias_card.getCard_number()}">
                                     <button type="submit" class="addbutton" ><span class="addspan">Validar Título</span></button>
                                 </form>
-
-
                             </div>
                         </div>
                     </div>
@@ -180,7 +178,10 @@
                                 <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Adicionar Título de Transporte</span></button>
                                 </c:when>
                                 <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0}">
-                                    <button class="addbutton" ><span class="addspan">Carregar Título</span></button>
+                                    <form method="POST" action="/payments">
+                                        <input type="hidden" name="navegante_id" value="${navegante.getCard_number()}">
+                                    <button class="addbutton" type="submit"><span class="addspan">Carregar Navegante</span></button>
+                                    </form>
                                 </c:when>
                                     <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) < 0}">
                                         <button class="addbutton"  data-bs-toggle="modal" data-bs-target="#exampleModal" ><span class="addspan">Adicionar Novo Título</span></button>
@@ -190,7 +191,10 @@
                         </div>
                         <div class="carousel-item ">
                             <div class="addbutton-container" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
-                                <button class="addbutton"><span class="addspan">Carregar VIAS Card</span></button>
+                                <form method="POST" action="/payments">
+                                    <input type="hidden" name="vias_card_id" value="${vias_card.getCard_number()}">
+                                <button class="addbutton" type="submit"><span class="addspan">Carregar VIAS Card</span></button>
+                                    </form>
                             </div>
                         </div>
                     </div>

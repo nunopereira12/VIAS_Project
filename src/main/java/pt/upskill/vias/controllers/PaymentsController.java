@@ -1,33 +1,43 @@
 package pt.upskill.vias.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import pt.upskill.vias.entities.user.User;
+import pt.upskill.vias.repositories.NaveganteRepository;
+import pt.upskill.vias.repositories.UserRepository;
+import pt.upskill.vias.repositories.ViasCardRepository;
+import pt.upskill.vias.services.payments.PaymentService;
+
+import java.security.Principal;
 
 @Controller
 public class PaymentsController {
 
-    @GetMapping("/payments")
-    public ModelAndView payments() {
-        return new ModelAndView("payments/payments");
-    }
+    @Autowired
+    NaveganteRepository naveganteRepository;
 
-    @GetMapping("/payment_success")
-    public ModelAndView paymentSuccessPage(){
+    @Autowired
+    ViasCardRepository viasCardRepository;
+
+    @Autowired
+    PaymentService paymentService;
+
+    @PostMapping("/payment_success")
+    public ModelAndView paymentSuccessPage(Long vias_card_id , String navegante_id, String value){
+        paymentService.processPayment(vias_card_id, navegante_id, value);
         return new ModelAndView("payments/payment_success");
     }
-    @GetMapping("/select_for_payment")
-    public ModelAndView selectForPaymentPage(){
-        return new ModelAndView("payments/select_for_payment");
+
+   @PostMapping("/payments")
+    public ModelAndView selectForPaymentPage(Long vias_card_id , String navegante_id){
+       ModelAndView mav = new ModelAndView("payments/payments");
+        return paymentService.selectForPaymentPage(navegante_id,vias_card_id, mav);
     }
 
-   /* @PostMapping("/payments")
-    public ModelAndView finalizePayments(@RequestParam("valuePurchase")int value,@RequestParam("cardID")int cardID){
-        ModelAndView mav= new ModelAndView("/payments");
-        return mav;
-    }
-*/
 
 }

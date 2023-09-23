@@ -25,7 +25,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
             .csrf()
                 .disable()
             .authorizeRequests()
-                .antMatchers("/login", "/signup", "/", "/payments","/payment_success","/select_for_payment","/settings","/show_ticket", "/perform_travel").permitAll()
+                .antMatchers("/login", "/signup", "/", "/payments","/payment_success","/settings","/show_ticket", "/perform_travel").permitAll()
                 .antMatchers("/signup", "/activation_success", "/register_success", "/activation_success/**", "/uploads/*", "/add_navegante").permitAll()
                 .antMatchers("/welcome").permitAll()
                 .antMatchers("/home","/suggestions", "/travel_details").permitAll()
