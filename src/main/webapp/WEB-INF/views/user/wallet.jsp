@@ -177,7 +177,10 @@
                                 <c:when test="${navegante == null}">
                                 <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Adicionar Título de Transporte</span></button>
                                 </c:when>
-                                <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0}">
+                                    <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0 &&  navegante.isValid_next_month()}">
+                                        <div class="button-placeholder" ></div>
+                                </c:when>
+                                <c:when test="${navegante != null && navegante.getExpiration_date().compareTo(today) > 0 && !navegante.isValid_next_month()}">
                                     <form method="POST" action="/payments">
                                         <input type="hidden" name="navegante_id" value="${navegante.getCard_number()}">
                                     <button class="addbutton" type="submit"><span class="addspan">Carregar Navegante</span></button>
