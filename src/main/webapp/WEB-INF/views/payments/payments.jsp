@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-grid">
+        <div class="d-grid" style="justify-content: center">
             <form method="POST" action="/payment_success">
                 <input id=valuePurchase type="hidden" name="value" value="">
                 <c:if test="${navegante != null}">
@@ -97,7 +97,7 @@
                 <c:if test="${vias != null}">
                    <input type="hidden" name="vias_card_id" value="${vias.getCard_number()}">
                 </c:if>
-                <button type="submit" class="btn btn-primary buttons">Confirmar Pagamento</button>
+                <button style="width: 100%" type="submit" class="btn btn-primary buttons">Confirmar Pagamento</button>
             </form>
         </div>
     </div>
