@@ -3,6 +3,25 @@
     margin-top: 20px;
 }
 
+.input-box{
+    background: #1F7EB2;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.input-field{
+    background: #1F7EB2;
+    border: none;
+    color: #ffffff;
+    height: 50px;
+    width: 80%;
+
+}
+.input-field::placeholder{
+    color:#ffffff;
+    font-weight: 400;
+}
+
 .suggestions-content{
     background-color: #041F48;
     height:auto;
