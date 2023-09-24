@@ -197,7 +197,7 @@
 
     .suggestions-content {
         height: 380px;
-        margin-top: -72px;
+        margin-top: 170px;
     }
     .return-button{
         visibility: hidden;
@@ -221,6 +221,7 @@
         overflow: scroll;
         scrollbar-width: none;
         -ms-overflow-style: none; /* tira no ie e edge */
+
     }
 
     .suggestions-content::-webkit-scrollbar {

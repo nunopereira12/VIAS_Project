@@ -282,7 +282,7 @@
 
     .mapbox {
         background-color: #041F48;
-        height: 28%;
+        height: 45%;
         width: 100%;
         position: absolute;
         top: 0; /* Position at the top of the screen */
@@ -296,7 +296,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 92px 0 0 0; /* Para fazer overlap com a div directamente acima*/
+        margin: 250px 0 0 0; /* Para fazer overlap com a div directamente acima*/
         border-radius: 25px 25px 0 0;
         position: relative;
     }
@@ -307,11 +307,11 @@
         margin-top: 70px;
     }
     .search-box {
-        margin-top: 20px;
+        margin-top: -30px;
     }
 
     .wallet-button {
-        margin-top: 288px;
+        margin-top: 230px;
     }
 }
 
