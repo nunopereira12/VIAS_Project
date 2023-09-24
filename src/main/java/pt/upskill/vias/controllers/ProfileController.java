@@ -81,4 +81,9 @@ public class ProfileController {
         return mav;
     }
 
+    @GetMapping(value = "/profile_change_password")
+    public ModelAndView changePasswordPage() {
+        return new ModelAndView("user/profile_change_password");
+    }
+
 }

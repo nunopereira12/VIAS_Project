@@ -2,6 +2,7 @@ package pt.upskill.vias.services.profile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.repositories.UserRepository;
@@ -34,11 +35,13 @@ public class ProfileServiceImpl implements ProfileService{
         if (date != null) {
             user.setBirthday(calendarService.parseDate(date));
         }
-        if (password != null && password.equals(confirm_password)) {
+        if (password != null && !password.equals(confirm_password)) {
+            return new ModelAndView("user/edit_profile").addObject("user",user).addObject("password_error","Erro: ");
+        }
+        if (password != null) {
             authService.replacePassword(user,password);
-            //falta mensagem a avisar que terá de fazer login e novo
-            return new ModelAndView("redirect:/logout").addObject("redirect", "/login");
-        } //caso as passwords n sejam identicas, acrescentar um erro no edit
+            return new ModelAndView("redirect:/profile_change_password");
+        }
 
         userRepository.save(user);
         return new ModelAndView("redirect:/profile");

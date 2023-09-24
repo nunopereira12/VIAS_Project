@@ -1,32 +1,41 @@
 
 .container {
-    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 74%, rgba(255, 255, 255, 1) 60%);
+    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 77%, rgba(255, 255, 255, 1) 60%);
     min-height: auto;
-    padding-bottom: 0px;
 }
 
 
 .list-container {
-    background-color: #ffffff; /* Set the background color for the container */
-    border-radius: 20px 20px 5px 5px; /* Apply border radius only to the top */
-    padding: 20px; /* Add padding for spacing inside the container */
-    text-align: left; /* Adjust text alignment as needed */
-    max-width: 100%; /* Set the maximum width to match the previous container */
-    margin: 0 auto; /* Center the container horizontally */
+    background-color: #ffffff;
+    border-radius: 20px 20px 5px 5px;
+    padding: 20px;
+    text-align: left;
+    max-width: 100%;
+    margin: 0 auto;
     height: auto;
     width: auto;
     margin-top: 15px;
+    margin-bottom: -20px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
 }
 
+
+
+.list-container > div:not(:last-child) {
+    margin-bottom: 30px;
+}
 
 .table-container {
     max-width: 100%; /* Set a maximum width for the container */
     overflow-x: auto; /* Allow horizontal scrolling if the content overflows */
     min-height: 200px;
-    max-height: 250px; /* Set a maximum height for the container */
+    max-height: 279px; /* Set a maximum height for the container */
     overflow-y: auto; /* Allow vertical scrolling if the content exceeds the container's height */
     scrollbar-width: none; /* tira no firefox */
     -ms-overflow-style: none; /* tira no ie e edge */
+    margin-bottom: 1px;
 }
 
 .center-img {
@@ -51,7 +60,6 @@ img {
 
 .table {
     width: 100%; /* Make the table take up the full width of its container */
-    /*border-collapse: collapse; !* Collapse the table borders *!*/
 }
 
 
@@ -164,19 +172,6 @@ button:hover {
     z-index: 5; /* Add a higher z-index value */
     border-radius: 30px !important;
 
-
-}
-
-
-@media (max-width: 768px) {
-    /* Reduce the margin between buttons for smaller screens */
-    .list-button {
-        margin: 0 5px; /* Adjust the horizontal margin to make them closer */
-    }
-
-    .font-buttons {
-        font-size: 10px;
-    }
 }
 
 .table td {
@@ -186,11 +181,10 @@ button:hover {
 .font-buttons:hover {
     background-color: #004A89;
 }
+
 .list-button:hover {
     background-color: #004A89;
 }
-
-
 
 .buttons-container {
     margin-top: 50px;
@@ -231,7 +225,6 @@ input[type="submit"] {
 }
 
 
-
 select option:checked {
     background-color: #337ab7; /* Set the background color of the selected option */
     color: #fff; /* Set the text color of the selected option */
@@ -248,10 +241,158 @@ select option:hover {
     margin-bottom: 10px;
 }
 
-.highlighted-option {
-    background-color: #337ab7;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+
+.countdown-container {
+    display: flex;
+   /* justify-content: space-between;*/
 }
+
+.countdown-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.clock {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Add this to center text within countdown-circle */
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Add this to center text within countdown-circle */
+    font-size: 12px;
+}
+
+.countdown-circle {
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    border-radius: 20%; /* Make it a circle */
+    border: 1px solid #337ab7; /* Add a blue border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #000;
+    margin: 5px;
+    background-color: transparent;
+}
+
+#days, #hours, #minutes, #seconds {
+    font-size: 10px;
+}
+
+.countdown-label {
+    font-size: 10px;
+}
+
+.container-liga {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.left {
+    order: 1;
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 40px;
+
+}
+
+.right {
+    text-align: center;
+    order: 2;
+    width: 200px;
+    margin-bottom:-8px ;
+}
+
+#num1 {
+    text-align: center;
+    font-size: 12px;
+
+}
+
+#silver_small, #bronze_small {
+    padding-left: 2px;
+}
+
+
+.liga {
+    margin-top: 5px;
+}
+
+.container-update {
+    margin-top: 45px;
+    margin-bottom: -32px;
+    margin-left: -20px;
+}
+
+.container-update span,
+.container-update img {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 10px;
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+#countdown {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 5px;
+    max-width: 300px;
+}
+
+#countdown span {
+    font-size: 10px;
+    font-weight: normal;
+}
+
+/* Uso Futuro? */
+#countdown.expired {
+}
+
+.buttons-container {
+    position: relative; /* Set to relative positioning for child absolute positioning */
+}
+
+
+
+.icon-button {
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: -20px;
+    right: -3px;
+}
+
+.icon-button:hover {
+    background-color: #337ab7;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+
+
 
 
 @media (max-width: 768px) {
@@ -261,7 +402,7 @@ select option:hover {
 
     select {
         font-size: 14px; /* Further adjust font size for smaller screens */
-        padding: 3px;   /* Further adjust padding for smaller screens */
+        padding: 3px; /* Further adjust padding for smaller screens */
     }
 
     input[type="submit"] {
@@ -269,9 +410,9 @@ select option:hover {
     }
 
     .table-container {
-
         max-height: 237px;
     }
+
     .table td {
         font-size: 10px;
         padding: 5px;
@@ -287,63 +428,48 @@ select option:hover {
 
 
     #filter {
-        width: 250px;
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .select-box {
+        /* Adjust styles for mobile here */
+        border: 1px solid #ccc;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .dropdown-options {
+        /* Adjust styles for mobile here */
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        width: 100%;
+        max-height: 150px; /* Add max height for scrolling if needed */
+        overflow-y: auto;
     }
 
     #countdown {
         margin-left: 12px;
     }
 
+    /* Reduce the margin between buttons for smaller screens */
+    .list-button {
+        margin: 0 5px; /* Adjust the horizontal margin to make them closer */
+    }
 
+    .font-buttons {
+        font-size: 10px;
+    }
 
-}
-
-.container-liga {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.left {
-    order: 1;
-    text-align: center;
-
-}
-
-.right {
-    text-align: center;
-    order: 2;
-}
-
-.liga {
-    margin-top: 5px;
-}
-
-#liga {
+    .left {
+        margin-left: -15px;
+    }
 
 }
-
-#countdown {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    background-color: #f0f0f0;
-    padding: 8px;
-    border-radius: 5px;
-    max-width: 300px;
-}
-
-#countdown span {
-    font-size: 18px;
-    font-weight: normal;
-    margin-right: 5px;
-}
-
-/* Uso Futuro? */
-#countdown.expired {
-}
-
-
 
 
 

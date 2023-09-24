@@ -54,6 +54,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/contact_success").permitAll()
                 .antMatchers("/send_message").permitAll()
                 .antMatchers("/upload").permitAll()
+                .antMatchers("/profile_change_password").permitAll()
                 .antMatchers("//generateQRCode/{cardData}").permitAll()
                 .antMatchers("/images/**", "/css/**","/js/**","/sounds/**").permitAll()
                 .antMatchers("**").denyAll()

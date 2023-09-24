@@ -126,24 +126,16 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
             case "Viagens Completas":
                 userList.sort(Comparator.comparingInt(u -> -u.getUser_stats().getTrips_done()));
                 break;
-            case "Leaderboard":
+            case "Global League":
                 userList.sort(Comparator.comparingInt(u -> -u.getUser_stats().getTotal_points()));
                 break;
             case "My League":
                 userList = userRepository.findByCurrentLeagueId(league.getId());
+                userList.sort(Comparator.comparingInt(u -> -u.getUser_stats().getWeekly_points()));
                 break;
             default:
                 return Collections.emptyList();
         }
-
-   /*     List<User> userListCopy = new ArrayList<>(userList);
-
-        for (User user : userListCopy) {
-            if (!user.getRole().equals("USER")) {
-                userList.remove(user);
-            }
-        }*/
-
 
         return userList;
     }
