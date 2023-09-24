@@ -255,6 +255,9 @@
     var modalButton = document.querySelector('#enableCheckbox'); // Replace with the actual class or ID of your modal button
     var myCheckbox = document.getElementById('myCheckbox');
     var myModal = new bootstrap.Modal(document.getElementById('exampleModal')); // Replace with the actual ID of your modal
+    const currentDate = new Date();
+    const currentDateString = currentDate.toISOString().slice(0, 10);
+    document.getElementById("birthday").setAttribute("max", currentDateString);
 
 
     modalButton.addEventListener('click', function () {
