@@ -268,29 +268,49 @@
                         <td id="username1">${player.getUsername()}</td>
                         <td>
                             <div class="points">
+                                <div class="points-number">
                                 <c:choose>
                                     <c:when test="${selected_filter eq 'My League'}">
                                         ${player.getUser_stats().getWeekly_points()}
+                                        <div class="points-text">
+                                            pontos
+                                        </div>
                                     </c:when>
                                     <c:when test="${selected_filter eq 'Global League'}">
                                         ${player.getUser_stats().getTotal_points()}
+                                        <div class="points-text">
+                                            pontos
+                                        </div>
                                     </c:when>
                                     <c:when test="${selected_filter eq 'Distância Percorrida a Andar'}">
                                         ${player.getUser_stats().getTotal_distance_walking()}
+                                        <div class="points-text">
+                                            metros
+                                        </div>
                                     </c:when>
                                     <c:when test="${selected_filter eq 'Distância Percorrida Transportes'}">
                                         ${player.getUser_stats().getTotal_distance_transit()}
+                                        <div class="points-text">
+                                            km
+                                        </div>
                                     </c:when>
                                     <c:when test="${selected_filter eq 'Tempo Despendido a Andar'}">
                                         ${player.getUser_stats().getTotal_time_walking()}
+                                        <div class="points-text">
+                                            minutos
+                                        </div>
                                     </c:when>
                                     <c:when test="${selected_filter eq 'Tempo Despendido Transportes'}">
                                         ${player.getUser_stats().getTotal_time_transit()}
+                                        <div class="points-text">
+                                            minutos
+                                        </div>
                                     </c:when>
                                     <c:when test="${selected_filter eq 'Viagens Completas'}">
                                         ${player.getUser_stats().getTrips_done()}
                                     </c:when>
                                 </c:choose>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -320,43 +340,8 @@
                     habitasse platea dictumst. Proin ac arcu neque. Vestibulum feugiat euismod pellentesque. Class
                     aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
 
-                <p>Phasellus quis mollis diam. Vivamus id euismod arcu. Etiam sed nunc egestas, finibus est ut, pulvinar
-                    lacus. Cras egestas nisi nec eleifend consectetur. Sed ut neque vel dui vulputate eleifend at ut
-                    nibh. Ut sem risus, viverra vel massa eu, varius vehicula tortor. Vivamus nec sollicitudin arcu.
-                    Suspendisse id consequat lectus, nec commodo lorem. Nulla mattis consectetur neque, blandit pretium
-                    enim pretium ac. Suspendisse at erat felis. Aliquam vel consectetur augue, rutrum auctor sem. Mauris
-                    at mi dui. Maecenas vulputate feugiat pretium. Aenean sodales est ac finibus commodo. Nullam nisl
-                    risus, volutpat at elit sed, pulvinar malesuada risus. Vivamus scelerisque, purus et viverra
-                    tincidunt, lectus neque imperdiet quam, non tempor lacus leo sit amet dolor.</p>
+                <p> Amanhã escrever aquiiii </p>
 
-                <p>Morbi scelerisque dignissim purus, sit amet fermentum quam laoreet et. In cursus tortor at leo
-                    porttitor vestibulum. Suspendisse et cursus sem, volutpat commodo lorem. Praesent augue purus,
-                    hendrerit condimentum semper ut, volutpat ullamcorper lectus. Pellentesque varius lobortis ante sed
-                    mollis. Mauris ornare vestibulum ante, sed cursus nibh commodo a. Phasellus semper turpis quis porta
-                    dapibus. Aliquam non sapien quam. Duis mattis lectus nec diam consequat tristique. Suspendisse
-                    malesuada viverra consequat. Suspendisse mollis leo sed posuere varius. Mauris non nulla sit amet
-                    felis vulputate egestas. Integer sed vulputate nulla. Vestibulum sollicitudin velit elit, vitae
-                    volutpat orci ultricies vitae. Proin pellentesque elementum sapien pulvinar vestibulum. Cras id dui
-                    eu erat luctus euismod sit amet ac diam.</p>
-
-                <p>Phasellus sed justo felis. Sed sagittis maximus gravida. Donec non sagittis sapien. Curabitur
-                    faucibus elementum purus, vitae sollicitudin sapien lacinia eget. Pellentesque mollis ultrices sem,
-                    imperdiet semper dui cursus vel. Vestibulum egestas id purus ut molestie. Nam sit amet ex enim.
-                    Suspendisse sit amet molestie erat, eu bibendum metus. Morbi eget faucibus orci. Vestibulum ante
-                    ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut aliquet odio non eros
-                    congue porttitor. Vivamus sed porta massa, a ornare ipsum. Pellentesque rhoncus et dui sit amet
-                    ornare. Aliquam ornare tellus quis tempor porttitor. </p>
-
-                <p>Nam posuere metus sit amet leo placerat egestas. Nam facilisis, diam nec laoreet aliquam, lorem dolor
-                    sollicitudin magna, elementum egestas augue dui eget purus. Aenean sem urna, lobortis vitae gravida
-                    malesuada, cursus et sapien. Proin convallis augue eu massa elementum, vitae dapibus lacus
-                    facilisis. Morbi malesuada, nisl vel dapibus tempus, lorem quam pretium velit, ut tincidunt purus mi
-                    aliquam libero. Nam gravida, erat in posuere scelerisque, risus erat euismod felis, quis ullamcorper
-                    ante justo id magna.</p>
-
-                <p> Phasellus ac pretium neque, vitae ultricies libero. Vestibulum et nulla in justo elementum
-                    sollicitudin. Suspendisse hendrerit massa ex. Phasellus et nisi tellus. Aenean laoreet dui vehicula
-                    enim congue sollicitudin. Aliquam eget tempus sapien. Donec nec porta tortor. </p>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary buttons" data-bs-dismiss="modal">Vamos a isso!</button>
@@ -439,6 +424,14 @@
         modal.hide();
     }
 
+    if (!localStorage.getItem("visited_before")) {
+        // Open the modal
+        var modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+        modal.show();
+
+        // Set a flag in localStorage to indicate that the user has visited
+        localStorage.setItem("visited_before", "true");
+    }
 
 </script>
 

@@ -38,7 +38,7 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         List<Step> steps = leg.getSteps();
 
         int total_distance_walking = userStats.getTotal_distance_walking() + getLegDistanceWalking(steps);
-        int total_distance_transit = userStats.getTotal_distance_transit() + getLegDistanceTransit(steps);
+        int total_distance_transit = (userStats.getTotal_distance_transit() + getLegDistanceTransit(steps)) / 1000;
         int total_time_walking = userStats.getTotal_time_walking() + getLegTimeWalking(steps) / 60;
         int total_time_transit = userStats.getTotal_time_transit() + getLegTimeTransit(steps) / 60;
         int legPoints = leg.getPoints();

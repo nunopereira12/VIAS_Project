@@ -163,6 +163,8 @@ button:hover {
     font-size: 15px;
 }
 
+
+
 .highlighted-row {
     background-color: blue; /* Background color for highlighting */
     color: white; /* Text color */
@@ -397,7 +399,7 @@ select option:hover {
 
 @media (max-width: 768px) {
     .container {
-        background: linear-gradient(0deg, rgba(31, 126, 178, 1) 76%, rgba(255, 255, 255, 1) 60%);
+        background: linear-gradient(0deg, rgba(31, 126, 178, 1) 76.5%, rgba(255, 255, 255, 1) 60%);
     }
 
     select {
@@ -466,7 +468,27 @@ select option:hover {
     }
 
     .left {
-        margin-left: -15px;
+        margin-left: 10px;
+    }
+
+    .left .image_badge {
+        width: 40px;
+    }
+
+    .left .liga {
+        font-size: 12px;
+    }
+
+    .right {
+        margin-top: -15px;
+    }
+
+    .countdown-item {
+        width: 35px;
+    }
+
+    .container-update {
+        margin-top: 25px;
     }
 
 }
