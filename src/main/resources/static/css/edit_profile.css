@@ -15,7 +15,7 @@
 }
 
 .container {
-    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 85%, rgba(255, 255, 255, 1) 60%);
+    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 86%, rgba(255, 255, 255, 1) 60%);
     min-height: auto;
 }
 
@@ -40,17 +40,28 @@
     margin-top: 60px;
 }
 
-/*.svg-image {
-    width: 30px; !* Adjust the width of the SVG image *!
-    height: 30px; !* Adjust the height of the SVG image *!
-}*/
-
 .hidden {
     display: none;
 }
 
 .pass {
     margin-top: 65px;
+}
+
+#nota {
+    margin-bottom: -1px;
+    font-size: 10px;
+    text-align: center;
+}
+
+#password_text {
+    font-size: 15px;
+}
+
+.alert-danger {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
 @media (min-width: 601px) {
@@ -71,4 +82,6 @@
         width: auto;
     }
 }
+
+
 
