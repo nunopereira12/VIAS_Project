@@ -26,6 +26,7 @@
                     <button id=valueSelection2 class="choice-button" value="15.00"> 15.00 €</button>
                 </p>
                 <p>
+
                     <input type="number" id="newValueInput" class="form-control formtext" placeholder="0€" required min="5" max="1000">
                 </p>
 
