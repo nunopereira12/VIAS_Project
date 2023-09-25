@@ -50,7 +50,7 @@
                         </a>
                     </c:when>
                     <c:when test="${user == null}">
-                        <a href="http://localhost:8080/login">
+                        <a href="/login">
                             <button class="nav-perfil-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"
                                      fill="none">
@@ -71,74 +71,74 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item nav-option-big">
-                        <a class="nav-link" href="http://localhost:8080/schedules">Horários</a>
+                        <a class="nav-link" href="/schedules">Horários</a>
                     </li>
                     <li class="nav-item nav-option-big">
-                        <a class="nav-link" href="http://localhost:8080/diagrams">Linhas</a>
+                        <a class="nav-link" href="/diagrams">Linhas</a>
                     </li>
                     <c:choose>
                         <c:when test="${user == null}">
                             <div style="text-align: center">
                                 <li class="nav-item-small" style="margin-top: 200px">
-                                    <a class="nav-link" href="http://localhost:8080/settings">Definições</a>
+                                    <a class="nav-link" href="/settings">Definições</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="http://localhost:8080/contacts">Contactos</a>
+                                    <a class="nav-link" href="/contacts">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="http://localhost:8080/help">Ajuda</a>
+                                    <a class="nav-link" href="/help">Ajuda</a>
                                 </li>
                             </div>
                         </c:when>
                         <c:when test="${user.getRole() eq 'PICA'}">
                             <li class="nav-item nav-option-big">
-                                <a class="nav-link" href="http://localhost:8080/logout">Terminar sessão</a>
+                                <a class="nav-link" href="/logout">Terminar sessão</a>
                             </li>
                             <li class="nav-item nav-option-big" style="visibility: hidden">
-                                <a class="nav-link" href="http://localhost:8080/wallet">Carteira</a>
+                                <a class="nav-link" href="/wallet">Carteira</a>
                             </li>
                             <li class="nav-item nav-option-big" style="visibility: hidden">
-                                <a class="nav-link" href="http://localhost:8080/history">Histórico</a>
+                                <a class="nav-link" href="/history">Histórico</a>
                             </li>
                             <li class="nav-item nav-option-big" style="visibility: hidden">
-                                <a class="nav-link" href="http://localhost:8080/vias_league">Vias League</a>
+                                <a class="nav-link" href="/vias_league">Vias League</a>
 
                             </li>
                             <div style="text-align: center">
                                 <li class="nav-item-small" style="margin-top: 25px">
-                                    <a class="nav-link" href="http://localhost:8080/settings">Definições</a>
+                                    <a class="nav-link" href="/settings">Definições</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="http://localhost:8080/contacts">Contactos</a>
+                                    <a class="nav-link" href="/contacts">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="http://localhost:8080/ajuda">Ajuda</a>
+                                    <a class="nav-link" href="/ajuda">Ajuda</a>
                                 </li>
                             </div>
                         </c:when>
                         <c:when test="${user.getRole() eq 'USER' }">
                             <li class="nav-item nav-option-big">
-                                <a class="nav-link" href="http://localhost:8080/wallet">Carteira</a>
+                                <a class="nav-link" href="/wallet">Carteira</a>
                             </li>
                             <li class="nav-item nav-option-big">
-                                <a class="nav-link" href="http://localhost:8080/history">Histórico</a>
+                                <a class="nav-link" href="/history">Histórico</a>
                             </li>
                             <li class="nav-item nav-option-big">
-                                <a class="nav-link" href="http://localhost:8080/vias_league">Vias League</a>
+                                <a class="nav-link" href="/vias_league">Vias League</a>
                             </li>
                             <li class="nav-item nav-option-big">
-                                <a class="nav-link" href="http://localhost:8080/logout">Terminar sessão</a>
+                                <a class="nav-link" href="/logout">Terminar sessão</a>
 
                             </li>
                             <div style="text-align: center">
                                 <li class="nav-item-small" style="margin-top: 25px">
-                                    <a class="nav-link" href="http://localhost:8080/settings">Definições</a>
+                                    <a class="nav-link" href="/settings">Definições</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="http://localhost:8080/contacts">Contactos</a>
+                                    <a class="nav-link" href="/contacts">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="http://localhost:8080/ajuda">Ajuda</a>
+                                    <a class="nav-link" href="/ajuda">Ajuda</a>
                                 </li>
                             </div>
                         </c:when>
@@ -245,6 +245,8 @@
             </div>
         </div>--%>
 
+        <c:if test="${user != null}">
+
             <button class="wallet-button" onclick="window.location.href='/wallet';">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 34 28" fill="none"
                      style="margin-top: 10px">
@@ -252,6 +254,7 @@
                           fill="white"/>
                 </svg>
                 <span style="margin-bottom:10px">Bilhete Digital</span></button>
+        </c:if>
 
     </div>
     <div class="footerlogo">
