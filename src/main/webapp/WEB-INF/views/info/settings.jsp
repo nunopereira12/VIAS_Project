@@ -20,7 +20,7 @@
     <p class="title">Definições</p>
     <div class="content">
         <div class="settings-box">
-            <a href="http://localhost:8080/edit_profile"><button class="button">Definições de Conta</button></a>
+            <a href="/edit_profile"><button class="button">Definições de Conta</button></a>
             <button class="button" data-bs-toggle="modal" data-bs-target="#termsModal">Termos e Condições</button>
             <button class="button" data-bs-toggle="modal" data-bs-target="#privacyModal">Política de Privacidade</button>
             <button class="button" data-bs-toggle="modal" data-bs-target="#shareModal">Partilhar a VIAS</button>

@@ -112,7 +112,7 @@
                                     <a class="nav-link" href="/contacts">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="/ajuda">Ajuda</a>
+                                    <a class="nav-link" href="/help">Ajuda</a>
                                 </li>
                             </div>
                         </c:when>
@@ -138,7 +138,7 @@
                                     <a class="nav-link" href="/contacts">Contactos</a>
                                 </li>
                                 <li class="nav-item-small">
-                                    <a class="nav-link" href="/ajuda">Ajuda</a>
+                                    <a class="nav-link" href="/help">Ajuda</a>
                                 </li>
                             </div>
                         </c:when>
