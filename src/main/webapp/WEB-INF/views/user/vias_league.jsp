@@ -197,15 +197,13 @@
                 <div class="leaderboard" style="margin-bottom: -2px"><strong>${selected_filter}</strong></div>
             </c:when>
             <c:when test="${selected_filter eq 'Distância Percorrida a Andar'}">
-                <img class="image_badge center-img" src="images/vias_league/man_walking.v2.png"
-                     width="90px" style="margin-top: -30px;
-                     alt="Bronze Image"/>
-                <div class="leaderboard" style="margin-bottom: -3px"><strong>${selected_filter}</strong></div>
+                <img class="image_badge center-img" src="images/vias_league/time_bus.png"
+                     width="92px" style="margin-top: -30px;" alt="Bus time image">
+                <div class="leaderboard" style="margin-bottom: -3px;"><strong>${selected_filter}</strong></div>
             </c:when>
             <c:when test="${selected_filter eq 'Distância Percorrida Transportes'}">
                 <img class="image_badge center-img" src="images/vias_league/bus.png"
-                     width="100px" style="margin-top: -30px;
-                     alt="Bronze Image"/>
+                     width="100px" style="margin-top: -30px;" alt="Bronze Image"/>
                 <div class="leaderboard" style="margin-bottom: -3px"><strong>${selected_filter}</strong></div>
             </c:when>
             <c:when test="${selected_filter eq 'Tempo Despendido a Andar'}">
