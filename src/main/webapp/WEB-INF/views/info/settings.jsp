@@ -37,20 +37,66 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body query" style="text-align: justify; margin-left: 15px; margin-right: 15px">
-                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris viverra sem ut elit fermentum, ullamcorper egestas ante pulvinar. Nam scelerisque pulvinar aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris placerat hendrerit risus, quis faucibus purus ultrices at. Integer sollicitudin tellus non elementum maximus. Nam suscipit condimentum lacus nec lobortis. Integer ut venenatis nulla. Phasellus vestibulum sem erat, eget luctus turpis auctor vitae. In hac habitasse platea dictumst. Proin ac arcu neque. Vestibulum feugiat euismod pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+                    <h5>1. Introdução </h5>
 
-                    <p>Phasellus quis mollis diam. Vivamus id euismod arcu. Etiam sed nunc egestas, finibus est ut, pulvinar lacus. Cras egestas nisi nec eleifend consectetur. Sed ut neque vel dui vulputate eleifend at ut nibh. Ut sem risus, viverra vel massa eu, varius vehicula tortor. Vivamus nec sollicitudin arcu. Suspendisse id consequat lectus, nec commodo lorem. Nulla mattis consectetur neque, blandit pretium enim pretium ac. Suspendisse at erat felis. Aliquam vel consectetur augue, rutrum auctor sem. Mauris at mi dui. Maecenas vulputate feugiat pretium. Aenean sodales est ac finibus commodo. Nullam nisl risus, volutpat at elit sed, pulvinar malesuada risus. Vivamus scelerisque, purus et viverra tincidunt, lectus neque imperdiet quam, non tempor lacus leo sit amet dolor.</p>
+                    <p> Bem-vindo aos Termos e Condições de Uso ("Termos") da aplicação "VIAS" e do jogo "VIAS League" (coletivamente referidos como "Serviços"), desenvolvidos e mantidos por Grupo VIAS da Turma 2 de JAVA 2023 do UpSkill na Start-Up de Sintra. Ao acessar ou usar nossos Serviços, você concorda em cumprir e estar vinculado a estes Termos. Se você não concordar com estes Termos, por favor, não utilize nossos Serviços.</p>
 
-                    <p>Morbi scelerisque dignissim purus, sit amet fermentum quam laoreet et. In cursus tortor at leo porttitor vestibulum. Suspendisse et cursus sem, volutpat commodo lorem. Praesent augue purus, hendrerit condimentum semper ut, volutpat ullamcorper lectus. Pellentesque varius lobortis ante sed mollis. Mauris ornare vestibulum ante, sed cursus nibh commodo a. Phasellus semper turpis quis porta dapibus. Aliquam non sapien quam. Duis mattis lectus nec diam consequat tristique. Suspendisse malesuada viverra consequat. Suspendisse mollis leo sed posuere varius. Mauris non nulla sit amet felis vulputate egestas. Integer sed vulputate nulla. Vestibulum sollicitudin velit elit, vitae volutpat orci ultricies vitae. Proin pellentesque elementum sapien pulvinar vestibulum. Cras id dui eu erat luctus euismod sit amet ac diam.</p>
+                    <h5>2. Uso dos Serviços</h5>
 
-                    <p>Phasellus sed justo felis. Sed sagittis maximus gravida. Donec non sagittis sapien. Curabitur faucibus elementum purus, vitae sollicitudin sapien lacinia eget. Pellentesque mollis ultrices sem, imperdiet semper dui cursus vel. Vestibulum egestas id purus ut molestie. Nam sit amet ex enim. Suspendisse sit amet molestie erat, eu bibendum metus. Morbi eget faucibus orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut aliquet odio non eros congue porttitor. Vivamus sed porta massa, a ornare ipsum. Pellentesque rhoncus et dui sit amet ornare. Aliquam ornare tellus quis tempor porttitor. </p>
+                    <h6> 2.1. Requisitos de Idade: </h6><p>Você deve ter pelo menos 10 anos de idade para usar nossos Serviços. Se você é menor de 18 anos, certifique-se de que seu responsável legal concorda com estes Termos em seu nome.</p>
 
-                    <p>Nam posuere metus sit amet leo placerat egestas. Nam facilisis, diam nec laoreet aliquam, lorem dolor sollicitudin magna, elementum egestas augue dui eget purus. Aenean sem urna, lobortis vitae gravida malesuada, cursus et sapien. Proin convallis augue eu massa elementum, vitae dapibus lacus facilisis. Morbi malesuada, nisl vel dapibus tempus, lorem quam pretium velit, ut tincidunt purus mi aliquam libero. Nam gravida, erat in posuere scelerisque, risus erat euismod felis, quis ullamcorper ante justo id magna.</p>
+                    <h6>2.2. Acesso à API da Google Maps: </h6>
+                    <p>Nossos Serviços podem utilizar a API da Google Maps para fornecer informações de localização e navegação. O uso da API da Google Maps está sujeito aos Termos de Serviço da Google Maps, disponíveis no seu próprio site. Você concorda em cumprir esses termos ao usar nossos Serviços.</p>
 
-                    <p> Phasellus ac pretium neque, vitae ultricies libero. Vestibulum et nulla in justo elementum sollicitudin. Suspendisse hendrerit massa ex. Phasellus et nisi tellus. Aenean laoreet dui vehicula enim congue sollicitudin. Aliquam eget tempus sapien. Donec nec porta tortor. </p>
+                    <h6>2.3. VIAS League: </h6>
+                    <p>A VIAS League é um jogo que faz parte de nossos Serviços. O uso da VIAS League está sujeito a termos e condições adicionais específicos do jogo, que serão apresentados quando você acessar o jogo.</p>
+
+                    <h5>3. Conta do Utilizador</h5>
+
+                    <h6> 3.1. Registro de Conta: </h6>
+                    <p>Para acessar alguns recursos de nossos Serviços, você pode precisar criar uma conta de usuário. Ao fazer isso, você concorda em fornecer informações precisas e atualizadas.</p>
+
+                    <h6> 3.2. Credenciais de Acesso: </h6>
+                    <p> Você é responsável por manter a confidencialidade de suas credenciais de acesso (nome de utilizador e senha) e por todas as atividades que ocorrerem na conta. Você concorda em nos notificar imediatamente sobre qualquer uso não autorizado da sua conta.</p>
+
+                    <h5>4. Privacidade</h5>
+
+                    <p>Nossa Política de Privacidade, disponível nas definições da aplicaação, acessível antes criar conta, descreve como coletamos, usamos e protegemos suas informações pessoais ao usar nossos Serviços. Ao usar os nossos Serviços, você concorda com a coleta e o uso de suas informações conforme descrito em nossa Política de Privacidade.</p>
+
+                    <h6>5. Propriedade Intelectual</h6>
+
+                    <h5> 5.1. Direitos Autorais: </h5>
+                    <p>Todos os direitos autorais, marcas registradas, e outros direitos de propriedade intelectual relacionados aos Serviços são de propriedade exclusiva do Grupo VIAS da Turma 2 de JAVA 2023 do UpSkill na Start-Up de Sintra ou de nossos licenciantes.</p>
+
+                    <h6> 5.2. Uso Permitido:</h6>
+                    <p>Você pode usar nossos Serviços apenas para fins pessoais e não comerciais. Você não pode copiar, modificar, distribuir, exibir, transmitir ou criar obras derivadas dos Serviços, exceto conforme permitido expressamente por estes Termos.</p>
+
+                    <h5> 6. Rescisão </h5>
+
+                    <p>Podemos encerrar ou suspender sua conta e acesso aos nossos Serviços a qualquer momento, com ou sem motivo, sem aviso prévio. </p>
+
+                    <h5>7. Isenção de Responsabilidade</h5>
+
+                    <h6>7.1. Uso por Sua Conta e Risco: </h6>
+                    <p> O uso de nossos Serviços é por sua conta e risco. Não garantimos a precisão, disponibilidade ou desempenho de nossos Serviços.</p>
+
+                    <h6>7.2. Exclusão de Danos: </h6>
+                    <p> Em nenhuma circunstância, Grupo VIAS será responsável por quaisquer danos diretos, indiretos, incidentais, especiais, punitivos ou consequentes decorrentes do uso ou da incapacidade de usar os nossos Serviços.</p>
+
+                    <h5>8. Disposições Gerais</h5>
+
+                    <h6>8.1. Lei Aplicável: </h6>
+                    <p>Estes Termos serão regidos e interpretados de acordo com as leis de Portugal, excluindo qualquer conflito de princípios legais.</p>
+
+                    <h6>8.2. Alterações nos Termos:</h6>
+                    <p>Reservamo-nos o direito de modificar ou atualizar estes Termos a qualquer momento, e tais alterações entrarão em vigor após a publicação em nossos Serviços. É sua responsabilidade revisar periodicamente estes Termos para estar ciente de qualquer alteração.</p>
+
+                    <h6>8.3. Contato: </h6>
+                    <p>Para entrar em contato conosco sobre estes Termos ou qualquer outra questão relacionada aos nossos Serviços, envie um e-mail para the.vias.app@gmail.com.
+                        Ao utilizar nossos Serviços, você concorda com estes Termos e Condições de Uso. Se você não concordar com qualquer parte destes Termos, por favor, não use nossos Serviços.</p>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary buttons">Sair</button>
+                        <button type="button" class="btn btn-primary buttons" id="termsButton">Confirmo que li os Termos e Condições</button>
                     </div>
                 </div>
             </div>
@@ -61,18 +107,66 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="privacyModalLabel" style="text-align: justify; margin-left: 15px; margin-right: 15px">Política de Privacidade VIAS</h1>
+                    <h1 class="modal-title fs-5" id="privacyModalLabel" style="text-align: justify; margin-left: 15px; margin-right: 15px">POLÍTICA DE PRIVACIDADE da VIAS</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="text-align: justify; margin-left: 15px; margin-right: 15px">
-                    <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris viverra sem ut elit fermentum, ullamcorper egestas ante pulvinar. Nam scelerisque pulvinar aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris placerat hendrerit risus, quis faucibus purus ultrices at. Integer sollicitudin tellus non elementum maximus. Nam suscipit condimentum lacus nec lobortis. Integer ut venenatis nulla. Phasellus vestibulum sem erat, eget luctus turpis auctor vitae. In hac habitasse platea dictumst. Proin ac arcu neque. Vestibulum feugiat euismod pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
 
-                    <p>Morbi scelerisque dignissim purus, sit amet fermentum quam laoreet et. In cursus tortor at leo porttitor vestibulum. Suspendisse et cursus sem, volutpat commodo lorem. Praesent augue purus, hendrerit condimentum semper ut, volutpat ullamcorper lectus. Pellentesque varius lobortis ante sed mollis. Mauris ornare vestibulum ante, sed cursus nibh commodo a. Phasellus semper turpis quis porta dapibus. Aliquam non sapien quam. Duis mattis lectus nec diam consequat tristique. Suspendisse malesuada viverra consequat. Suspendisse mollis leo sed posuere varius. Mauris non nulla sit amet felis vulputate egestas. Integer sed vulputate nulla. Vestibulum sollicitudin velit elit, vitae volutpat orci ultricies vitae. Proin pellentesque elementum sapien pulvinar vestibulum. Cras id dui eu erat luctus euismod sit amet ac diam.</p>
+                    <p>Data de Entrada em Vigor: 2/10/2023</p>
 
-                    <p> Phasellus ac pretium neque, vitae ultricies libero. Vestibulum et nulla in justo elementum sollicitudin. Suspendisse hendrerit massa ex. Phasellus et nisi tellus. Aenean laoreet dui vehicula enim congue sollicitudin. Aliquam eget tempus sapien. Donec nec porta tortor. </p>
+                    <h5>1. INTRODUÇÃO</h5>
+
+                    <p>Bem-vindo à Política de Privacidade da aplicação "VIAS" e do jogo "VIAS League" (coletivamente referidos como "Serviços"), desenvolvidos e mantidos por Grupo VIAS. Nossa prioridade é proteger a sua privacidade e os seus dados pessoais. Nesta Política, explicamos como recolhemos, utilizamos, divulgamos e protegemos as suas informações pessoais.</p>
+
+                    <h5>2. INFORMAÇÕES QUE RECOLHEMOS</h5>
+
+                    <h6>2.1. Informações que nos fornece: </h6>
+                    <p>Podemos recolher informações que você fornece voluntariamente ao usar os nossos Serviços, como o seu nome, endereço de e-mail e outras informações de contacto.</p>
+
+                    <h6>2.2. Informações de Localização: </h6>
+                    <p>Os nossos Serviços podem recolher informações de localização com o seu consentimento para melhorar a experiência de utilização, como navegação em transportes públicos.</p>
+
+                   <h6> 2.3. Informações de Uso: </h6>
+                    <p>Podemos recolher informações sobre a forma como utiliza os nossos Serviços, como as páginas visitadas, os cliques, o tempo gasto e outras estatísticas.</p>
+
+                    <h5>3. COMO UTILIZAMOS AS SUAS INFORMAÇÕES</h5>
+
+                    <h6>3.1. Fornecimento e Melhoria dos Serviços: </h6>
+                    <p>Utilizamos as suas informações para fornecer, manter e melhorar os nossos Serviços, incluindo a personalização da experiência do utilizador.</p>
+
+                    <h6>3.2. Comunicações: </h6>
+                    <p>Podemos enviar-lhe comunicações relacionadas com os nossos Serviços, como atualizações, alertas e informações relevantes.</p>
+
+                    <h6>3.3. Análise de Dados: </h6>
+                    <p>Podemos utilizar as informações recolhidas para análises e estatísticas internas.</p>
+
+                    <h5>4. DIVULGAÇÃO A TERCEIROS</h5>
+
+                    <h6>4.1. Parceiros de Serviço: </h6>
+                       <p> Podemos partilhar as suas informações com terceiros que nos auxiliam na prestação dos nossos Serviços, como fornecedores de serviços de hospedagem, suporte técnico e processamento de pagamentos.</p>
+
+                    <h6>4.2. Cumprimento Legal: </h6>
+                    <p>Podemos divulgar informações quando exigido por lei ou em resposta a solicitações legais, como ordens judiciais.</p>
+
+                    <h5>5. SEGURANÇA DOS DADOS</h5>
+
+                    <p>Empregamos medidas de segurança razoáveis para proteger as suas informações contra acesso não autorizado, uso indevido ou divulgação não autorizada.</p>
+
+                    <h5>6. SEUS DIREITOS</h5>
+
+                    <p>De acordo com a legislação de proteção de dados aplicável, você pode ter direitos relacionados com as suas informações pessoais, incluindo o direito de aceder, corrigir, apagar ou limitar o processamento das suas informações. Para exercer esses direitos ou fazer perguntas sobre a nossa Política de Privacidade, entre em contato connosco em the.vias.app@gmail.com.</p>
+
+                    <h5>7. ALTERAÇÕES A ESTA POLÍTICA DE PRIVACIDADE</h5>
+
+                    <p>Reservamo-nos o direito de atualizar esta Política de Privacidade periodicamente para refletir as alterações nas práticas de privacidade. A data de entrada em vigor será atualizada quando ocorrerem alterações significativas. Encorajamos você a rever esta Política regularmente.</p>
+
+                    <h5>8. CONTACTO</h5>
+
+                    <p>Se tiver alguma dúvida, preocupação ou comentário sobre esta Política de Privacidade ou sobre as nossas práticas de privacidade, entre em contato connosco em the.vias.app@gmail.com.</p>
+                    <p>Ao utilizar os nossos Serviços, você concorda com os termos desta Política de Privacidade.</p>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary buttons">Sair</button>
+                        <button id="privacyButton" type="button" class="btn btn-primary buttons">Confirmo que li esta Política de Privacidade</button>
                     </div>
                 </div>
             </div>
@@ -107,6 +201,27 @@
         <img class="footerimage" src="images/logo_nobg.png" alt="">
     </footer>
 </div>
+
+<script>
+
+    var modalButton = document.querySelector('#privacyButton');
+    var myModal = new bootstrap.Modal(document.getElementById('privacyModal'));
+
+    modalButton.addEventListener('click', function () {
+        myModal.hide(); // Close the modal
+    });
+
+    var modalButtonTerms = document.querySelector('#termsButton');
+    var myModalTerms = new bootstrap.Modal(document.getElementById('termsModal'));
+
+    modalButtonTerms.addEventListener('click', function () {
+        myModalTerms.hide(); // Close the modal
+
+    });
+
+
+
+</script>
 
 </body>
 </html>

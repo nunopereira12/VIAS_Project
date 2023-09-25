@@ -28,6 +28,7 @@ body {
     font-weight: 600;
     width: fit-content;
     padding: 0px;
+    margin: 0 5px 0 5px;
 }
 
 
@@ -171,6 +172,13 @@ body {
 
 .custom-alert button:hover {
     background-color: #0056b3;
+}
+
+.modal-title{
+    text-align: justify;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-weight: 600;
 }
 
 
