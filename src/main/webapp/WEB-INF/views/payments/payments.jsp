@@ -27,7 +27,6 @@
                 </p>
                 <p>
                     <input type="number" id="newValueInput" class="form-control formtext" placeholder="0€" required min="5" max="1000">
-
                 </p>
 
             </c:when>
@@ -45,7 +44,7 @@
                     <span id=valueDisplay class="subTotal right"></span>
                 </c:when>
                 <c:when test="${navegante != null}">
-                    <span id=valueDisplay class="subTotal right"> 40.00 €</span>
+                    <span id=valueDisplay class="subTotal right"> 40.00 € </span>
                 </c:when>
             </c:choose>
         </div>
@@ -126,9 +125,16 @@
     const valueDisplay1 = document.getElementById('valueDisplay1');
     const valuePurchase = document.getElementById('valuePurchase')
 
-    valueDisplay.textContent = '5.00€';
-    valueDisplay1.textContent = '5.00€';
-    valuePurchase.value = '5.00'; // Set the initial value
+
+    if (${navegante != null}) {
+        valuePurchase.value = '40.00';
+        valueDisplay.textContent = '40.00€';
+        valueDisplay1.textContent = '40.00€';
+    } else {
+        valuePurchase.value = '5.00';
+        valueDisplay.textContent = '5.00€';
+        valueDisplay1.textContent = '5.00€';
+    }
 
 
     selectButton.addEventListener('click', () => {
