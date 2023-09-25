@@ -401,9 +401,7 @@ select option:hover {
 }
 
 table #gold_small {
-    /*
-    width: 1000px;
-    */
+    width: 45px;
 }
 
 table .circle {
