@@ -102,18 +102,26 @@
 
 
     Instascan.Camera.getCameras().then(function (cameras) {
-        //If a camera is detected
+        // If cameras are detected
         if (cameras.length > 0) {
-            //If the user has a rear/back camera
-            if (cameras[1]) {
-                //use that by default
-                scanner.start(cameras[1]);
+            let selectedCamera;
+
+            // Prioritize the back camera if available
+            for (const camera of cameras) {
+                if (camera.name.toLowerCase().includes('back')) {
+                    selectedCamera = camera;
+                    break;
+                }
+            }
+
+            // If a back camera was found, use it; otherwise, use the first camera
+            if (selectedCamera) {
+                scanner.start(selectedCamera);
             } else {
-                //else use front camera
                 scanner.start(cameras[0]);
             }
         } else {
-            //if no cameras are detected give error
+            // If no cameras are detected, give an error
             console.error('No cameras found.');
         }
     }).catch(function (e) {
