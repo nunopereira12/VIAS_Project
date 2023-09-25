@@ -25,9 +25,10 @@
                     <button id=valueSelection1 class="choice-button" value="10.00"> 10.00 €</button>
                     <button id=valueSelection2 class="choice-button" value="15.00"> 15.00 €</button>
                 </p>
+                <p class="subtitle" style="margin-bottom: 0px">Ou insira um montante:</p>
+                <div style="display:flex; justify-content: center"><p>(min. 5€ - max. 1000€)</p></div>
                 <p>
-
-                    <input type="number" id="newValueInput" class="form-control formtext" placeholder="0€" required min="5" max="1000">
+                    <input type="number" id="newValueInput" class="form-control formtext money-input" placeholder="0€" required min="5" max="1000">
                 </p>
 
             </c:when>
