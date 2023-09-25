@@ -1,6 +1,7 @@
 package pt.upskill.vias.services.viasleague;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.LastUpdate;
 import pt.upskill.vias.entities.League;
@@ -13,6 +14,7 @@ import pt.upskill.vias.repositories.LeagueRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.UserStatsRepository;
 
+import javax.annotation.PostConstruct;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -141,6 +143,8 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     }
 
     @Override
+    @Scheduled(cron = "0 0 0 * * MON", zone = "Europe/Paris")
+    @PostConstruct
     public void resetLeague() {
         Date today = new Date();
         LastUpdate last_update = lastUpdateRepository.getLastUpdateById(1);
@@ -150,12 +154,12 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
 
         List<User> users = userRepository.findAll();
 
-        //if (today_value - last_update_value >= seven_days) {
+        if (today_value - last_update_value >= seven_days) {
             changeLeagues();
             resetStats(users);
             last_update.setDate(today);
             lastUpdateRepository.save(last_update);
-        //}
+        }
     }
 
     @Override

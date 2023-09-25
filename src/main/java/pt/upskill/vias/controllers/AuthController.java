@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.user.Token;
 import pt.upskill.vias.entities.user.User;
+import pt.upskill.vias.exceptions.*;
 import pt.upskill.vias.models.auth.Login;
 import pt.upskill.vias.models.auth.ReplacePassword;
 import pt.upskill.vias.models.auth.SignUp;
@@ -44,6 +45,17 @@ public class AuthController {
         return new ModelAndView("auth/login");
     }
 
+    //Receive login info
+    @PostMapping(value = "/perform_login")
+    public ModelAndView login(Login login) {
+
+        User user = authService.validateLogin(login.getUsername(), login.getPassword());
+        if (user != null) {
+            return new ModelAndView("/home");
+        }
+        return new ModelAndView("/auth/login");
+    }
+
     //Signup page
     @GetMapping(value = "/signup")
     public ModelAndView signupPage(Principal principal) {
@@ -57,29 +69,38 @@ public class AuthController {
     //Receive signup form
     @PostMapping(value = "/signup_action")
     public ModelAndView signupAction(SignUp signUp_form) throws ParseException {
-        if (authService.isSignupPossible(signUp_form)) {
+        try {
             authService.registerUser(signUp_form);
             return new ModelAndView("auth/register_success");
-        } else {
-            return authService.signupErrorMav(signUp_form);
+        } catch (ValidationException ve) {
+            return new ModelAndView("auth/signup").addObject(ve.getField(), ve.getMessage());
         }
     }
 
 
     //Click link in activation email
-    @GetMapping(value = "/activation_success/{tokenID}")
+    @GetMapping(value = "/activation/{tokenID}")
     public ModelAndView activationSuccess(@PathVariable("tokenID") String tokenID) {
+        if(tokenRepository.getTokenByTokenId(tokenID) == null) {
+            return new ModelAndView("redirect:/login");
+        }
 
         Token token = tokenRepository.getTokenByTokenId(tokenID);
-        if (authService.isActivationPossible(token)) {
-            authService.activateUser(token.getUser());
+
+        if(token.getUser().isActivated()) {
+            return new ModelAndView("redirect:/login");
+        }
+
+        try {
+            authService.activateUser(token);
             return new ModelAndView("auth/activation_success");
-        } else {
+        }
+        catch (AccountActivationException aae) {
             emailService.sendAccountVerificationEmail(token.getUser().getEmail());
-            //CRIAR PÁGINA DE /activation_fail
             return new ModelAndView("auth/activation_fail");
         }
     }
+
 
     //Recover Password page
     @GetMapping(value = "/recover_password")
@@ -132,16 +153,5 @@ public class AuthController {
         }
     }
 
-
-    //Receive login info
-    @PostMapping(value = "/perform_login")
-    public ModelAndView login(Login login) {
-
-        User loggedUser = authService.validateLogin(login.getUsername(), login.getPassword());
-        if (loggedUser != null) {
-            return new ModelAndView("/home");
-        }
-        return new ModelAndView("/auth/login");
-    }
 
 }

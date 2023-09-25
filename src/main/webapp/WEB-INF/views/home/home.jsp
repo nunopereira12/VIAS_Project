@@ -163,7 +163,7 @@
     <div class="home-content">
         <div class="imageDesktop">
             <footer>
-                <img class="imageTopLeft" src="images/logo_nobg.png" alt="">
+                <img class="imageTopLeft" src="/images/logo_nobg.png" alt="">
             </footer>
         </div>
 
@@ -259,7 +259,7 @@
     </div>
     <div class="footerlogo">
         <footer>
-            <img class="footerimage" src="images/logo_nobg.png" alt="">
+            <img class="footerimage" src="/images/logo_nobg.png" alt="">
         </footer>
     </div>
 </div>
@@ -292,7 +292,7 @@
     </div>
     <div class="footerlogo">
         <footer>
-            <img class="footerimage" src="images/logo_nobg.png" alt="">
+            <img class="footerimage" src="/images/logo_nobg.png" alt="">
         </footer>
     </div>
     </div>
@@ -309,6 +309,7 @@
 </div>--%>
 
 <script>
+
     async function initMap() {
         const {Map, Polyline} = await google.maps.importLibrary("maps");
 
@@ -318,6 +319,7 @@
             streetViewControl: false, // Disable street view
             mapTypeControl: false, // Disable map/satellite buttons
             zoomControl: false, // Disable zoom in/out buttons
+            minZoom: 3,
             styles: [
                 {
                     featureType: "poi",
@@ -325,16 +327,11 @@
                     stylers: [{visibility: "off"}], // Hide location labels
                 },
             ],
+
         });
     }
     function initAutocomplete() {
 
-      /*  const defaultBounds = {
-            north: 38.7223 + 0.3,
-            south: 38.7223 - 0.4,
-            east: -9.1393 + 0.6,
-            west: -9.1393 - 0.4,
-        }*/
 
 
 

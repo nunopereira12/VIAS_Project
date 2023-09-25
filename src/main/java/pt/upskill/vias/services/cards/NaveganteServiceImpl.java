@@ -1,6 +1,7 @@
 package pt.upskill.vias.services.cards;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import pt.upskill.vias.entities.LastUpdate;
 import pt.upskill.vias.entities.user.User;
@@ -8,6 +9,7 @@ import pt.upskill.vias.entities.cards.Navegante;
 import pt.upskill.vias.repositories.LastUpdateRepository;
 import pt.upskill.vias.repositories.NaveganteRepository;
 
+import javax.annotation.PostConstruct;
 import java.util.Date;
 import java.util.List;
 
@@ -75,6 +77,8 @@ public class NaveganteServiceImpl implements NaveganteService {
     }
 
     @Override
+    @Scheduled(cron = "0 0 0 1 * ?", zone = "Europe/Paris")
+    @PostConstruct
     public void resetMonth() {
         LastUpdate last_update = lastUpdateRepository.getLastUpdateById(2);
         Date last_update_date = last_update.getDate();

@@ -10,11 +10,16 @@ import pt.upskill.vias.entities.user.Token;
 import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.entities.user.UserStats;
 import pt.upskill.vias.entities.cards.ViasCard;
+import pt.upskill.vias.exceptions.AccountActivationException;
+import pt.upskill.vias.exceptions.DifferentPasswordsException;
+import pt.upskill.vias.exceptions.UnavailableEmailException;
+import pt.upskill.vias.exceptions.UnavailableUsernameException;
 import pt.upskill.vias.models.auth.ReplacePassword;
 import pt.upskill.vias.models.auth.SignUp;
 import pt.upskill.vias.repositories.*;
 import pt.upskill.vias.services.utils.CalendarService;
 
+import javax.servlet.UnavailableException;
 import java.security.SecureRandom;
 import java.text.ParseException;
 import java.util.Date;
@@ -49,7 +54,6 @@ public class AuthServiceImpl implements AuthService {
 
         User user_email = userRepository.getUserByEmail(login_credential);
 
-
         if (user != null && user.isActivated() && passwordEncoder.matches(password, user.getPassword())) {
             return user;
         }
@@ -71,14 +75,22 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public boolean isSignupPossible(SignUp signUp_form) {
+    public boolean isSignupPossible(SignUp signUp_form) throws DifferentPasswordsException, UnavailableEmailException, UnavailableUsernameException {
+        if (isUsernameTaken(signUp_form.getUsername())) {
+            throw new UnavailableUsernameException("Username não está disponível.");
+
+        }
+        if (isEmailTaken(signUp_form.getEmail())) {
+            throw new UnavailableEmailException("Email não está disponível.");
+
+        }
+        if (!passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password())) {
+            throw new DifferentPasswordsException("Passwords não coincidem.");
+
+        }
         return !isUsernameTaken(signUp_form.getUsername()) && !isEmailTaken(signUp_form.getEmail()) && passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password());
     }
 
-    @Override
-    public boolean isActivationPossible(Token token) {
-        return token != null && !token.isUsed() && !token.isExpired();
-    }
 
     @Override
     public boolean isUserActive(String email) {
@@ -97,21 +109,6 @@ public class AuthServiceImpl implements AuthService {
         return replacePassword.getPassword().equals(replacePassword.getConfirm_password());
     }
 
-    @Override
-    public ModelAndView signupErrorMav(SignUp signUp_form) {
-        ModelAndView mav = new ModelAndView("auth/signup");
-        if (isUsernameTaken(signUp_form.getUsername())) {
-            mav.addObject("username_unavailable", "Username não está disponível.");
-        }
-        if (isEmailTaken(signUp_form.getEmail())) {
-            mav.addObject("email_unavailable", "Email não está disponível.");
-        }
-        if (!passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password())) {
-            mav.addObject("passwords_different", "Passwords não coincidem.");
-        }
-        return mav;
-    }
-
     public boolean passwordsMatch(String password, String confirm_password) {
         return password.equals(confirm_password);
     }
@@ -123,7 +120,9 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void registerUser(SignUp signUp_form) throws ParseException {
+    public void registerUser(SignUp signUp_form) throws ParseException, UnavailableUsernameException, UnavailableEmailException, DifferentPasswordsException {
+
+        isSignupPossible(signUp_form);
 
         User user = new User();
 
@@ -151,11 +150,18 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void activateUser(User user) {
+    public void activateUser(Token token) throws AccountActivationException {
+
+        if (token == null || token.isUsed() || token.isExpired()) {
+            throw new AccountActivationException();
+        }
+
+        User user = token.getUser();
         user.setActivated(true);
         userRepository.save(user);
         useToken(tokenRepository.getTokenByUser(user));
     }
+
 
     @Override
     public void useToken(Token token) {
@@ -165,16 +171,26 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Token generateToken(User user) {
-        Token token = new Token();
-        token.setUser(user);
+        Token user_token = tokenRepository.getTokenByUser(user);
         String tokenId = generateTokenID();
-        while(tokenRepository.getTokenByTokenId(tokenId) != null) {
+        while (tokenRepository.getTokenByTokenId(tokenId) != null) {
             tokenId = generateTokenID();
         }
-        token.setTokenId(tokenId);
-        token.setTimestamp(new Date());
-        tokenRepository.save(token);
-        return token;
+
+        if (user_token == null) {
+            Token token = new Token();
+            token.setUser(user);
+            token.setTokenId(tokenId);
+            token.setTimestamp(new Date());
+            tokenRepository.save(token);
+            return token;
+        } else {
+            user_token.setTokenId(tokenId);
+            user_token.setTimestamp(new Date());
+            user_token.setUsed(false);
+            tokenRepository.save(user_token);
+            return user_token;
+        }
     }
 
     @Override

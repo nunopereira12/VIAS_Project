@@ -25,6 +25,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         String username = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
 
+
         User user = authService.validateLogin(username, password);
 
         if (user != null){
