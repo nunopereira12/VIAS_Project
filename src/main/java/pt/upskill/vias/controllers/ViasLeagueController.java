@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.repositories.LastUpdateRepository;
@@ -37,5 +38,12 @@ public class ViasLeagueController {
         mav.addObject("target_username", user.getUsername());
         return mav;
     }
+
+    /*@GetMapping("/vias_league_data")
+    @ResponseBody
+    public List<User> getFilteredData(@RequestParam(value = "filter", defaultValue = "My League") String selected_filter, Principal principal) {
+        User user = userRepository.getUserByUsername(principal.getName());
+        return viasLeagueService.getStatsByFilter(selected_filter, user.getCurrent_league());
+    }*/
 
 }

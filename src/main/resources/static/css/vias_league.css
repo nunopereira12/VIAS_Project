@@ -1,9 +1,22 @@
 
 .container {
-    background: linear-gradient(0deg, rgba(31, 126, 178, 1) 77%, rgba(255, 255, 255, 1) 60%);
+    /*background: linear-gradient(0deg, rgba(31, 126, 178, 1) 77%, rgba(255, 255, 255, 1) 60%);*/
+    background: #1F7EB2;
     min-height: auto;
 }
 
+.white-container {
+    background: white;
+    margin: -20px;
+    border-radius: 25px 25px 0 0;
+    /*height: 100px;*/
+}
+
+.arrowbutton {
+    position: relative;
+    top: 20px;
+    left : 20px;
+}
 
 .list-container {
     background-color: #ffffff;
@@ -78,7 +91,7 @@ img {
 }
 
 .circle {
-    width: 31px; /* Adjust the size of the circle */
+    width: 31px;
     height: 31px; /* Adjust the size of the circle */
     border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
     overflow: hidden; /* Hide the parts of the image outside the circle */
@@ -98,10 +111,6 @@ img {
 .centered-content img {
     height: 18px;
 }
-
-/**
-Estilos Pontos Tabela
- */
 
 .points {
     text-align: center;
@@ -245,7 +254,6 @@ select option:hover {
 
 .countdown-container {
     display: flex;
-   /* justify-content: space-between;*/
 }
 
 .countdown-item {
@@ -392,7 +400,14 @@ select option:hover {
     height: 25px;
 }
 
+table #gold_small {
+    width: 1000px;
+}
 
+table .circle {
+    width: 30px;
+    height: 30px;
+}
 
 
 
@@ -422,11 +437,6 @@ select option:hover {
     .table th {
         font-size: 10px;
     }
-
-    .table {
-        width: 100%;
-    }
-
 
     #filter {
         width: 100%;
@@ -490,6 +500,30 @@ select option:hover {
         margin-top: 25px;
     }
 
+
+    .buttons-container {
+        margin-top: 80px;
+    }
+    #filterForm {
+        margin-top: 70px;
+    }
+
+    .list-container {
+        margin-top: 50px;
+    }
+
+    .points-number {
+        font-size: 12px;
+    }
+
+    .points-text {
+        font-size: 10px;
+    }
+
+    #num1 .circle > img{
+        width: 2px;
+        height: 2px;
+    }
 }
 
 

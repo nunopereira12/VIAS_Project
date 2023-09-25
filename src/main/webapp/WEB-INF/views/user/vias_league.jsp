@@ -12,11 +12,14 @@
 <body>
 
 <div class="container">
-    <button class="arrowbutton" onclick="window.location.href='/home';">
-        <img src="/images/backarrow.png" alt="Go back!" width="30px">
-    </button>
+    <div class="white-container">
+        <button class="arrowbutton" onclick="window.location.href='/home';">
+            <img src="/images/backarrow.png" alt="Go back!" width="30px">
+        </button>
 
-    <img class="imagelogo center-img" src="images/vias_league.v3.png" width="200px">
+        <img class="imagelogo center-img" src="images/vias_league.v3.png" width="200px">
+
+    </div>
 
     <div class="buttons-container">
         <div class="icon-container">
