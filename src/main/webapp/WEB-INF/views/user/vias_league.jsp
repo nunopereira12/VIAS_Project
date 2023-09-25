@@ -269,47 +269,47 @@
                         <td>
                             <div class="points">
                                 <div class="points-number">
-                                <c:choose>
-                                    <c:when test="${selected_filter eq 'My League'}">
-                                        ${player.getUser_stats().getWeekly_points()}
-                                        <div class="points-text">
-                                            pontos
-                                        </div>
-                                    </c:when>
-                                    <c:when test="${selected_filter eq 'Global League'}">
-                                        ${player.getUser_stats().getTotal_points()}
-                                        <div class="points-text">
-                                            pontos
-                                        </div>
-                                    </c:when>
-                                    <c:when test="${selected_filter eq 'Distância Percorrida a Andar'}">
-                                        ${player.getUser_stats().getTotal_distance_walking()}
-                                        <div class="points-text">
-                                            metros
-                                        </div>
-                                    </c:when>
-                                    <c:when test="${selected_filter eq 'Distância Percorrida Transportes'}">
-                                        ${player.getUser_stats().getTotal_distance_transit()}
-                                        <div class="points-text">
-                                            km
-                                        </div>
-                                    </c:when>
-                                    <c:when test="${selected_filter eq 'Tempo Despendido a Andar'}">
-                                        ${player.getUser_stats().getTotal_time_walking()}
-                                        <div class="points-text">
-                                            minutos
-                                        </div>
-                                    </c:when>
-                                    <c:when test="${selected_filter eq 'Tempo Despendido Transportes'}">
-                                        ${player.getUser_stats().getTotal_time_transit()}
-                                        <div class="points-text">
-                                            minutos
-                                        </div>
-                                    </c:when>
-                                    <c:when test="${selected_filter eq 'Viagens Completas'}">
-                                        ${player.getUser_stats().getTrips_done()}
-                                    </c:when>
-                                </c:choose>
+                                    <c:choose>
+                                        <c:when test="${selected_filter eq 'My League'}">
+                                            ${player.getUser_stats().getWeekly_points()}
+                                            <div class="points-text">
+                                                pontos
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${selected_filter eq 'Global League'}">
+                                            ${player.getUser_stats().getTotal_points()}
+                                            <div class="points-text">
+                                                pontos
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${selected_filter eq 'Distância Percorrida a Andar'}">
+                                            ${player.getUser_stats().getTotal_distance_walking()}
+                                            <div class="points-text">
+                                                metros
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${selected_filter eq 'Distância Percorrida Transportes'}">
+                                            ${player.getUser_stats().getTotal_distance_transit()}
+                                            <div class="points-text">
+                                                km
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${selected_filter eq 'Tempo Despendido a Andar'}">
+                                            ${player.getUser_stats().getTotal_time_walking()}
+                                            <div class="points-text">
+                                                minutos
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${selected_filter eq 'Tempo Despendido Transportes'}">
+                                            ${player.getUser_stats().getTotal_time_transit()}
+                                            <div class="points-text">
+                                                minutos
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${selected_filter eq 'Viagens Completas'}">
+                                            ${player.getUser_stats().getTrips_done()}
+                                        </c:when>
+                                    </c:choose>
                                 </div>
                             </div>
                         </td>
@@ -401,18 +401,14 @@
 
     setInterval(updateCountdown, 1000);
 
-    // Get the modal element
     var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
     var button = document.querySelector(".icon-button");
 
-    // When the button is clicked, open the modal
     button.addEventListener("click", function () {
         modal.style.display = "block";
     });
 
-    // When the user clicks anywhere outside the modal, close it
     window.addEventListener("click", function (event) {
         if (event.target === modal) {
             modal.style.display = "none";

@@ -166,12 +166,11 @@ button:hover {
 
 
 .highlighted-row {
-    background-color: blue; /* Background color for highlighting */
-    color: white; /* Text color */
-    font-weight: bold; /* Bold text for better visibility */
-    border: 2px solid #1F7EB2; /* Red border around the row */
-    /* Add other styling properties as needed */
-    z-index: 5; /* Add a higher z-index value */
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #1F7EB2;
+    z-index: 5;
     border-radius: 30px !important;
 
 }

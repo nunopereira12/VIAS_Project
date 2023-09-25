@@ -199,6 +199,33 @@ margin-right: 1rem;
 
 }
 
+.formtext {
+    width: 150px;
+    text-align: center;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    margin: 0 auto;
+    display: block;
+    padding-left: 28px;
+}
+
+/* Define a CSS class for active buttons */
+.choice-button.active {
+    background-color: #D9D9D9; /* Change to the desired active background color */
+    color: black; /* Change to the desired text color for active buttons */
+}
+
+.form-control.formtext:focus {
+    outline: none; /* Remove the default focus outline (optional) */
+    border: 2px solid #007bff; /* Change to the desired highlight color */
+    background-color: #f0f0f0; /* Change to the desired background color when focused */
+}
+
+
 @media (min-width: 601px) {
 
     .container {

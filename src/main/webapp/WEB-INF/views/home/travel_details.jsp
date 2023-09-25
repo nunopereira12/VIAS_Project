@@ -250,7 +250,7 @@
                 <c:if test="${user != null}">
                 <button class="button-travel btn btn-primary buttons">Começar Viagem</button>
                 </c:if>
-                <c:if test="${user != null}">1
+                <c:if test="${user != null}">
                 <form method="post" action="/simulate_trip">
                     <input type="hidden" name="id" value="${leg.getId()}">
                 <button class="button-travel btn btn-primary buttons" type="submit">Simular Viagem</button>

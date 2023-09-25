@@ -96,7 +96,7 @@
 
                         </div>
                         <div class="carousel-item ">
-                            <img src="/images/vias_card.png" class="d-block w-100" alt="...">
+                            <img src="/images/vias_card.v2.png" class="d-block w-100" alt="...">
 
                         </div>
                     </div>
