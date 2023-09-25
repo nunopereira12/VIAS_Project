@@ -31,7 +31,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/recover_password", "/recovery_request","/recovery_email_sent","/change_password","/change_password/*", "/set_password").permitAll()
                 .antMatchers("/diagrams","/schedules").permitAll()
                 .antMatchers("/contacts", "/send_message", "/contact_success").permitAll()
-                .antMatchers("/welcome","/home", "/perform_travel", "/suggestions", "/travel_details", "/simulate_trip").permitAll()
+                .antMatchers("/welcome","/home", "/perform_travel", "/suggestions", "/travel_details", "/simulate_trip", "/").permitAll()
                 .antMatchers("/id_pica", "/validate", "/card_scan").permitAll()
                 .antMatchers("/settings", "/help").permitAll()
                 .antMatchers("/payments","/payment_success").permitAll()
