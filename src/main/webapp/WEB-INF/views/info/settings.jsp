@@ -107,7 +107,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="privacyModalLabel" style="text-align: justify; margin-left: 15px; margin-right: 15px">POLÍTICA DE PRIVACIDADE da VIAS</h1>
+                    <h1 class="modal-title fs-5" id="privacyModalLabel" style="text-align: center; margin-left: 15px; margin-right: 15px">POLÍTICA DE PRIVACIDADE DA VIAS</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="text-align: justify; margin-left: 15px; margin-right: 15px">
@@ -181,11 +181,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="text-align: justify; margin-left: 15px; margin-right: 15px">
-                    <a href="www.facebook.com" class="fa fa-facebook"></a>
-                    <a href="www.twitter.com" class="fa fa-twitter"></a>
-                    <a href="www.google.com" class="fa fa-google"></a>
-                    <a href="www.instagram.com" class="fa fa-instagram"></a>
-                    <a href="www.linkedin.com" class="fa fa-linkedin"></a>
+                    <a href="" class="fa fa-facebook"></a>
+                    <a href="" class="fa fa-twitter"></a>
+                    <a href="" class="fa fa-google"></a>
+                    <a href="" class="fa fa-instagram"></a>
+                    <a href="" class="fa fa-linkedin"></a>
 
                     <div class="modal-footer">
                     </div>

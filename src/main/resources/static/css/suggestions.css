@@ -201,7 +201,7 @@
         margin-top: 170px;
     }
     .return-button{
-        visibility: hidden;
+        display:none;
     }
 }
 

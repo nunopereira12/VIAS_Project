@@ -36,8 +36,7 @@
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <button class="btn-close arrowbutton menubutton" data-bs-dismiss="offcanvas" aria-label="Close"
                     style="margin: 15px 0 0 15px"></button>
-            <div class="offcanvas-header"
-                 style="text-align: center; justify-content: center; border-bottom: 2px solid #D9D9D9">
+            <div class="offcanvas-header" style="text-align: center; justify-content: center; border-bottom: 2px solid #D9D9D9; padding-top: 7px; padding-bottom:7px">
                 <c:choose>
                     <c:when test="${user.getRole() eq 'USER' || user.getRole() eq 'PICA' }">
                         <a>
@@ -45,7 +44,7 @@
                                 </c:when><c:otherwise>uploads/${user.getProfile_picture()}</c:otherwise></c:choose>'); background-size: cover; border-radius:50%; width:80px; height:80px">
 
                             </button>
-                            <span><h5
+                            <span onclick="window.location.href='/profile'"><h5
                                     style="margin-top:10px">${user.getFirst_name()} ${user.getLast_name()}</h5></span>
                         </a>
                     </c:when>

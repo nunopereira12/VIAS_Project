@@ -44,6 +44,6 @@ public class ProfileServiceImpl implements ProfileService{
         }
 
         userRepository.save(user);
-        return new ModelAndView("redirect:/profile");
+        return new ModelAndView("redirect:/edit_profile");
     }
 }
