@@ -166,8 +166,6 @@
         valuePurchase.value = selectedValue;
     });
 
-
-
     function handleButtonClick(button) {
         // Remove the 'active' class from all buttons
         selectButton.classList.remove('active');
