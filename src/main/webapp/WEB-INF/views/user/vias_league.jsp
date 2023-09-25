@@ -221,10 +221,10 @@
             </c:when>
             <c:when test="${selected_filter eq 'Tempo Despendido Transportes'}">
                 <img class="image_badge center-img" src="images/vias_league/time_bus.png"
-                     width="92px" style="margin-top: -30px;
-                     alt="Bus time image"/>
-                <div class="leaderboard" style="margin-bottom: -3px"><strong>${selected_filter}</strong></div>
+                     width="92px" style="margin-top: -30px;" alt="Bus time image">
+                <div class="leaderboard" style="margin-bottom: -3px;"><strong>${selected_filter}</strong></div>
             </c:when>
+
             <c:when test="${selected_filter eq 'Viagens Completas'}">
                 <img class="image_badge center-img" src="images/vias_league/travel_trip.png"
                      width="120px" style="margin-top: -30px; margin-bottom: -10px"
