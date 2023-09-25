@@ -181,7 +181,7 @@
             </div>
             <div class="mb-3">
                 <label for="birthday" class="form-label text-start">Data de Nascimento</label>
-                <input type="date" name="birthday" class="form-control formtext" id="birthday" placeholder="Seleccionar data de nascimento" required>
+                <input type="date" name="birthday" class="form-control formtext" id="birthday" placeholder="Seleccionar data de nascimento" required min="1900-01-01">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label text-start">Password</label>

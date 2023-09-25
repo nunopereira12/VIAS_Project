@@ -84,7 +84,7 @@
                             </g>
                         </svg>
                     </button>
-                    <input type="date" name="date" class="form-control formtext" id="date" disabled required max="2023-09-21">
+                    <input type="date" name="date" class="form-control formtext" id="date" disabled required  min="1900-01-01">
                 </div>
                 <div class="mb-3 pass">
                     <label for="password" class="form-label text-start">Password *</label>
@@ -145,6 +145,9 @@
 <script>
 
     const toggleButtons = document.querySelectorAll('.toggle-button');
+    const currentDate = new Date();
+    const currentDateString = currentDate.toISOString().slice(0, 10);
+    document.getElementById("date").setAttribute("max", currentDateString);
 
     toggleButtons.forEach((button) => {
         button.addEventListener('click', () => {
