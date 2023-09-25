@@ -16,7 +16,7 @@
     </button>
     </a>
     <p class="title">Título(s) de Transporte</p>
-    <p class="subtitle">Seleccionar opção</p>
+    <p class="subtitle">Seleccione uma opção</p>
     <div class="content">
         <c:choose>
             <c:when test="${vias != null}">
@@ -25,8 +25,9 @@
                     <button id=valueSelection1 class="choice-button" value="10.00"> 10.00 €</button>
                     <button id=valueSelection2 class="choice-button" value="15.00"> 15.00 €</button>
                 </p>
+                <p class="subtitle" style="margin-bottom: 0px">Ou insira um montante:</p>
                 <p>
-                    <input type="text" id="newValueInput" onblur="validateAmount()" class="form-control formtext" placeholder="--- €">
+                    <input type="text" id="newValueInput" oninput="restrictToDigits(this)" onblur="validateAmount()" class="form-control formtext money-input" placeholder="--- €">
                 <div class="alert alert-danger" style="display: none" id="errorText" role="alert">
 
                 </div>
@@ -120,7 +121,6 @@
     const selectButton = document.getElementById('valueSelection');
     const selectButton1 = document.getElementById('valueSelection1');
     const selectButton2 = document.getElementById('valueSelection2');
-    const selectButton4 = document.getElementById('newValueInput');
 
     const valueDisplay = document.getElementById('valueDisplay');
     const valueDisplay1 = document.getElementById('valueDisplay1');
@@ -159,19 +159,12 @@
         valuePurchase.value = selectedValue;
     });
 
-    selectButton4.addEventListener('input', () => {
-        const selectedValue = selectButton4.value;
-        valueDisplay.textContent = selectedValue + '€';
-        valueDisplay1.textContent = selectedValue + '€';
-        valuePurchase.value = selectedValue;
-    });
 
     function handleButtonClick(button) {
         // Remove the 'active' class from all buttons
         selectButton.classList.remove('active');
         selectButton1.classList.remove('active');
         selectButton2.classList.remove('active');
-        selectButton4.classList.remove('active')
 
         // Add the 'active' class to the clicked button
         button.classList.add('active');
@@ -199,24 +192,36 @@
         const amountInput = document.getElementById("newValueInput");
         const amount = parseFloat(amountInput.value);
         const errorText = document.getElementById("errorText");
+        const valueDisplay = document.getElementById('valueDisplay');
+        const valueDisplay1 = document.getElementById('valueDisplay1');
+        const valuePurchase = document.getElementById('valuePurchase')
 
 
-
-        if (isNaN(amount) || amount < 10 || amount > 1000) {
+        if (isNaN(amount) || amount < 5 || amount > 1000) {
             errorText.textContent = "Insira um valor válido entre 10€ e 1000€";
             amountInput.value = "";
             errorText.style.display = 'block';
+            valueDisplay.textContent = "0.00 €";
+            valueDisplay1.textContent = "0.00 €";
         } else {
             errorText.textContent = "";
             errorText.style.display = 'none';
+            valueDisplay.textContent = amount + "€";
+            valueDisplay1.textContent = amount + "€";
+            valuePurchase.value = amount;
         }
     }
 
     function validateForm() {
         const valueForm = parseFloat(document.getElementById('valuePurchase').value);
-        return !(isNaN(valueForm) ||  valueForm < 10 ||  valueForm > 1000);
+        return !(isNaN(valueForm) ||  valueForm < 5 ||  valueForm > 1000);
     }
 
+</script>
+<script>
+    function restrictToDigits(input) {
+    input.value = input.value.replace(/\D/g, '');
+}
 </script>
 </body>
 </html>
