@@ -8,6 +8,12 @@
     <title>VIAS - Validar Títulos</title>
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/validate.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
 
 </head>
 <body>
@@ -78,10 +84,11 @@
     const validation = document.getElementById('validation');
     const audio = new Audio('sounds/beep-08b.mp3');
 
-    const scanner = new Instascan.Scanner({ video: videoElement });
+    const scanner = new Instascan.Scanner({ video: videoElement, mirror: false });
     scanner.addListener('scan', function (content) {
         if(content.startsWith("NaveCard") || content.startsWith("ViasCard")) {
             document.getElementById("qr-input").value = content
+
             form.submit();
             audio.play();
         }
@@ -92,17 +99,24 @@
     }, 2000);
 
 
-    Instascan.Camera.getCameras()
-        .then(function (cameras) {
-            if (cameras.length > 0) {
-                scanner.start(cameras[0]); // Use the first available camera
+    Instascan.Camera.getCameras().then(function (cameras) {
+        //If a camera is detected
+        if (cameras.length > 0) {
+            //If the user has a rear/back camera
+            if (cameras[1]) {
+                //use that by default
+                scanner.start(cameras[1]);
             } else {
-                console.error('No cameras found.');
+                //else use front camera
+                scanner.start(cameras[0]);
             }
-        })
-        .catch(function (error) {
-            console.error('Error accessing camera:', error);
-        });
+        } else {
+            //if no cameras are detected give error
+            console.error('No cameras found.');
+        }
+    }).catch(function (e) {
+        console.error(e);
+    });
 
 
 </script>

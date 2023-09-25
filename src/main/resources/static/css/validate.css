@@ -28,6 +28,7 @@
     margin: 20px 0 30px 0;
     position: relative;
     z-index: 1;
+
 }
 
 .validate-button{
@@ -88,5 +89,8 @@
     .col-md-auto {
         flex: 0 0 auto;
         width: auto;
+    }
+    #camera-feed {
+        max-height: 100%;
     }
 }
