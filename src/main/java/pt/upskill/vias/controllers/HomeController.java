@@ -71,7 +71,12 @@ public class HomeController {
         legRepository.saveAll(legs);
 
         if (legs.isEmpty()) {
-            mav.addObject("search_error", "Erro na procura. \nPor favor, tente outros locais.");
+            mav.addObject("search_error", "Não foi possível calcular as direções de transporte público entre " +
+                    "" +
+                    "" +
+                    origem + " e " + destino + ". \nPor favor, tente outros locais.");
+            mav.addObject("origem", origem);
+            mav.addObject("destino", destino);
             return mav;
         }
 
@@ -81,6 +86,8 @@ public class HomeController {
         }
 
         mav.addObject("legs", legs);
+        mav.addObject("origem", origem);
+        mav.addObject("destino", destino);
         return mav;
 
     }

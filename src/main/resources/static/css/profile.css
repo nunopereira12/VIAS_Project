@@ -213,7 +213,13 @@ hr {
 }
 
 
-
+.btn.btn-primary.buttons:hover {
+    /* Reset any hover styles here */
+    /* For example, you can set the hover effect to none */
+    background-color: #007bff; /* Or any other initial value */
+    color: #ffffff; /* Or any other initial value */
+    /* Add any other properties that were changed on hover here */
+}
 
 
 

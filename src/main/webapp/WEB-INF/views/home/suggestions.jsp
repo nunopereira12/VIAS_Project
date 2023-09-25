@@ -12,7 +12,7 @@
     <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs"></script>--%>
 
 </head>
-<body class="home-body" onload="initMap()">
+<body class="home-body" onload="initAutocomplete()">
 <button class="arrowbutton" style="z-index: 1000" onclick=window.location.href='/home';>
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
@@ -34,21 +34,36 @@
         <div class="button-box" style="margin-top: 50px">
             <div class="input-box">
                 <span style="margin: auto auto auto 0">
-                <input class="input-field" type="text" name="origem" id="origem1" value="${legs.get(0).getStart_address()}"></span>
-            <svg style="margin:auto 7px auto" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 40 40" fill="none">
-                <mask id="mask0_27_208" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
-                    <path d="M0 0H40V40H0V0Z" fill="#D9D9D9"/>
-                </mask>
-                <g mask="url(#mask0_27_208)">
-                    <path d="M21.7083 36.5834V33.8056C22.9306 33.6389 24.1181 33.3149 25.2708 32.8334C26.4236 32.3519 27.5046 31.7223 28.5139 30.9445L30.4583 32.9722C29.1713 34.0185 27.7963 34.8403 26.3333 35.4375C24.8704 36.0347 23.3287 36.4167 21.7083 36.5834ZM32.9305 30.4445L30.9583 28.5278C31.6991 27.5556 32.3102 26.5023 32.7917 25.3681C33.2732 24.2338 33.6065 23.0185 33.7917 21.7222H36.625C36.4028 23.4074 35.9792 24.9838 35.3542 26.4514C34.7292 27.919 33.9213 29.25 32.9305 30.4445ZM33.7917 18.2778C33.6065 16.9723 33.2732 15.757 32.7917 14.632C32.3102 13.507 31.6991 12.4537 30.9583 11.4722L32.9305 9.55556C33.9861 10.8889 34.8079 12.2593 35.3958 13.6667C35.9838 15.0741 36.3935 16.6111 36.625 18.2778H33.7917ZM18.2361 36.5834C13.9861 36.1019 10.4468 34.2871 7.61804 31.1389C4.78935 27.9908 3.375 24.2778 3.375 20C3.375 15.713 4.78935 11.9954 7.61804 8.84723C10.4468 5.69909 13.9861 3.88891 18.2361 3.41669V6.19444C14.7546 6.66666 11.8704 8.20833 9.58333 10.8194C7.29628 13.4306 6.15275 16.4908 6.15275 20C6.15275 23.5093 7.29628 26.5671 9.58333 29.1736C11.8704 31.7801 14.7546 33.3241 18.2361 33.8056V36.5834ZM28.5695 9.05556C27.5139 8.30556 26.4074 7.68983 25.25 7.20835C24.0926 6.72685 22.9305 6.38888 21.7639 6.19444V3.41669C23.3102 3.61113 24.8241 4.00696 26.3055 4.60419C27.787 5.20141 29.1713 6.00928 30.4583 7.02781L28.5695 9.05556ZM20 28.6389C18.3519 27.2408 16.7963 25.7361 15.3333 24.125C13.8704 22.5139 13.1389 20.6389 13.1389 18.5C13.1389 16.5556 13.8032 14.8935 15.132 13.5139C16.4607 12.1343 18.0833 11.4445 20 11.4445C21.9167 11.4445 23.5393 12.1343 24.868 13.5139C26.1968 14.8935 26.8611 16.5556 26.8611 18.5C26.8611 20.6389 26.1296 22.5139 24.6667 24.125C23.2037 25.7361 21.6481 27.2408 20 28.6389ZM20 20.0556C20.5185 20.0556 20.956 19.8773 21.3125 19.5209C21.669 19.1644 21.8472 18.7269 21.8472 18.2084C21.8472 17.7361 21.669 17.3102 21.3125 16.9306C20.956 16.551 20.5185 16.3611 20 16.3611C19.4815 16.3611 19.044 16.551 18.6875 16.9306C18.331 17.3102 18.1528 17.7361 18.1528 18.2084C18.1528 18.7269 18.331 19.1644 18.6875 19.5209C19.044 19.8773 19.4815 20.0556 20 20.0556Z" fill="white"/>
-                </g>
-            </svg></div>
+                    <c:choose>
+                    <c:when test="${legs != null}">
+                <input class="input-field" type="text" name="origem" id="origem1" value="${legs.get(0).getStart_address()}" required></span>
+                </c:when>
+                <c:when test="${legs == null}">
+                    <input class="input-field" type="text" name="origem" id="origem1" value="" placeholder="${origem}" required></span>
+                </c:when>
+                </c:choose>
+                <svg style="margin: auto 7px auto" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                    <mask id="mask0_854_705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
+                        <path d="M0 0H25V25H0V0Z" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_854_705)">
+                        <path d="M13.5677 22.8646V21.1285C14.3316 21.0243 15.0738 20.8218 15.7943 20.5208C16.5148 20.2199 17.1904 19.8264 17.8212 19.3403L19.0365 20.6076C18.2321 21.2616 17.3727 21.7752 16.4583 22.1484C15.544 22.5217 14.5804 22.7604 13.5677 22.8646ZM20.5816 19.0278L19.349 17.8299C19.8119 17.2222 20.1939 16.5639 20.4948 15.855C20.7957 15.1461 21.0041 14.3866 21.1198 13.5764H22.8906C22.7517 14.6296 22.487 15.6149 22.0964 16.5321C21.7057 17.4494 21.2008 18.2813 20.5816 19.0278ZM21.1198 11.4236C21.0041 10.6076 20.7957 9.8481 20.4948 9.14497C20.1939 8.44185 19.8119 7.78356 19.349 7.17013L20.5816 5.97221C21.2413 6.80554 21.7549 7.66203 22.1224 8.54166C22.4899 9.4213 22.746 10.3819 22.8906 11.4236H21.1198ZM11.3976 22.8646C8.74133 22.5637 6.52923 21.4294 4.76128 19.4618C2.99334 17.4942 2.10938 15.1736 2.10938 12.5C2.10938 9.8206 2.99334 7.49711 4.76128 5.5295C6.52923 3.56192 8.74133 2.43055 11.3976 2.13541V3.87151C9.22164 4.16665 7.41898 5.13019 5.98958 6.76213C4.56017 8.39409 3.84547 10.3067 3.84547 12.5C3.84547 14.6933 4.56017 16.6044 5.98958 18.2335C7.41898 19.8626 9.22164 20.8275 11.3976 21.1285V22.8646ZM17.8559 5.65971C17.1962 5.19096 16.5046 4.80613 15.7812 4.50521C15.0579 4.20427 14.3316 3.99304 13.6024 3.87151V2.13541C14.5689 2.25694 15.515 2.50434 16.441 2.8776C17.3669 3.25087 18.2321 3.75579 19.0365 4.39237L17.8559 5.65971ZM12.5 17.8993C11.4699 17.0255 10.4977 16.0851 9.58333 15.0781C8.66898 14.0712 8.2118 12.8993 8.2118 11.5625C8.2118 10.3472 8.62702 9.30844 9.45747 8.44617C10.2879 7.58391 11.3021 7.15278 12.5 7.15278C13.6979 7.15278 14.7121 7.58391 15.5425 8.44617C16.373 9.30844 16.7882 10.3472 16.7882 11.5625C16.7882 12.8993 16.331 14.0712 15.4167 15.0781C14.5023 16.0851 13.5301 17.0255 12.5 17.8993ZM12.5 12.5347C12.8241 12.5347 13.0975 12.4233 13.3203 12.2005C13.5431 11.9777 13.6545 11.7043 13.6545 11.3802C13.6545 11.0851 13.5431 10.8189 13.3203 10.5816C13.0975 10.3443 12.8241 10.2257 12.5 10.2257C12.1759 10.2257 11.9025 10.3443 11.6797 10.5816C11.4569 10.8189 11.3455 11.0851 11.3455 11.3802C11.3455 11.7043 11.4569 11.9777 11.6797 12.2005C11.9025 12.4233 12.1759 12.5347 12.5 12.5347Z" fill="#4D4C4C"/>
+                    </g>
+                </svg></div>
                 <div class="input-box">
-                    <span style="margin: auto auto auto 0 "><input class="input-field" type="text" name="destino" id="destino1" value="${legs.get(0).getEnd_address()}"></span>
-                    <button style="background-color: #1F7EB2; border: none; margin: 0 3px 0 5px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M14 15.5L8.59723 10.0972C8.18056 10.4491 7.69695 10.7245 7.1464 10.9236C6.59585 11.1227 6.01002 11.2222 5.3889 11.2222C3.88277 11.2222 2.60809 10.7002 1.56485 9.65625C0.521618 8.61228 0 7.34724 0 5.86112C0 4.37501 0.521993 3.10997 1.56598 2.06598C2.60995 1.02199 3.87731 0.5 5.36806 0.5C6.8588 0.5 8.12384 1.02199 9.16319 2.06598C10.2025 3.10997 10.7222 4.37571 10.7222 5.86321C10.7222 6.46367 10.625 7.03936 10.4306 7.59029C10.2361 8.14121 9.95371 8.64815 9.58333 9.11112L15 14.5L14 15.5ZM5.375 9.83336C6.47454 9.83336 7.40915 9.44562 8.17881 8.67015C8.94849 7.89469 9.33333 6.95835 9.33333 5.86112C9.33333 4.76389 8.94849 3.82754 8.17881 3.05208C7.40915 2.27663 6.47454 1.8889 5.375 1.8889C4.26775 1.8889 3.32658 2.27663 2.5515 3.05208C1.77642 3.82754 1.38888 4.76389 1.38888 5.86112C1.38888 6.95835 1.77642 7.89469 2.5515 8.67015C3.32658 9.44562 4.26775 9.83336 5.375 9.83336Z" fill="white"/>
-                    </svg></button></div>
+                    <span style="margin: auto auto auto 0 ">
+                        <c:choose>
+                        <c:when test="${legs != null}">
+                        <input class="input-field" type="text" name="destino" id="destino1" value="${legs.get(0).getEnd_address()}" required></span>
+                    </c:when>
+                    <c:when test="${legs == null}">
+                        <input class="input-field" type="text" name="destino" id="destino1" value="" placeholder="${destino}" required></span>
+                    </c:when>
+                    </c:choose>
+                    <button style="background-color: white; border: none; margin: 0 3px 0 5px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M23.3333 25L14.3287 15.9954C13.6343 16.5818 12.8283 17.0409 11.9107 17.3727C10.9931 17.7045 10.0167 17.8704 8.98149 17.8704C6.47128 17.8704 4.34682 17.0004 2.60809 15.2604C0.869364 13.5205 0 11.4121 0 8.93521C0 6.45836 0.869989 4.34994 2.60997 2.60997C4.34992 0.869988 6.46219 0 8.94677 0C11.4313 0 13.5397 0.869988 15.272 2.60997C17.0042 4.34994 17.8704 6.45951 17.8704 8.93868C17.8704 9.93945 17.7083 10.8989 17.3843 11.8172C17.0602 12.7353 16.5895 13.5803 15.9722 14.3519L25 23.3334L23.3333 25ZM8.95833 15.5556C10.7909 15.5556 12.3486 14.9094 13.6314 13.6169C14.9142 12.3245 15.5556 10.7639 15.5556 8.93521C15.5556 7.10648 14.9142 5.5459 13.6314 4.25347C12.3486 2.96104 10.7909 2.31483 8.95833 2.31483C7.11292 2.31483 5.54431 2.96104 4.2525 4.25347C2.96069 5.5459 2.31479 7.10648 2.31479 8.93521C2.31479 10.7639 2.96069 12.3245 4.2525 13.6169C5.54431 14.9094 7.11292 15.5556 8.95833 15.5556Z" fill="#4D4C4C"/>
+                        </svg></button></div>
            <%-- <div class="date-hour-box" style="margin-top: 20px;">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-secondary">
@@ -83,12 +98,17 @@
         </form>
 
         <c:if test="${search_error != null}">
+            <div class="suggestions-box">
 
             <div class="alert alert-danger text-center">
                 <p>${search_error}</p>
-                <div class="d-flex justify-content-center align-items-center">
-                    <button class="btn btn-light" onclick="window.location.href='/home'">OK</button>
-                </div>
+            </div>
+                <button class="return-button" onclick=window.location.href='/home';>Regressar</button>
+            </div>
+            <div class="footerlogo">
+                <footer>
+                    <img class="footerimage" src="images/logo_nobg.png" alt="">
+                </footer>
             </div>
         </c:if>
         <c:if test="${search_error == null}">
@@ -155,16 +175,19 @@
                             <span class="card-button-text">Títulos de Transporte</span></div>
                     </div>
                 </c:forEach>
-                </c:if>
                 <button class="return-button" onclick=window.location.href='/home';>Regressar</button>
             </div>
+            <div class="footerlogo">
+                <footer>
+                    <img class="footerimage" src="images/logo_nobg.png" alt="">
+                </footer>
+            </div>
+                </c:if>
 
 
-        <div class="footerlogo">
-            <footer>
-                <img class="footerimage" src="images/logo_nobg.png" alt="">
-            </footer>
-        </div>
+
+
+
 
     </div>
 
@@ -291,13 +314,47 @@
             map.fitBounds(bounds);
         }
 
+        function initAutocomplete() {
+
+            /*  const defaultBounds = {
+                  north: 38.7223 + 0.3,
+                  south: 38.7223 - 0.4,
+                  east: -9.1393 + 0.6,
+                  west: -9.1393 - 0.4,
+              }*/
+
+
+
+            const options = {
+                /*bounds: defaultBounds,*/
+                componentRestrictions: { country: "pt" },
+                strictBounds: true,
+
+
+            }
+
+            const input1 = document.getElementById("origem1");
+            const autocomplete = new google.maps.places.Autocomplete(input1, options);
+            const place = autocomplete.getPlace();
+            //autocomplete.bindTo("bounds", map);
+            console.log(place);
+
+            const input2 = document.getElementById("destino1");
+            const autocomplete2 = new google.maps.places.Autocomplete(input2, options);
+            const place2 = autocomplete2.getPlace();
+            //autocomplete2.bindTo("bounds", map);
+
+            console.log(place2);
+
+        }
+
         initMap();
     </script>
 
 
 
     <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core,places&callback=initMap">
     </script>
 
 </div>

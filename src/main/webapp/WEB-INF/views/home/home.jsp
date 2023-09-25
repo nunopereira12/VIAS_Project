@@ -40,21 +40,13 @@
                  style="text-align: center; justify-content: center; border-bottom: 2px solid #D9D9D9">
                 <c:choose>
                     <c:when test="${user.getRole() eq 'USER' || user.getRole() eq 'PICA' }">
-                        <a href="http://localhost:8080/profile">
-                            <button class="nav-perfil-button">
-                                <img src=<c:if test="${user.getProfile_picture() == null}">
-                                             "images/map1.png" </c:if>
-                                        <c:if test="${user.getProfile_picture() != null}">
-                                            "uploads/${user.getProfile_picture()}" </c:if>
+                        <a>
+                            <button onclick="window.location.href='/profile'" class="nav-perfil-button" style="background-image: url('<c:choose><c:when test='${user.getProfile_picture() == null}'>images/map1.png
+                                </c:when><c:otherwise>uploads/${user.getProfile_picture()}</c:otherwise></c:choose>'); background-size: cover; border-radius:50%; width:80px; height:80px">
 
-
-                                     width="80px" height="80px" alt="profile picture"
-                                     style="border: #1E1E1E; border-radius: 80px">
-
-
-                                <span><h5
-                                        style="margin-top:10px">${user.getFirst_name()} ${user.getLast_name()}</h5></span>
                             </button>
+                            <span><h5
+                                    style="margin-top:10px">${user.getFirst_name()} ${user.getLast_name()}</h5></span>
                         </a>
                     </c:when>
                     <c:when test="${user == null}">

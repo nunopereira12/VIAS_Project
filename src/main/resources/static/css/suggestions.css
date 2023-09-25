@@ -4,22 +4,22 @@
 }
 
 .input-box{
-    background: #1F7EB2;
+    background: white;
     border-radius: 10px;
     margin-top: 10px;
 }
 
 .input-field{
     margin: 0 0 0 10px;
-    background: #1F7EB2;
+    background: white;
     border: none;
-    color: #ffffff;
+    color: black;
     height: 50px;
     width: 80%;
 
 }
 .input-field::placeholder{
-    color:#ffffff;
+    color: black;
     font-weight: 400;
 }
 
@@ -243,6 +243,6 @@
 .alert-danger {
     margin-top: 20px;
     align-items: center;
-    max-width: 300px;
+    max-width: 284px;
 }
 
