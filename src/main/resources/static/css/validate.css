@@ -91,6 +91,6 @@
         width: auto;
     }
     #camera-feed {
-        max-height: 100%;
+        height: 180px;
     }
 }

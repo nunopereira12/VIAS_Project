@@ -88,9 +88,11 @@
     scanner.addListener('scan', function (content) {
         if(content.startsWith("NaveCard") || content.startsWith("ViasCard")) {
             document.getElementById("qr-input").value = content
-
-            form.submit();
             audio.play();
+            setTimeout(function () {
+                form.submit();
+            }, 500);
+
         }
     });
 
