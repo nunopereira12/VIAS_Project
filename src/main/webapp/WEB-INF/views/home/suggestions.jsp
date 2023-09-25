@@ -36,7 +36,7 @@
                 <span style="margin: auto auto auto 0">
                     <c:choose>
                     <c:when test="${legs != null}">
-                <input class="input-field" type="text" name="origem" id="origem1" value="${legs.get(0).getStart_address()}" required></span>
+                <input class="input-field" type="text" name="origem" id="origem1" onfocus=selectText(this) value="${legs.get(0).getStart_address()}" required></span>
                 </c:when>
                 <c:when test="${legs == null}">
                     <input class="input-field" type="text" name="origem" id="origem1" value="" placeholder="${origem}" required></span>
@@ -54,7 +54,7 @@
                     <span style="margin: auto auto auto 0 ">
                         <c:choose>
                         <c:when test="${legs != null}">
-                        <input class="input-field" type="text" name="destino" id="destino1" value="${legs.get(0).getEnd_address()}" required></span>
+                        <input class="input-field" type="text" name="destino" id="destino1" onfocus=selectText(this) value="${legs.get(0).getEnd_address()}" required></span>
                     </c:when>
                     <c:when test="${legs == null}">
                         <input class="input-field" type="text" name="destino" id="destino1" value="" placeholder="${destino}" required></span>
@@ -314,13 +314,53 @@
             map.fitBounds(bounds);
         }
 
+
+        function initAutocomplete() {
+
+            /*  const defaultBounds = {
+                  north: 38.7223 + 0.3,
+                  south: 38.7223 - 0.4,
+                  east: -9.1393 + 0.6,
+                  west: -9.1393 - 0.4,
+              }*/
+
+
+
+            const options = {
+                /*bounds: defaultBounds,*/
+                componentRestrictions: { country: "pt" },
+                strictBounds: true,
+
+
+            }
+
+            const input1 = document.getElementById("origem1");
+            const autocomplete = new google.maps.places.Autocomplete(input1, options);
+            const place = autocomplete.getPlace();
+            //autocomplete.bindTo("bounds", map);
+            console.log(place);
+
+            const input2 = document.getElementById("destino1");
+            const autocomplete2 = new google.maps.places.Autocomplete(input2, options);
+            const place2 = autocomplete2.getPlace();
+            //autocomplete2.bindTo("bounds", map);
+
+            console.log(place2);
+
+        }
+
+
         initMap();
     </script>
 
-
+    <script>
+        function selectText(inputElement) {
+            inputElement.select();
+        }
+    </script>
 
     <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs&libraries=drawing,geometry,core,places&callback=initMap">
     </script>
 
 </div>

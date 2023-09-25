@@ -176,7 +176,7 @@
             <div>
                 <form id="directionsForm" method="POST" action="/perform_travel">
                     <div class="search-bar" style="border-bottom: 2px solid #D9D9D9 ">
-                        <input style="border: none" type="text" name="origem" id="origem1" placeholder="A sua origem" required>
+                        <input style="border: none" type="text" name="origem" id="origem1" onfocus=selectText(this) placeholder="A sua origem" required>
                         <button class="form-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 40 41"
                                  fill="none">
@@ -193,7 +193,7 @@
                         </button>
                     </div>
                     <div class="search-bar">
-                        <input style="border: none" type="text" name="destino" id="destino1"
+                        <input style="border: none" type="text" name="destino" id="destino1" onfocus=selectText(this)
                                placeholder="O seu destino"
                                required>
                         <button type="submit" class="form-button">
@@ -360,6 +360,12 @@
 
 
 
+</script>
+
+<script>
+    function selectText(inputElement) {
+        inputElement.select();
+    }
 </script>
 
 <script async

@@ -25,10 +25,11 @@
                     <button id=valueSelection1 class="choice-button" value="10.00"> 10.00 €</button>
                     <button id=valueSelection2 class="choice-button" value="15.00"> 15.00 €</button>
                 </p>
-                <p class="subtitle" style="margin-bottom: 0px">Ou insira um montante:</p>
-                <div style="display:flex; justify-content: center"><p>(min. 5€ - max. 1000€)</p></div>
                 <p>
-                    <input type="number" id="newValueInput" class="form-control formtext money-input" placeholder="0€" required min="5" max="1000">
+                    <input type="text" id="newValueInput" onblur="validateAmount()" class="form-control formtext" placeholder="--- €">
+                <div class="alert alert-danger" style="display: none" id="errorText" role="alert">
+
+                </div>
                 </p>
 
             </c:when>
@@ -95,7 +96,7 @@
             </div>
         </div>
         <div class="d-grid" style="justify-content: center">
-            <form method="POST" action="/payment_success" id="payment_form">
+            <form method="POST" action="/payment_success" onsubmit="return validateForm()" id="payment_form">
                 <input id=valuePurchase type="hidden" name="value" value="">
                 <c:if test="${navegante != null}">
                     <input type="hidden" name="navegante_id" value="${navegante.getCard_number()}">
@@ -119,8 +120,6 @@
     const selectButton = document.getElementById('valueSelection');
     const selectButton1 = document.getElementById('valueSelection1');
     const selectButton2 = document.getElementById('valueSelection2');
-    const selectButton3 = document.getElementById('valueSelection3')
-
     const selectButton4 = document.getElementById('newValueInput');
 
     const valueDisplay = document.getElementById('valueDisplay');
@@ -160,31 +159,13 @@
         valuePurchase.value = selectedValue;
     });
 
-    selectButton2.addEventListener('click', () => {
-        const selectedValue = selectButton3.value;
-        valueDisplay.textContent = selectedValue + '€';
-        valuePurchase.value = selectedValue;
-    });
-
-
-    newValueInput.addEventListener('input', () => {
-        const selectedValue = newValueInput.value;
+    selectButton4.addEventListener('input', () => {
+        const selectedValue = selectButton4.value;
         valueDisplay.textContent = selectedValue + '€';
         valueDisplay1.textContent = selectedValue + '€';
         valuePurchase.value = selectedValue;
     });
 
-    newValueInput.addEventListener('input', () => {
-        if (newValueInput.value === '0' || newValueInput.value === '-') {
-            newValueInput.value = '';
-        }
-    });
-
-    newValueInput.addEventListener('keydown', (event) => {
-        if (event.key === '-') {
-            event.preventDefault();
-        }
-    });
 
 
     function handleButtonClick(button) {
@@ -211,33 +192,32 @@
         handleButtonClick(selectButton2);
     });
 
-    selectButton4.addEventListener('click', () => {
-        handleButtonClick(selectButton4);
-    });
 
-    newValueInput.addEventListener('input', () => {
-        const enteredValue = newValueInput.value.trim(); // Remove leading/trailing spaces
 
-        if (enteredValue === '') {
-            valueDisplay.textContent = '5€';
-            valueDisplay1.textContent = '5€';
-            valuePurchase.value = '5.00';
+</script>
+<script>
+
+    function validateAmount() {
+        const amountInput = document.getElementById("newValueInput");
+        const amount = parseFloat(amountInput.value);
+        const errorText = document.getElementById("errorText");
+
+
+
+        if (isNaN(amount) || amount < 10 || amount > 1000) {
+            errorText.textContent = "Insira um valor válido entre 10€ e 1000€";
+            amountInput.value = "";
+            errorText.style.display = 'block';
         } else {
-            const parsedValue = parseFloat(enteredValue);
-
-            if (!isNaN(parsedValue) && parsedValue >= 5) {
-                const formattedValue = parsedValue.toFixed(2) + '€';
-                valueDisplay.textContent = formattedValue;
-                valueDisplay1.textContent = formattedValue;
-
-                valuePurchase.value = parsedValue.toFixed(2);
-            } else {
-                valueDisplay.textContent = '5.00€';
-                valueDisplay1.textContent = '5.00€';
-                valuePurchase.value = '5.00';
-            }
+            errorText.textContent = "";
+            errorText.style.display = 'none';
         }
-    });
+    }
+
+    function validateForm() {
+        const valueForm = parseFloat(document.getElementById('valuePurchase').value);
+        return !(isNaN(valueForm) ||  valueForm < 10 ||  valueForm > 1000);
+    }
 
 </script>
 </body>
