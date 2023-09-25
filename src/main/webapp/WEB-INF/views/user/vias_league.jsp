@@ -18,15 +18,12 @@
         </button>
 
         <img class="imagelogo center-img" src="images/vias_league.v3.png" width="200px">
-
+        <button class="icon-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="/images/vias_league/info_azul.png" alt="Button Image" class="icon">
+        </button>
     </div>
 
     <div class="buttons-container">
-        <div class="icon-container">
-            <button class="icon-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <img src="/images/vias_league/info_icon.png" alt="Button Image" class="icon">
-            </button>
-        </div>
         <form id="filterForm" action="/vias_league" method="get">
             <label id="opcao" for="filter" style="font-size: 18px;">Selecione uma leaderboard:</label>
             <br>
@@ -200,32 +197,37 @@
                 <div class="leaderboard" style="margin-bottom: -2px"><strong>${selected_filter}</strong></div>
             </c:when>
             <c:when test="${selected_filter eq 'Distância Percorrida a Andar'}">
-                <img class="image_badge center-img" src="images/vias_league/man_walking.png"
-                     width="90px" style="margin-top: -30px; margin-bottom: -10px"
+                <img class="image_badge center-img" src="images/vias_league/man_walking.v2.png"
+                     width="90px" style="margin-top: -30px;
                      alt="Bronze Image"/>
                 <div class="leaderboard" style="margin-bottom: -3px"><strong>${selected_filter}</strong></div>
             </c:when>
             <c:when test="${selected_filter eq 'Distância Percorrida Transportes'}">
-                <img class="image_badge center-img" src="images/vias_league/train_icon.png"
-                     width="150px" style="margin-top: -60px; margin-bottom: -20px"
+                <img class="image_badge center-img" src="images/vias_league/bus.png"
+                     width="100px" style="margin-top: -30px;
                      alt="Bronze Image"/>
                 <div class="leaderboard" style="margin-bottom: -3px"><strong>${selected_filter}</strong></div>
             </c:when>
             <c:when test="${selected_filter eq 'Tempo Despendido a Andar'}">
-                <img class="image_badge center-img" src="images/vias_league/man_walking.png"
-                     width="90px" style="margin-top: -30px; margin-bottom: -10px"
-                     alt="Bronze Image"/>
+                <div id="running_man_clock" style="margin-bottom: 10px">
+                    <img class="image_badge center-img clock" src="images/vias_league/clock.png"
+                         width="18px" style="margin-top: -60px; margin-bottom: -20px"
+                         alt="Bronze Image"/>
+                    <img class="image_badge center-img" src="images/vias_league/man_walking.v2.png"
+                         width="90px" style="margin-top: -30px; margin-bottom: -10px"
+                         alt="Bronze Image"/>
+                </div>
                 <div class="leaderboard" style="margin-bottom: -8px"><strong>${selected_filter}</strong></div>
             </c:when>
             <c:when test="${selected_filter eq 'Tempo Despendido Transportes'}">
-                <img class="image_badge center-img" src="images/vias_league/train_icon.png"
-                     width="150px" style="margin-top: -60px; margin-bottom: -20px"
-                     alt="Bronze Image"/>
+                <img class="image_badge center-img" src="images/vias_league/time_bus.png"
+                     width="92px" style="margin-top: -30px;
+                     alt="Bus time image"/>
                 <div class="leaderboard" style="margin-bottom: -3px"><strong>${selected_filter}</strong></div>
             </c:when>
             <c:when test="${selected_filter eq 'Viagens Completas'}">
                 <img class="image_badge center-img" src="images/vias_league/travel_trip.png"
-                     width="100px" style="margin-top: -30px; margin-bottom: -10px"
+                     width="120px" style="margin-top: -30px; margin-bottom: -10px"
                      alt="Bronze Image"/>
                 <div class="leaderboard" style="margin-bottom: -3px"><strong>${selected_filter}</strong></div>
             </c:when>
