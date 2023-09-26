@@ -45,7 +45,7 @@
                     </button>
                     <input type="text" name="first_name" class="form-control formtext" id="first_name"
                            value=${user.getFirst_name()} oninput="validateInput(this)" maxlength="25"
-                           pattern="[A-Za-z]+" disabled required>
+                           pattern="[A-Za-zÀ-ÿçÇ]+" disabled required>
                 </div>
                 <div class="mb-3">
                     <label for="last_name" class="form-label text-start">Último Nome</label>
@@ -64,7 +64,7 @@
                         </svg>
                     </button>
                     <input type="text" name="last_name" class="form-control formtext" id="last_name"
-                           value="${user.getLast_name()}" maxlength="25" pattern="[A-Za-z]+" disabled required
+                           value="${user.getLast_name()}" maxlength="25" pattern="[A-Za-zÀ-ÿçÇ]+" disabled required
                            oninput="validateLastName()">
 
                 </div>
@@ -184,7 +184,6 @@
     validateLastName();
 
     const userBirthday = new Date("${user.getBirthday()}");
-
 
     const dateInput = document.getElementById("date");
 
