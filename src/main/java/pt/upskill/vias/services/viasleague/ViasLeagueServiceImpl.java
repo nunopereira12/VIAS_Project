@@ -157,7 +157,7 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
         if (today_value - last_update_value >= seven_days) {
             changeLeagues();
             resetStats(users);
-            last_update.setDate(today);
+            last_update.setDate(new Date(last_update_value+seven_days));
             lastUpdateRepository.save(last_update);
         }
     }
