@@ -28,7 +28,6 @@ body {
     font-weight: 600;
     width: fit-content;
     padding: 0px;
-    margin: 0 5px 0 5px;
 }
 
 
@@ -46,6 +45,7 @@ body {
         min-width: 450px;
         margin-top: 80px;
     }
+
 }
 
 
@@ -72,6 +72,7 @@ body {
     max-width: 50%; /* Adjust the percentage to control the image size */
     height: auto;
 }
+
 
 
 #login-page{
@@ -113,6 +114,14 @@ body {
 
     #buttonentry {
         margin-bottom: 2rem
+    }
+}
+@media (max-width: 601px) {
+    .termsbutton{
+        font-size: 10.5px;
+    }
+    .termstext{
+        font-size: 10.5px;
     }
 }
 
@@ -180,6 +189,8 @@ body {
     margin-right: 15px;
     font-weight: 600;
 }
+
+
 
 
 

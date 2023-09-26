@@ -192,7 +192,7 @@
                 <input type="password" name="confirm_password" class="form-control formtext" id="confirmPassword" placeholder="Confirmar a sua password" required>
             </div>
             <label class="container-checkbox" style="display: flex; align-items: center">
-                <input style="margin-right: 5px" type="checkbox" id="myCheckbox" disabled required>Li e aceito <button type="button" class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os termos e condições</button>  da VIAS
+                <input style="margin-right: 5px"  type="checkbox" id="myCheckbox" disabled required><span class="termstext">Li e aceito <button type="button" class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os termos e condições</button>  da VIAS</span>
 
                 <span class="checkmark"></span>
             </label>
