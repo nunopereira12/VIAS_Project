@@ -9,10 +9,12 @@ import pt.upskill.vias.models.routes.Step;
 import pt.upskill.vias.repositories.LegRepository;
 import pt.upskill.vias.services.routes.info.LegInfoService;
 import pt.upskill.vias.services.routes.info.StepInfoService;
+import pt.upskill.vias.services.utils.CalendarService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Time;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,17 +29,22 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
     StepInfoService stepInfoService;
     @Autowired
     LegRepository legRepository;
+    @Autowired
+    CalendarService calendarService;
 
     @Override
-    public String createPostURL(String origin, String destination, boolean depart, Date date) {
+    public String createPostURL(String origin, String destination, boolean depart, String datetime) throws ParseException {
         String specificTimeRequest = "";
+        String date = datetime.replaceAll(",","");
         try {
+            Date new_date = calendarService.parseDatetime(date);
             if (depart) {
-                specificTimeRequest.concat("&departure_time=" + date.getTime());
+                specificTimeRequest = specificTimeRequest.concat("&departure_time=" + new_date.getTime()/1000);
             } else {
-                specificTimeRequest.concat("&arrival_time=" + date.getTime());
+                specificTimeRequest = specificTimeRequest.concat("&arrival_time=" + new_date.getTime()/1000);
             }
         } catch (NullPointerException npe) {
+            System.out.println("date is null");
         }
 
 
@@ -67,7 +74,7 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
 
 
     @Override
-    public List<Leg> getLegList(String origin, String destination, boolean depart, Date date) throws IOException {
+    public List<Leg> getLegList(String origin, String destination, boolean depart, String date) throws IOException, ParseException {
 
 
         JSONObject response = getJSONResponse(createPostURL(origin, destination, depart, date));

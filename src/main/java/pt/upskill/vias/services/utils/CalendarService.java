@@ -9,6 +9,8 @@ public interface CalendarService {
 
     Date parseDate(String date) throws ParseException;
 
+    Date parseDatetime(String datetime) throws ParseException;
+
     String dateToString(Date date);
 
     String getNextMonth();

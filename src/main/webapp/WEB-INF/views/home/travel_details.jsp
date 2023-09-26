@@ -54,7 +54,7 @@
                                 <c:if test="${!step.getTravel_mode().equals('WALKING')}">
                                     <div class="icon-box"><img class="icon" src="${step.getIcon()}"></div>
                                     <div class="travel-text"
-                                         style="background-color: ${step.getLine().getColor()}; color: ${step.getLine().getText_color()}">
+                                         style="background-color: ${step.getLine().getColor()}; color: ${step.getLine().getText_color()}; padding: 0 2px 0 2px">
                                         <span style="margin: 0 2px">${step.getLine().getName()}</span></div>
                                 </c:if>
                                 <c:if test="${!loop.last}">
@@ -142,7 +142,7 @@
                                                 </span>
                                                 <div class="travel-box">
                                                 <div class="travel-text"
-                                                     style="background-color: ${step.getLine().getColor()}; color: ${step.getLine().getText_color()}">
+                                                     style="background-color: ${step.getLine().getColor()}; color: ${step.getLine().getText_color()}; padding: 0 2px 0 2px">
                                                     <span style="margin: 0 2px">${step.getLine().getName()}</span></div></div>
 
 

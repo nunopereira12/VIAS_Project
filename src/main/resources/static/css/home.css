@@ -127,6 +127,10 @@
     visibility: hidden;
 }
 
+.dropdown{
+    margin-top: 175px;
+}
+
 @media (min-width: 920px) {
     .home-body{
         margin: 0;
@@ -189,7 +193,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin:220px 0 0 0;
+        margin:50px 0 0 0;
 
     }
 
@@ -225,19 +229,38 @@
     .searchquery {
         visibility: visible;
     }
+    .dropdown{
+        margin-top:260px
+    }
 
 }
 .date-hour-box{
     background-color: transparent;
     border-radius: 25px;
     height: auto;
-    width: auto;
     max-width: 350px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin:20px 0 20px 0;
+    margin:10px 0 20px 0;
+}
+
+.time-input{
+    height: 35px;
+    border:none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 0 15px 0 15px;
+
+}
+
+.date-hour-input{
+    padding: 0 10px 0 10px;
+}
+
+.hidden{
+    display:none;
 }
 
 .btn-group {

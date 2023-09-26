@@ -36,6 +36,17 @@ public class CalendarServiceImpl implements CalendarService {
         return formatter.parse(date);
     }
 
+    @Override
+    public Date parseDatetime(String datetime) throws ParseException {
+        if(datetime.equals("")){
+            return null;
+        }else{
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+            return format.parse(datetime);
+        }
+    }
+
+
     public String dateToString(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(date);

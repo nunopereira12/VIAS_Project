@@ -168,12 +168,12 @@
 
         <c:choose>
         <c:when test="${user == null || user.getRole() eq 'USER'}">
+        <form id="directionsForm" method="POST" action="/perform_travel">
         <div class="search-box">
             <div class="home-title">
                 <h3>Para onde vai?</h3>
             </div>
             <div>
-                <form id="directionsForm" method="POST" action="/perform_travel">
                     <div class="search-bar" style="border-bottom: 2px solid #D9D9D9 ">
                         <input style="border: none" type="text" name="origem" id="origem1" onfocus=selectText(this) placeholder="A sua origem" required>
                         <button class="form-button">
@@ -208,41 +208,30 @@
                             </svg>
                         </button>
                     </div>
-                </form>
             </div>
         </div>
 
-
-       <%-- <div class="date-hour-box">
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <mask id="mask0_189_1662" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                              width="24" height="24">
-                            <rect width="24" height="24" fill="#D9D9D9"/>
-                        </mask>
-                        <g mask="url(#mask0_189_1662)">
-                            <path d="M6.79042 22C6.19761 22 5.69012 21.8042 5.26797 21.4125C4.84581 21.0208 4.63474 20.55 4.63474 20V6C4.63474 5.45 4.84581 4.97917 5.26797 4.5875C5.69012 4.19583 6.19761 4 6.79042 4H7.86827V2H10.024V4H18.6467V2H20.8024V4H21.8802C22.4731 4 22.9805 4.19583 23.4027 4.5875C23.8249 4.97917 24.0359 5.45 24.0359 6V20C24.0359 20.55 23.8249 21.0208 23.4027 21.4125C22.9805 21.8042 22.4731 22 21.8802 22H6.79042ZM6.79042 20H21.8802V10H6.79042V20ZM6.79042 8H21.8802V6H6.79042V8ZM14.3353 14C14.0299 14 13.774 13.9042 13.5674 13.7125C13.3608 13.5208 13.2575 13.2833 13.2575 13C13.2575 12.7167 13.3608 12.4792 13.5674 12.2875C13.774 12.0958 14.0299 12 14.3353 12C14.6407 12 14.8967 12.0958 15.1033 12.2875C15.3099 12.4792 15.4132 12.7167 15.4132 13C15.4132 13.2833 15.3099 13.5208 15.1033 13.7125C14.8967 13.9042 14.6407 14 14.3353 14ZM10.024 14C9.71857 14 9.46258 13.9042 9.25599 13.7125C9.04941 13.5208 8.94611 13.2833 8.94611 13C8.94611 12.7167 9.04941 12.4792 9.25599 12.2875C9.46258 12.0958 9.71857 12 10.024 12C10.3293 12 10.5853 12.0958 10.7919 12.2875C10.9985 12.4792 11.1018 12.7167 11.1018 13C11.1018 13.2833 10.9985 13.5208 10.7919 13.7125C10.5853 13.9042 10.3293 14 10.024 14ZM18.6467 14C18.3413 14 18.0853 13.9042 17.8787 13.7125C17.6722 13.5208 17.5689 13.2833 17.5689 13C17.5689 12.7167 17.6722 12.4792 17.8787 12.2875C18.0853 12.0958 18.3413 12 18.6467 12C18.9521 12 19.2081 12.0958 19.4147 12.2875C19.6213 12.4792 19.7246 12.7167 19.7246 13C19.7246 13.2833 19.6213 13.5208 19.4147 13.7125C19.2081 13.9042 18.9521 14 18.6467 14ZM14.3353 18C14.0299 18 13.774 17.9042 13.5674 17.7125C13.3608 17.5208 13.2575 17.2833 13.2575 17C13.2575 16.7167 13.3608 16.4792 13.5674 16.2875C13.774 16.0958 14.0299 16 14.3353 16C14.6407 16 14.8967 16.0958 15.1033 16.2875C15.3099 16.4792 15.4132 16.7167 15.4132 17C15.4132 17.2833 15.3099 17.5208 15.1033 17.7125C14.8967 17.9042 14.6407 18 14.3353 18ZM10.024 18C9.71857 18 9.46258 17.9042 9.25599 17.7125C9.04941 17.5208 8.94611 17.2833 8.94611 17C8.94611 16.7167 9.04941 16.4792 9.25599 16.2875C9.46258 16.0958 9.71857 16 10.024 16C10.3293 16 10.5853 16.0958 10.7919 16.2875C10.9985 16.4792 11.1018 16.7167 11.1018 17C11.1018 17.2833 10.9985 17.5208 10.7919 17.7125C10.5853 17.9042 10.3293 18 10.024 18ZM18.6467 18C18.3413 18 18.0853 17.9042 17.8787 17.7125C17.6722 17.5208 17.5689 17.2833 17.5689 17C17.5689 16.7167 17.6722 16.4792 17.8787 16.2875C18.0853 16.0958 18.3413 16 18.6467 16C18.9521 16 19.2081 16.0958 19.4147 16.2875C19.6213 16.4792 19.7246 16.7167 19.7246 17C19.7246 17.2833 19.6213 17.5208 19.4147 17.7125C19.2081 17.9042 18.9521 18 18.6467 18Z"
-                                  fill="#041F48"/>
-                        </g>
-                    </svg>
-                    Hoje
+            <div class="dropdown" >
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown" style="width: 250px">
+                    <span>Horário da viagem</span>
                 </button>
-                <button type="button" class="btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <mask id="mask0_189_1667" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                              width="24" height="24">
-                            <rect width="24" height="24" fill="#D9D9D9"/>
-                        </mask>
-                        <g mask="url(#mask0_189_1667)">
-                            <path d="M10.7784 22C9.28743 22 7.88623 21.7375 6.57485 21.2125C5.26347 20.6875 4.12275 19.975 3.15269 19.075C2.18263 18.175 1.41467 17.1167 0.848802 15.9C0.282934 14.6833 0 13.3833 0 12C0 10.6167 0.282934 9.31667 0.848802 8.1C1.41467 6.88333 2.18263 5.825 3.15269 4.925C4.12275 4.025 5.26347 3.3125 6.57485 2.7875C7.88623 2.2625 9.28743 2 10.7784 2C12.2695 2 13.6707 2.2625 14.982 2.7875C16.2934 3.3125 17.4341 4.025 18.4042 4.925C19.3743 5.825 20.1422 6.88333 20.7081 8.1C21.274 9.31667 21.5569 10.6167 21.5569 12C21.5569 12.45 21.5299 12.8917 21.4761 13.325C21.4222 13.7583 21.3323 14.1833 21.2066 14.6C20.9551 14.3333 20.6632 14.1083 20.3308 13.925C19.9985 13.7417 19.6347 13.6167 19.2395 13.55C19.2934 13.3 19.3338 13.0458 19.3608 12.7875C19.3877 12.5292 19.4012 12.2667 19.4012 12C19.4012 9.76667 18.5659 7.875 16.8952 6.325C15.2246 4.775 13.1856 4 10.7784 4C8.37126 4 6.33234 4.775 4.66168 6.325C2.99102 7.875 2.15569 9.76667 2.15569 12C2.15569 14.2333 2.99102 16.125 4.66168 17.675C6.33234 19.225 8.37126 20 10.7784 20C11.6946 20 12.5704 19.875 13.4057 19.625C14.241 19.375 15.009 19.025 15.7096 18.575C15.9252 18.8583 16.1901 19.1083 16.5045 19.325C16.8189 19.5417 17.1557 19.7083 17.515 19.825C16.5988 20.5083 15.5704 21.0417 14.4296 21.425C13.2889 21.8083 12.0719 22 10.7784 22ZM18.5928 18C18.2156 18 17.8967 17.8792 17.6362 17.6375C17.3758 17.3958 17.2455 17.1 17.2455 16.75C17.2455 16.4 17.3758 16.1042 17.6362 15.8625C17.8967 15.6208 18.2156 15.5 18.5928 15.5C18.9701 15.5 19.2889 15.6208 19.5494 15.8625C19.8099 16.1042 19.9401 16.4 19.9401 16.75C19.9401 17.1 19.8099 17.3958 19.5494 17.6375C19.2889 17.8792 18.9701 18 18.5928 18ZM14.3353 16.7L9.7006 12.4V7H11.8563V11.6L15.8443 15.3L14.3353 16.7Z"
-                                  fill="#041F48"/>
-                        </g>
-                    </svg>
-                    Agora
-                </button>
+                <ul class="dropdown-menu" >
+                    <input type="hidden" name="depart" value=true id="depart">
+                    <li><a class="dropdown-item" href="#departure" id="departureLink">Partida às</a></li>
+                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Chegada às</a></li>
+                </ul>
             </div>
-        </div>--%>
+       <div class="date-hour-box">
+           <div class="date-hour-input" id="divDeparture">
+            <input class="time-input hidden" type="datetime-local" id="departure" name="date">
+           </div>
+       <div class="date-hour-input" id="divArrival">
+           <input class="time-input hidden" type="datetime-local" id="arrival" name="date">
+       </div>
+       </div>
+        </form>
+
+
 
         <c:if test="${user != null}">
 
@@ -273,7 +262,6 @@
                       fill="white"/>
             </svg>
             <span style="margin-bottom:10px">Validar títulos</span></button>
-
 
         <button class="wallet-button pica-button" onclick="window.location.href='/id_pica';" style="margin-top:70px">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -308,6 +296,58 @@
 </div>--%>
 
 <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var bool = document.getElementById("depart");
+        var arrival = document.getElementById("arrivalLink");
+        var departure = document.getElementById("departureLink");
+
+        arrival.addEventListener("click", function () {
+            bool.value = false;
+        });
+
+        departure.addEventListener("click", function () {
+            bool.value = true;
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var departureLink = document.getElementById("departureLink");
+        var departure = document.getElementById("departure");
+
+        var arrivalLink = document.getElementById("arrivalLink");
+        var arrival = document.getElementById("arrival");
+
+        var dropdown = document.getElementById("dropdown");
+
+        departureLink.addEventListener("click", function () {
+            dropdown.textContent = "Partida às";
+            arrival.classList.add("hidden");
+            departure.classList.remove("hidden");
+        });
+
+        arrivalLink.addEventListener("click", function () {
+            dropdown.textContent = "Chegada às";
+            departure.classList.add("hidden");
+            arrival.classList.remove("hidden");
+        });
+    });
+
+    departureLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            arrival.classList.add("hidden"); // Hide the arrival input
+            arrival.value="";
+            departure.classList.remove("hidden"); // Show the departure input
+        });
+
+        arrivalLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            departure.classList.add("hidden"); // Hide the departure input
+            departure.value="";
+            arrival.classList.remove("hidden"); // Show the arrival input
+        });
+
+
 
     async function initMap() {
         const {Map, Polyline} = await google.maps.importLibrary("maps");

@@ -4,16 +4,16 @@
 }
 
 .input-box{
-    background: white;
+    background: #1F7EB2;
     border-radius: 10px;
     margin-top: 10px;
 }
 
 .input-field{
     margin: 0 0 0 10px;
-    background: white;
+    background: #1F7EB2;
     border: none;
-    color: black;
+    color: #ffffff;
     height: 50px;
     width: 80%;
 
@@ -33,7 +33,6 @@
     border-radius: 25px 25px 0 0;
     position: relative;
 
-
 }
 
 .button{
@@ -48,6 +47,13 @@
     align-items: baseline;
     text-align: left;
 
+}
+
+.switch-button{
+    border:none;
+    background: none;
+    position: absolute;
+    margin: -75px 0 0 215px;
 }
 
 .suggestions-box{
