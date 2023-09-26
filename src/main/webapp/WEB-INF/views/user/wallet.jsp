@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="validationAndInformation" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
+                <div id="validationAndInformation" class="carousel slide" data-bs-ride="false" data-bs-touch="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <c:choose>
@@ -135,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="ValidateButtons" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
+                <div id="ValidateButtons" class="carousel slide" data-bs-ride="false" data-bs-touch="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
                             <div class="validate-button-container">
@@ -169,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="chargeOrBuy" class="carousel slide" data-bs-ride="false" data-bs-touch="true">
+                <div id="chargeOrBuy" class="carousel slide" data-bs-ride="false" data-bs-touch="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
                             <div class="addbutton-container">
