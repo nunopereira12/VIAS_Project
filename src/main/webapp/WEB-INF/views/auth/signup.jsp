@@ -224,11 +224,11 @@
             </div>
             <label class="container-checkbox" style="display: flex; align-items: center">
                 <input style="margin-right: 5px" type="checkbox" id="myCheckbox" disabled
-                       required ${termsAndConditionsChecked ? 'checked' : ''}>Li e aceito
+                       required ${termsAndConditionsChecked ? 'checked' : ''}><span class="termstext">Li e aceito
                 <button type="button" class="termsbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"> os
                     termos e condições
                 </button>
-                da VIAS
+                da VIAS</span>
 
                 <span class="checkmark"></span>
             </label>
@@ -434,17 +434,27 @@
 
         var usernameError = "${username_unavailable}";
         var emailError = "${email_unavailable}";
+        var passwordError = "${password_unavailable}"
 
-        if (usernameError && !emailError) {
+        var totalError = "${username_email_password_unavailable}"
+        var usernameEmailError = "${username_email_unavailable}"
+
+        var usernamePasswordError = "${username_password_unavailable}"
+        var emailPasswordError = "${email_password_unavailable}"
+
+        if (totalError || usernameEmailError) {
             document.getElementById("username").value = "";
+            document.getElementById("email").value = "";
+        } else if (usernamePasswordError) {
+            document.getElementById("username").value = "";
+        } else if (emailPasswordError) {
+            document.getElementById("email").value = "";
         } else if (!usernameError && emailError) {
             document.getElementById("email").value = "";
-        } else if (usernameError && emailError) {
+        } else if (usernameError && !emailError) {
             document.getElementById("username").value = "";
-            document.getElementById("email").value = "";
         }
     }
-
 
 </script>
 

@@ -478,11 +478,9 @@
     }
 
     if (!localStorage.getItem("visited_before")) {
-        // Open the modal
         var modal = new bootstrap.Modal(document.getElementById('exampleModal'));
         modal.show();
 
-        // Set a flag in localStorage to indicate that the user has visited
         localStorage.setItem("visited_before", "true");
     }
 
