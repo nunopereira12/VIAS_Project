@@ -9,10 +9,7 @@ import pt.upskill.vias.entities.user.Token;
 import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.entities.user.UserStats;
 import pt.upskill.vias.entities.cards.ViasCard;
-import pt.upskill.vias.exceptions.AccountActivationException;
-import pt.upskill.vias.exceptions.DifferentPasswordsException;
-import pt.upskill.vias.exceptions.UnavailableEmailException;
-import pt.upskill.vias.exceptions.UnavailableUsernameException;
+import pt.upskill.vias.exceptions.*;
 import pt.upskill.vias.models.auth.ReplacePassword;
 import pt.upskill.vias.models.auth.SignUp;
 import pt.upskill.vias.repositories.*;
@@ -73,7 +70,26 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public boolean isSignupPossible(SignUp signUp_form) throws DifferentPasswordsException, UnavailableEmailException, UnavailableUsernameException {
+    public boolean isSignupPossible(SignUp signUp_form) throws DifferentPasswordsException, UnavailableEmailException, UnavailableUsernameException, UsernameAndPasswordException, EmailAndPasswordException, UsernameAndEmailException, UsernameEmailPasswordException {
+        if (isUsernameTaken(signUp_form.getUsername()) && isEmailTaken(signUp_form.getEmail()) && !passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password())) {
+            throw new UsernameEmailPasswordException("Username não está disponível. Email não está disponível. Passwords não coincidem.");
+
+        }
+
+        if (isUsernameTaken(signUp_form.getUsername()) && isEmailTaken(signUp_form.getEmail())) {
+            throw new UsernameAndEmailException("Username não está disponível. Email não está disponível.");
+
+        }
+
+        if (isUsernameTaken(signUp_form.getUsername()) && !passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password())) {
+            throw new UsernameAndPasswordException("Username não está disponível. Passwords não coincidem.");
+
+        }
+
+        if (isEmailTaken(signUp_form.getEmail()) && !passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password())) {
+            throw new EmailAndPasswordException("Email não está disponível. Passwords não coincidem.");
+        }
+
         if (isUsernameTaken(signUp_form.getUsername())) {
             throw new UnavailableUsernameException("Username não está disponível.");
 
@@ -118,7 +134,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void registerUser(SignUp signUp_form) throws ParseException, UnavailableUsernameException, UnavailableEmailException, DifferentPasswordsException {
+    public void registerUser(SignUp signUp_form) throws ParseException, UnavailableUsernameException, UnavailableEmailException, DifferentPasswordsException, UsernameAndPasswordException, EmailAndPasswordException, UsernameAndEmailException, UsernameEmailPasswordException {
 
         isSignupPossible(signUp_form);
 
@@ -142,6 +158,7 @@ public class AuthServiceImpl implements AuthService {
 
         user.setUser_stats(userStats);
         viasCard.setUser(user);
+
         userRepository.save(user);
 
         emailService.sendAccountVerificationEmail(user.getEmail());

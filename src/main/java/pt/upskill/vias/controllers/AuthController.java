@@ -73,7 +73,13 @@ public class AuthController {
             authService.registerUser(signUp_form);
             return new ModelAndView("auth/register_success");
         } catch (ValidationException ve) {
-            return new ModelAndView("auth/signup").addObject(ve.getField(), ve.getMessage());
+            ModelAndView mav = new ModelAndView("auth/signup");
+            mav.addObject(ve.getField(),ve.getMessage());
+
+            mav.addObject("termsAndConditionsChecked", true);
+            mav.addObject("signupForm", signUp_form);
+
+            return mav;
         }
     }
 

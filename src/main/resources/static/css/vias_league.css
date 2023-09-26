@@ -15,7 +15,7 @@
 .arrowbutton {
     position: relative;
     top: 20px;
-    left : 20px;
+    left: 20px;
 }
 
 .list-container {
@@ -157,7 +157,7 @@ button:hover {
 
 .leaderboard {
     text-align: center;
-    margin-top: 15px;
+    margin-top: -10px;
 }
 
 #coolUsername {
@@ -322,7 +322,7 @@ select option:hover {
     text-align: center;
     order: 2;
     width: 200px;
-    margin-bottom:-8px ;
+    margin-bottom: -8px;
 }
 
 #num1 {
@@ -351,7 +351,7 @@ select option:hover {
     display: inline-block;
     vertical-align: middle;
     font-size: 10px;
-    margin-right: 10px; /* Adjust the margin as needed */
+    margin-right: 10px;
 }
 
 #countdown {
@@ -376,7 +376,6 @@ select option:hover {
 }
 
 
-
 .icon-button {
     width: 60px; /* Adjust as needed */
     height: 45px; /* Adjust as needed */
@@ -385,7 +384,7 @@ select option:hover {
     cursor: pointer;
     position: absolute;
     top: 20px;
-    right : 15px;
+    right: 15px;
 }
 
 table #gold_small {
@@ -403,15 +402,23 @@ table .circle {
     justify-content: center;
 }
 
+#first_image {
+    position: relative;
+    top: -45px;
+    left: 25px;
+}
+
 #running_man_clock img {
     margin: 0;
     padding: 0;
 }
 
-#running_man_clock .clock {
-    position: relative;
-    top: -25px;
-    left: 20px;
+.center-filter-logo {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-bottom: -20px;
+    margin-top: -15px;
 }
 
 @media (max-width: 768px) {
@@ -507,6 +514,7 @@ table .circle {
     .buttons-container {
         margin-top: 80px;
     }
+
     #filterForm {
         margin-top: 70px;
     }
@@ -523,20 +531,21 @@ table .circle {
         font-size: 10px;
     }
 
-    #num1 #gold_small{
+    #num1 #gold_small {
         width: 66px;
     }
 
     .table-container {
         width: 700px;
     }
+
     .table #num1 {
         width: 500px;
     }
 
     .icon-button {
         top: 15px;
-        right : 3px;
+        right: 3px;
         width: 55px;
         height: 40px;
     }
