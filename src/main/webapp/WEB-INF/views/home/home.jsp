@@ -16,7 +16,7 @@
 <nav class="navbar bg-body-tertiary fixed-top " style="padding: 0">
     <div class="container-fluid">
         <button class="navbar-toggler arrowbutton menubutton" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
+                data-bs-target="#offcanvasNavbar" data-bs-placement="start" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
                 style="margin: 55px 0 0 0px;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M20 3.5H4V6.5H20V3.5Z" fill="black"/>
@@ -33,7 +33,7 @@
                       fill="black"/>
             </svg>
         </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <button class="btn-close arrowbutton menubutton" data-bs-dismiss="offcanvas" aria-label="Close"
                     style="margin: 15px 0 0 15px"></button>
             <div class="offcanvas-header" style="text-align: center; justify-content: center; border-bottom: 2px solid #D9D9D9; padding-top: 7px; padding-bottom:7px">
