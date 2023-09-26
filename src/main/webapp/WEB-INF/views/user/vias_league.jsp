@@ -224,8 +224,8 @@
             </c:when>
 
             <c:when test="${selected_filter eq 'Viagens Completas'}">
-                <img class="image_badge center-img" src="images/vias_league/travel_trip.png"
-                     width="120px" style="margin-top: -30px; margin-bottom: -10px"
+                <img class="image_badge center-img" src="images/vias_league/finish_trip.png"
+                     width="120px" style="margin-top: -30px; margin-bottom: -10px; margin-right: 110px"
                      alt="Bronze Image"/>
                 <div class="leaderboard" style="margin-bottom: -3px"><strong>${selected_filter}</strong></div>
             </c:when>

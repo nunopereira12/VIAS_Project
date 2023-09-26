@@ -45,8 +45,7 @@ public class ProfileController {
         User user = userRepository.getUserByUsername(username);
         mav.addObject("user", user);
 
-
-        mav.addObject("birthday", calendarService.formatDate(user.getBirthday()));
+        mav.addObject("birthday", calendarService.dateToString(user.getBirthday()));
         return mav;
     }
 

@@ -70,9 +70,4 @@ public class CalendarServiceImpl implements CalendarService {
         return formattedDate;
     }
 
-    @Override
-    public String formatDate(Date date) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        return dateFormat.format(date);
-    }
 }
