@@ -13,4 +13,6 @@ public interface CalendarService {
 
     String getNextMonth();
 
+    public String formatDate(Date date);
+
 }

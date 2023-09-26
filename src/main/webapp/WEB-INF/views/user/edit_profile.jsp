@@ -183,7 +183,7 @@
     validateInput();
     validateLastName();
 
-    const userBirthday = new Date("${user.getBirthday()}");
+    const userBirthday = new Date("${user.getBirthday()} UTC");
 
     const dateInput = document.getElementById("date");
 

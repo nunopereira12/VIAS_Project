@@ -17,7 +17,10 @@ import pt.upskill.vias.services.auth.AuthService;
 
 import java.security.Principal;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Controller
 public class ProfileController {
@@ -41,7 +44,9 @@ public class ProfileController {
         ModelAndView mav = new ModelAndView("user/profile");
         User user = userRepository.getUserByUsername(username);
         mav.addObject("user", user);
-        mav.addObject("birthday", calendarService.dateToString(user.getBirthday()));
+
+
+        mav.addObject("birthday", calendarService.formatDate(user.getBirthday()));
         return mav;
     }
 
@@ -49,7 +54,10 @@ public class ProfileController {
     public ModelAndView editProfilePage(Principal principal) {
         String username = principal.getName();
         ModelAndView mav = new ModelAndView("user/edit_profile");
-        mav.addObject("user", userRepository.getUserByUsername(username));
+
+        User user = userRepository.getUserByUsername(username);
+
+        mav.addObject("user", user);
         return mav;
     }
 
