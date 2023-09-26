@@ -12,7 +12,9 @@ import pt.upskill.vias.services.routes.info.StepInfoService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,11 +29,26 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
     LegRepository legRepository;
 
     @Override
-    public String createPostURL(String origin, String destination) {
+    public String createPostURL(String origin, String destination, boolean depart, Date date) {
+        String specificTimeRequest = "";
+        try {
+            if (depart) {
+                specificTimeRequest.concat("&departure_time=" + date.getTime());
+            } else {
+                specificTimeRequest.concat("&arrival_time=" + date.getTime());
+            }
+        } catch (NullPointerException npe) {
+        }
+
+
         String apiKey = "AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs";
         String noSpacesOrigin = origin.replaceAll(" ", "+");
         String noSpacesDestination = destination.replaceAll(" ", "+");
-        return "https://maps.googleapis.com/maps/api/directions/json?origin=" + noSpacesOrigin + "&destination=" + noSpacesDestination + "&key=" + apiKey + "&mode=transit&language=pt-PT&alternatives=true";
+
+        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + noSpacesOrigin + "&destination=" + noSpacesDestination + "&key=" + apiKey + "&mode=transit&language=pt-PT&alternatives=true" + specificTimeRequest;
+
+
+        return url;
     }
 
     @Override
@@ -50,9 +67,10 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
 
 
     @Override
-    public List<Leg> getLegList(String origin, String destination) throws IOException {
+    public List<Leg> getLegList(String origin, String destination, boolean depart, Date date) throws IOException {
 
-        JSONObject response = getJSONResponse(createPostURL(origin, destination));
+
+        JSONObject response = getJSONResponse(createPostURL(origin, destination, depart, date));
         List<Leg> legList = new ArrayList<>();
 
         JSONArray routes = response.getJSONArray("routes");
@@ -76,6 +94,16 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
         return legList;
     }
 
+    @Override
+    public Date joinDateTime(Date date, Time time) {
+        date.setTime(date.getTime()+time.getTime());
+
+        if(date.before(new Date())) {
+            date = new Date();
+        }
+
+        return date;
+    }
 
 
 }

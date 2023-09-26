@@ -18,6 +18,8 @@ import pt.upskill.vias.services.routes.info.JSONConversionService;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 
@@ -64,9 +66,9 @@ public class HomeController {
 
 
     @PostMapping(value="/perform_travel")
-    public ModelAndView performTravel(String origem, String destino, Principal principal) throws IOException {
+    public ModelAndView performTravel(String origem, String destino, boolean depart, Date date, Principal principal) throws IOException {
         ModelAndView mav = new ModelAndView("home/suggestions");
-        List<Leg> legs = routesRequestService.getLegList(origem, destino);
+        List<Leg> legs = routesRequestService.getLegList(origem, destino, depart, date);
 
         legRepository.saveAll(legs);
 

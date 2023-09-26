@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.user.Role;
 import pt.upskill.vias.entities.user.Token;
 import pt.upskill.vias.entities.user.User;
@@ -19,7 +18,6 @@ import pt.upskill.vias.models.auth.SignUp;
 import pt.upskill.vias.repositories.*;
 import pt.upskill.vias.services.utils.CalendarService;
 
-import javax.servlet.UnavailableException;
 import java.security.SecureRandom;
 import java.text.ParseException;
 import java.util.Date;
