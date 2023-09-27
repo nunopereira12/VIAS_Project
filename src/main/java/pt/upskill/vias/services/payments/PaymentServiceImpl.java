@@ -131,11 +131,11 @@ public class PaymentServiceImpl implements PaymentService{
                     .get("email")
                     .asText();
 
-            long amount_Total = jsonNode
+            double amount_Total = jsonNode
                     .get("data")
                     .get("object")
                     .get("amount_total")
-                    .asLong();
+                    .asDouble();
 
             String idValue = jsonNode
                     .get("data")
@@ -146,7 +146,7 @@ public class PaymentServiceImpl implements PaymentService{
             User user = userRepository.getUserByEmail(email);
             Navegante navegante = naveganteRepository.getNaveganteByUser(user);
             ViasCard viasCard = viasCardRepository.getViasCardByUser(user);
-            long amount = amount_Total/100;
+            double amount = amount_Total/100;
 
             Stripe.apiKey = "sk_test_51NuelYBvwGTopoOtLCiGZQgBZKWaX0MoyzEil96jNYabGSRs5q6bnExplsejHRLVnTbZzuaR2dsnEiGkAM1vAbEB004I5SHK6v";
             Session session = Session.retrieve(idValue);
