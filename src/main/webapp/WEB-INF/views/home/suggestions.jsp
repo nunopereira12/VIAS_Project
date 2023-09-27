@@ -39,7 +39,7 @@
         <div class="button-box" style="margin-top: 50px">
             <div class="input-box">
 
-                <svg style="margin: auto 7px auto" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                <svg id="get_location" style="margin: auto 7px auto" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
                 <mask id="mask0_854_705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
                     <path d="M0 0H25V25H0V0Z" fill="#D9D9D9"/>
                 </mask>
@@ -427,8 +427,26 @@
 
         }
 
+        const form = document.getElementById("form");
+        function getLocation() {
+            if ("geolocation" in navigator) {
 
-        initMap();
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    latitude = position.coords.latitude;
+                    longitude = position.coords.longitude;
+
+                    const coordinates = latitude + "," + longitude;
+
+                    var origin = document.getElementById("origem1");
+                    origin.value = coordinates;
+                    form.submit();
+                });
+            } else {
+                alert("O serviço de localização não é suportado no seu dispositivo.");
+            }
+        }
+
+        document.getElementById("get_location").addEventListener("click", getLocation);
     </script>
 
     <script>

@@ -73,11 +73,13 @@ public class HomeController {
         try {
             List<Leg> legs = routesRequestService.getLegList(origem, destino, depart, date);
             legRepository.saveAll(legs);
-            mav.addObject("legs", legs);
+
             mav.addObject("origem", origem);
             mav.addObject("destino", destino);
 
-            if (legs.isEmpty()) {
+            if (!legs.isEmpty()) {
+                mav.addObject("legs", legs);
+            } else {
                 mav.addObject("search_error", "Não foi possível calcular uma rota de transportes público entre " + origem + " e " + destino + ". \nPor favor, tente outros locais.");
             }
 
