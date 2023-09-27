@@ -20,7 +20,7 @@
 
 <div class="container">
     <div class="mapa-container">
-        <button class="arrowbutton" onclick="window.history.back()">
+        <button class="arrowbutton" onclick="window.location.href='/home'">
             <img src="/images/backarrow.png" alt="Go back!" width="30px">
         </button>
         <button class="circle-button" data-toggle="modal" data-target="#profilePhotoModal" style="background-image: url('/uploads/${user.getProfile_picture()}')">

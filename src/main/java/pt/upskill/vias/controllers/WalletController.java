@@ -35,16 +35,21 @@ public class WalletController {
     @GetMapping(value = "/wallet")
     public ModelAndView walletPage(Principal principal) {
         ModelAndView mav = new ModelAndView("user/wallet");
+        try {
+            User user = userRepository.getUserByUsername(principal.getName());
 
-        User user = userRepository.getUserByUsername(principal.getName());
+            mav.addObject("navegante", naveganteRepository.getNaveganteByUser(user));
+            mav.addObject("current_date", calendarService.getCalendar());
+            mav.addObject("today", new Date());
+            mav.addObject("vias_card", viasCardRepository.getViasCardByUser(user));
+            mav.addObject("next_month", calendarService.getNextMonth());
+            return mav;
 
-        mav.addObject("navegante", naveganteRepository.getNaveganteByUser(user));
-        mav.addObject("current_date", calendarService.getCalendar());
-        mav.addObject("today", new Date());
-        mav.addObject("vias_card", viasCardRepository.getViasCardByUser(user));
-        mav.addObject("next_month", calendarService.getNextMonth());
+        }catch(NullPointerException npe){
+            return new ModelAndView("redirect:/login");
+        }
 
-        return mav;
+
     }
 
     @PostMapping(value ="/add_navegante")

@@ -40,6 +40,8 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
         String noSpacesDestination = destination.replaceAll(" ", "+");
 
         String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + noSpacesOrigin + "&destination=" + noSpacesDestination + "&key=" + apiKey + "&mode=transit&language=pt-PT&alternatives=true" + specificTimeRequest;
+
+
         return url;
 
     }
@@ -74,6 +76,7 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
 
         return new JSONObject(response);
     }
+
 
 
     @Override

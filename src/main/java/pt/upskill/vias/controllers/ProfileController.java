@@ -2,6 +2,7 @@ package pt.upskill.vias.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,13 +52,16 @@ public class ProfileController {
 
     @GetMapping(value="/edit_profile")
     public ModelAndView editProfilePage(Principal principal) {
-        String username = principal.getName();
-        ModelAndView mav = new ModelAndView("user/edit_profile");
+        try{
+            String username = principal.getName();
+            ModelAndView mav = new ModelAndView("user/edit_profile");
+            User user = userRepository.getUserByUsername(username);
+            mav.addObject("user", user);
+            return mav;
 
-        User user = userRepository.getUserByUsername(username);
-
-        mav.addObject("user", user);
-        return mav;
+        }catch (NullPointerException npe){
+            return new ModelAndView("redirect:/login");
+        }
     }
 
     @PostMapping(value="update_user")
