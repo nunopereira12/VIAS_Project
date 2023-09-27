@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.models.routes.Leg;
+import pt.upskill.vias.services.utils.CalendarService;
 import pt.upskill.vias.services.viasleague.SimulateTripService;
 import pt.upskill.vias.services.viasleague.ViasLeagueService;
 import pt.upskill.vias.repositories.LegRepository;
@@ -48,6 +49,9 @@ public class HomeController {
     @Autowired
     ViasLeagueService viasLeagueService;
 
+    @Autowired
+    CalendarService calendarService;
+
     @GetMapping("/home")
     public ModelAndView homePage(Principal principal) {
         ModelAndView mav = new ModelAndView("home/home");
@@ -70,12 +74,15 @@ public class HomeController {
     public ModelAndView performTravel(String origem, String destino, boolean depart, String date, Principal principal) {
         ModelAndView mav = new ModelAndView("home/suggestions");
 
+
         try {
             List<Leg> legs = routesRequestService.getLegList(origem, destino, depart, date);
             legRepository.saveAll(legs);
 
             mav.addObject("origem", origem);
             mav.addObject("destino", destino);
+            mav.addObject("depart", depart);
+            mav.addObject("date", date);
 
             if (!legs.isEmpty()) {
                 mav.addObject("legs", legs);

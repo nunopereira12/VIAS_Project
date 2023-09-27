@@ -328,6 +328,7 @@
 
 <script>
 
+
     document.addEventListener("DOMContentLoaded", function () {
         var bool = document.getElementById("depart");
         var arrival = document.getElementById("arrivalLink");
@@ -340,12 +341,9 @@
         departure.addEventListener("click", function () {
             bool.value = true;
         });
-    });
 
-    document.addEventListener("DOMContentLoaded", function () {
         var departureLink = document.getElementById("departureLink");
         var departure = document.getElementById("departure");
-
         var arrivalLink = document.getElementById("arrivalLink");
         var arrival = document.getElementById("arrival");
 
@@ -362,6 +360,7 @@
             departure.classList.add("hidden");
             arrival.classList.remove("hidden");
         });
+
     });
 
     departureLink.addEventListener("click", function (e) {

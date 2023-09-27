@@ -45,6 +45,7 @@ public class WalletController {
             mav.addObject("next_month", calendarService.getNextMonth());
             return mav;
 
+
         }catch(NullPointerException npe){
             return new ModelAndView("redirect:/login");
         }

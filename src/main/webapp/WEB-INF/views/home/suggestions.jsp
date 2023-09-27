@@ -18,10 +18,7 @@
 </button>
 <div class="home-container">
     <div class="mapbox">
-
-
             <div id="map" ></div>
-
     </div>
 
     <div class="suggestions-content">
@@ -82,12 +79,16 @@
             </div>
             <div class="dropdown" style="margin-top: 5px; display:flex; justify-content: center; justify-items: center">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown" style="width: 250px; margin: 10px auto">
-                    <span>Planear viagem</span>
+                    <span><c:choose>
+                        <c:when test="${depart == true}">Partida: ${date}</c:when>
+                        <c:otherwise>Chegada: ${date}</c:otherwise>
+                    </c:choose>
+                    </span>
                 </button>
                 <ul class="dropdown-menu">
                     <input type="hidden" name="depart" value=true id="depart">
-                    <li><a class="dropdown-item" href="#departure" id="departureLink">Partida</a></li>
-                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Chegada</a></li>
+                    <li><a class="dropdown-item" href="#departure" id="departureLink">Hora de partida</a></li>
+                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Hora de chegada</a></li>
                 </ul>
             </div>
             <div class="date-hour-box">
@@ -197,12 +198,6 @@
                 </footer>
             </div>
                 </c:if>
-
-
-
-
-
-
     </div>
 
     <c:forEach var="leg" items="${legs}" varStatus="status">
@@ -210,18 +205,24 @@
 
     </c:forEach>
 
-
     <script>
+
 
         document.addEventListener("DOMContentLoaded", function () {
             var origin = document.getElementById("origem1");
             var destination = document.getElementById("destino1");
             var swapButton = document.getElementById("swapvalues");
+            var dropdown = document.getElementById("dropdown");
+
+            dropdown.addEventListener("click", function (){
+                dropdown.textContent = "Planear viagem";
+            });
 
             swapButton.addEventListener("click", function () {
                 var tempValue = origin.value;
                 origin.value = destination.value;
                 destination.value = tempValue;
+
             });
         });
 
