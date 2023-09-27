@@ -16,6 +16,8 @@
 <button class="arrowbutton" style="z-index: 1000" onclick="window.history.back()">
     <input type="hidden" name="origem" value="${leg.getStart_address()}">
     <input type="hidden" name="destino" value="${leg.getEnd_address()}">
+    <input type="hidden" name="depart" value="${depart}">
+    <input type="hidden" name="date" value="${date}">
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
 </form>
