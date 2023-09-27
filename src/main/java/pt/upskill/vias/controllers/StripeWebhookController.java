@@ -56,52 +56,8 @@ public class StripeWebhookController {
     @PostMapping
     public ResponseEntity<String> handleStripeEvent(@RequestBody String payload, @RequestHeader("Stripe-Signature") String signature) {
         try {
-            // Verify the event signature to ensure it's from Stripe
-            Event event = Webhook.constructEvent(payload, signature, WEBHOOK_SECRET);
 
-
-            if ("checkout.session.completed".equals(event.getType())) {
-                ObjectMapper mapper = new ObjectMapper();
-                JsonNode jsonNode = mapper.readTree(payload);
-                String email = jsonNode
-                        .get("data")
-                        .get("object")
-                        .get("customer_details")
-                        .get("email")
-                        .asText();
-
-                long amount_Total = jsonNode
-                        .get("data")
-                        .get("object")
-                        .get("amount_total")
-                        .asLong();
-
-                String idValue = jsonNode
-                        .get("data")
-                        .get("object")
-                        .get("id")
-                        .asText();
-
-                User user = userRepository.getUserByEmail(email);
-                Navegante navegante = naveganteRepository.getNaveganteByUser(user);
-                ViasCard viasCard = viasCardRepository.getViasCardByUser(user);
-                long amount = amount_Total/100;
-
-                Stripe.apiKey = "sk_test_51NuelYBvwGTopoOtLCiGZQgBZKWaX0MoyzEil96jNYabGSRs5q6bnExplsejHRLVnTbZzuaR2dsnEiGkAM1vAbEB004I5SHK6v";
-                Session session = Session.retrieve(idValue);
-                Map<String, Object> params = new HashMap<>();
-                params.put("limit", 5); // Set your desired limit
-                LineItemCollection lineItems = session.listLineItems(params);
-
-                if (lineItems.getData().get(0).getPrice().getId().equals("price_1NugiRBvwGTopoOtVtWow0hT")){
-                    viasCardService.chargeCard(viasCard, amount);
-                }
-                else if (lineItems.getData().get(0).getPrice().getId().equals("price_1NugZ9BvwGTopoOtfqOPqrPu")){
-                    naveganteService.chargeCard(navegante);
-                }
-
-            }
-
+            paymentService.processPayment(payload, signature, WEBHOOK_SECRET);
 
 
         // Respond with a 200 OK to acknowledge receipt of the event
