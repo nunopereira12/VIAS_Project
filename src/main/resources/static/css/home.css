@@ -200,6 +200,7 @@
     .wallet-button{
         display: none;
 
+
     }
 
     .pica-button{
@@ -326,15 +327,16 @@
 
     .footerlogo {
         z-index: 2;
-        margin-bottom: 0;
+        margin-bottom: 20px;
         margin-top: 70px;
+
     }
     .search-box {
         margin-top: -30px;
     }
 
     .wallet-button {
-        margin-top: 230px;
+        margin-top: 50px;
     }
 }
 
@@ -348,6 +350,8 @@
     background-color: white;
 
 }
+
+
 
 /* remove default browser placeholder when not focused */
 /*input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-year-field,
