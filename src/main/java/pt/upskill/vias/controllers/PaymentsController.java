@@ -33,11 +33,27 @@ public class PaymentsController {
         return new ModelAndView("payments/payment_success");
     }
 
-   @PostMapping("/payments")
-    public ModelAndView selectForPaymentPage(Long vias_card_id , String navegante_id){
-       ModelAndView mav = new ModelAndView("payments/payments");
+    @GetMapping("/payment_success")
+    public ModelAndView paymentSuccessPage(){
+        return new ModelAndView("payments/payment_success");
+    }
+
+   @PostMapping("/payments_vias_card")
+    public ModelAndView selectPaymentPageVIASCard(Long vias_card_id , String navegante_id){
+       ModelAndView mav = new ModelAndView("payments/payments_vias_card");
         return paymentService.selectForPaymentPage(navegante_id,vias_card_id, mav);
     }
 
+    @PostMapping("/payments_navegante")
+    public ModelAndView selectPaymentPageNavegante(Long vias_card_id , String navegante_id){
+        ModelAndView mav = new ModelAndView("payments/payments_navegante");
+        return paymentService.selectForPaymentPage(navegante_id,vias_card_id, mav);
+    }
+
+    /*@PostMapping("/payments")
+    public ModelAndView selectForPaymentPage(Long vias_card_id , String navegante_id){
+        ModelAndView mav = new ModelAndView("payments/payments");
+        return paymentService.selectForPaymentPage(navegante_id,vias_card_id, mav);
+    }*/
 
 }
