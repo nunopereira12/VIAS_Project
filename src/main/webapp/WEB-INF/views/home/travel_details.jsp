@@ -149,9 +149,9 @@
 
                                 </div>
                                 <div class="secondLine">
-                                    <p >${step.getHtml_instructions()};</p>
-                                        <p>Duração da viagem: ${step.getDuration()};</p>
-                                        <p>Hora prevista de chegada: ${step.getArrival_time()};</p>
+                                    <p >${step.getHtml_instructions()}</p>
+                                    <p><span style="font-weight: 600" >Duração da viagem:</span><br> ${step.getDuration()}</p>
+                                    <p><span style="font-weight: 600">Hora prevista de chegada:</span> ${step.getArrival_time()}</p>
 
                                 </div>
                             </div>
