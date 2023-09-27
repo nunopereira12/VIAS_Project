@@ -305,18 +305,18 @@
                                 <c:when test="${loopStatus.index + 1 eq '1'}">
                                     <img class="image_badge center-img" id="gold_small"
                                          src="images/vias_league/gold_small.png"
-                                         width="40px"
+                                         width="30px"
                                          alt="Bronze Image"/>
                                 </c:when>
                                 <c:when test="${loopStatus.index + 1 eq '2'}">
                                     <img class="image_badge center-img" id="silver_small"
                                          src="images/vias_league/silver_small.png"
-                                         width="33px"
+                                         width="27px"
                                          alt="Silver Image"/>
                                 </c:when>
                                 <c:when test="${loopStatus.index + 1 eq '3'}">
                                     <img class="image_badge center-img" id="bronze_small"
-                                         src="images/vias_league/bronze_small.png" width=26px"
+                                         src="images/vias_league/bronze_small.png" width=23px"
                                          alt="Gold Image"/>
                                 </c:when>
                                 <c:otherwise>

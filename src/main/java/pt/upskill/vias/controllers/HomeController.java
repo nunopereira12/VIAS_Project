@@ -84,6 +84,9 @@ public class HomeController {
             mav.addObject("depart", depart);
             mav.addObject("date", date);
 
+            mav.addObject("depart", depart);
+            mav.addObject("date", date);
+
             if (!legs.isEmpty()) {
                 mav.addObject("legs", legs);
             } else {
@@ -107,8 +110,11 @@ public class HomeController {
     }
 
     @PostMapping(value = "/travel_details")
-    public ModelAndView travelDetailsPage(@RequestParam("id") long id, Principal principal) {
+    public ModelAndView travelDetailsPage(@RequestParam("id") long id, Principal principal, boolean depart, String date) {
         ModelAndView mav = new ModelAndView("home/travel_details");
+
+        mav.addObject("depart", depart);
+        mav.addObject("date", date);
 
         Leg leg = legRepository.getLegById(id);
         leg = jsonConversionService.addSteps(leg);

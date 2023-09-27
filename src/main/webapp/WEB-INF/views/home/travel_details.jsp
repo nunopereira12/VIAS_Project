@@ -242,9 +242,11 @@
             <div class="button-box-travel">
 
                 <form id="directionsForm" method="POST" action="/perform_travel">
-                    <button class="button-travel btn btn-primary buttons">
+                    <button class="button-travel btn btn-primary buttons" >
                         <input type="hidden" name="origem" value="${leg.getStart_address()}">
                         <input type="hidden" name="destino" value="${leg.getEnd_address()}">
+                        <input type="hidden" name="depart" value="${depart}">
+                        <input type="hidden" name="date" value="${date}">
                         Cancelar</button>
                 </form>
                 <c:if test="${user != null}">

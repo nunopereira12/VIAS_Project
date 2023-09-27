@@ -99,6 +99,9 @@
                     <input class="time-input hidden" type="datetime-local" id="arrival" name="date">
                 </div>
             </div>
+
+            <input type="hidden" name="depart" value="${depart}">
+            <input type="hidden" name="date" value="${date}">
         </form>
 
 
@@ -168,6 +171,8 @@
                                     </div>
                                 </div>
                         </button>
+                            <input type="hidden" name="depart" value="${depart}">
+                            <input type="hidden" name="date" value="${date}">
                         </form>
                         <div class="card-button" onclick="window.location.href='/wallet';">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 28 28"
