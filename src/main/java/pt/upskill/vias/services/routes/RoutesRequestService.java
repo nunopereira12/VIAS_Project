@@ -14,6 +14,7 @@ public interface RoutesRequestService {
 
 
     String createPostURL(String origin, String destination, boolean depart, String date) throws ParseException;
+    String getDepartureOrArrival(boolean depart, String date) throws ParseException;
     JSONObject getJSONResponse(String url) throws IOException;
     Date joinDateTime(Date date, Time time);
     List<Leg> getLegList(String origin, String destination, boolean depart, String date) throws IOException, ParseException;

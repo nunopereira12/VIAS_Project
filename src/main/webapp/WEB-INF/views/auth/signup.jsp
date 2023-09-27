@@ -149,43 +149,12 @@
         <form action="/signup_action" method="POST" class="card p-3" onsubmit="return validateCheckbox()">
             <img class="imagelogo" src="images/logo_whitebg.png">
 
-            <c:if test="${username_email_password_unavailable != null}">
+            <c:if test="${error_message != null}">
                 <div class="alert alert-danger">
-                        ${username_email_password_unavailable}
+                        ${error_message}
                 </div>
             </c:if>
 
-            <c:if test="${username_email_unavailable != null}">
-                <div class="alert alert-danger">
-                        ${username_email_unavailable}
-                </div>
-            </c:if>
-            <c:if test="${username_password_unavailable != null}">
-                <div class="alert alert-danger">
-                        ${username_password_unavailable}
-                </div>
-            </c:if>
-            <c:if test="${email_password_unavailable != null}">
-                <div class="alert alert-danger">
-                        ${email_password_unavailable}
-                </div>
-            </c:if>
-
-            <c:if test="${username_unavailable != null}">
-                <div class="alert alert-danger">
-                        ${username_unavailable}
-                </div>
-            </c:if>
-            <c:if test="${email_unavailable != null}">
-                <div class="alert alert-danger">
-                        ${email_unavailable}
-                </div>
-            </c:if>
-            <c:if test="${passwords_different != null}">
-                <div class="alert alert-danger">
-                        ${passwords_different}
-                </div>
-            </c:if>
 
             <div class="mb-3">
                 <label for="firstName" class="form-label text-start">Primeiro Nome</label>
@@ -437,27 +406,12 @@
         document.getElementById("email").value = emailFromServer;
 
 
-        var usernameError = "${username_unavailable}";
-        var emailError = "${email_unavailable}";
-        var passwordError = "${password_unavailable}"
-
-        var totalError = "${username_email_password_unavailable}"
-        var usernameEmailError = "${username_email_unavailable}"
-
-        var usernamePasswordError = "${username_password_unavailable}"
-        var emailPasswordError = "${email_password_unavailable}"
-
-        if (totalError || usernameEmailError) {
+        var error = "${error_message}"
+        if(error.includes("Username")) {
             document.getElementById("username").value = "";
+        }
+        if(error.includes("Email")) {
             document.getElementById("email").value = "";
-        } else if (usernamePasswordError) {
-            document.getElementById("username").value = "";
-        } else if (emailPasswordError) {
-            document.getElementById("email").value = "";
-        } else if (!usernameError && emailError) {
-            document.getElementById("email").value = "";
-        } else if (usernameError && !emailError) {
-            document.getElementById("username").value = "";
         }
     }
 

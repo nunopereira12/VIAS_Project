@@ -53,22 +53,11 @@ public class FileUploadServiceImpl implements FileUploadService {
 
 
     public String getRandomProfileImage() {
-        List<String> imageList = generateImageFilenames(29, "default_");
-
         Random random = new Random();
-        int randomIndex = random.nextInt(imageList.size());
-        return imageList.get(randomIndex);
-    }
+        int randomIndex = random.nextInt(29)+1;
+        String image = "default_";
 
-    public List<String> generateImageFilenames(int numberOfImages, String pattern) {
-        List<String> imageList = new ArrayList<>();
-
-        for (int i = 1; i <= numberOfImages; i++) {
-            String filename = pattern + String.format("%02d", i) + ".png";
-            imageList.add(filename);
-        }
-
-        return imageList;
+        return image + randomIndex + ".png";
     }
 
 }

@@ -38,12 +38,8 @@ public class CalendarServiceImpl implements CalendarService {
 
     @Override
     public Date parseDatetime(String datetime) throws ParseException {
-        if(datetime.equals("")){
-            return null;
-        }else{
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
             return format.parse(datetime);
-        }
     }
 
 

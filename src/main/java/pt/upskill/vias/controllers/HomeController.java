@@ -60,39 +60,41 @@ public class HomeController {
         return mav;
     }
 
-    @GetMapping(value="/")
-    public ModelAndView index(){
+    @GetMapping(value = "/")
+    public ModelAndView index() {
         return new ModelAndView("home/welcome");
     }
 
 
-    @PostMapping(value="/perform_travel")
-    public ModelAndView performTravel(String origem, String destino, boolean depart, String date, Principal principal) throws IOException, ParseException {
+    @PostMapping(value = "/perform_travel")
+    public ModelAndView performTravel(String origem, String destino, boolean depart, String date, Principal principal) {
         ModelAndView mav = new ModelAndView("home/suggestions");
-        List<Leg> legs = routesRequestService.getLegList(origem, destino, depart, date);
 
-        legRepository.saveAll(legs);
-
-        if (legs.isEmpty()) {
-            mav.addObject("search_error", "Não foi possível calcular as direções de transporte público entre " +
-                    "" +
-                    "" +
-                    origem + " e " + destino + ". \nPor favor, tente outros locais.");
+        try {
+            List<Leg> legs = routesRequestService.getLegList(origem, destino, depart, date);
+            legRepository.saveAll(legs);
+            mav.addObject("legs", legs);
             mav.addObject("origem", origem);
             mav.addObject("destino", destino);
+
+            if (legs.isEmpty()) {
+                mav.addObject("search_error", "Não foi possível calcular uma rota de transportes público entre " + origem + " e " + destino + ". \nPor favor, tente outros locais.");
+            }
+
+            if (principal != null) {
+                User user = userRepository.getUserByUsername(principal.getName());
+                simulateTripService.saveLegsToUser(user, legs);
+            }
+
             return mav;
+
+        } catch (IOException ioe) {
+            mav.addObject("search_error", "Houve um erro na pesquisa.\nPor favor, tente novamente.");
+        } catch (ParseException pe) {
+            mav.addObject("search_error", "Não foi possível calcular a rota para a data selecionada.\nPor favor, tente novamente.");
         }
 
-        if(principal != null){
-            User user = userRepository.getUserByUsername(principal.getName());
-            simulateTripService.saveLegsToUser(user, legs);
-        }
-
-        mav.addObject("legs", legs);
-        mav.addObject("origem", origem);
-        mav.addObject("destino", destino);
         return mav;
-
     }
 
     @PostMapping(value = "/travel_details")
@@ -103,7 +105,7 @@ public class HomeController {
         leg = jsonConversionService.addSteps(leg);
         mav.addObject("leg", leg);
 
-        if(principal != null){
+        if (principal != null) {
             User user = userRepository.getUserByUsername(principal.getName());
             mav.addObject("user", user);
         }
@@ -112,7 +114,7 @@ public class HomeController {
     }
 
     @PostMapping(value = "/simulate_trip")
-    public ModelAndView simulateTripRequest(@RequestParam("id")long legId, Principal principal) {
+    public ModelAndView simulateTripRequest(@RequestParam("id") long legId, Principal principal) {
         ModelAndView mav = new ModelAndView("home/travel_details");
 
         User user = userRepository.getUserByUsername(principal.getName());

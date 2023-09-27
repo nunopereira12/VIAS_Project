@@ -10,9 +10,6 @@ public interface FileUploadService {
 
     ModelAndView uploadProfilePicture(MultipartFile file, User user);
 
-    public String getRandomProfileImage();
-
-    public List<String> generateImageFilenames(int numberOfImages, String pattern);
-
+    String getRandomProfileImage();
 
 }
