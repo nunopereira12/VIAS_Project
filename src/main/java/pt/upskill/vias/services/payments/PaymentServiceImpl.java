@@ -100,7 +100,6 @@ public class PaymentServiceImpl implements PaymentService{
             // Create customer
             Customer stripeCustomer = Customer.create(customerParams);
             customerId = stripeCustomer.getId();
-            System.out.println(stripeCustomer);
         } catch (RateLimitException e) {
             // Handle rate limit exception
         } catch (InvalidRequestException e) {
