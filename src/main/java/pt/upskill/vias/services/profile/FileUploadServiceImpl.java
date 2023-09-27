@@ -10,6 +10,9 @@ import pt.upskill.vias.repositories.UserRepository;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @Service
 public class FileUploadServiceImpl implements FileUploadService {
@@ -47,4 +50,25 @@ public class FileUploadServiceImpl implements FileUploadService {
             return new ModelAndView("redirect:/profile");
         }
     }
+
+
+    public String getRandomProfileImage() {
+        List<String> imageList = generateImageFilenames(29, "default_");
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(imageList.size());
+        return imageList.get(randomIndex);
+    }
+
+    public List<String> generateImageFilenames(int numberOfImages, String pattern) {
+        List<String> imageList = new ArrayList<>();
+
+        for (int i = 1; i <= numberOfImages; i++) {
+            String filename = pattern + String.format("%02d", i) + ".png";
+            imageList.add(filename);
+        }
+
+        return imageList;
+    }
+
 }

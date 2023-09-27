@@ -10,6 +10,7 @@
     margin: -20px;
     border-radius: 25px 25px 0 0;
     position: relative;
+    height: 190px;
 }
 
 .arrowbutton {
@@ -50,6 +51,15 @@
 .center-img {
     display: block;
     margin: 0 auto;
+}
+
+.cenas {
+    justify-content: center;
+    align-items: center;
+}
+.cenas > svg {
+    align-items: center;
+    margin-left: 100px;
 }
 
 .btn.btn-primary-outline {
@@ -420,6 +430,8 @@ table .circle {
     margin-bottom: -20px;
     margin-top: -15px;
 }
+
+
 
 @media (max-width: 768px) {
     .container {

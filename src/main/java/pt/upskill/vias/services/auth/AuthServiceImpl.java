@@ -13,6 +13,7 @@ import pt.upskill.vias.exceptions.*;
 import pt.upskill.vias.models.auth.ReplacePassword;
 import pt.upskill.vias.models.auth.SignUp;
 import pt.upskill.vias.repositories.*;
+import pt.upskill.vias.services.profile.FileUploadService;
 import pt.upskill.vias.services.utils.CalendarService;
 
 import java.security.SecureRandom;
@@ -39,6 +40,8 @@ public class AuthServiceImpl implements AuthService {
     TokenRepository tokenRepository;
     @Autowired
     CalendarService calendarService;
+    @Autowired
+    FileUploadService fileUploadService;
 
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
@@ -148,7 +151,7 @@ public class AuthServiceImpl implements AuthService {
         user.setPassword(passwordEncoder.encode(signUp_form.getPassword()));
         user.setRole(Role.USER);
         user.setCurrent_league(leagueRepository.getLeagueById(1));
-        user.setProfile_picture("default_profile_pic.png");
+        user.setProfile_picture(fileUploadService.getRandomProfileImage());
 
         UserStats userStats = new UserStats();
         userStatsRepository.save(userStats);
