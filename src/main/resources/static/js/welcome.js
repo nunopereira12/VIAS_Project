@@ -3,4 +3,4 @@ function redirectToHomePage() {
     window.location.href = "/home";
 }
 
-setTimeout(redirectToHomePage, 25000);
+setTimeout(redirectToHomePage, 15000);

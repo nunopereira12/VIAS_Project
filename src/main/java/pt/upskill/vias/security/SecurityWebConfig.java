@@ -41,6 +41,9 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/wallet","/add_navegante", "/generateQRCode/{cardData}").permitAll()
                 .antMatchers("/uploads/*", "/upload").permitAll()
 
+                .antMatchers("/error_page").permitAll()
+
+
                 .antMatchers("/images/**", "/css/**","/js/**","/sounds/**").permitAll()
                 .antMatchers("**").denyAll()
 

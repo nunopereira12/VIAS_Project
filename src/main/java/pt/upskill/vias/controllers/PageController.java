@@ -38,6 +38,11 @@ public class PageController {
         return mav;
     }
 
+    @GetMapping(value="/error_page")
+    public ModelAndView errorPage() {
+        return new ModelAndView("error_page");
+    }
+
 
 
 
