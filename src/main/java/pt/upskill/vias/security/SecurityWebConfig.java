@@ -31,10 +31,11 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/recover_password", "/recovery_request","/recovery_email_sent","/change_password","/change_password/*", "/set_password").permitAll()
                 .antMatchers("/diagrams","/schedules").permitAll()
                 .antMatchers("/contacts", "/send_message", "/contact_success").permitAll()
-                .antMatchers("/welcome","/home", "/perform_travel", "/suggestions", "/travel_details", "/simulate_trip", "/").permitAll()
+                .antMatchers("/welcome","/home", "/perform_travel", "/suggestions", "/travel_details", "/simulate_trip", "/",
+                "/checkout_navegante", "/checkout_vias_card", "/webhooks/stripe/events", "webhooks/**").permitAll()
                 .antMatchers("/id_pica", "/validate", "/card_scan").permitAll()
                 .antMatchers("/settings", "/help").permitAll()
-                .antMatchers("/payments","/payment_success").permitAll()
+                .antMatchers("/payments_vias_card","/payment_success", "/payments").permitAll()
                 .antMatchers("/profile","/edit_profile", "/update_user", "/history", "/profile_change_password").permitAll()
                 .antMatchers("/show_ticket").permitAll()
                 .antMatchers("/vias_league").permitAll()

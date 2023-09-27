@@ -1,15 +1,25 @@
 package pt.upskill.vias.services.payments;
 
+import com.stripe.Stripe;
+import com.stripe.exception.AuthenticationException;
+import com.stripe.exception.InvalidRequestException;
+import com.stripe.exception.RateLimitException;
+import com.stripe.exception.StripeException;
+import com.stripe.model.Customer;
+import com.stripe.model.CustomerCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.cards.Navegante;
 import pt.upskill.vias.entities.cards.ViasCard;
+import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.repositories.NaveganteRepository;
 import pt.upskill.vias.repositories.ViasCardRepository;
 import pt.upskill.vias.services.cards.NaveganteService;
 import pt.upskill.vias.services.cards.ViasCardService;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class PaymentServiceImpl implements PaymentService{
@@ -24,6 +34,14 @@ public class PaymentServiceImpl implements PaymentService{
 
     @Autowired
     ViasCardService viasCardService;
+
+
+    private static final String TEST_STRIPE_SECRET_KEY = "sk_test_51NuelYBvwGTopoOtLCiGZQgBZKWaX0MoyzEil96jNYabGSRs5q6bnExplsejHRLVnTbZzuaR2dsnEiGkAM1vAbEB004I5SHK6v";
+
+    public PaymentServiceImpl() {
+        Stripe.apiKey = TEST_STRIPE_SECRET_KEY;
+    }
+
 
     @Override
     public boolean isNavegante(String navegante_id) {
@@ -53,5 +71,56 @@ public class PaymentServiceImpl implements PaymentService{
             double vc_value = Double.parseDouble(value);
             viasCardService.chargeCard(vc, vc_value);
         }
+    }
+
+    @Override
+    public String createCustomer(User user) {
+        // Check if a customer with the given email already exists
+        Customer existingCustomer = findCustomerByEmail(user.getEmail());
+
+        if (existingCustomer != null) {
+            // Customer already exists, return the existing customer's ID
+            return existingCustomer.getId();
+        }
+
+        Map<String, Object> customerParams = new HashMap<String, Object>();
+        customerParams.put("description", user.getFirst_name() + " " + user.getLast_name());
+        customerParams.put("email", user.getEmail());
+
+        String customerId = null;
+
+        try {
+            // Create customer
+            Customer stripeCustomer = Customer.create(customerParams);
+            customerId = stripeCustomer.getId();
+            System.out.println(stripeCustomer);
+        } catch (RateLimitException e) {
+            // Handle rate limit exception
+        } catch (InvalidRequestException e) {
+            // Handle invalid request exception
+        } catch (AuthenticationException e) {
+            // Handle authentication exception
+        } catch (StripeException e) {
+            // Handle generic Stripe exception
+        } catch (Exception e) {
+            // Handle other exceptions
+        }
+
+        return customerId;
+    }
+
+    private Customer findCustomerByEmail(String email) {
+        try {
+            // Retrieve a list of customers with the given email
+            CustomerCollection customers = Customer.list(Map.of("email", email));
+            if (!customers.getData().isEmpty()) {
+                // Return the first customer found (assuming there is only one)
+                return customers.getData().get(0);
+            }
+        } catch (StripeException e) {
+            // Handle Stripe exception when listing customers
+        }
+
+        return null; // No matching customer found
     }
 }
