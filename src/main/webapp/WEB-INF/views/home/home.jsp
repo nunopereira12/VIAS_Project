@@ -224,13 +224,13 @@
         </div>
 
             <div class="dropdown" >
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown" style="width: 250px">
-                    <span>Horário da viagem</span>
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown" style="width: 250px; border-radius: 10px">
+                    <span>Planear viagem</span>
                 </button>
-                <ul class="dropdown-menu" >
+                <ul class="dropdown-menu" style="position: absolute; inset: 0px auto auto 45px; margin: 0px; transform: translate3d(0px, 48px, 0px);">
                     <input type="hidden" name="depart" value=true id="depart">
-                    <li><a class="dropdown-item" href="#departure" id="departureLink">Partida às</a></li>
-                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Chegada às</a></li>
+                    <li><a class="dropdown-item" href="#departure" id="departureLink">Hora de partida</a></li>
+                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Hora de chegada</a></li>
                 </ul>
             </div>
        <div class="date-hour-box">

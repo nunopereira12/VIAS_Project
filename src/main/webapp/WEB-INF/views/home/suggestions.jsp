@@ -38,15 +38,7 @@
         <form method="post" action="/perform_travel" id="form">
         <div class="button-box" style="margin-top: 50px">
             <div class="input-box">
-                <span style="margin: auto auto auto 0">
-                    <c:choose>
-                    <c:when test="${legs != null}">
-                <input class="input-field" type="text" name="origem" id="origem1" onfocus=selectText(this) value="${legs.get(0).getStart_address()}" required></span>
-                </c:when>
-                <c:when test="${legs == null}">
-                    <input class="input-field" type="text" name="origem" id="origem1" value="" placeholder="${origem}" required></span>
-                </c:when>
-                </c:choose>
+
                 <svg style="margin: auto 7px auto" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
                 <mask id="mask0_854_705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
                     <path d="M0 0H25V25H0V0Z" fill="#D9D9D9"/>
@@ -54,21 +46,28 @@
                 <g mask="url(#mask0_854_705)">
                     <path d="M13.5677 22.8646V21.1285C14.3316 21.0243 15.0738 20.8218 15.7943 20.5208C16.5148 20.2199 17.1904 19.8264 17.8212 19.3403L19.0365 20.6076C18.2321 21.2616 17.3727 21.7752 16.4583 22.1484C15.544 22.5217 14.5804 22.7604 13.5677 22.8646ZM20.5816 19.0278L19.349 17.8299C19.8119 17.2222 20.1939 16.5639 20.4948 15.855C20.7957 15.1461 21.0041 14.3866 21.1198 13.5764H22.8906C22.7517 14.6296 22.487 15.6149 22.0964 16.5321C21.7057 17.4494 21.2008 18.2813 20.5816 19.0278ZM21.1198 11.4236C21.0041 10.6076 20.7957 9.8481 20.4948 9.14497C20.1939 8.44185 19.8119 7.78356 19.349 7.17013L20.5816 5.97221C21.2413 6.80554 21.7549 7.66203 22.1224 8.54166C22.4899 9.4213 22.746 10.3819 22.8906 11.4236H21.1198ZM11.3976 22.8646C8.74133 22.5637 6.52923 21.4294 4.76128 19.4618C2.99334 17.4942 2.10938 15.1736 2.10938 12.5C2.10938 9.8206 2.99334 7.49711 4.76128 5.5295C6.52923 3.56192 8.74133 2.43055 11.3976 2.13541V3.87151C9.22164 4.16665 7.41898 5.13019 5.98958 6.76213C4.56017 8.39409 3.84547 10.3067 3.84547 12.5C3.84547 14.6933 4.56017 16.6044 5.98958 18.2335C7.41898 19.8626 9.22164 20.8275 11.3976 21.1285V22.8646ZM17.8559 5.65971C17.1962 5.19096 16.5046 4.80613 15.7812 4.50521C15.0579 4.20427 14.3316 3.99304 13.6024 3.87151V2.13541C14.5689 2.25694 15.515 2.50434 16.441 2.8776C17.3669 3.25087 18.2321 3.75579 19.0365 4.39237L17.8559 5.65971ZM12.5 17.8993C11.4699 17.0255 10.4977 16.0851 9.58333 15.0781C8.66898 14.0712 8.2118 12.8993 8.2118 11.5625C8.2118 10.3472 8.62702 9.30844 9.45747 8.44617C10.2879 7.58391 11.3021 7.15278 12.5 7.15278C13.6979 7.15278 14.7121 7.58391 15.5425 8.44617C16.373 9.30844 16.7882 10.3472 16.7882 11.5625C16.7882 12.8993 16.331 14.0712 15.4167 15.0781C14.5023 16.0851 13.5301 17.0255 12.5 17.8993ZM12.5 12.5347C12.8241 12.5347 13.0975 12.4233 13.3203 12.2005C13.5431 11.9777 13.6545 11.7043 13.6545 11.3802C13.6545 11.0851 13.5431 10.8189 13.3203 10.5816C13.0975 10.3443 12.8241 10.2257 12.5 10.2257C12.1759 10.2257 11.9025 10.3443 11.6797 10.5816C11.4569 10.8189 11.3455 11.0851 11.3455 11.3802C11.3455 11.7043 11.4569 11.9777 11.6797 12.2005C11.9025 12.4233 12.1759 12.5347 12.5 12.5347Z" fill="white"/>
                 </g>
-            </svg></div>
+            </svg><span style="margin: auto auto auto 0">
+                    <c:choose>
+                    <c:when test="${legs != null}">
+                <input class="input-field" type="text" name="origem" id="origem1" onfocus=selectText(this) value="${legs.get(0).getStart_address()}" style="margin: 0px" required></span>
+                </c:when>
+                <c:when test="${legs == null}">
+                    <input class="input-field" type="text" name="origem" id="origem1" value="" placeholder="${origem}" style="margin: 0px" required></span>
+                </c:when>
+                </c:choose></div>
                 <div class="input-box">
-                    <span style="margin: auto auto auto 0 ">
-                        <c:choose>
-                        <c:when test="${legs != null}">
-                        <input class="input-field" type="text" name="destino" id="destino1" onfocus=selectText(this) value="${legs.get(0).getEnd_address()}" required></span>
-                    </c:when>
-                    <c:when test="${legs == null}">
-                        <input class="input-field" type="text" name="destino" id="destino1" value="" placeholder="${destino}" required></span>
-                    </c:when>
-                    </c:choose>
                     <button style="background-color: #1F7EB2; border: none; margin: 0 3px 0 5px">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M18.6667 20L11.463 12.7963C10.9074 13.2654 10.2626 13.6327 9.52853 13.8981C8.79447 14.1636 8.01336 14.2963 7.18519 14.2963C5.17703 14.2963 3.47745 13.6003 2.08647 12.2083C0.695491 10.8164 0 9.12965 0 7.14817C0 5.16668 0.695991 3.47995 2.08797 2.08797C3.47994 0.695991 5.16975 0 7.15742 0C9.14506 0 10.8318 0.695991 12.2176 2.08797C13.6034 3.47995 14.2963 5.16761 14.2963 7.15095C14.2963 7.95156 14.1667 8.71915 13.9074 9.45372C13.6482 10.1883 13.2716 10.8642 12.7778 11.4815L20 18.6667L18.6667 20ZM7.16667 12.4445C8.63272 12.4445 9.87886 11.9275 10.9051 10.8935C11.9313 9.85958 12.4444 8.61113 12.4444 7.14817C12.4444 5.68518 11.9313 4.43672 10.9051 3.40278C9.87886 2.36883 8.63272 1.85186 7.16667 1.85186C5.69033 1.85186 4.43544 2.36883 3.402 3.40278C2.36856 4.43672 1.85183 5.68518 1.85183 7.14817C1.85183 8.61113 2.36856 9.85958 3.402 10.8935C4.43544 11.9275 5.69033 12.4445 7.16667 12.4445Z" fill="white"/>
-                        </svg></button></div>
+                        </svg></button><span style="margin: auto auto auto 0 ">
+                        <c:choose>
+                        <c:when test="${legs != null}">
+                        <input class="input-field" type="text" name="destino" id="destino1" onfocus=selectText(this) value="${legs.get(0).getEnd_address()}"alt="" style="margin: 0px" required></span>
+                    </c:when>
+                    <c:when test="${legs == null}">
+                        <input class="input-field" type="text" name="destino" id="destino1" value="" placeholder="${destino}" style="margin: 0px" required></span>
+                    </c:when>
+                    </c:choose></div>
             <button class="switch-button" id="swapvalues"><svg width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="#041F48"/>
                 <mask id="mask0_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="24" height="24">
@@ -83,12 +82,12 @@
             </div>
             <div class="dropdown" style="margin-top: 5px; display:flex; justify-content: center; justify-items: center">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown" style="width: 250px; margin: 10px auto">
-                    <span>Horário da viagem</span>
+                    <span>Planear viagem</span>
                 </button>
-                <ul class="dropdown-menu" >
+                <ul class="dropdown-menu">
                     <input type="hidden" name="depart" value=true id="depart">
-                    <li><a class="dropdown-item" href="#departure" id="departureLink">Partida às</a></li>
-                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Chegada às</a></li>
+                    <li><a class="dropdown-item" href="#departure" id="departureLink">Partida</a></li>
+                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Chegada</a></li>
                 </ul>
             </div>
             <div class="date-hour-box">

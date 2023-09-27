@@ -129,6 +129,11 @@
 
 .dropdown{
     margin-top: 175px;
+    border-radius: 10px;
+}
+
+.show{
+    width: 250px;
 }
 
 @media (min-width: 920px) {

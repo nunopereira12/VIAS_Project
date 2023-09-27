@@ -53,7 +53,7 @@
     border:none;
     background: none;
     position: absolute;
-    margin: -75px 0 0 215px;
+    margin: -75px 0 0 230px;
 }
 
 .suggestions-box{
@@ -209,6 +209,15 @@
     .return-button{
         display:none;
     }
+}
+
+.dropdown{
+    margin-top: 175px;
+    border-radius: 10px;
+}
+
+.show{
+    width: 280px;
 }
 
 
