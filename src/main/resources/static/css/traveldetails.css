@@ -59,6 +59,7 @@
     border-radius: 25px;
     padding: 0 0 20px 0;
     min-height: auto;
+    max-width: 550px;
 }
 
 .time-travel-box{
@@ -207,4 +208,9 @@ p {
     margin-bottom: 0;
 }
 
+@media (min-width: 920px){
+    .imageDesktop {
+        margin-bottom: 35px;
 
+    }
+}
