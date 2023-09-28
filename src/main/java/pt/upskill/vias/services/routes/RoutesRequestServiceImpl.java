@@ -33,7 +33,7 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
     CalendarService calendarService;
 
     @Override
-    public String createPostURL(String origin, String destination, boolean depart, String date) throws ParseException {
+    public String createPostURL(String origin, String destination, boolean depart, Date date) {
         String specificTimeRequest = getDepartureOrArrival(depart, date);
         String apiKey = "AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs";
         String noSpacesOrigin = origin.replaceAll(" ", "+");
@@ -41,25 +41,29 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
 
         String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + noSpacesOrigin + "&destination=" + noSpacesDestination + "&key=" + apiKey + "&mode=transit&language=pt-PT&alternatives=true" + specificTimeRequest;
 
-
         return url;
 
     }
 
     @Override
-    public String getDepartureOrArrival(boolean depart, String date) throws ParseException {
+    public String createNoDatePostURL(String origin, String destination) {
+        String apiKey = "AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs";
+        String noSpacesOrigin = origin.replaceAll(" ", "+");
+        String noSpacesDestination = destination.replaceAll(" ", "+");
+
+        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + noSpacesOrigin + "&destination=" + noSpacesDestination + "&key=" + apiKey + "&mode=transit&language=pt-PT&alternatives=true";
+
+        return url;
+    }
+
+    @Override
+    public String getDepartureOrArrival(boolean depart, Date date) {
         String specificTimeRequest = "";
-        String no_comma_date = date.replaceAll(",", "");
-
-        if (!no_comma_date.equals("")) {
-            Date new_date = calendarService.parseDatetime(no_comma_date);
             if (depart) {
-                specificTimeRequest = specificTimeRequest.concat("&departure_time=" + new_date.getTime() / 1000);
+                specificTimeRequest = specificTimeRequest.concat("&departure_time=" + date.getTime() / 1000);
             } else {
-                specificTimeRequest = specificTimeRequest.concat("&arrival_time=" + new_date.getTime() / 1000);
+                specificTimeRequest = specificTimeRequest.concat("&arrival_time=" + date.getTime() / 1000);
             }
-        }
-
         return specificTimeRequest;
     }
 
@@ -78,12 +82,21 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
     }
 
 
+    @Override
+    public List<Leg> getLegList(String origin, String destination, boolean depart, Date date) throws IOException {
+        JSONObject response = getJSONResponse(createPostURL(origin, destination, depart, date));
+        return buildLegList(response);
+
+    }
 
     @Override
-    public List<Leg> getLegList(String origin, String destination, boolean depart, String date) throws IOException, ParseException {
+    public List<Leg> getNoDateLegList(String origin, String destination) throws IOException {
+        JSONObject response = getJSONResponse(createNoDatePostURL(origin, destination));
+        return buildLegList(response);
+    }
 
-
-        JSONObject response = getJSONResponse(createPostURL(origin, destination, depart, date));
+    @Override
+    public List<Leg> buildLegList(JSONObject response) {
         List<Leg> legList = new ArrayList<>();
 
         JSONArray routes = response.getJSONArray("routes");
@@ -105,17 +118,6 @@ public class RoutesRequestServiceImpl implements RoutesRequestService {
             legList.add(leg);
         }
         return legList;
-    }
-
-    @Override
-    public Date joinDateTime(Date date, Time time) {
-        date.setTime(date.getTime() + time.getTime());
-
-        if (date.before(new Date())) {
-            date = new Date();
-        }
-
-        return date;
     }
 
 

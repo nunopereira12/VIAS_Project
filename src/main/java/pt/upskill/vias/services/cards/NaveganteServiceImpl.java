@@ -77,7 +77,7 @@ public class NaveganteServiceImpl implements NaveganteService {
     }
 
     @Override
-    @Scheduled(cron = "0 0 0 1 * ?", zone = "Europe/Paris")
+    @Scheduled(cron = "0 0 0 1 * ?", zone = "Europe/Lisbon")
     @PostConstruct
     public void resetMonth() {
         LastUpdate last_update = lastUpdateRepository.getLastUpdateById(2);

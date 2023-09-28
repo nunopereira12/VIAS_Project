@@ -13,10 +13,13 @@ public interface RoutesRequestService {
 
 
 
-    String createPostURL(String origin, String destination, boolean depart, String date) throws ParseException;
-    String getDepartureOrArrival(boolean depart, String date) throws ParseException;
+    String createPostURL(String origin, String destination, boolean depart, Date date) throws ParseException;
+    String createNoDatePostURL(String origin, String destination);
+    String getDepartureOrArrival(boolean depart, Date date) throws ParseException;
     JSONObject getJSONResponse(String url) throws IOException;
-    Date joinDateTime(Date date, Time time);
-    List<Leg> getLegList(String origin, String destination, boolean depart, String date) throws IOException, ParseException;
+    List<Leg> getLegList(String origin, String destination, boolean depart, Date date) throws IOException, ParseException;
+    List<Leg> getNoDateLegList(String origin, String destination) throws IOException;
+
+    List<Leg> buildLegList(JSONObject response) throws IOException;
 
 }

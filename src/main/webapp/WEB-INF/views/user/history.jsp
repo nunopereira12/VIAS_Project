@@ -20,7 +20,7 @@
 
         <c:forEach var="leg" items="${legs}">
             <div class="card-box">
-                <form class="submit-button" id="myForm_${leg.getId()}" action="/travel_details" method="post" >
+                <form class="submit-button" id="myForm_${leg.getId()}" action="/travel_details" method="GET" >
                     <button class="card">
                         <input type="hidden" name="id" value="${leg.getId()}">
                         <div class="origin-box">

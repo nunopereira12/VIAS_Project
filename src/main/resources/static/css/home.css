@@ -252,17 +252,18 @@
     margin:10px 0 0 0;
 }
 
-.time-input{
-    height: 35px;
-    border:none;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    padding: 0 15px 0 15px;
-
+.date-input {
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 3px;
 }
 
-.date-hour-input{
-    padding: 0 10px 0 10px;
+.time-input {
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 3px;
 }
 
 .hidden{
@@ -354,35 +355,6 @@
     color: black;
     background-color: white;
 
-}
-
-
-
-/* remove default browser placeholder when not focused */
-/*input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-year-field,
-input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-month-field,
-input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-day-field,
-input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-hour-field,
-input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-minute-field,
-input[type='datetime-local']:not(:focus):in-range::-webkit-datetime-edit-text {
-    color: transparent;
-}*/
-
-/* iOS background fix */
-& > input[type='datetime-local']:empty {
-    background-color: #f9f9f6;
-}
-
-/* iOS fix for text alignment */
-& > input::-webkit-date-and-time-value {
-    text-align: left;
-}
-
-/* iOS date-placeholder fix */
-& > input[type='datetime-local']:not(:focus):empty:after {
-    position: absolute;
-    color: #aaa;
-    content: attr(placeholder);
 }
 
 #map {

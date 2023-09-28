@@ -187,7 +187,7 @@
 
         <c:choose>
         <c:when test="${user == null || user.getRole() eq 'USER'}">
-        <form id="directionsForm" method="POST" action="/perform_travel">
+        <form id="directionsForm" method="GET" action="/perform_travel">
             <div class="search-box">
                 <div class="home-title">
                     <h3>Para onde vai?</h3>
@@ -231,24 +231,26 @@
                 </div>
             </div>
 
-            <div class="dropdown">
+            <div class="dropdown" style="display:flex; justify-content: center; justify-items: center">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" id="dropdown" style="width: 250px; border-radius: 10px">
+                        aria-expanded="false" id="dropdown" style="width: 250px">
                     <span>Planear viagem</span>
                 </button>
                 <ul class="dropdown-menu"
                     style="position: absolute; inset: 0px auto auto 45px; margin: 0px; transform: translate3d(0px, 48px, 0px);">
                     <input type="hidden" name="depart" value=true id="depart">
-                    <li><a class="dropdown-item" href="#departure" id="departureLink">Hora de partida</a></li>
-                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Hora de chegada</a></li>
+                    <li><a class="dropdown-item" href="#divDeparture" id="departureLink">Hora de partida</a></li>
+                    <li><a class="dropdown-item" href="#divArrival" id="arrivalLink">Hora de chegada</a></li>
                 </ul>
             </div>
             <div class="date-hour-box">
-                <div class="date-hour-input" id="divDeparture">
-                    <input class="time-input hidden" type="datetime-local" id="departure" name="date">
+                <div class="date-hour-input hidden" id="divDeparture">
+                    <input class="time-input" id="departureTime" disabled value="" type="time" name="time">
+                    <input class="date-input" id="departureDate" disabled value="" type="date" name="date">
                 </div>
-                <div class="date-hour-input" id="divArrival">
-                    <input class="time-input hidden" type="datetime-local" id="arrival" name="date">
+                <div class="date-hour-input hidden" id="divArrival">
+                    <input class="time-input" id="arrivalTime" disabled value="" type="time" name="time">
+                    <input class="date-input" id="arrivalDate" disabled value="" type="date" name="date">
                 </div>
             </div>
         </form>
@@ -332,51 +334,68 @@
 
 
     document.addEventListener("DOMContentLoaded", function () {
-        var bool = document.getElementById("depart");
-        var arrival = document.getElementById("arrivalLink");
-        var departure = document.getElementById("departureLink");
-
-        arrival.addEventListener("click", function () {
-            bool.value = false;
-        });
-
-        departure.addEventListener("click", function () {
-            bool.value = true;
-        });
+        var depart = document.getElementById("depart");
 
         var departureLink = document.getElementById("departureLink");
-        var departure = document.getElementById("departure");
         var arrivalLink = document.getElementById("arrivalLink");
-        var arrival = document.getElementById("arrival");
+
+        var departure = document.getElementById("divDeparture");
+        var arrival = document.getElementById("divArrival");
+
+        var departureTime = document.getElementById("departureTime");
+        var departureDate = document.getElementById("departureDate");
+        var arrivalTime = document.getElementById("arrivalTime");
+        var arrivalDate = document.getElementById("arrivalDate");
 
         var dropdown = document.getElementById("dropdown");
 
-        departureLink.addEventListener("click", function () {
-            dropdown.textContent = "Partida às";
-            arrival.classList.add("hidden");
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const formattedDate = year+'-'+month+'-'+day;
+        const hours = String(currentDate.getHours()).padStart(2, '0');
+        const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+        const formattedTime = hours+':'+minutes;
+
+        departureLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            depart.value = true;
             departure.classList.remove("hidden");
+            departureTime.disabled = false;
+            departureDate.disabled = false;
+
+            arrival.classList.add("hidden");
+            arrivalTime.disabled = true;
+            arrivalDate.disabled = true;
+            arrivalTime.value = "";
+            arrivalDate.value = "";
+
+            dropdown.textContent = "Partida às";
+            departureDate.value = formattedDate;
+            departureTime.value = formattedTime;
         });
 
-        arrivalLink.addEventListener("click", function () {
-            dropdown.textContent = "Chegada às";
-            departure.classList.add("hidden");
+        arrivalLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            depart.value = false;
             arrival.classList.remove("hidden");
+            arrivalTime.disabled = false;
+            arrivalDate.disabled = false;
+
+            departure.classList.add("hidden");
+            departureTime.disabled = true;
+            departureDate.disabled = true;
+            departureTime.value = "";
+            departureDate.value = "";
+
+            dropdown.textContent = "Chegada às";
+            arrivalDate.value = formattedDate;
+            arrivalTime.value = formattedTime;
         });
 
-    });
 
-    departureLink.addEventListener("click", function (e) {
-        e.preventDefault();
-        arrival.classList.add("hidden"); // Hide the arrival input
-        arrival.value = "";
-        departure.classList.remove("hidden"); // Show the departure input
-    });
 
-    arrivalLink.addEventListener("click", function (e) {
-        e.preventDefault();
-        departure.classList.add("hidden"); // Hide the departure input
-        departure.value = "";
-        arrival.classList.remove("hidden"); // Show the arrival input
     });
 
 

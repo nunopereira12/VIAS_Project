@@ -1,5 +1,6 @@
 package pt.upskill.vias.services.viasleague;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import pt.upskill.vias.entities.League;
 import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.models.routes.Leg;
@@ -16,6 +17,7 @@ public interface ViasLeagueService {
     int getLegTimeWalking(List<Step> steps);
     int getLegTimeTransit(List<Step> steps);
     List<User> getStatsByFilter(String filter, League league);
+    @Scheduled(cron = "0 37 18 28 9 THU", zone = "Europe/Lisbon")
     void resetLeague();
     void resetStats(List<User> users);
     void changeLeagues();

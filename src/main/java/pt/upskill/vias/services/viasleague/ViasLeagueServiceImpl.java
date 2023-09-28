@@ -143,23 +143,21 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     }
 
     @Override
-    @Scheduled(cron = "0 0 0 * * MON", zone = "Europe/Paris")
+    //@Scheduled(cron = "0 0 0 * * MON", zone = "Europe/Lisbon")
+    @Scheduled(cron = "0 37 18 28 9 THU", zone = "Europe/Lisbon")
     @PostConstruct
     public void resetLeague() {
-        Date today = new Date();
+        System.out.println("Entrei!");
         LastUpdate last_update = lastUpdateRepository.getLastUpdateById(1);
-        long today_value = today.getTime();
         long last_update_value = last_update.getDate().getTime();
         long seven_days = 604800000;
 
-        List<User> users = userRepository.findAll();
 
-        if (today_value - last_update_value >= seven_days) {
-            changeLeagues();
-            resetStats(users);
-            last_update.setDate(new Date(last_update_value+seven_days));
-            lastUpdateRepository.save(last_update);
-        }
+        changeLeagues();
+        resetStats(userRepository.findAll());
+        last_update.setDate(new Date(last_update_value + seven_days));
+        lastUpdateRepository.save(last_update);
+        System.out.println("Saí!");
     }
 
     @Override

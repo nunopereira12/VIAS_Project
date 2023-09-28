@@ -12,12 +12,13 @@
 
 </head>
 <body class="home-body" onload="initMap()">
-<form id="directionsForm" method="POST" action="/perform_travel">
-<button class="arrowbutton" style="z-index: 1000" onclick="window.history.back()">
+<form id="directionsForm" method="GET" action="/perform_travel">
+<button class="arrowbutton" style="z-index: 1000">
     <input type="hidden" name="origem" value="${leg.getStart_address()}">
     <input type="hidden" name="destino" value="${leg.getEnd_address()}">
     <input type="hidden" name="depart" value="${depart}">
     <input type="hidden" name="date" value="${date}">
+    <input type="hidden" name="time" value="${time}">
     <img src="/images/backarrow.png" alt="Go back!" width="30px">
 </button>
 </form>
@@ -254,20 +255,24 @@
 
             <div class="button-box-travel">
 
-                <form id="directionsForm" method="POST" action="/perform_travel">
+                <form id="directionsForm" method="GET" action="/perform_travel">
                     <button class="button-travel btn btn-primary buttons" >
                         <input type="hidden" name="origem" value="${leg.getStart_address()}">
                         <input type="hidden" name="destino" value="${leg.getEnd_address()}">
                         <input type="hidden" name="depart" value="${depart}">
                         <input type="hidden" name="date" value="${date}">
+                        <input type="hidden" name="time" value="${time}">
                         Cancelar</button>
                 </form>
                 <c:if test="${user != null}">
                 <button class="button-travel btn btn-primary buttons">Começar Viagem</button>
                 </c:if>
                 <c:if test="${user != null}">
-                <form method="post" action="/simulate_trip">
+                <form method="GET" action="/simulate_trip">
                     <input type="hidden" name="id" value="${leg.getId()}">
+                    <input type="hidden" name="depart" value="${depart}">
+                    <input type="hidden" name="date" value="${date}">
+                    <input type="hidden" name="time" value="${time}">
                 <button class="button-travel btn btn-primary buttons" type="submit">Simular Viagem</button>
                 </form>
                 </c:if>

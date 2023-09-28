@@ -197,7 +197,7 @@
 
     .date-hour-box {
         display: revert;
-        margin:auto;
+        margin: auto;
         text-align: center;
         align-items: center;
     }
@@ -211,10 +211,6 @@
     }
 }
 
-.dropdown{
-    margin-top: 175px;
-    border-radius: 10px;
-}
 
 .show{
     width: 280px;
@@ -260,4 +256,11 @@
     align-items: center;
     max-width: 284px;
 }
+
+
+.date-hour-input{
+    padding: 0;
+}
+
+
 

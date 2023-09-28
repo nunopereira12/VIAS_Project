@@ -3,7 +3,7 @@
 
 <!doctype html>
 <html lang="en">
-<%@include file="../header.jsp"%>
+<%@include file="../header.jsp" %>
 <head>
     <title>VIAS | Sugestões de rota</title>
     <link rel="stylesheet" href="/css/template.css">
@@ -18,7 +18,7 @@
 </button>
 <div class="home-container">
     <div class="mapbox">
-            <div id="map" ></div>
+        <div id="map"></div>
     </div>
 
     <div class="suggestions-content">
@@ -26,99 +26,123 @@
             <footer>
                 <div class="imageTopLeft" style="margin-top: 25px; margin-bottom: 12px">
                     <svg width="250" height="50" viewBox="0 0 196 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.24 45L-0.896 0.199997H12.8L28.928 38.984H20.864L37.376 0.199997H49.92L30.72 45H18.24ZM52.5425 45V0.199997H65.2145V45H52.5425ZM68.854 45L88.63 0.199997H101.11L120.95 45H107.766L92.278 6.408H97.27L81.782 45H68.854ZM79.67 36.296L82.934 26.952H104.822L108.086 36.296H79.67Z" fill="white"/>
-                        <path d="M177.001 24.6667L176.998 43.3333L196 38.0027L190.46 34.1147C193.142 30.656 194.643 26.408 194.64 22C194.64 10.9733 185.51 1.99999 174.284 1.99999C158.892 1.99999 155.246 16.3226 154.049 21.032C151.3 31.832 147.294 34 141.714 34C134.98 34 129.5 28.616 129.5 22C129.5 19.272 130.482 16.664 132.189 14.5547L138.999 19.3333V0.666656L120 5.99999L125.54 9.88532C122.858 13.344 121.357 17.592 121.357 22C121.357 33.0293 130.488 42 141.714 42C155.512 42 159.869 31.1413 161.948 22.968C164.849 11.5733 169.591 9.99999 174.284 9.99999C181.018 9.99999 186.498 15.3867 186.498 22.0054C186.5 24.7307 185.518 27.3387 183.811 29.448L177.001 24.6667Z" fill="#A3DD41"/>
+                        <path d="M18.24 45L-0.896 0.199997H12.8L28.928 38.984H20.864L37.376 0.199997H49.92L30.72 45H18.24ZM52.5425 45V0.199997H65.2145V45H52.5425ZM68.854 45L88.63 0.199997H101.11L120.95 45H107.766L92.278 6.408H97.27L81.782 45H68.854ZM79.67 36.296L82.934 26.952H104.822L108.086 36.296H79.67Z"
+                              fill="white"/>
+                        <path d="M177.001 24.6667L176.998 43.3333L196 38.0027L190.46 34.1147C193.142 30.656 194.643 26.408 194.64 22C194.64 10.9733 185.51 1.99999 174.284 1.99999C158.892 1.99999 155.246 16.3226 154.049 21.032C151.3 31.832 147.294 34 141.714 34C134.98 34 129.5 28.616 129.5 22C129.5 19.272 130.482 16.664 132.189 14.5547L138.999 19.3333V0.666656L120 5.99999L125.54 9.88532C122.858 13.344 121.357 17.592 121.357 22C121.357 33.0293 130.488 42 141.714 42C155.512 42 159.869 31.1413 161.948 22.968C164.849 11.5733 169.591 9.99999 174.284 9.99999C181.018 9.99999 186.498 15.3867 186.498 22.0054C186.5 24.7307 185.518 27.3387 183.811 29.448L177.001 24.6667Z"
+                              fill="#A3DD41"/>
                     </svg>
                 </div>
             </footer>
         </div>
-        <form method="post" action="/perform_travel" id="form">
-        <div class="button-box" style="margin-top: 50px">
-            <div class="input-box">
+        <form method="GET" action="/perform_travel" id="form">
+            <div class="button-box" style="margin-top: 50px">
+                <div class="input-box">
 
-                <svg id="get_location" style="margin: auto 7px auto" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                <mask id="mask0_854_705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
-                    <path d="M0 0H25V25H0V0Z" fill="#D9D9D9"/>
-                </mask>
-                <g mask="url(#mask0_854_705)">
-                    <path d="M13.5677 22.8646V21.1285C14.3316 21.0243 15.0738 20.8218 15.7943 20.5208C16.5148 20.2199 17.1904 19.8264 17.8212 19.3403L19.0365 20.6076C18.2321 21.2616 17.3727 21.7752 16.4583 22.1484C15.544 22.5217 14.5804 22.7604 13.5677 22.8646ZM20.5816 19.0278L19.349 17.8299C19.8119 17.2222 20.1939 16.5639 20.4948 15.855C20.7957 15.1461 21.0041 14.3866 21.1198 13.5764H22.8906C22.7517 14.6296 22.487 15.6149 22.0964 16.5321C21.7057 17.4494 21.2008 18.2813 20.5816 19.0278ZM21.1198 11.4236C21.0041 10.6076 20.7957 9.8481 20.4948 9.14497C20.1939 8.44185 19.8119 7.78356 19.349 7.17013L20.5816 5.97221C21.2413 6.80554 21.7549 7.66203 22.1224 8.54166C22.4899 9.4213 22.746 10.3819 22.8906 11.4236H21.1198ZM11.3976 22.8646C8.74133 22.5637 6.52923 21.4294 4.76128 19.4618C2.99334 17.4942 2.10938 15.1736 2.10938 12.5C2.10938 9.8206 2.99334 7.49711 4.76128 5.5295C6.52923 3.56192 8.74133 2.43055 11.3976 2.13541V3.87151C9.22164 4.16665 7.41898 5.13019 5.98958 6.76213C4.56017 8.39409 3.84547 10.3067 3.84547 12.5C3.84547 14.6933 4.56017 16.6044 5.98958 18.2335C7.41898 19.8626 9.22164 20.8275 11.3976 21.1285V22.8646ZM17.8559 5.65971C17.1962 5.19096 16.5046 4.80613 15.7812 4.50521C15.0579 4.20427 14.3316 3.99304 13.6024 3.87151V2.13541C14.5689 2.25694 15.515 2.50434 16.441 2.8776C17.3669 3.25087 18.2321 3.75579 19.0365 4.39237L17.8559 5.65971ZM12.5 17.8993C11.4699 17.0255 10.4977 16.0851 9.58333 15.0781C8.66898 14.0712 8.2118 12.8993 8.2118 11.5625C8.2118 10.3472 8.62702 9.30844 9.45747 8.44617C10.2879 7.58391 11.3021 7.15278 12.5 7.15278C13.6979 7.15278 14.7121 7.58391 15.5425 8.44617C16.373 9.30844 16.7882 10.3472 16.7882 11.5625C16.7882 12.8993 16.331 14.0712 15.4167 15.0781C14.5023 16.0851 13.5301 17.0255 12.5 17.8993ZM12.5 12.5347C12.8241 12.5347 13.0975 12.4233 13.3203 12.2005C13.5431 11.9777 13.6545 11.7043 13.6545 11.3802C13.6545 11.0851 13.5431 10.8189 13.3203 10.5816C13.0975 10.3443 12.8241 10.2257 12.5 10.2257C12.1759 10.2257 11.9025 10.3443 11.6797 10.5816C11.4569 10.8189 11.3455 11.0851 11.3455 11.3802C11.3455 11.7043 11.4569 11.9777 11.6797 12.2005C11.9025 12.4233 12.1759 12.5347 12.5 12.5347Z" fill="white"/>
-                </g>
-            </svg><span style="margin: auto auto auto 0">
+                    <svg id="get_location" style="margin: auto 7px auto" xmlns="http://www.w3.org/2000/svg" width="25"
+                         height="25" viewBox="0 0 25 25" fill="none">
+                        <mask id="mask0_854_705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                              width="25" height="25">
+                            <path d="M0 0H25V25H0V0Z" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_854_705)">
+                            <path d="M13.5677 22.8646V21.1285C14.3316 21.0243 15.0738 20.8218 15.7943 20.5208C16.5148 20.2199 17.1904 19.8264 17.8212 19.3403L19.0365 20.6076C18.2321 21.2616 17.3727 21.7752 16.4583 22.1484C15.544 22.5217 14.5804 22.7604 13.5677 22.8646ZM20.5816 19.0278L19.349 17.8299C19.8119 17.2222 20.1939 16.5639 20.4948 15.855C20.7957 15.1461 21.0041 14.3866 21.1198 13.5764H22.8906C22.7517 14.6296 22.487 15.6149 22.0964 16.5321C21.7057 17.4494 21.2008 18.2813 20.5816 19.0278ZM21.1198 11.4236C21.0041 10.6076 20.7957 9.8481 20.4948 9.14497C20.1939 8.44185 19.8119 7.78356 19.349 7.17013L20.5816 5.97221C21.2413 6.80554 21.7549 7.66203 22.1224 8.54166C22.4899 9.4213 22.746 10.3819 22.8906 11.4236H21.1198ZM11.3976 22.8646C8.74133 22.5637 6.52923 21.4294 4.76128 19.4618C2.99334 17.4942 2.10938 15.1736 2.10938 12.5C2.10938 9.8206 2.99334 7.49711 4.76128 5.5295C6.52923 3.56192 8.74133 2.43055 11.3976 2.13541V3.87151C9.22164 4.16665 7.41898 5.13019 5.98958 6.76213C4.56017 8.39409 3.84547 10.3067 3.84547 12.5C3.84547 14.6933 4.56017 16.6044 5.98958 18.2335C7.41898 19.8626 9.22164 20.8275 11.3976 21.1285V22.8646ZM17.8559 5.65971C17.1962 5.19096 16.5046 4.80613 15.7812 4.50521C15.0579 4.20427 14.3316 3.99304 13.6024 3.87151V2.13541C14.5689 2.25694 15.515 2.50434 16.441 2.8776C17.3669 3.25087 18.2321 3.75579 19.0365 4.39237L17.8559 5.65971ZM12.5 17.8993C11.4699 17.0255 10.4977 16.0851 9.58333 15.0781C8.66898 14.0712 8.2118 12.8993 8.2118 11.5625C8.2118 10.3472 8.62702 9.30844 9.45747 8.44617C10.2879 7.58391 11.3021 7.15278 12.5 7.15278C13.6979 7.15278 14.7121 7.58391 15.5425 8.44617C16.373 9.30844 16.7882 10.3472 16.7882 11.5625C16.7882 12.8993 16.331 14.0712 15.4167 15.0781C14.5023 16.0851 13.5301 17.0255 12.5 17.8993ZM12.5 12.5347C12.8241 12.5347 13.0975 12.4233 13.3203 12.2005C13.5431 11.9777 13.6545 11.7043 13.6545 11.3802C13.6545 11.0851 13.5431 10.8189 13.3203 10.5816C13.0975 10.3443 12.8241 10.2257 12.5 10.2257C12.1759 10.2257 11.9025 10.3443 11.6797 10.5816C11.4569 10.8189 11.3455 11.0851 11.3455 11.3802C11.3455 11.7043 11.4569 11.9777 11.6797 12.2005C11.9025 12.4233 12.1759 12.5347 12.5 12.5347Z"
+                                  fill="white"/>
+                        </g>
+                    </svg>
+                    <span style="margin: auto auto auto 0">
                     <c:choose>
                     <c:when test="${legs != null}">
-                <input class="input-field" type="text" name="origem" id="origem1" onfocus=selectText(this) value="${legs.get(0).getStart_address()}" style="margin: 0px" required></span>
-                </c:when>
-                <c:when test="${legs == null}">
-                    <input class="input-field" type="text" name="origem" id="origem1" value="" placeholder="${origem}" style="margin: 0px" required></span>
-                </c:when>
-                </c:choose></div>
+                <input class="input-field" type="text" name="origem" id="origem1" onfocus=selectText(this)
+                       value="${legs.get(0).getStart_address()}" style="margin: 0px" required></span>
+                    </c:when>
+                    <c:when test="${legs == null}">
+                        <input class="input-field" type="text" name="origem" id="origem1" value=""
+                               placeholder="${origem}" style="margin: 0px" required></span>
+                    </c:when>
+                    </c:choose></div>
                 <div class="input-box">
                     <button style="background-color: #1F7EB2; border: none; margin: 0 3px 0 5px">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M18.6667 20L11.463 12.7963C10.9074 13.2654 10.2626 13.6327 9.52853 13.8981C8.79447 14.1636 8.01336 14.2963 7.18519 14.2963C5.17703 14.2963 3.47745 13.6003 2.08647 12.2083C0.695491 10.8164 0 9.12965 0 7.14817C0 5.16668 0.695991 3.47995 2.08797 2.08797C3.47994 0.695991 5.16975 0 7.15742 0C9.14506 0 10.8318 0.695991 12.2176 2.08797C13.6034 3.47995 14.2963 5.16761 14.2963 7.15095C14.2963 7.95156 14.1667 8.71915 13.9074 9.45372C13.6482 10.1883 13.2716 10.8642 12.7778 11.4815L20 18.6667L18.6667 20ZM7.16667 12.4445C8.63272 12.4445 9.87886 11.9275 10.9051 10.8935C11.9313 9.85958 12.4444 8.61113 12.4444 7.14817C12.4444 5.68518 11.9313 4.43672 10.9051 3.40278C9.87886 2.36883 8.63272 1.85186 7.16667 1.85186C5.69033 1.85186 4.43544 2.36883 3.402 3.40278C2.36856 4.43672 1.85183 5.68518 1.85183 7.14817C1.85183 8.61113 2.36856 9.85958 3.402 10.8935C4.43544 11.9275 5.69033 12.4445 7.16667 12.4445Z" fill="white"/>
-                        </svg></button><span style="margin: auto auto auto 0 ">
+                            <path d="M18.6667 20L11.463 12.7963C10.9074 13.2654 10.2626 13.6327 9.52853 13.8981C8.79447 14.1636 8.01336 14.2963 7.18519 14.2963C5.17703 14.2963 3.47745 13.6003 2.08647 12.2083C0.695491 10.8164 0 9.12965 0 7.14817C0 5.16668 0.695991 3.47995 2.08797 2.08797C3.47994 0.695991 5.16975 0 7.15742 0C9.14506 0 10.8318 0.695991 12.2176 2.08797C13.6034 3.47995 14.2963 5.16761 14.2963 7.15095C14.2963 7.95156 14.1667 8.71915 13.9074 9.45372C13.6482 10.1883 13.2716 10.8642 12.7778 11.4815L20 18.6667L18.6667 20ZM7.16667 12.4445C8.63272 12.4445 9.87886 11.9275 10.9051 10.8935C11.9313 9.85958 12.4444 8.61113 12.4444 7.14817C12.4444 5.68518 11.9313 4.43672 10.9051 3.40278C9.87886 2.36883 8.63272 1.85186 7.16667 1.85186C5.69033 1.85186 4.43544 2.36883 3.402 3.40278C2.36856 4.43672 1.85183 5.68518 1.85183 7.14817C1.85183 8.61113 2.36856 9.85958 3.402 10.8935C4.43544 11.9275 5.69033 12.4445 7.16667 12.4445Z"
+                                  fill="white"/>
+                        </svg>
+                    </button>
+                    <span style="margin: auto auto auto 0 ">
                         <c:choose>
                         <c:when test="${legs != null}">
-                        <input class="input-field" type="text" name="destino" id="destino1" onfocus=selectText(this) value="${legs.get(0).getEnd_address()}"alt="" style="margin: 0px" required></span>
+                        <input class="input-field" type="text" name="destino" id="destino1" onfocus=selectText(this)
+                               value="${legs.get(0).getEnd_address()}" alt="" style="margin: 0px" required></span>
                     </c:when>
                     <c:when test="${legs == null}">
-                        <input class="input-field" type="text" name="destino" id="destino1" value="" placeholder="${destino}" style="margin: 0px" required></span>
+                        <input class="input-field" type="text" name="destino" id="destino1" value=""
+                               placeholder="${destino}" style="margin: 0px" required></span>
                     </c:when>
                     </c:choose></div>
-            <button class="switch-button" id="swapvalues"><svg width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="20" cy="20" r="20" fill="#041F48"/>
-                <mask id="mask0_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="24" height="24">
-                    <rect x="8" y="8" width="24" height="24" fill="#D9D9D9"/>
-                </mask>
-                <g mask="url(#mask0_0_1)">
-                    <path d="M16 21V13.825L13.425 16.4L12 15L17 10L22 15L20.575 16.4L18 13.825V21H16ZM23 30L18 25L19.425 23.6L22 26.175V19H24V26.175L26.575 23.6L28 25L23 30Z" fill="white"/>
-                </g>
-            </svg>
-            </button>
+                <button class="switch-button" id="swapvalues">
+                    <svg width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="20" fill="#041F48"/>
+                        <mask id="mask0_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="24"
+                              height="24">
+                            <rect x="8" y="8" width="24" height="24" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_0_1)">
+                            <path d="M16 21V13.825L13.425 16.4L12 15L17 10L22 15L20.575 16.4L18 13.825V21H16ZM23 30L18 25L19.425 23.6L22 26.175V19H24V26.175L26.575 23.6L28 25L23 30Z"
+                                  fill="white"/>
+                        </g>
+                    </svg>
+                </button>
 
             </div>
             <div class="dropdown" style="margin-top: 5px; display:flex; justify-content: center; justify-items: center">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown" style="width: 250px; margin: 10px auto">
-                    <span><c:choose>
-                        <c:when test="${depart == true}">Partida: ${date}</c:when>
-                        <c:otherwise>Chegada: ${date}</c:otherwise>
-                    </c:choose>
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" id="dropdown" style="width: 250px; margin: 10px auto">
+                    <span>
+                        <c:choose>
+                            <c:when test="${button_date == null}">
+                                <span style="font-weight: 600">Partir agora</span></c:when>
+                            <c:when test="${depart == true}">
+                                <span style="font-weight: 600">Partida:&nbsp;</span>${button_date}</c:when>
+                            <c:otherwise><span style="font-weight: 600">Chegada:&nbsp;</span> ${button_date}</c:otherwise>
+                        </c:choose>
                     </span>
                 </button>
                 <ul class="dropdown-menu">
                     <input type="hidden" name="depart" value=true id="depart">
-                    <li><a class="dropdown-item" href="#departure" id="departureLink">Hora de partida</a></li>
-                    <li><a class="dropdown-item" href="#arrival" id="arrivalLink">Hora de chegada</a></li>
+                    <li><a class="dropdown-item" href="#divDeparture" id="departureLink">Hora de partida</a></li>
+                    <li><a class="dropdown-item" href="#divArrival" id="arrivalLink">Hora de chegada</a></li>
                 </ul>
             </div>
             <div class="date-hour-box">
-                <div class="date-hour-input" id="divDeparture">
-                    <input class="time-input hidden" type="datetime-local" id="departure" name="date">
+                <div class="date-hour-input hidden" id="divDeparture">
+                    <input class="time-input" id="departureTime" value="" type="time" name="time">
+                    <input class="date-input" id="departureDate" value="" type="date" name="date">
                 </div>
-                <div class="date-hour-input" id="divArrival">
-                    <input class="time-input hidden" type="datetime-local" id="arrival" name="date">
+                <div class="date-hour-input hidden" id="divArrival">
+                    <input class="time-input" id="arrivalTime" value="" type="time" name="time">
+                    <input class="date-input" id="arrivalDate" value="" type="date" name="date">
                 </div>
             </div>
 
-            <input type="hidden" name="depart" value="${depart}">
-            <input type="hidden" name="date" value="${date}">
         </form>
 
 
         <c:if test="${search_error != null}">
             <div class="suggestions-box">
 
-            <div class="alert alert-danger text-center">
-                <p>${search_error}</p>
-            </div>
+                <div class="alert alert-danger text-center">
+                    <p>${search_error}</p>
+                </div>
                 <button class="return-button" onclick=window.location.href='/home';>Regressar</button>
             </div>
             <div class="footerlogo">
                 <footer>
                     <div class="footerimage" style="margin-bottom: 25px">
-                        <svg width="115" height="25" viewBox="0 0 196 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.24 45L-0.896 0.199997H12.8L28.928 38.984H20.864L37.376 0.199997H49.92L30.72 45H18.24ZM52.5425 45V0.199997H65.2145V45H52.5425ZM68.854 45L88.63 0.199997H101.11L120.95 45H107.766L92.278 6.408H97.27L81.782 45H68.854ZM79.67 36.296L82.934 26.952H104.822L108.086 36.296H79.67Z" fill="white"/>
-                            <path d="M177.001 24.6667L176.998 43.3333L196 38.0027L190.46 34.1147C193.142 30.656 194.643 26.408 194.64 22C194.64 10.9733 185.51 1.99999 174.284 1.99999C158.892 1.99999 155.246 16.3226 154.049 21.032C151.3 31.832 147.294 34 141.714 34C134.98 34 129.5 28.616 129.5 22C129.5 19.272 130.482 16.664 132.189 14.5547L138.999 19.3333V0.666656L120 5.99999L125.54 9.88532C122.858 13.344 121.357 17.592 121.357 22C121.357 33.0293 130.488 42 141.714 42C155.512 42 159.869 31.1413 161.948 22.968C164.849 11.5733 169.591 9.99999 174.284 9.99999C181.018 9.99999 186.498 15.3867 186.498 22.0054C186.5 24.7307 185.518 27.3387 183.811 29.448L177.001 24.6667Z" fill="#A3DD41"/>
+                        <svg width="115" height="25" viewBox="0 0 196 45" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.24 45L-0.896 0.199997H12.8L28.928 38.984H20.864L37.376 0.199997H49.92L30.72 45H18.24ZM52.5425 45V0.199997H65.2145V45H52.5425ZM68.854 45L88.63 0.199997H101.11L120.95 45H107.766L92.278 6.408H97.27L81.782 45H68.854ZM79.67 36.296L82.934 26.952H104.822L108.086 36.296H79.67Z"
+                                  fill="white"/>
+                            <path d="M177.001 24.6667L176.998 43.3333L196 38.0027L190.46 34.1147C193.142 30.656 194.643 26.408 194.64 22C194.64 10.9733 185.51 1.99999 174.284 1.99999C158.892 1.99999 155.246 16.3226 154.049 21.032C151.3 31.832 147.294 34 141.714 34C134.98 34 129.5 28.616 129.5 22C129.5 19.272 130.482 16.664 132.189 14.5547L138.999 19.3333V0.666656L120 5.99999L125.54 9.88532C122.858 13.344 121.357 17.592 121.357 22C121.357 33.0293 130.488 42 141.714 42C155.512 42 159.869 31.1413 161.948 22.968C164.849 11.5733 169.591 9.99999 174.284 9.99999C181.018 9.99999 186.498 15.3867 186.498 22.0054C186.5 24.7307 185.518 27.3387 183.811 29.448L177.001 24.6667Z"
+                                  fill="#A3DD41"/>
                         </svg>
                     </div>
                 </footer>
@@ -135,8 +159,8 @@
                     </c:if>--%>
                 <c:forEach var="leg" items="${legs}">
                     <div class="card-box">
-                        <form class="submit-button" id="myForm_${leg.getId()}" action="/travel_details" method="post" >
-                        <button class="card">
+                        <form class="submit-button" id="myForm_${leg.getId()}" action="/travel_details" method="GET">
+                            <button class="card">
                                 <input type="hidden" name="id" value="${leg.getId()}">
                                 <div class="time-travel-box">
                                     <div class="travel-box">
@@ -170,9 +194,10 @@
                                             class="fare-style">VIAS Card: </span> ${leg.getFare()}<span>€</span>
                                     </div>
                                 </div>
-                        </button>
+                            </button>
                             <input type="hidden" name="depart" value="${depart}">
                             <input type="hidden" name="date" value="${date}">
+                            <input type="hidden" name="time" value="${time}">
                         </form>
                         <div class="card-button" onclick="window.location.href='/wallet';">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 28 28"
@@ -195,14 +220,17 @@
             <div class="footerlogo">
                 <footer>
                     <div class="footerimage" style="margin-bottom: 25px">
-                        <svg width="115" height="25" viewBox="0 0 196 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.24 45L-0.896 0.199997H12.8L28.928 38.984H20.864L37.376 0.199997H49.92L30.72 45H18.24ZM52.5425 45V0.199997H65.2145V45H52.5425ZM68.854 45L88.63 0.199997H101.11L120.95 45H107.766L92.278 6.408H97.27L81.782 45H68.854ZM79.67 36.296L82.934 26.952H104.822L108.086 36.296H79.67Z" fill="white"/>
-                            <path d="M177.001 24.6667L176.998 43.3333L196 38.0027L190.46 34.1147C193.142 30.656 194.643 26.408 194.64 22C194.64 10.9733 185.51 1.99999 174.284 1.99999C158.892 1.99999 155.246 16.3226 154.049 21.032C151.3 31.832 147.294 34 141.714 34C134.98 34 129.5 28.616 129.5 22C129.5 19.272 130.482 16.664 132.189 14.5547L138.999 19.3333V0.666656L120 5.99999L125.54 9.88532C122.858 13.344 121.357 17.592 121.357 22C121.357 33.0293 130.488 42 141.714 42C155.512 42 159.869 31.1413 161.948 22.968C164.849 11.5733 169.591 9.99999 174.284 9.99999C181.018 9.99999 186.498 15.3867 186.498 22.0054C186.5 24.7307 185.518 27.3387 183.811 29.448L177.001 24.6667Z" fill="#A3DD41"/>
+                        <svg width="115" height="25" viewBox="0 0 196 45" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.24 45L-0.896 0.199997H12.8L28.928 38.984H20.864L37.376 0.199997H49.92L30.72 45H18.24ZM52.5425 45V0.199997H65.2145V45H52.5425ZM68.854 45L88.63 0.199997H101.11L120.95 45H107.766L92.278 6.408H97.27L81.782 45H68.854ZM79.67 36.296L82.934 26.952H104.822L108.086 36.296H79.67Z"
+                                  fill="white"/>
+                            <path d="M177.001 24.6667L176.998 43.3333L196 38.0027L190.46 34.1147C193.142 30.656 194.643 26.408 194.64 22C194.64 10.9733 185.51 1.99999 174.284 1.99999C158.892 1.99999 155.246 16.3226 154.049 21.032C151.3 31.832 147.294 34 141.714 34C134.98 34 129.5 28.616 129.5 22C129.5 19.272 130.482 16.664 132.189 14.5547L138.999 19.3333V0.666656L120 5.99999L125.54 9.88532C122.858 13.344 121.357 17.592 121.357 22C121.357 33.0293 130.488 42 141.714 42C155.512 42 159.869 31.1413 161.948 22.968C164.849 11.5733 169.591 9.99999 174.284 9.99999C181.018 9.99999 186.498 15.3867 186.498 22.0054C186.5 24.7307 185.518 27.3387 183.811 29.448L177.001 24.6667Z"
+                                  fill="#A3DD41"/>
                         </svg>
                     </div>
                 </footer>
             </div>
-                </c:if>
+        </c:if>
     </div>
 
     <c:forEach var="leg" items="${legs}" varStatus="status">
@@ -219,7 +247,7 @@
             var swapButton = document.getElementById("swapvalues");
             var dropdown = document.getElementById("dropdown");
 
-            dropdown.addEventListener("click", function (){
+            dropdown.addEventListener("click", function () {
                 dropdown.textContent = "Planear viagem";
             });
 
@@ -234,63 +262,70 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             var bool = document.getElementById("depart");
-            var arrival = document.getElementById("arrivalLink");
-            var departure = document.getElementById("departureLink");
 
-            arrival.addEventListener("click", function () {
-                bool.value = false;
-            });
-
-            departure.addEventListener("click", function () {
-                bool.value = true;
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
             var departureLink = document.getElementById("departureLink");
-            var departure = document.getElementById("departure");
-
             var arrivalLink = document.getElementById("arrivalLink");
-            var arrival = document.getElementById("arrival");
+
+            var departure = document.getElementById("divDeparture");
+            var arrival = document.getElementById("divArrival");
+
+            var departureTime = document.getElementById("departureTime");
+            var departureDate = document.getElementById("departureDate");
+            var arrivalTime = document.getElementById("arrivalTime");
+            var arrivalDate = document.getElementById("arrivalDate");
 
             var dropdown = document.getElementById("dropdown");
 
-            departureLink.addEventListener("click", function () {
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const formattedDate = year + '-' + month + '-' + day;
+            const hours = String(currentDate.getHours()).padStart(2, '0');
+            const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+            const formattedTime = hours + ':' + minutes;
+
+            departureLink.addEventListener("click", function (e) {
+                e.preventDefault();
                 dropdown.textContent = "Partida às";
                 arrival.classList.add("hidden");
                 departure.classList.remove("hidden");
+                arrivalTime.value = "";
+                arrivalDate.value = "";
+                departureDate.value = formattedDate;
+                departureTime.value = formattedTime;
+                bool.value = true;
             });
 
-            arrivalLink.addEventListener("click", function () {
+            arrivalLink.addEventListener("click", function (e) {
+                e.preventDefault();
                 dropdown.textContent = "Chegada às";
                 departure.classList.add("hidden");
                 arrival.classList.remove("hidden");
+                departureTime.value = "";
+                departureDate.value = "";
+                arrivalDate.value = formattedDate;
+                arrivalTime.value = formattedTime;
+                bool.value = false;
             });
+
+            departureTime.addEventListener("")
+
+
         });
 
-        departureLink.addEventListener("click", function (e) {
-            e.preventDefault();
-            arrival.classList.add("hidden"); // Hide the arrival input
-            arrival.value="";
-            departure.classList.remove("hidden"); // Show the departure input
-        });
 
-        arrivalLink.addEventListener("click", function (e) {
-            e.preventDefault();
-            departure.classList.add("hidden"); // Hide the departure input
-            departure.value="";
-            arrival.classList.remove("hidden"); // Show the arrival input
-        });
-
+    </script>
+    <script>
 
         let map;
         let otherPolylines = []; // Declare an array to hold non-walking Polylines
 
         async function initMap() {
-            const { Map, Polyline } = await google.maps.importLibrary("maps");
+            const {Map, Polyline} = await google.maps.importLibrary("maps");
 
             map = new Map(document.getElementById("map"), {
-                center: { lat: 38.77851493507939, lng: -9.33226675574515 },
+                center: {lat: 38.77851493507939, lng: -9.33226675574515},
                 zoom: 12,
                 streetViewControl: false, // Disable street view
                 mapTypeControl: false, // Disable map/satellite buttons
@@ -299,7 +334,7 @@
                     {
                         featureType: "poi",
                         elementType: "labels",
-                        stylers: [{ visibility: "off" }], // Hide location labels
+                        stylers: [{visibility: "off"}], // Hide location labels
                     },
                 ],
             });
@@ -346,7 +381,7 @@
                     outlinePolyline.setMap(map); // Add the outline polyline to the map
 
                     if (index === 0) {
-                        legPolyline.setOptions({ zIndex: google.maps.Marker.MAX_ZINDEX + 1 });
+                        legPolyline.setOptions({zIndex: google.maps.Marker.MAX_ZINDEX + 1});
                     }
                 }
             });
@@ -384,7 +419,7 @@
             };
 
 
-                const endMarker = new google.maps.Marker({
+            const endMarker = new google.maps.Marker({
                 position: firstPolyline.getPath().getAt(firstPolyline.getPath().getLength() - 1), // End of the first polyline
                 map: map,
                 icon: svgMakerEnd
@@ -409,10 +444,9 @@
               }*/
 
 
-
             const options = {
                 /*bounds: defaultBounds,*/
-                componentRestrictions: { country: "pt" },
+                componentRestrictions: {country: "pt"},
                 strictBounds: true,
 
 
@@ -434,6 +468,7 @@
         }
 
         const form = document.getElementById("form");
+
         function getLocation() {
             if ("geolocation" in navigator) {
 

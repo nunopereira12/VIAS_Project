@@ -1,4 +1,4 @@
-package pt.upskill.vias.controllers;
+package pt.upskill.vias.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
