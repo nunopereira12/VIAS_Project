@@ -214,3 +214,9 @@ p {
 
     }
 }
+
+@media (max-height: 760px) {
+    .home-content {
+        height: 100%;
+    }
+}
