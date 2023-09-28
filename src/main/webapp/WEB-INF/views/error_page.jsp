@@ -3,17 +3,20 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<%@include file="header.jsp" %>
 <head>
-    <title>Welcome back!</title>
+    <title>Ooops...</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/error_page.css">
 </head>
 
-<body>
+<body onclick="redirectToHomePage()">
 <div class="welcome-page">
     <div class="welcome-container">
 
         <div class="title">
-            Não estás onde de-vias...
+            Não estás onde de<span style="color:#1F7EB2">VIAS</span>
         </div>
 
 
@@ -24,8 +27,21 @@
             </svg>
         </div>
 
+        <div class="subtitle">
+            Irás ser redirecionado para a página inicial em 10 segundos...
+        </div>
     </div>
+
+
 </div>
+
+<script>
+    function redirectToHomePage() {
+        window.location.href = "/home";
+    }
+
+    setTimeout(redirectToHomePage, 10000);
+</script>
 
 </body>
 </html>

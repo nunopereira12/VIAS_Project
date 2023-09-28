@@ -12,45 +12,49 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserAuthenticationProvider userAuthenticationProvider;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                
-            .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("/home")
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
 
-        .and()
-            .csrf()
-                .disable()
-            .authorizeRequests()
-                .antMatchers("/admin").permitAll()
-                .antMatchers("/login", "/signup", "/signup_action", "/register_success").permitAll()
-                .antMatchers("/activation", "/activation/**","activation_success", "/activation_fail").permitAll()
-                .antMatchers("/recover_password", "/recovery_request","/recovery_email_sent","/change_password","/change_password/*", "/set_password").permitAll()
-                .antMatchers("/diagrams","/schedules","/settings", "/help").permitAll()
-                .antMatchers("/contacts", "/send_message", "/contact_success").permitAll()
-                .antMatchers("/home", "/perform_travel", "/suggestions", "/travel_details", "/").permitAll()
-                .antMatchers("/simulate_trip", "/checkout_navegante", "/checkout_vias_card", "/webhooks/stripe/events", "webhooks/**").hasRole("USER")
-                .antMatchers("/id_pica", "/validate", "/card_scan").hasRole("PICA")
-                .antMatchers("/payment_success").hasRole("USER")
-                .antMatchers("/profile","/edit_profile", "/update_user", "/profile_change_password").authenticated()
-                .antMatchers("/vias_league", "/history").hasRole("USER")
-                .antMatchers("/wallet","/add_navegante", "/show_ticket","/generateQRCode/{cardData}").hasRole("USER")
-                .antMatchers("/uploads/*", "/upload").authenticated()
+                .formLogin()
+                    .loginPage("/login")
+                    .loginProcessingUrl("/perform_login")
+                    .defaultSuccessUrl("/home")
 
-                .antMatchers("/error_page").permitAll() //devias devias
-                .antMatchers("/template").permitAll()
+            .and()
+                .csrf()
+                    .disable()
+                .authorizeRequests()
+                    .antMatchers("/admin").permitAll()
+                    .antMatchers("/login", "/signup", "/signup_action", "/register_success").permitAll()
+                    .antMatchers("/activation", "/activation/**","activation_success", "/activation_fail").permitAll()
+                    .antMatchers("/recover_password", "/recovery_request","/recovery_email_sent","/change_password","/change_password/*", "/set_password").permitAll()
+                    .antMatchers("/diagrams","/schedules","/settings", "/help").permitAll()
+                    .antMatchers("/contacts", "/send_message", "/contact_success").permitAll()
+                    .antMatchers("/home", "/perform_travel", "/suggestions", "/travel_details", "/").permitAll()
+                    .antMatchers("/simulate_trip", "/checkout_navegante", "/checkout_vias_card", "/webhooks/stripe/events", "webhooks/**").hasRole("USER")
+                    .antMatchers("/id_pica", "/validate", "/card_scan").hasRole("PICA")
+                    .antMatchers("/payment_success").hasRole("USER")
+                    .antMatchers("/profile","/edit_profile", "/update_user", "/profile_change_password").authenticated()
+                    .antMatchers("/vias_league", "/history").hasRole("USER")
+                    .antMatchers("/wallet","/add_navegante", "/show_ticket","/generateQRCode/{cardData}").hasRole("USER")
+                    .antMatchers("/uploads/*", "/upload").authenticated()
 
-                .antMatchers("/images/**", "/css/**","/js/**","/sounds/**").permitAll()
-                .antMatchers("**").denyAll()
+                    .antMatchers("/error_page").permitAll() //devias devias
+                    .antMatchers("/template").permitAll()
 
-        .and()
-            .logout()
-                .logoutSuccessUrl("/login")
-                .logoutUrl("/logout");
-    }
+                    .antMatchers("/images/**", "/css/**","/js/**","/sounds/**").permitAll()
+                    .antMatchers("**").denyAll()
+                    .and()
+                .exceptionHandling()
+                    .accessDeniedPage("/error_page")
+                    .and()
+
+
+                .logout()
+                    .logoutSuccessUrl("/login")
+                    .logoutUrl("/logout");
+        }
 
     @Override
     protected void configure(AuthenticationManagerBuilder manager) {
