@@ -58,6 +58,7 @@
 .center-img {
     display: block;
     margin: 0 auto;
+
 }
 
 
@@ -346,7 +347,8 @@ select option:hover {
 
 #num1 {
     text-align: center;
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 600;
 
 }
 
@@ -440,9 +442,17 @@ table .circle {
     margin-top: -15px;
 }
 
+.title_svg{
+
+}
+
 
 
 @media (max-width: 768px) {
+    .title_svg{
+        height: 110px;
+    }
+
     .container {
         background: linear-gradient(0deg, rgba(31, 126, 178, 1) 76.5%, rgba(255, 255, 255, 1) 60%);
     }
@@ -533,7 +543,7 @@ table .circle {
 
 
     .buttons-container {
-        margin-top: 80px;
+        margin-top: 35px;
     }
 
     #filterForm {
@@ -565,6 +575,11 @@ table .circle {
         right: 3px;
         width: 55px;
         height: 40px;
+    }
+
+    .white-container{
+        height: 170px;
+
     }
 }
 

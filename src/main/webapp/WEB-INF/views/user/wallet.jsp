@@ -172,7 +172,7 @@
                 <div id="chargeOrBuy" class="carousel slide" data-bs-ride="false" data-bs-touch="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
-                            <div class="addbutton-container">
+                            <div class="addbutton-container" style="margin-top:65px">
                                 <c:choose>
                                 <c:when test="${navegante == null}">
                                 <button class="addbutton" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="addspan">Adicionar Título de Transporte</span></button>
@@ -193,7 +193,7 @@
                             </div>
                         </div>
                         <div class="carousel-item ">
-                            <div class="addbutton-container" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px;">
+                            <div class="addbutton-container" style="padding-top: 1px;padding-left: 1px;padding-right: 1px;padding-bottom: 1px; margin-top:65px">
                                 <form method="POST" action="/checkout_vias_card">
                                     <input type="hidden" name="vias_card_id" value="${vias_card.getCard_number()}">
                                 <button class="addbutton" type="submit"><span class="addspan">Carregar VIAS Card</span></button>

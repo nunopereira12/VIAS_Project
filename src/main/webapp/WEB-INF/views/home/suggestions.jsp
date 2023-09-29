@@ -37,7 +37,6 @@
         <form method="GET" action="/perform_travel" id="form">
             <div class="button-box" style="margin-top: 50px">
                 <div class="input-box">
-
                     <svg id="get_location" style="margin: auto 7px auto" xmlns="http://www.w3.org/2000/svg" width="25"
                          height="25" viewBox="0 0 25 25" fill="none">
                         <mask id="mask0_854_705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
@@ -79,7 +78,7 @@
                     </c:when>
                     </c:choose></div>
                 <button class="switch-button" id="swapvalues">
-                    <svg width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="20" cy="20" r="20" fill="#041F48"/>
                         <mask id="mask0_0_1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="8" width="24"
                               height="24">

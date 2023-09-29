@@ -194,8 +194,6 @@
                 </div>
                 <div>
                     <div class="search-bar" style="border-bottom: 2px solid #D9D9D9 ">
-                        <input style="border: none" type="text" name="origem" id="origem1" value="" onfocus=selectText(this)
-                               placeholder="A sua origem" required>
                         <button type="button" id="get_location" class="form-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 40 41"
                                  fill="none">
@@ -210,12 +208,11 @@
                                 </g>
                             </svg>
                         </button>
+                        <input style="border: none; margin-left: 15px" type="text" name="origem" id="origem1" value="" onfocus=selectText(this)
+                               placeholder="A sua origem" required>
                     </div>
                     <div class="search-bar">
-                        <input style="border: none" type="text" name="destino" id="destino1" onfocus=selectText(this)
-                               placeholder="O seu destino"
-                               required>
-                        <button type="submit" class="form-button">
+                        <button type="submit" class="form-button" style="margin-bottom: 5px">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none">
                                 <mask id="mask0_15_307" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
                                       y="0">
@@ -227,6 +224,10 @@
                                 </g>
                             </svg>
                         </button>
+                        <input style="border: none; margin-left: 15px" type="text" name="destino" id="destino1" onfocus=selectText(this)
+                               placeholder="O seu destino"
+                               required>
+
                     </div>
                 </div>
             </div>

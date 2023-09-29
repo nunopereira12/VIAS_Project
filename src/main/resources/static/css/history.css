@@ -5,6 +5,9 @@
     font-size: 12px;
     font-weight: 600;
 }
+.container{
+    min-height: 0;
+}
 
 .points-box{
     margin: 10px auto 2px auto;
@@ -35,9 +38,20 @@
     border-radius: 15px;
     box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.30);
     vertical-align: center;
-
-
 }
+
+.card-warning{
+    background-color: white;
+    width: 280px;
+    margin: 25px auto;
+    padding: 45px 15px 50px 15px;
+    height: 200px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 2px 1.5px rgba(0, 0, 0, 0.30);
+    vertical-align: center;
+}
+
 .card-button{
     min-width:255px;
     background-color: #1F7EB2;
@@ -52,8 +66,6 @@
     align-content: center;
     align-self: center;
     text-align: center;
-
-
 }
 .card-button-text{
     margin-top: 17px;

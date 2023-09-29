@@ -46,14 +46,13 @@
     display:flex;
     align-items: baseline;
     text-align: left;
-
 }
 
 .switch-button{
     border:none;
     background: none;
     position: absolute;
-    margin: -75px 0 0 230px;
+    margin: -71px 0 0 230px;
 }
 
 .suggestions-box{

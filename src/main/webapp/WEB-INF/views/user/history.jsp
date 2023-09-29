@@ -17,7 +17,8 @@
     </button>
     <p class="title">Histórico de viagens</p>
     <div class="content">
-
+        <c:if test="${legs.isEmpty()}"><div class="card-warning">Não existem viagens realizadas!
+            <div style="margin-top: 10px">Inicie uma viagem para guardá-la no seu histórico.</div></div></c:if>
         <c:forEach var="leg" items="${legs}">
             <div class="card-box">
                 <form class="submit-button" id="myForm_${leg.getId()}" action="/travel_details" method="GET" >
@@ -80,6 +81,7 @@
                 </form>
             </div>
         </c:forEach>
+
     </div>
 </div>
 
