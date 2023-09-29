@@ -28,7 +28,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                     .loginProcessingUrl("/perform_login")
                     .successHandler(new AuthenticationSuccessHandler() {
                         @Override
-                        public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+                        public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException {
                             httpServletResponse.sendRedirect("/home");
                         }
                     })

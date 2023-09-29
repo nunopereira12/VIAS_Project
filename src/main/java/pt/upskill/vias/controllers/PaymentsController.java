@@ -3,17 +3,12 @@ package pt.upskill.vias.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.repositories.NaveganteRepository;
-import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.ViasCardRepository;
 import pt.upskill.vias.services.payments.PaymentService;
 
-import java.security.Principal;
 
 @Controller
 public class PaymentsController {

@@ -1,15 +1,5 @@
 package pt.upskill.vias.controllers;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import com.stripe.Stripe;
 import com.stripe.exception.SignatureVerificationException;
-
-import com.stripe.model.LineItemCollection;
-import com.stripe.model.checkout.Session;
-import com.stripe.net.Webhook;
-import com.stripe.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,18 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pt.upskill.vias.entities.cards.Navegante;
-import pt.upskill.vias.entities.cards.ViasCard;
-import pt.upskill.vias.entities.user.User;
 import pt.upskill.vias.repositories.NaveganteRepository;
 import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.ViasCardRepository;
 import pt.upskill.vias.services.cards.NaveganteService;
 import pt.upskill.vias.services.cards.ViasCardService;
 import pt.upskill.vias.services.payments.PaymentService;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 @Controller

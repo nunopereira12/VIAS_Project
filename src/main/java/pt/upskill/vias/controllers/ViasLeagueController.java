@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.user.User;
-import pt.upskill.vias.repositories.LastUpdateRepository;
 import pt.upskill.vias.services.viasleague.ViasLeagueService;
 import pt.upskill.vias.repositories.UserRepository;
 
