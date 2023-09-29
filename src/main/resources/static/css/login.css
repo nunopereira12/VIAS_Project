@@ -198,5 +198,10 @@ body {
 }
 
 
+.imagelogo-container {
+    display: flex;
+    justify-content: center;
+}
+
 
 
