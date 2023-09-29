@@ -57,6 +57,12 @@
 
     <div class="content">
 
+        <c:if test="${error_card_duplicate != null}">
+            <div class="alert alert-danger" role="alert" style="padding-top: 0px;padding-bottom: 0px;padding-right: 0px;padding-left: 0px;border-top-width: 1px;border-top-style: solid;margin-bottom: 0px;">
+                <p class="alert-message" style="margin-top: 1rem;margin-bottom: 1rem;">${error_card_duplicate}</p>
+            </div>
+        </c:if>
+
         <div class="switches-container">
             <input type="radio" id="switchNavigante" name="switchPlan" value="Navegante" checked="checked"/>
             <input type="radio" id="switchVIAS-Card" name="switchPlan" value="VIAS Card"/>

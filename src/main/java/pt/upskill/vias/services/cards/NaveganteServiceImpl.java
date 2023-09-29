@@ -39,6 +39,9 @@ public class NaveganteServiceImpl implements NaveganteService {
                 createNavegante(user, card_number, expiration_date);
             }
         }
+        else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void updateNavegante(User user, String card_number, Date expiration_date) {

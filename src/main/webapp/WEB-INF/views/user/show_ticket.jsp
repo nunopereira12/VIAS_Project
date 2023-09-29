@@ -14,7 +14,7 @@
 <body>
 
 <div class="container container-pica">
-    <button class="arrowbutton" onclick="window.history.back()">
+    <button class="arrowbutton" onclick="window.location.href='/wallet'">
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <p class="title">Validar título</p>

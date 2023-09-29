@@ -58,7 +58,14 @@ public class WalletController {
         User user = userRepository.getUserByUsername(principal.getName());
         Date date = calendarService.parseDate(expiration_date);
 
-        naveganteService.setNaveganteToUser(user, navegante_number, date);
+
+        try {
+            naveganteService.setNaveganteToUser(user, navegante_number, date);
+        } catch (IllegalArgumentException e) {
+            ModelAndView mav = new ModelAndView("user/wallet");
+            mav.addObject("error_card_duplicate", "Número de cartão indisponível");
+            return mav;
+        }
         return new ModelAndView("redirect:/wallet");
 
 
