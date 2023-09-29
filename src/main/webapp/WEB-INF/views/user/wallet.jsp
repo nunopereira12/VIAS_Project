@@ -31,7 +31,7 @@
 
 
                     <label for="expiringDate" class="modal-label">Data de Validade</label>
-                    <input type="date" class="form-control" name="expiration_date" id="expiringDate" placeholder="Data de Validade">
+                    <input type="date" class="form-control" name="expiration_date" id="expiringDate" placeholder="Data de Validade" required>
                 </div>
                 <div class="modal-footer">
                     <button type="Reset" class="btn btn-secondary buttons-error">Limpar</button>
