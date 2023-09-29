@@ -15,6 +15,7 @@ import pt.upskill.vias.repositories.UserRepository;
 import pt.upskill.vias.repositories.UserStatsRepository;
 
 import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -143,19 +144,16 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     }
 
     @Override
-    //@Scheduled(cron = "0 0 0 * * MON", zone = "Europe/Lisbon")
-    @Scheduled(cron = "0 37 18 28 9 THU", zone = "Europe/Lisbon")
-    @PostConstruct
+    @Transactional
+    @Scheduled(cron = "0 46 12 ? * FRI", zone = "Europe/Lisbon")
     public void resetLeague() {
         System.out.println("Entrei!");
         LastUpdate last_update = lastUpdateRepository.getLastUpdateById(1);
-        long last_update_value = last_update.getDate().getTime();
-        long seven_days = 604800000;
 
+        last_update.setDate(new Date());
 
         changeLeagues();
         resetStats(userRepository.findAll());
-        last_update.setDate(new Date(last_update_value + seven_days));
         lastUpdateRepository.save(last_update);
         System.out.println("Saí!");
     }
@@ -163,7 +161,11 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
     @Override
     public void resetStats(List<User> users) {
         for (User user : users) {
+            System.out.println(user.getUser_stats().getWeekly_points());
+            System.out.println("Vou resetar os pontos ao user " + user.getId());
             user.getUser_stats().setWeekly_points(0);
+            System.out.println("Resetei os pontos ao user " + user.getId());
+            System.out.println(user.getUser_stats().getWeekly_points());
             userRepository.save(user);
         }
     }

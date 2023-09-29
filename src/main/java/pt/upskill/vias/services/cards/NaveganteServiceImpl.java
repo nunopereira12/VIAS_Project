@@ -10,6 +10,7 @@ import pt.upskill.vias.repositories.LastUpdateRepository;
 import pt.upskill.vias.repositories.NaveganteRepository;
 
 import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -77,8 +78,8 @@ public class NaveganteServiceImpl implements NaveganteService {
     }
 
     @Override
+    @Transactional
     @Scheduled(cron = "0 0 0 1 * ?", zone = "Europe/Lisbon")
-    @PostConstruct
     public void resetMonth() {
         LastUpdate last_update = lastUpdateRepository.getLastUpdateById(2);
         Date last_update_date = last_update.getDate();
