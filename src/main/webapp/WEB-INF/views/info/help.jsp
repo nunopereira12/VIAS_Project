@@ -110,6 +110,47 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#6-collapse" aria-expanded="false" aria-controls="6-collapse"
+                        onclick="toggleButtonColor(this)">
+                    Como posso contactar o suporte?
+                </button>
+            </div>
+            <div class="col-12">
+                <div id="6-collapse" class="collapse text-containerr">
+                    <p> No menu lateral, selecione a opção 'Contactos' e preencha o formulário, os nossos
+                    assistentes irão receber o seu contacto e resolver o seu problema o mais rapidamente
+                    possível.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary slct-buttons" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#7-collapse" aria-expanded="false" aria-controls=7-collapse"
+                        onclick="toggleButtonColor(this)">
+                    Posso comprar bilhetes ou passes de transporte através do VIAS?
+                </button>
+            </div>
+            <div class="col-12">
+                <div id="7-collapse" class="collapse text-containerr">
+                    <p> O VIAS apresenta 2 tipos de bilhetes: passe e VIAS Card. Poderá associar o seu cartão passe
+                        físico de 12 dígitos à nossa aplicação e, posteriormente, carregá-lo dentro da nossa
+                        aplicação. O VIAS Card funciona como um cartão virtual recarregável,
+                        funcionando em qualquer transporte público da Área Metropolitana de Lisboa.
+                        Cada cartão está associado a um código QR, permitindo ao utilizador utilizá-lo para validar
+                        as suas viagens.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
     </div>
 
 </div>
