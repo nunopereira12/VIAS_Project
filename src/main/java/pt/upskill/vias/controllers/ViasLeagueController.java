@@ -39,11 +39,5 @@ public class ViasLeagueController {
         return mav;
     }
 
-    /*@GetMapping("/vias_league_data")
-    @ResponseBody
-    public List<User> getFilteredData(@RequestParam(value = "filter", defaultValue = "My League") String selected_filter, Principal principal) {
-        User user = userRepository.getUserByUsername(principal.getName());
-        return viasLeagueService.getStatsByFilter(selected_filter, user.getCurrent_league());
-    }*/
 
 }

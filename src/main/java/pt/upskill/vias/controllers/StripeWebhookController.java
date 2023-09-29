@@ -60,13 +60,13 @@ public class StripeWebhookController {
             paymentService.processPayment(payload, signature, WEBHOOK_SECRET);
 
 
-        // Respond with a 200 OK to acknowledge receipt of the event
+
             return ResponseEntity.ok("Received Stripe event.");
         } catch (SignatureVerificationException e) {
-            // The event signature verification failed
+
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Stripe event signature.");
         } catch (Exception e) {
-            // Handle other exceptions as needed
+
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error handling Stripe event.");
         }
     }

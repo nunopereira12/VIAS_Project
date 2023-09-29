@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/suggestions.css">
-    <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHXeHO_gegeY8AJ_QRvjVv2D_KTQ82Bs"></script>--%>
+
 
 </head>
 <body class="home-body" onload="initAutocomplete()">
@@ -500,10 +500,6 @@
     </script>
 
 </div>
-<%--<div class="footerlogo">
-    <footer>
-        <img class="footerimage" src="images/logo_nobg.png" alt="">
-    </footer>--%>
 </div>
 </body>
 </html>

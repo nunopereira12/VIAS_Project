@@ -16,7 +16,7 @@
     </button>
     <div class="content">
         <form action="/set_password" method="POST" class="card p-3">
-            <!-- Hidden input to store the token ID -->
+
             <input type="hidden" name="tokenID" value="${tokenID}">
             <img class="imagelogo" src="/images/logo_whitebg.png">
             <c:if test="${param.password_error != null}">

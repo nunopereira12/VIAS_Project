@@ -50,10 +50,5 @@ public class PaymentsController {
         return paymentService.selectForPaymentPage(navegante_id,vias_card_id, mav);
     }
 
-    /*@PostMapping("/payments")
-    public ModelAndView selectForPaymentPage(Long vias_card_id , String navegante_id){
-        ModelAndView mav = new ModelAndView("payments/payments");
-        return paymentService.selectForPaymentPage(navegante_id,vias_card_id, mav);
-    }*/
 
 }

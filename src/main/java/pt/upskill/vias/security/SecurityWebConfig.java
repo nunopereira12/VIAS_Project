@@ -45,7 +45,8 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/diagrams","/schedules","/settings", "/help").permitAll()
                     .antMatchers("/contacts", "/send_message", "/contact_success").permitAll()
                     .antMatchers("/home", "/perform_travel", "/suggestions", "/travel_details", "/").permitAll()
-                    .antMatchers("/simulate_trip", "/checkout_navegante", "/checkout_vias_card", "/webhooks/stripe/events", "webhooks/**").hasRole("USER")
+                    .antMatchers("/webhooks/stripe/events", "webhooks/**").permitAll()
+                    .antMatchers("/simulate_trip", "/checkout_navegante", "/checkout_vias_card").hasRole("USER")
                     .antMatchers("/id_pica", "/validate", "/card_scan").hasRole("PICA")
                     .antMatchers("/payment_success").hasRole("USER")
                     .antMatchers("/profile","/edit_profile", "/update_user", "/profile_change_password").authenticated()
@@ -53,8 +54,8 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/wallet","/add_navegante", "/show_ticket","/generateQRCode/{cardData}").hasRole("USER")
                     .antMatchers("/uploads/*", "/upload").authenticated()
 
-                    .antMatchers("/error_page").permitAll() //devias devias
-                    .antMatchers("/template").permitAll()
+                    .antMatchers("/error_page").permitAll()
+                    .antMatchers("/template").hasRole("ADMIN")
 
                     .antMatchers("/images/**", "/css/**","/js/**","/sounds/**").permitAll()
                     .antMatchers("**").denyAll()

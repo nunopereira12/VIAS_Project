@@ -50,7 +50,7 @@ public class CheckoutController {
         User user = userRepository.getUserById(navegante.getUser().getId());
 
         String customer = paymentService.createCustomer(user);
-        String YOUR_DOMAIN = "http://localhost:8080"; // Update the domain and port as needed
+        String YOUR_DOMAIN = "http://localhost:8080";
         SessionCreateParams params = SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
                 .setSuccessUrl(YOUR_DOMAIN + "/payment_success")
@@ -67,7 +67,7 @@ public class CheckoutController {
         Session session = Session.create(params);
 
 
-        // Redirect the user to Stripe's hosted checkout page
+
         redirectAttributes.addAttribute("sessionId", session.getId());
         return "redirect:" + session.getUrl();
     }
@@ -81,9 +81,9 @@ public class CheckoutController {
         User user = userRepository.getUserById(vc.getUser().getId());
         String customer = paymentService.createCustomer(user);
 
-        String YOUR_DOMAIN = "http://localhost:8080"; // Update the domain and port as needed
+        String YOUR_DOMAIN = "http://localhost:8080";
 
-        // Include an expanding request for line_items
+
         SessionCreateParams params = SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
                 .setSuccessUrl(YOUR_DOMAIN + "/payment_success")
@@ -102,7 +102,7 @@ public class CheckoutController {
         redirectAttributes.addAttribute("sessionId", session.getId());
 
 
-        // Redirect the user to Stripe's hosted checkout page
+
         return "redirect:" + session.getUrl();
     }
 

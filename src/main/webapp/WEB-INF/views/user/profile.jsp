@@ -125,14 +125,5 @@
 
 </body>
 
-<%--<script>
-    $(document).ready(function () {
-        // Check if the uploadMessage exists and is not empty
-        var uploadMessage = '${uploadMessage}';
-        if (uploadMessage && uploadMessage.trim().length > 0) {
-            $('#profilePhotoModal').modal('show'); // Show the modal
-        }
-    });
-</script>--%>
 
 </html>

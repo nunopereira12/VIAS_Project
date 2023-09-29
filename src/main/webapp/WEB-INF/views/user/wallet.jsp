@@ -24,8 +24,6 @@
             </div>
             <form action="/add_navegante" method="post">
                 <div class="modal-body">
-                    <%--<label for="nameOwner" class="modal-label">Nome do Titular</label>
-                    <input type="text" id="nameOwner" class="form-control" placeholder="Introduza o nome do titular">--%>
 
 
                     <label for="numberTitle" class="modal-label">Número do Título</label>
