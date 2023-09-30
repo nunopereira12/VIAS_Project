@@ -64,7 +64,6 @@ public class SimulateTripServiceImpl implements SimulateTripService {
         removeUncompletedLegs(user);
 
         viasLeagueService.updateUserStats(user, leg);
-
     }
 
 

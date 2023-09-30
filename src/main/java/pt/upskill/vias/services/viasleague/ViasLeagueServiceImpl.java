@@ -145,27 +145,21 @@ public class ViasLeagueServiceImpl implements ViasLeagueService {
 
     @Override
     @Transactional
-    @Scheduled(cron = "0 46 12 ? * FRI", zone = "Europe/Lisbon")
+    @Scheduled(cron = "0 0 0 * * MON", zone = "Europe/Lisbon")
     public void resetLeague() {
-        System.out.println("Entrei!");
         LastUpdate last_update = lastUpdateRepository.getLastUpdateById(1);
-
-        last_update.setDate(new Date());
 
         changeLeagues();
         resetStats(userRepository.findAll());
+
+        last_update.setDate(new Date());
         lastUpdateRepository.save(last_update);
-        System.out.println("Saí!");
     }
 
     @Override
     public void resetStats(List<User> users) {
         for (User user : users) {
-            System.out.println(user.getUser_stats().getWeekly_points());
-            System.out.println("Vou resetar os pontos ao user " + user.getId());
             user.getUser_stats().setWeekly_points(0);
-            System.out.println("Resetei os pontos ao user " + user.getId());
-            System.out.println(user.getUser_stats().getWeekly_points());
             userRepository.save(user);
         }
     }
