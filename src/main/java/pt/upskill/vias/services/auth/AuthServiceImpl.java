@@ -18,10 +18,7 @@ import pt.upskill.vias.services.utils.CalendarService;
 
 import java.security.SecureRandom;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 
 @Service
@@ -76,10 +73,10 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public boolean isSignupPossible(SignUp signUp_form) throws ValidationException {
+    public boolean isSignupPossible(SignUp signUp_form) throws InvalidSignUpException {
         boolean possible = !isUsernameTaken(signUp_form.getUsername()) && !isEmailTaken(signUp_form.getEmail()) && passwordsMatch(signUp_form.getPassword(), signUp_form.getConfirm_password());
         if(!possible){
-            throw new ValidationException();
+            throw new InvalidSignUpException();
         }
         return possible;
     }
@@ -131,7 +128,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void registerUser(SignUp signUp_form) throws ParseException, ValidationException {
+    public void registerUser(SignUp signUp_form) throws ParseException, InvalidSignUpException {
 
         isSignupPossible(signUp_form);
 

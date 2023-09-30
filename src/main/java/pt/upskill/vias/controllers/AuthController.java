@@ -20,8 +20,6 @@ import pt.upskill.vias.services.auth.EmailService;
 
 import java.security.Principal;
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.List;
 
 @Controller
 public class AuthController {
@@ -74,7 +72,7 @@ public class AuthController {
         try {
             authService.registerUser(signUp_form);
             return new ModelAndView("auth/register_success");
-        } catch (ValidationException e) {
+        } catch (InvalidSignUpException e) {
             ModelAndView mav = new ModelAndView("auth/signup");
             mav.addObject("termsAndConditionsChecked", true);
             mav.addObject("error_message", authService.getErrorMessage(signUp_form));
