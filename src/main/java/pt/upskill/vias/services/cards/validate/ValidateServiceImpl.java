@@ -2,9 +2,10 @@ package pt.upskill.vias.services.cards.validate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 import pt.upskill.vias.entities.cards.Navegante;
 import pt.upskill.vias.entities.cards.ViasCard;
+import pt.upskill.vias.exceptions.InvalidNaveganteException;
+import pt.upskill.vias.exceptions.InvalidViasCardException;
 import pt.upskill.vias.repositories.NaveganteRepository;
 import pt.upskill.vias.repositories.ViasCardRepository;
 import pt.upskill.vias.services.cards.NaveganteService;
@@ -33,49 +34,38 @@ public class ValidateServiceImpl implements ValidateService {
     }
 
     @Override
-    public boolean validateViasCard(long card_number) {
+    public void validateViasCard(long card_number) throws InvalidViasCardException {
 
         ViasCard viasCard = viasCardRepository.getViasCardByCard_number(card_number);
         double balance = viasCard.getBalance();
-        if (balance >= 1.5) {
-            viasCardService.useCard(viasCard);
-            return true;
+        if (balance < 1.5) {
+            throw new InvalidViasCardException("Saldo insuficiente.");
         }
-        return false;
+        viasCardService.useCard(viasCard);
     }
 
     @Override
-    public boolean validateNavegante(String card_number) {
+    public void validateNavegante(String card_number) throws InvalidNaveganteException {
+
         Navegante navegante = naveganteRepository.getNaveganteByCard_number(card_number);
-        if (navegante.isValid()) {
-            naveganteService.useCard(navegante);
-            return true;
+        if (!navegante.isValid()) {
+            throw new InvalidNaveganteException("Navegante inválido.");
         }
-        return false;
+        naveganteService.useCard(navegante);
+
     }
 
     @Override
-    public boolean isValid(String qrcode) {
-        try {
-            if (isNavegante(qrcode)) {
-                String navegante_number = getCardNumberFromQR(qrcode);
-                return validateNavegante(navegante_number);
-            } else {
-                long vias_number = Long.parseLong(getCardNumberFromQR(qrcode));
-                return validateViasCard(vias_number);
-            }
-        } catch (Exception e) {
-            return false;
+    public void validate(String qrcode) throws InvalidNaveganteException, InvalidViasCardException {
+
+        if (isNavegante(qrcode)) {
+            String navegante_number = getCardNumberFromQR(qrcode);
+            validateNavegante(navegante_number);
+        } else {
+            long vias_number = Long.parseLong(getCardNumberFromQR(qrcode));
+            validateViasCard(vias_number);
         }
+
     }
 
-    @Override
-    public void addValidation(ModelAndView mav, String qrcode) {
-        if(isValid(qrcode)){
-            mav.addObject("validation", true);
-        }
-        else{
-            mav.addObject("validation",false);
-        }
-    }
 }

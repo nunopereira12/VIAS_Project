@@ -17,24 +17,19 @@
     min-height: 300px;
     vertical-align:middle;
     text-align: center;
-    margin: 90px auto 50px auto;
+    margin: 20px auto 50px auto;
     display: flex;
     align-items: center;
 
 }
 
 @media (min-width: 601px) {
-    .container-pica{
-        min-height: auto;
-    }
     .pica-box{
         max-width: 380px;
-        vertical-align:middle;
+        vertical-align: middle;
         text-align: center;
     }
-    .content{
-        min-height: auto;
-    }
+
 
 
 }

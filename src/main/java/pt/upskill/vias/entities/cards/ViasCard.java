@@ -49,4 +49,9 @@ public class ViasCard {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "VIAS Card";
+    }
 }
