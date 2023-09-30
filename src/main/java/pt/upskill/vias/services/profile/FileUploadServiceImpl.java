@@ -35,7 +35,7 @@ public class FileUploadServiceImpl implements FileUploadService {
 
 
             File old_file = new File(upload_directory + File.separator + user.getProfile_picture());
-            if (old_file.exists() && !user.getProfile_picture().equals("default_profile_pic.png")) {
+            if (old_file.exists() && !user.getProfile_picture().startsWith("default")) {
                 old_file.delete();
             }
 

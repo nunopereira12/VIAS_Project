@@ -137,9 +137,9 @@
             </div>
             <div class="col-12">
                 <div id="7-collapse" class="collapse text-containerr">
-                    <p> O VIAS apresenta 2 tipos de bilhetes: passe e VIAS Card. Poderá associar o seu cartão passe
-                        físico de 12 dígitos à nossa aplicação e, posteriormente, carregá-lo dentro da nossa
-                        aplicação. O VIAS Card funciona como um cartão virtual recarregável,
+                    <p> O VIAS apresenta 2 tipos de bilhetes: passe e VIAS Card. Poderá associar o seu passe
+                        físico de 12 dígitos à nossa aplicação e, posteriormente, carregá-lo.
+                        O VIAS Card funciona como um cartão virtual recarregável,
                         funcionando em qualquer transporte público da Área Metropolitana de Lisboa.
                         Cada cartão está associado a um código QR, permitindo ao utilizador utilizá-lo para validar
                         as suas viagens.</p>
