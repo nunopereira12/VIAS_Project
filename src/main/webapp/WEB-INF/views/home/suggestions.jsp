@@ -216,7 +216,7 @@
                 </c:forEach>
                 <button class="return-button" onclick=window.location.href='/home';>Regressar</button>
             </div>
-            <div class="footerlogo">
+            <div class="footerlogo" onclick=window.location.href='/home'>
                 <footer>
                     <div class="footerimage" style="margin-bottom: 25px">
                         <svg width="115" height="25" viewBox="0 0 196 45" fill="none"

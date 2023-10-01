@@ -29,7 +29,7 @@
     </div>
 
     <div class="home-content" style="margin: 170px 0 0 0;">
-        <div class="imageDesktop">
+        <div class="imageDesktop" >
             <footer>
                 <div class="imageTopLeft" style="margin-top: 30px; margin-bottom: 20px" onclick=window.location.href='/home'>
                     <svg width="250" height="50" viewBox="0 0 196 45" fill="none" xmlns="http://www.w3.org/2000/svg">

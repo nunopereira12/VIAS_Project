@@ -34,7 +34,7 @@
 </div>
 
 
-<div class="footerlogo">
+<div class="footerlogo" onclick=window.location.href='/home'>
     <footer>
         <div class="footerimage" style="margin-top: 12px">
             <svg width="115" height="25" viewBox="0 0 196 45" fill="none" xmlns="http://www.w3.org/2000/svg">

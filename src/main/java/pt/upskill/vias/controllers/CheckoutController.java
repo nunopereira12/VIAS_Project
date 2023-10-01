@@ -50,7 +50,7 @@ public class CheckoutController {
         User user = userRepository.getUserById(navegante.getUser().getId());
 
         String customer = paymentService.createCustomer(user);
-        String YOUR_DOMAIN = "http://localhost:8080";
+        String YOUR_DOMAIN = "https://vias.ngrok.io";
         SessionCreateParams params = SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
                 .setSuccessUrl(YOUR_DOMAIN + "/payment_success")
@@ -81,7 +81,7 @@ public class CheckoutController {
         User user = userRepository.getUserById(vc.getUser().getId());
         String customer = paymentService.createCustomer(user);
 
-        String YOUR_DOMAIN = "http://localhost:8080";
+        String YOUR_DOMAIN = "https://vias.ngrok.io";
 
 
         SessionCreateParams params = SessionCreateParams.builder()
