@@ -17,7 +17,7 @@ public interface ViasLeagueService {
     int getLegTimeWalking(List<Step> steps);
     int getLegTimeTransit(List<Step> steps);
     List<User> getStatsByFilter(String filter, League league);
-    @Scheduled(cron = "0 37 18 28 9 THU", zone = "Europe/Lisbon")
+    @Scheduled(cron = "0 0 0 * * MON", zone = "Europe/Lisbon")
     void resetLeague();
     void resetStats(List<User> users);
     void changeLeagues();
