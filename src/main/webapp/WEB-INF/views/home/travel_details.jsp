@@ -31,7 +31,7 @@
     <div class="home-content" style="margin: 170px 0 0 0;">
         <div class="imageDesktop">
             <footer>
-                <div class="imageTopLeft" style="margin-top: 30px; margin-bottom: 20px">
+                <div class="imageTopLeft" style="margin-top: 30px; margin-bottom: 20px" onclick=window.location.href='/home'>
                     <svg width="250" height="50" viewBox="0 0 196 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.24 45L-0.896 0.199997H12.8L28.928 38.984H20.864L37.376 0.199997H49.92L30.72 45H18.24ZM52.5425 45V0.199997H65.2145V45H52.5425ZM68.854 45L88.63 0.199997H101.11L120.95 45H107.766L92.278 6.408H97.27L81.782 45H68.854ZM79.67 36.296L82.934 26.952H104.822L108.086 36.296H79.67Z"
                               fill="white"/>

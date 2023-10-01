@@ -172,7 +172,7 @@
     </div>
 
     <div class="home-content">
-        <div class="imageDesktop">
+        <div class="imageDesktop" onclick=window.location.href='/home'>
             <footer>
                 <div class="imageTopLeft" style="margin-top: 30px; margin-bottom: 20px">
                     <svg width="250" height="50" viewBox="0 0 196 45" fill="none" xmlns="http://www.w3.org/2000/svg">
