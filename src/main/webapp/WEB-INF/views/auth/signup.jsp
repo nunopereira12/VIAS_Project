@@ -41,9 +41,9 @@
                        placeholder="Inserir último nome" required>
             </div>
             <div class="mb-3">
-                <label for="username" class="form-label text-start">Username VIAS League</label>
+                <label for="username" class="form-label text-start">Username</label>
                 <input type="username" name="username" class="form-control formtext" id="username"
-                       placeholder="Inserir username para VIAS League" required pattern="^[^\s]+$">
+                       placeholder="Inserir username" required pattern="^[^\s]+$" maxlength="14">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label text-start">E-mail</label>

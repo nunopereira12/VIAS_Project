@@ -346,7 +346,7 @@
                             </c:choose>
 
                         </td>
-                        <td>
+                        <td id="circle_td">
                             <div class="circle">
                                 <img src=/uploads/${player.getProfile_picture()}  alt="av1" width="5px">
                             </div>

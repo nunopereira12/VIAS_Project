@@ -447,7 +447,6 @@ table .circle {
 }
 
 
-
 @media (max-width: 768px) {
     .title_svg{
         height: 110px;
@@ -458,8 +457,8 @@ table .circle {
     }
 
     select {
-        font-size: 14px; /* Further adjust font size for smaller screens */
-        padding: 3px; /* Further adjust padding for smaller screens */
+        font-size: 14px;
+        padding: 3px;
     }
 
     input[type="submit"] {
@@ -486,7 +485,6 @@ table .circle {
     }
 
     .select-box {
-        /* Adjust styles for mobile here */
         border: 1px solid #ccc;
         padding: 10px;
         cursor: pointer;
@@ -494,7 +492,6 @@ table .circle {
     }
 
     .dropdown-options {
-        /* Adjust styles for mobile here */
         display: none;
         position: absolute;
         background-color: #fff;
@@ -508,9 +505,8 @@ table .circle {
         margin-left: 12px;
     }
 
-    /* Reduce the margin between buttons for smaller screens */
     .list-button {
-        margin: 0 5px; /* Adjust the horizontal margin to make them closer */
+        margin: 0 5px;
     }
 
     .font-buttons {
@@ -580,6 +576,23 @@ table .circle {
     .white-container{
         height: 180px;
 
+    }
+
+    #username1 {
+        max-width: 80px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+
+    #num1 {
+        padding:0;
+    }
+
+    #circle_td {
+        padding-left: 0;
+        padding-right: 3px;
     }
 }
 
