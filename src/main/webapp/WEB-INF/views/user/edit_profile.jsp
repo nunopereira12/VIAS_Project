@@ -12,7 +12,7 @@
 <body>
 
 <div class="container">
-    <button class="arrowbutton" onclick="window.history.back();">
+    <button class="arrowbutton" onclick="window.location.href = '/settings';">
         <img src="/images/backarrow.png" alt="Go back!" width="30px">
     </button>
     <p class="title">Editar Informações</p>
@@ -45,7 +45,7 @@
                     </button>
                     <input type="text" name="first_name" class="form-control formtext" id="first_name"
                            value=${user.getFirst_name()} oninput="validateInput(this)" maxlength="25"
-                           pattern="[A-Za-zÀ-ÿçÇ]+" disabled required>
+                           pattern="[A-Za-zÀ-ÿçÇ]+" disabled required onkeydown="return event.key !== ' ';">
                 </div>
                 <div class="mb-3">
                     <label for="last_name" class="form-label text-start">Último Nome</label>
@@ -162,6 +162,7 @@
             }
         });
     });
+
 
     function validateInput() {
         const inputElement = document.getElementById('first_name');

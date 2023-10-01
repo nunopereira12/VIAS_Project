@@ -422,13 +422,14 @@
 
                 <h6>1. O que é a VIAS League?</h6>
                 <p> A VIAS League é uma competição emocionante baseada na nossa aplicação, onde os utilizadores
-                    podem ganhar pontos com base nas suas viagens. É uma forma divertida de incentivar e recompensar
-                    a utilização responsável de meios de transporte e a exploração das nossas cidades!</p>
+                    podem ganhar pontos com base nas suas viagens. É uma forma divertida de incentivar
+                    a utilização responsável de meios de transporte público e a exploração da nossa cidade
+                    lisboeta!</p>
 
 
                 <h6>2. Como funciona?</h6>
                 <p>É simples! Quando utilizar a nossa aplicação para realizar viagens, irá acumular pontos.
-                    Quanto mais longa e mais demorosa for a viagem, mais pontos irá ganhar. .</p>
+                    Quanto mais longa e mais demorosa for a viagem, mais pontos irá ganhar.</p>
 
                 <h6>3. Quando começa a VIAS League?</h6>
                 <p>A VIAS League está sempre ativa! Podes começar a ganhar pontos agora mesmo,
@@ -469,14 +470,14 @@
 
                 <h5>3. Distância Percorrida a Andar</h5>
 
-                <p>Ranking relativo à distância percorrida a pé..</p>
+                <p>Ranking relativo à distância percorrida a pé.</p>
 
                 <h5>4. Distância Percorrida em Transportes</h5>
 
                 <p>Ranking relativo à distância percorrida em transportes públicos.</p>
 
                 <h5>5. Tempo Despendido a Andar</h5>
-                <p>Ranking relativo ao tempo dispendido a andar.</p>
+                <p>Ranking relativo ao tempo despendido a andar.</p>
 
                 <h5>6. Tempo Despendido em Transportes</h5>
 

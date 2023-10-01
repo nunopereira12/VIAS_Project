@@ -37,5 +37,12 @@ public class ViasLeagueController {
         return mav;
     }
 
+    @GetMapping("/reset")
+    public ModelAndView resetPage() {
+        ModelAndView mav = new ModelAndView("home/welcome");
+        viasLeagueService.resetLeague();
+        return mav;
+    }
+
 
 }

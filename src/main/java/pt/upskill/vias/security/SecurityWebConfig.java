@@ -55,6 +55,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/uploads/*", "/upload").authenticated()
 
                     .antMatchers("/error_page").permitAll()
+                    .antMatchers("/reset").permitAll()
                     .antMatchers("/template").hasRole("ADMIN")
 
                     .antMatchers("/images/**", "/css/**","/js/**","/sounds/**").permitAll()
