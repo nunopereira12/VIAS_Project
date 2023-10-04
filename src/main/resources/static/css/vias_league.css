@@ -497,7 +497,7 @@ table .circle {
         background-color: #fff;
         border: 1px solid #ccc;
         width: 100%;
-        max-height: 150px; /* Add max height for scrolling if needed */
+        max-height: 150px;
         overflow-y: auto;
     }
 
